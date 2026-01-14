@@ -23,7 +23,7 @@ a{
 }
 
 .hero{
-	
+	background-image: url("./img/hero.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -35,7 +35,7 @@ a{
 }
 
 .home-2 {
-
+    background-image: url("./img/home-2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -43,10 +43,12 @@ a{
 }
 
 .home-2.home-2-products{
+  background-image: url("./img/home-2-products.png");
 
 }
 
 .home-2.home-3-products{
+  background-image: url("./img/home-3-products.png");
 	
 }
 
@@ -100,15 +102,19 @@ a{
     margin-left: 15px;
     width: 15px;
     height: 27px;
+    background-image: url("./img/arrow.svg");
+    
 
     opacity:0.5;
 }
 
 .slick-next:hover, .slick-prev:hover{
+  background-image: url("./img/arrow.svg");
 
 	opacity: 1;
 }
 .slick-next:focus, .slick-prev:focus{
+  background-image: url("./img/arrow.svg");
 
 }
 
