@@ -43,7 +43,7 @@ const Home = () => {
                 The lease includes an all-in service package. Throughout the
                 entire 36 months, you are fully insured against damage, theft
                 and maintenance. In addition, you always have access to roadside
-                assistance.
+                assistance
               </p>
             </div>
           </div>
