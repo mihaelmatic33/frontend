@@ -1,10 +1,14 @@
+import { Link } from "react-router-dom"
+
+
+
 const Nav = () => {
   return (
      <nav className="navbar navbar-expand-lg navbar-light bg-ligh">
         <div className="container">
-          <a className="navbar-brand" href="/index.html">
+          <Link className="navbar-brand" to="/index.html">
             <img src="img/header/logo.svg" alt="logo" height="12" />
-          </a>
+          </Link>
 
           <button
             className="navbar-toggler"
@@ -13,7 +17,7 @@ const Nav = () => {
             data-bs-target="#mainNavbar"
             aria-controls="mainNavbar"
             aria-expanded="true"
-            aria-label="Toggle navigation"
+            aria-label="toggle navigation"
           >
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -21,108 +25,123 @@ const Nav = () => {
           <div className="navbar-collapse collapse show" id="mainNavbar">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item dropdown text-end">
-                <a
+                <Link
                   className="nav-link dropdown-toggle"
-                  href="#"
+                  to="/categories"
                   id="ddElectric"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  ELECTRIC
-                </a>
+                  CATEGORIES
+                </Link>
                 <ul className="dropdown-menu" aria-labelledby="ddElectric">
                   <li>
-                    <a className="dropdown-item text-end" href="#">
-                      Electric Ace
-                    </a>
+                    <Link className="dropdown-item text-end" to="#">
+                      Trading Card game(TCG)
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item text-end" href="#">
-                      Electric Ivy
-                    </a>
+                    <Link className="dropdown-item text-end" to="#">
+                      Figures
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item text-end" to="#">
+                      Video Games
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item text-end" to="#">
+                      Accesories
+                    </Link>
                   </li>
                 </ul>
               </li>
               <li className="nav-item dropdown text-end">
-                <a
+                <Link
                   className="nav-link dropdown-toggle"
-                  href="#"
+                  to="/shop"
                   id="ddElectric"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  CITY
-                </a>
+                  SHOP
+                </Link>
                 <ul className="dropdown-menu" aria-labelledby="ddElectric">
                   <li>
-                    <a className="dropdown-item text-end" href="#">
+                    <Link className="dropdown-item text-end" to="#">
                       Caféracer
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item text-end" href="#">
+                    <Link className="dropdown-item text-end" to="#">
                       Robyn
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>
               <li className="nav-item dropdown text-end">
-                <a
+                <Link
                   className="nav-link dropdown-toggle"
-                  href="#"
+                  to="#"
                   id="ddElectric"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  KIDS
-                </a>
+                  BLOG
+                </Link>
                 <ul className="dropdown-menu" aria-labelledby="ddElectric">
                   <li>
-                    <a className="dropdown-item text-end" href="#">
+                    <Link className="dropdown-item text-end" to="#">
                       El Bear
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item text-end" href="#">
+                    <Link className="dropdown-item text-end" to="#">
                       El Robin
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>
               <li className="nav-item">
-                <a className="nav-link text-end" href="#">
-                  ACCESSORIES
-                </a>
+                <Link className="nav-link text-end" to="/blog">
+                  BLOG
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link text-end" href="#">
-                  STORES
-                </a>
+                <Link className="nav-link text-end" to="/contact">
+                  CONTACT
+                </Link>
               </li>
               <li className="nav-item dropdown text-end">
-                <a
+                <Link
                   className="nav-link dropdown-toggle"
-                  href="#"
+                  to="#"
                   id="ddElectric"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  LEASING
-                </a>
+                  MYSTERIOUS POKESTUFF
+                </Link>
                 <ul className="dropdown-menu" aria-labelledby="ddElectric">
                   <li>
-                    <a className="dropdown-item text-end" href="#">
-                      Private
-                    </a>
+                    <Link className="dropdown-item text-end" to="#">
+                      Mystery pack
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item text-end" href="#">
-                      Business
-                    </a>
+                    <Link className="dropdown-item text-end" to="#">
+                      Mystery slab
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item text-end" to="#">
+                      Mystery box
+                    </Link>
                   </li>
                 </ul>
               </li>
@@ -130,18 +149,18 @@ const Nav = () => {
 
             <ul className="navbar-nav ms-auto align-items-center">
               <li className="nav-item">
-                <a className="nav-link" href="/signin" title="Sign in">
+                <Link className="nav-link" to="/signin" title="Sign in">
                   <img
                     src="img/header/user.svg"
                     alt="Sign in"
                     className="icon-sm"
                   />
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/cart" title="Cart">
+                <Link className="nav-link" to="/cart" title="Cart">
                   <img src="img/header/cart.svg" alt="Cart" className="icon-lg" />
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
