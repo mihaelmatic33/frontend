@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 
 const BlogSingle = () => {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState(null);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
 
@@ -19,14 +19,11 @@ const BlogSingle = () => {
           console.log(data)
         }
       )
-      .catch((error) => {
-	console.log(error)
-})
     }, []
   )
   console.log(posts)
 
-
+  if(!posts) return <p>Ucitavanje</p>
   return (
     <>
         <div className='blog-single'>
