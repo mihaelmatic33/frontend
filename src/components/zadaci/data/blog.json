@@ -1,0 +1,4861 @@
+[
+  {
+    "id": 680,
+    "date": "2026-01-17T17:01:51",
+    "date_gmt": "2026-01-17T16:01:51",
+    "guid": {
+      "rendered": "https://front2.edukacija.online/backend/?p=680"
+    },
+    "modified": "2026-01-17T17:01:52",
+    "modified_gmt": "2026-01-17T16:01:52",
+    "slug": "slastice-iz-srca-slavonije",
+    "status": "publish",
+    "type": "post",
+    "link": "https://front2.edukacija.online/backend/hero-slider/slastice-iz-srca-slavonije/",
+    "title": {
+      "rendered": "Slastice iz srca Slavonije"
+    },
+    "content": {
+      "rendered": "\n\u003Cp\u003ERučno rađene torte za vaše najvažnije trenutke. Tradicija i kvaliteta u svakom zalogaju.\u003C/p\u003E\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "\u003Cp\u003ERučno rađene torte za vaše najvažnije trenutke. Tradicija i kvaliteta u svakom zalogaju.\u003C/p\u003E\n",
+      "protected": false
+    },
+    "author": 10,
+    "featured_media": 681,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": {
+      "_acf_changed": false,
+      "_kad_post_transparent": "",
+      "_kad_post_title": "",
+      "_kad_post_layout": "",
+      "_kad_post_sidebar_id": "",
+      "_kad_post_content_style": "",
+      "_kad_post_vertical_padding": "",
+      "_kad_post_feature": "",
+      "_kad_post_feature_position": "",
+      "_kad_post_header": false,
+      "_kad_post_footer": false,
+      "_kad_post_classname": "",
+      "footnotes": ""
+    },
+    "categories": [59],
+    "tags": [],
+    "class_list": [
+      "post-680",
+      "post",
+      "type-post",
+      "status-publish",
+      "format-standard",
+      "has-post-thumbnail",
+      "hentry",
+      "category-hero-slider"
+    ],
+    "acf": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/680",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/types/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/10"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/comments?post=680"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 2,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/680/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 768,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/680/revisions/768"
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media/681"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media?parent=680"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "category",
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories?post=680"
+        },
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags?post=680"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    },
+    "_embedded": {
+      "author": [
+        {
+          "id": 10,
+          "name": "Antonio Birtić",
+          "url": "",
+          "description": "",
+          "link": "https://front2.edukacija.online/backend/author/abirtic/",
+          "slug": "abirtic",
+          "avatar_urls": {
+            "24": "https://secure.gravatar.com/avatar/c348af79dfa510161c16834eb19503de87b9fd91a1b3e21b4e2a73c3b28eb4cd?s=24&d=mm&r=g",
+            "48": "https://secure.gravatar.com/avatar/c348af79dfa510161c16834eb19503de87b9fd91a1b3e21b4e2a73c3b28eb4cd?s=48&d=mm&r=g",
+            "96": "https://secure.gravatar.com/avatar/c348af79dfa510161c16834eb19503de87b9fd91a1b3e21b4e2a73c3b28eb4cd?s=96&d=mm&r=g"
+          },
+          "acf": [],
+          "_links": {
+            "self": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/10",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users"
+              }
+            ]
+          }
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "id": 681,
+          "date": "2026-01-17T17:01:26",
+          "slug": "torta-hero-1",
+          "type": "attachment",
+          "link": "https://front2.edukacija.online/backend/hero-slider/slastice-iz-srca-slavonije/attachment/torta-hero-1/",
+          "title": {
+            "rendered": "torta-hero-1"
+          },
+          "author": 10,
+          "featured_media": 0,
+          "acf": [],
+          "caption": {
+            "rendered": ""
+          },
+          "alt_text": "Tota, posebna, tamburica.",
+          "media_type": "image",
+          "mime_type": "image/jpeg",
+          "media_details": {
+            "width": 1440,
+            "height": 1440,
+            "file": "2026/01/torta-hero-1.jpg",
+            "filesize": 237820,
+            "sizes": {
+              "medium": {
+                "file": "torta-hero-1-300x300.jpg",
+                "width": 300,
+                "height": 300,
+                "filesize": 14066,
+                "mime_type": "image/jpeg",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/torta-hero-1-300x300.jpg"
+              },
+              "large": {
+                "file": "torta-hero-1-1024x1024.jpg",
+                "width": 1024,
+                "height": 1024,
+                "filesize": 89136,
+                "mime_type": "image/jpeg",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/torta-hero-1-1024x1024.jpg"
+              },
+              "thumbnail": {
+                "file": "torta-hero-1-150x150.jpg",
+                "width": 150,
+                "height": 150,
+                "filesize": 5022,
+                "mime_type": "image/jpeg",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/torta-hero-1-150x150.jpg"
+              },
+              "medium_large": {
+                "file": "torta-hero-1-768x768.jpg",
+                "width": 768,
+                "height": 768,
+                "filesize": 58025,
+                "mime_type": "image/jpeg",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/torta-hero-1-768x768.jpg"
+              },
+              "full": {
+                "file": "torta-hero-1.jpg",
+                "width": 1440,
+                "height": 1440,
+                "mime_type": "image/jpeg",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/torta-hero-1.jpg"
+              }
+            },
+            "image_meta": {
+              "aperture": "0",
+              "credit": "",
+              "camera": "",
+              "caption": "",
+              "created_timestamp": "0",
+              "copyright": "",
+              "focal_length": "0",
+              "iso": "0",
+              "shutter_speed": "0",
+              "title": "",
+              "orientation": "0",
+              "keywords": []
+            }
+          },
+          "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/torta-hero-1.jpg",
+          "_links": {
+            "self": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media/681",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media"
+              }
+            ],
+            "about": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/types/attachment"
+              }
+            ],
+            "author": [
+              {
+                "embeddable": true,
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/10"
+              }
+            ],
+            "replies": [
+              {
+                "embeddable": true,
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/comments?post=681"
+              }
+            ],
+            "wp:attached-to": [
+              {
+                "embeddable": true,
+                "post_type": "post",
+                "id": 680,
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/680"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        }
+      ],
+      "wp:term": [
+        [
+          {
+            "id": 59,
+            "link": "https://front2.edukacija.online/backend/category/hero-slider/",
+            "name": "Hero slider",
+            "slug": "hero-slider",
+            "taxonomy": "category",
+            "acf": [],
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories/59",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/category"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?categories=59"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          }
+        ],
+        []
+      ]
+    }
+  },
+  {
+    "id": 676,
+    "date": "2026-01-17T16:57:48",
+    "date_gmt": "2026-01-17T15:57:48",
+    "guid": {
+      "rendered": "https://front2.edukacija.online/backend/?p=676"
+    },
+    "modified": "2026-01-17T16:57:48",
+    "modified_gmt": "2026-01-17T15:57:48",
+    "slug": "domaci-okusi-slavonije",
+    "status": "publish",
+    "type": "post",
+    "link": "https://front2.edukacija.online/backend/hero-slider/domaci-okusi-slavonije/",
+    "title": {
+      "rendered": "Domaći okusi Slavonije"
+    },
+    "content": {
+      "rendered": "\n\u003Cp\u003EOd tradicionalnih recepata do modernih slastica – za svaki stol i svaku prigodu.\u003C/p\u003E\n\n\n\n\u003Ch2 class=\"wp-block-heading\"\u003E\u003C/h2\u003E\n\n\n\n\u003Cp\u003E\u003C/p\u003E\n\n\n\n\u003Cp\u003E\u003C/p\u003E\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "\u003Cp\u003EOd tradicionalnih recepata do modernih slastica – za svaki stol i svaku prigodu.\u003C/p\u003E\n",
+      "protected": false
+    },
+    "author": 10,
+    "featured_media": 677,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": {
+      "_acf_changed": false,
+      "_kad_post_transparent": "",
+      "_kad_post_title": "",
+      "_kad_post_layout": "",
+      "_kad_post_sidebar_id": "",
+      "_kad_post_content_style": "",
+      "_kad_post_vertical_padding": "",
+      "_kad_post_feature": "",
+      "_kad_post_feature_position": "",
+      "_kad_post_header": false,
+      "_kad_post_footer": false,
+      "_kad_post_classname": "",
+      "footnotes": ""
+    },
+    "categories": [59],
+    "tags": [],
+    "class_list": [
+      "post-676",
+      "post",
+      "type-post",
+      "status-publish",
+      "format-standard",
+      "has-post-thumbnail",
+      "hentry",
+      "category-hero-slider"
+    ],
+    "acf": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/676",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/types/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/10"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/comments?post=676"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 1,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/676/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 678,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/676/revisions/678"
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media/677"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media?parent=676"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "category",
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories?post=676"
+        },
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags?post=676"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    },
+    "_embedded": {
+      "author": [
+        {
+          "id": 10,
+          "name": "Antonio Birtić",
+          "url": "",
+          "description": "",
+          "link": "https://front2.edukacija.online/backend/author/abirtic/",
+          "slug": "abirtic",
+          "avatar_urls": {
+            "24": "https://secure.gravatar.com/avatar/c348af79dfa510161c16834eb19503de87b9fd91a1b3e21b4e2a73c3b28eb4cd?s=24&d=mm&r=g",
+            "48": "https://secure.gravatar.com/avatar/c348af79dfa510161c16834eb19503de87b9fd91a1b3e21b4e2a73c3b28eb4cd?s=48&d=mm&r=g",
+            "96": "https://secure.gravatar.com/avatar/c348af79dfa510161c16834eb19503de87b9fd91a1b3e21b4e2a73c3b28eb4cd?s=96&d=mm&r=g"
+          },
+          "acf": [],
+          "_links": {
+            "self": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/10",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users"
+              }
+            ]
+          }
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "id": 677,
+          "date": "2026-01-17T16:54:46",
+          "slug": "torta-hero-3",
+          "type": "attachment",
+          "link": "https://front2.edukacija.online/backend/hero-slider/domaci-okusi-slavonije/attachment/torta-hero-3/",
+          "title": {
+            "rendered": "torta-hero-3"
+          },
+          "author": 10,
+          "featured_media": 0,
+          "acf": [],
+          "caption": {
+            "rendered": ""
+          },
+          "alt_text": "Dječja torta, medo u balonu.",
+          "media_type": "image",
+          "mime_type": "image/jpeg",
+          "media_details": {
+            "width": 1440,
+            "height": 1920,
+            "file": "2026/01/torta-hero-3.jpg",
+            "filesize": 162459,
+            "sizes": {
+              "medium": {
+                "file": "torta-hero-3-225x300.jpg",
+                "width": 225,
+                "height": 300,
+                "filesize": 8096,
+                "mime_type": "image/jpeg",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/torta-hero-3-225x300.jpg"
+              },
+              "large": {
+                "file": "torta-hero-3-768x1024.jpg",
+                "width": 768,
+                "height": 1024,
+                "filesize": 46574,
+                "mime_type": "image/jpeg",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/torta-hero-3-768x1024.jpg"
+              },
+              "thumbnail": {
+                "file": "torta-hero-3-150x150.jpg",
+                "width": 150,
+                "height": 150,
+                "filesize": 3920,
+                "mime_type": "image/jpeg",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/torta-hero-3-150x150.jpg"
+              },
+              "medium_large": {
+                "file": "torta-hero-3-768x1024.jpg",
+                "width": 768,
+                "height": 1024,
+                "filesize": 46574,
+                "mime_type": "image/jpeg",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/torta-hero-3-768x1024.jpg"
+              },
+              "1536x1536": {
+                "file": "torta-hero-3-1152x1536.jpg",
+                "width": 1152,
+                "height": 1536,
+                "filesize": 83999,
+                "mime_type": "image/jpeg",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/torta-hero-3-1152x1536.jpg"
+              },
+              "full": {
+                "file": "torta-hero-3.jpg",
+                "width": 1440,
+                "height": 1920,
+                "mime_type": "image/jpeg",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/torta-hero-3.jpg"
+              }
+            },
+            "image_meta": {
+              "aperture": "0",
+              "credit": "",
+              "camera": "",
+              "caption": "",
+              "created_timestamp": "0",
+              "copyright": "",
+              "focal_length": "0",
+              "iso": "0",
+              "shutter_speed": "0",
+              "title": "",
+              "orientation": "0",
+              "keywords": []
+            }
+          },
+          "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/torta-hero-3.jpg",
+          "_links": {
+            "self": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media/677",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media"
+              }
+            ],
+            "about": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/types/attachment"
+              }
+            ],
+            "author": [
+              {
+                "embeddable": true,
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/10"
+              }
+            ],
+            "replies": [
+              {
+                "embeddable": true,
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/comments?post=677"
+              }
+            ],
+            "wp:attached-to": [
+              {
+                "embeddable": true,
+                "post_type": "post",
+                "id": 676,
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/676"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        }
+      ],
+      "wp:term": [
+        [
+          {
+            "id": 59,
+            "link": "https://front2.edukacija.online/backend/category/hero-slider/",
+            "name": "Hero slider",
+            "slug": "hero-slider",
+            "taxonomy": "category",
+            "acf": [],
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories/59",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/category"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?categories=59"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          }
+        ],
+        []
+      ]
+    }
+  },
+  {
+    "id": 672,
+    "date": "2026-01-17T16:45:21",
+    "date_gmt": "2026-01-17T15:45:21",
+    "guid": {
+      "rendered": "https://front2.edukacija.online/backend/?p=672"
+    },
+    "modified": "2026-01-17T16:58:31",
+    "modified_gmt": "2026-01-17T15:58:31",
+    "slug": "672",
+    "status": "publish",
+    "type": "post",
+    "link": "https://front2.edukacija.online/backend/hero-slider/672/",
+    "title": {
+      "rendered": "Ručno rađeno s ljubavlju"
+    },
+    "content": {
+      "rendered": "\n\u003Cp\u003EPersonalizirane kreacije za rođendane, krštenja i sve vaše posebne prigode.\u003C/p\u003E\n\n\n\n\u003Ch2 class=\"wp-block-heading\"\u003E\u003C/h2\u003E\n\n\n\n\u003Cp\u003E\u003C/p\u003E\n\n\n\n\u003Cp\u003E\u003C/p\u003E\n\n\n\n\u003Cp\u003E\u003C/p\u003E\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "\u003Cp\u003EPersonalizirane kreacije za rođendane, krštenja i sve vaše posebne prigode.\u003C/p\u003E\n",
+      "protected": false
+    },
+    "author": 10,
+    "featured_media": 673,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": {
+      "_acf_changed": false,
+      "_kad_post_transparent": "",
+      "_kad_post_title": "",
+      "_kad_post_layout": "",
+      "_kad_post_sidebar_id": "",
+      "_kad_post_content_style": "",
+      "_kad_post_vertical_padding": "",
+      "_kad_post_feature": "",
+      "_kad_post_feature_position": "",
+      "_kad_post_header": false,
+      "_kad_post_footer": false,
+      "_kad_post_classname": "",
+      "footnotes": ""
+    },
+    "categories": [59],
+    "tags": [],
+    "class_list": [
+      "post-672",
+      "post",
+      "type-post",
+      "status-publish",
+      "format-standard",
+      "has-post-thumbnail",
+      "hentry",
+      "category-hero-slider"
+    ],
+    "acf": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/672",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/types/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/10"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/comments?post=672"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 3,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/672/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 679,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/672/revisions/679"
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media/673"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media?parent=672"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "category",
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories?post=672"
+        },
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags?post=672"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    },
+    "_embedded": {
+      "author": [
+        {
+          "id": 10,
+          "name": "Antonio Birtić",
+          "url": "",
+          "description": "",
+          "link": "https://front2.edukacija.online/backend/author/abirtic/",
+          "slug": "abirtic",
+          "avatar_urls": {
+            "24": "https://secure.gravatar.com/avatar/c348af79dfa510161c16834eb19503de87b9fd91a1b3e21b4e2a73c3b28eb4cd?s=24&d=mm&r=g",
+            "48": "https://secure.gravatar.com/avatar/c348af79dfa510161c16834eb19503de87b9fd91a1b3e21b4e2a73c3b28eb4cd?s=48&d=mm&r=g",
+            "96": "https://secure.gravatar.com/avatar/c348af79dfa510161c16834eb19503de87b9fd91a1b3e21b4e2a73c3b28eb4cd?s=96&d=mm&r=g"
+          },
+          "acf": [],
+          "_links": {
+            "self": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/10",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users"
+              }
+            ]
+          }
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "id": 673,
+          "date": "2026-01-17T16:41:53",
+          "slug": "torta-hero-2",
+          "type": "attachment",
+          "link": "https://front2.edukacija.online/backend/hero-slider/672/attachment/torta-hero-2/",
+          "title": {
+            "rendered": "torta-hero-2"
+          },
+          "author": 10,
+          "featured_media": 0,
+          "acf": [],
+          "caption": {
+            "rendered": ""
+          },
+          "alt_text": "Domaći ukusni kolači u čašama.",
+          "media_type": "image",
+          "mime_type": "image/jpeg",
+          "media_details": {
+            "width": 1440,
+            "height": 1440,
+            "file": "2026/01/torta-hero-2.jpg",
+            "filesize": 290299,
+            "sizes": {
+              "medium": {
+                "file": "torta-hero-2-300x300.jpg",
+                "width": 300,
+                "height": 300,
+                "filesize": 16209,
+                "mime_type": "image/jpeg",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/torta-hero-2-300x300.jpg"
+              },
+              "large": {
+                "file": "torta-hero-2-1024x1024.jpg",
+                "width": 1024,
+                "height": 1024,
+                "filesize": 112952,
+                "mime_type": "image/jpeg",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/torta-hero-2-1024x1024.jpg"
+              },
+              "thumbnail": {
+                "file": "torta-hero-2-150x150.jpg",
+                "width": 150,
+                "height": 150,
+                "filesize": 5413,
+                "mime_type": "image/jpeg",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/torta-hero-2-150x150.jpg"
+              },
+              "medium_large": {
+                "file": "torta-hero-2-768x768.jpg",
+                "width": 768,
+                "height": 768,
+                "filesize": 72331,
+                "mime_type": "image/jpeg",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/torta-hero-2-768x768.jpg"
+              },
+              "full": {
+                "file": "torta-hero-2.jpg",
+                "width": 1440,
+                "height": 1440,
+                "mime_type": "image/jpeg",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/torta-hero-2.jpg"
+              }
+            },
+            "image_meta": {
+              "aperture": "0",
+              "credit": "",
+              "camera": "",
+              "caption": "",
+              "created_timestamp": "0",
+              "copyright": "",
+              "focal_length": "0",
+              "iso": "0",
+              "shutter_speed": "0",
+              "title": "",
+              "orientation": "0",
+              "keywords": []
+            }
+          },
+          "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/torta-hero-2.jpg",
+          "_links": {
+            "self": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media/673",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media"
+              }
+            ],
+            "about": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/types/attachment"
+              }
+            ],
+            "author": [
+              {
+                "embeddable": true,
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/10"
+              }
+            ],
+            "replies": [
+              {
+                "embeddable": true,
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/comments?post=673"
+              }
+            ],
+            "wp:attached-to": [
+              {
+                "embeddable": true,
+                "post_type": "post",
+                "id": 672,
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/672"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        }
+      ],
+      "wp:term": [
+        [
+          {
+            "id": 59,
+            "link": "https://front2.edukacija.online/backend/category/hero-slider/",
+            "name": "Hero slider",
+            "slug": "hero-slider",
+            "taxonomy": "category",
+            "acf": [],
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories/59",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/category"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?categories=59"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          }
+        ],
+        []
+      ]
+    }
+  },
+  {
+    "id": 502,
+    "date": "2026-01-11T23:26:20",
+    "date_gmt": "2026-01-11T22:26:20",
+    "guid": {
+      "rendered": "https://front2.edukacija.online/backend/?p=502"
+    },
+    "modified": "2026-01-11T23:26:20",
+    "modified_gmt": "2026-01-11T22:26:20",
+    "slug": "markat-bonton",
+    "status": "publish",
+    "type": "post",
+    "link": "https://front2.edukacija.online/backend/tutorijali/markat-bonton/",
+    "title": {
+      "rendered": "Markat Bonton"
+    },
+    "content": {
+      "rendered": "\n\u003Ch2 class=\"wp-block-heading\"\u003E\u003Cstrong\u003EPravila naše male zajednice\u003C/strong\u003E\u003C/h2\u003E\n\n\n\n\u003Cp\u003ENa Markatu nismo samo kupci i prodavači, mi smo ekipa koja čuva planet i svoj džep. Da bi nam svima bilo ugodno, držimo se ovih par točaka:\u003C/p\u003E\n\n\n\n\u003Col start=\"1\" class=\"wp-block-list\"\u003E\n\u003Cli\u003E\u003Cstrong\u003EBez &#8220;friziranja&#8221; stvarnosti:\u003C/strong\u003E Ako tvoja stara vaza ima ogrebotinu – uslikaj je. Ako majica ima malu rupicu – reci to. Volimo istinu jer nitko ne voli neugodna iznenađenja kad otvori paket.\u003C/li\u003E\n\n\n\n\u003Cli\u003E\u003Cstrong\u003ELjubaznost je besplatna:\u003C/strong\u003E Pitanja o predmetu su super, ali postavljaj ih s osmijehom (makar onim digitalnim). &#8220;Dobar dan&#8221; i &#8220;Hvala&#8221; otvaraju sva vrata, pa i ona Markatova.\u003C/li\u003E\n\n\n\n\u003Cli\u003E\u003Cstrong\u003ECijeni tuđu odluku:\u003C/strong\u003E Zapamti, na Markatu prodavač bira kome će prodati. Ako nisi odabran/a ovaj put, nema ljutnje. Možda te tvoj savršeni ulov čeka već u sljedećem oglasu!\u003C/li\u003E\n\n\n\n\u003Cli\u003E\u003Cstrong\u003EBudi fer s ponudama:\u003C/strong\u003E Svi volimo dobar popust, ali nemoj nuditi 1 euro za nešto što objektivno vrijedi 50. Poštena cijena je ona koja veseli i tebe i prodavača.\u003C/li\u003E\n\n\n\n\u003Cli\u003E\u003Cstrong\u003EBrzina je vrlina:\u003C/strong\u003E Kad kupiš – plati što prije. Kad prodaš – pošalji što prije. Svi mrzimo čekati paket kao da stiže pješice iz Kine.\u003C/li\u003E\n\n\n\n\u003Cli\u003E\u003Cstrong\u003EEko-pakiranje:\u003C/strong\u003E Iskoristi staru kutiju od cipela ili papir od jučerašnjih novina. Planet će ti namignuti u znak zahvale! \u003C/li\u003E\n\u003C/ol\u003E\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "\u003Cp\u003EPravila naše male zajednice Na Markatu nismo samo kupci i prodavači, mi smo ekipa koja čuva planet i svoj džep. Da bi nam svima bilo ugodno, držimo se ovih par točaka:\u003C/p\u003E\n",
+      "protected": false
+    },
+    "author": 6,
+    "featured_media": 503,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": {
+      "_acf_changed": false,
+      "_kad_post_transparent": "",
+      "_kad_post_title": "",
+      "_kad_post_layout": "",
+      "_kad_post_sidebar_id": "",
+      "_kad_post_content_style": "",
+      "_kad_post_vertical_padding": "",
+      "_kad_post_feature": "",
+      "_kad_post_feature_position": "",
+      "_kad_post_header": false,
+      "_kad_post_footer": false,
+      "_kad_post_classname": "",
+      "footnotes": ""
+    },
+    "categories": [11],
+    "tags": [53, 52, 58, 55, 57, 54],
+    "class_list": [
+      "post-502",
+      "post",
+      "type-post",
+      "status-publish",
+      "format-standard",
+      "has-post-thumbnail",
+      "hentry",
+      "category-tutorijali",
+      "tag-bonton",
+      "tag-community-guidelines",
+      "tag-kindness",
+      "tag-respect",
+      "tag-tolerance",
+      "tag-zajednica"
+    ],
+    "acf": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/502",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/types/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/6"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/comments?post=502"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 1,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/502/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 504,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/502/revisions/504"
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media/503"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media?parent=502"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "category",
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories?post=502"
+        },
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags?post=502"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    },
+    "_embedded": {
+      "author": [
+        {
+          "id": 6,
+          "name": "Nataša Ćaćić",
+          "url": "",
+          "description": "",
+          "link": "https://front2.edukacija.online/backend/author/nutty/",
+          "slug": "nutty",
+          "avatar_urls": {
+            "24": "https://secure.gravatar.com/avatar/c25baae720e7c13f649ca01a05844b748d9558320b984d798deb8453e562b354?s=24&d=mm&r=g",
+            "48": "https://secure.gravatar.com/avatar/c25baae720e7c13f649ca01a05844b748d9558320b984d798deb8453e562b354?s=48&d=mm&r=g",
+            "96": "https://secure.gravatar.com/avatar/c25baae720e7c13f649ca01a05844b748d9558320b984d798deb8453e562b354?s=96&d=mm&r=g"
+          },
+          "acf": [],
+          "_links": {
+            "self": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/6",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users"
+              }
+            ]
+          }
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "id": 503,
+          "date": "2026-01-11T23:21:28",
+          "slug": "guide-1",
+          "type": "attachment",
+          "link": "https://front2.edukacija.online/backend/tutorijali/markat-bonton/attachment/guide-1/",
+          "title": {
+            "rendered": "naslovna community guidelines"
+          },
+          "author": 6,
+          "featured_media": 0,
+          "acf": [],
+          "caption": {
+            "rendered": ""
+          },
+          "alt_text": "community guidelines",
+          "media_type": "image",
+          "mime_type": "image/jpeg",
+          "media_details": {
+            "width": 645,
+            "height": 430,
+            "file": "2026/01/guide-1.jpg",
+            "filesize": 25450,
+            "sizes": {
+              "medium": {
+                "file": "guide-1-300x200.jpg",
+                "width": 300,
+                "height": 200,
+                "filesize": 7582,
+                "mime_type": "image/jpeg",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/guide-1-300x200.jpg"
+              },
+              "thumbnail": {
+                "file": "guide-1-150x150.jpg",
+                "width": 150,
+                "height": 150,
+                "filesize": 4397,
+                "mime_type": "image/jpeg",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/guide-1-150x150.jpg"
+              },
+              "full": {
+                "file": "guide-1.jpg",
+                "width": 645,
+                "height": 430,
+                "mime_type": "image/jpeg",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/guide-1.jpg"
+              }
+            },
+            "image_meta": {
+              "aperture": "0",
+              "credit": "",
+              "camera": "",
+              "caption": "",
+              "created_timestamp": "0",
+              "copyright": "",
+              "focal_length": "0",
+              "iso": "0",
+              "shutter_speed": "0",
+              "title": "",
+              "orientation": "1",
+              "keywords": []
+            }
+          },
+          "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/guide-1.jpg",
+          "_links": {
+            "self": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media/503",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media"
+              }
+            ],
+            "about": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/types/attachment"
+              }
+            ],
+            "author": [
+              {
+                "embeddable": true,
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/6"
+              }
+            ],
+            "replies": [
+              {
+                "embeddable": true,
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/comments?post=503"
+              }
+            ],
+            "wp:attached-to": [
+              {
+                "embeddable": true,
+                "post_type": "post",
+                "id": 502,
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/502"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        }
+      ],
+      "wp:term": [
+        [
+          {
+            "id": 11,
+            "link": "https://front2.edukacija.online/backend/category/tutorijali/",
+            "name": "Tutorijali",
+            "slug": "tutorijali",
+            "taxonomy": "category",
+            "acf": [],
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories/11",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/category"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?categories=11"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "id": 53,
+            "link": "https://front2.edukacija.online/backend/tag/bonton/",
+            "name": "bonton",
+            "slug": "bonton",
+            "taxonomy": "post_tag",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags/53",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/post_tag"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?tags=53"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          },
+          {
+            "id": 52,
+            "link": "https://front2.edukacija.online/backend/tag/community-guidelines/",
+            "name": "community guidelines",
+            "slug": "community-guidelines",
+            "taxonomy": "post_tag",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags/52",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/post_tag"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?tags=52"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          },
+          {
+            "id": 58,
+            "link": "https://front2.edukacija.online/backend/tag/kindness/",
+            "name": "kindness",
+            "slug": "kindness",
+            "taxonomy": "post_tag",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags/58",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/post_tag"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?tags=58"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          },
+          {
+            "id": 55,
+            "link": "https://front2.edukacija.online/backend/tag/respect/",
+            "name": "respect",
+            "slug": "respect",
+            "taxonomy": "post_tag",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags/55",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/post_tag"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?tags=55"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          },
+          {
+            "id": 57,
+            "link": "https://front2.edukacija.online/backend/tag/tolerance/",
+            "name": "tolerance",
+            "slug": "tolerance",
+            "taxonomy": "post_tag",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags/57",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/post_tag"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?tags=57"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          },
+          {
+            "id": 54,
+            "link": "https://front2.edukacija.online/backend/tag/zajednica/",
+            "name": "zajednica",
+            "slug": "zajednica",
+            "taxonomy": "post_tag",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags/54",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/post_tag"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?tags=54"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "id": 495,
+    "date": "2026-01-11T23:17:02",
+    "date_gmt": "2026-01-11T22:17:02",
+    "guid": {
+      "rendered": "https://front2.edukacija.online/backend/?p=495"
+    },
+    "modified": "2026-01-11T23:17:02",
+    "modified_gmt": "2026-01-11T22:17:02",
+    "slug": "tvoja-prva-prodaja-na-markatu-bez-znoja-i-muke",
+    "status": "publish",
+    "type": "post",
+    "link": "https://front2.edukacija.online/backend/tutorijali/tvoja-prva-prodaja-na-markatu-bez-znoja-i-muke/",
+    "title": {
+      "rendered": "Tvoja prva prodaja na Markatu (bez znoja i muke!)"
+    },
+    "content": {
+      "rendered": "\n\u003Cp\u003EProdaja rabljenih stvari ne mora biti nuklearna fizika. Evo kako da od onog „kaosa u kutu“ napraviš sretnog kupca i puniji novčanik u 5 koraka:\u003C/p\u003E\n\n\n\n\u003Ch3 class=\"wp-block-heading\"\u003E\u003Cstrong\u003E1. Operi, obriši, uslikaj! \u003C/strong\u003E\u003C/h3\u003E\n\n\n\n\u003Cp\u003ENitko ne želi kupiti usisavač koji još uvijek ima prašinu iz 2012. godine. Malo ga uglancaj i iznesi na dnevno svjetlo.\u003C/p\u003E\n\n\n\n\u003Cul class=\"wp-block-list\"\u003E\n\u003Cli\u003E\u003Cstrong\u003ESavjet:\u003C/strong\u003E Ne treba ti profesionalni fotić – tvoj mobitel je super. Samo pripazi da se ne vidi tvoja čarapa u kutu slike (osim ako ne prodaješ i čarape!).\u003C/li\u003E\n\u003C/ul\u003E\n\n\n\n\u003Ch3 class=\"wp-block-heading\"\u003E\u003Cstrong\u003E2. Reci nam priču (Budi iskren/a) \u003C/strong\u003E\u003C/h3\u003E\n\n\n\n\u003Cp\u003ENapiši kratki opis. Umjesto samo „Jakna, M veličina“, probaj nešto tipa: „Ova jakna me spasila na tri koncerta, ali sad mi je malo tijesna (previše bakinih kolača). Nema rupa, osim jedne male na džepu gdje sam skrivao žvake.“\u003C/p\u003E\n\n\n\n\u003Cul class=\"wp-block-list\"\u003E\n\u003Cli\u003E\u003Cstrong\u003ELjudima je bitna iskrenost, ne savršenstvo.\u003C/strong\u003E\u003C/li\u003E\n\u003C/ul\u003E\n\n\n\n\u003Ch3 class=\"wp-block-heading\"\u003E\u003Cstrong\u003E3. Postavi „Početnu“ i „Kupi odmah“ cijenu \u003C/strong\u003E\u003C/h3\u003E\n\n\n\n\u003Cp\u003EOdredi minimalnu cijenu ispod koje ne ideš. Ako ti se žuri, stavi i opciju „Kupi odmah“ za one nestrpljive koji ne žele čekati kraj nadmetanja.\u003C/p\u003E\n\n\n\n\u003Ch3 class=\"wp-block-heading\"\u003E\u003Cstrong\u003E4. Upoznaj svoje kupce (Budi šef parade!) \u003C/strong\u003E\u003C/h3\u003E\n\n\n\n\u003Cp\u003EKad krene „biddanje“ (licitiranje), vidjet ćeš ponude. Ali pazi – na Markatu ne pobjeđuje uvijek najbrži prst! Pogledaj profile kupaca, pročitaj njihove poruke.\u003C/p\u003E\n\n\n\n\u003Cul class=\"wp-block-list\"\u003E\n\u003Cli\u003E\u003Cstrong\u003ETi odlučuješ:\u003C/strong\u003E Želiš li prodati onome tko nudi najviše ili onoj curi koja je napisala da tvoj stari reket želi pokloniti bratu za rođendan? Tvoja stvar, tvoja odluka.\u003C/li\u003E\n\u003C/ul\u003E\n\n\n\n\u003Ch3 class=\"wp-block-heading\"\u003E\u003Cstrong\u003E5. Pošalji i mahni „pa-pa“ \u003C/strong\u003E\u003C/h3\u003E\n\n\n\n\u003Cp\u003EKad odabereš pobjednika, zapakiraj stvar (budi eko-frendly, iskoristi staru kutiju od cipela!). Pošalji paket, potvrdi to u aplikaciji i čekaj da tvoj Markat račun naraste.\u003C/p\u003E\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "\u003Cp\u003EProdaja rabljenih stvari ne mora biti nuklearna fizika. Evo kako da od onog „kaosa u kutu“ napraviš sretnog kupca i puniji novčanik u 5 koraka: 1. Operi, obriši, uslikaj! Nitko ne želi kupiti usisavač koji još uvijek ima prašinu iz 2012. godine. Malo ga uglancaj i iznesi na dnevno svjetlo. 2. Reci nam priču (Budi&#8230;\u003C/p\u003E\n",
+      "protected": false
+    },
+    "author": 6,
+    "featured_media": 497,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": {
+      "_acf_changed": false,
+      "_kad_post_transparent": "",
+      "_kad_post_title": "",
+      "_kad_post_layout": "",
+      "_kad_post_sidebar_id": "",
+      "_kad_post_content_style": "",
+      "_kad_post_vertical_padding": "",
+      "_kad_post_feature": "",
+      "_kad_post_feature_position": "",
+      "_kad_post_header": false,
+      "_kad_post_footer": false,
+      "_kad_post_classname": "",
+      "footnotes": ""
+    },
+    "categories": [11],
+    "tags": [42, 50, 51, 47, 41, 49, 45, 48],
+    "class_list": [
+      "post-495",
+      "post",
+      "type-post",
+      "status-publish",
+      "format-standard",
+      "has-post-thumbnail",
+      "hentry",
+      "category-tutorijali",
+      "tag-declutter",
+      "tag-online-buvljak",
+      "tag-prodaja-stvari",
+      "tag-rabljena-roba",
+      "tag-recycle",
+      "tag-resell",
+      "tag-reuse",
+      "tag-second-hand-hrvatska"
+    ],
+    "acf": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/495",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/types/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/6"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/comments?post=495"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 2,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/495/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 499,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/495/revisions/499"
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media/497"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media?parent=495"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "category",
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories?post=495"
+        },
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags?post=495"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    },
+    "_embedded": {
+      "author": [
+        {
+          "id": 6,
+          "name": "Nataša Ćaćić",
+          "url": "",
+          "description": "",
+          "link": "https://front2.edukacija.online/backend/author/nutty/",
+          "slug": "nutty",
+          "avatar_urls": {
+            "24": "https://secure.gravatar.com/avatar/c25baae720e7c13f649ca01a05844b748d9558320b984d798deb8453e562b354?s=24&d=mm&r=g",
+            "48": "https://secure.gravatar.com/avatar/c25baae720e7c13f649ca01a05844b748d9558320b984d798deb8453e562b354?s=48&d=mm&r=g",
+            "96": "https://secure.gravatar.com/avatar/c25baae720e7c13f649ca01a05844b748d9558320b984d798deb8453e562b354?s=96&d=mm&r=g"
+          },
+          "acf": [],
+          "_links": {
+            "self": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/6",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users"
+              }
+            ]
+          }
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "id": 497,
+          "date": "2026-01-11T23:02:33",
+          "slug": "o-nama-5-s",
+          "type": "attachment",
+          "link": "https://front2.edukacija.online/backend/tutorijali/tvoja-prva-prodaja-na-markatu-bez-znoja-i-muke/attachment/o-nama-5-s/",
+          "title": {
+            "rendered": "o-nama-5-s"
+          },
+          "author": 6,
+          "featured_media": 0,
+          "acf": [],
+          "caption": {
+            "rendered": ""
+          },
+          "alt_text": "naslovna slika tutorijal",
+          "media_type": "image",
+          "mime_type": "image/png",
+          "media_details": {
+            "width": 645,
+            "height": 430,
+            "file": "2026/01/o-nama-5-s.png",
+            "filesize": 526797,
+            "sizes": {
+              "medium": {
+                "file": "o-nama-5-s-300x200.png",
+                "width": 300,
+                "height": 200,
+                "filesize": 98325,
+                "mime_type": "image/png",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/o-nama-5-s-300x200.png"
+              },
+              "thumbnail": {
+                "file": "o-nama-5-s-150x150.png",
+                "width": 150,
+                "height": 150,
+                "filesize": 40447,
+                "mime_type": "image/png",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/o-nama-5-s-150x150.png"
+              },
+              "full": {
+                "file": "o-nama-5-s.png",
+                "width": 645,
+                "height": 430,
+                "mime_type": "image/png",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/o-nama-5-s.png"
+              }
+            },
+            "image_meta": {
+              "aperture": "0",
+              "credit": "",
+              "camera": "",
+              "caption": "",
+              "created_timestamp": "0",
+              "copyright": "",
+              "focal_length": "0",
+              "iso": "0",
+              "shutter_speed": "0",
+              "title": "",
+              "orientation": "0",
+              "keywords": []
+            }
+          },
+          "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/o-nama-5-s.png",
+          "_links": {
+            "self": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media/497",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media"
+              }
+            ],
+            "about": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/types/attachment"
+              }
+            ],
+            "author": [
+              {
+                "embeddable": true,
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/6"
+              }
+            ],
+            "replies": [
+              {
+                "embeddable": true,
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/comments?post=497"
+              }
+            ],
+            "wp:attached-to": [
+              {
+                "embeddable": true,
+                "post_type": "post",
+                "id": 495,
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/495"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        }
+      ],
+      "wp:term": [
+        [
+          {
+            "id": 11,
+            "link": "https://front2.edukacija.online/backend/category/tutorijali/",
+            "name": "Tutorijali",
+            "slug": "tutorijali",
+            "taxonomy": "category",
+            "acf": [],
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories/11",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/category"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?categories=11"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "id": 42,
+            "link": "https://front2.edukacija.online/backend/tag/declutter/",
+            "name": "declutter",
+            "slug": "declutter",
+            "taxonomy": "post_tag",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags/42",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/post_tag"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?tags=42"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          },
+          {
+            "id": 50,
+            "link": "https://front2.edukacija.online/backend/tag/online-buvljak/",
+            "name": "online buvljak",
+            "slug": "online-buvljak",
+            "taxonomy": "post_tag",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags/50",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/post_tag"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?tags=50"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          },
+          {
+            "id": 51,
+            "link": "https://front2.edukacija.online/backend/tag/prodaja-stvari/",
+            "name": "prodaja stvari",
+            "slug": "prodaja-stvari",
+            "taxonomy": "post_tag",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags/51",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/post_tag"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?tags=51"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          },
+          {
+            "id": 47,
+            "link": "https://front2.edukacija.online/backend/tag/rabljena-roba/",
+            "name": "rabljena roba",
+            "slug": "rabljena-roba",
+            "taxonomy": "post_tag",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags/47",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/post_tag"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?tags=47"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          },
+          {
+            "id": 41,
+            "link": "https://front2.edukacija.online/backend/tag/recycle/",
+            "name": "recycle",
+            "slug": "recycle",
+            "taxonomy": "post_tag",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags/41",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/post_tag"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?tags=41"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          },
+          {
+            "id": 49,
+            "link": "https://front2.edukacija.online/backend/tag/resell/",
+            "name": "resell",
+            "slug": "resell",
+            "taxonomy": "post_tag",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags/49",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/post_tag"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?tags=49"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          },
+          {
+            "id": 45,
+            "link": "https://front2.edukacija.online/backend/tag/reuse/",
+            "name": "reuse",
+            "slug": "reuse",
+            "taxonomy": "post_tag",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags/45",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/post_tag"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?tags=45"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          },
+          {
+            "id": 48,
+            "link": "https://front2.edukacija.online/backend/tag/second-hand-hrvatska/",
+            "name": "second hand Hrvatska",
+            "slug": "second-hand-hrvatska",
+            "taxonomy": "post_tag",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags/48",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/post_tag"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?tags=48"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "id": 489,
+    "date": "2026-01-11T22:53:07",
+    "date_gmt": "2026-01-11T21:53:07",
+    "guid": {
+      "rendered": "https://front2.edukacija.online/backend/?p=489"
+    },
+    "modified": "2026-01-11T23:38:00",
+    "modified_gmt": "2026-01-11T22:38:00",
+    "slug": "o-nama-3",
+    "status": "publish",
+    "type": "post",
+    "link": "https://front2.edukacija.online/backend/novosti/blog/o-nama-3/",
+    "title": {
+      "rendered": "O nama"
+    },
+    "content": {
+      "rendered": "\n\u003Ch1 class=\"wp-block-heading has-text-align-center\"\u003E\u003Cstrong\u003EMarkat \u003C/strong\u003E– Mjesto gdje tvoj „višak“ postaje nečiji „baš to mi treba!“\u003C/h1\u003E\n\n\n\n\u003Cp class=\"has-text-align-center\"\u003ESvi smo bili tamo. Otvoriš ormar, a on ti uzvrati udarac. Pogledaš u garažu i zapitaš se: „Odakle mi tri ista seta odvijača i sobni bicikl koji služi isključivo kao vješalica za kapute?“\u003C/p\u003E\n\n\n\n\u003Cp class=\"has-text-align-center\"\u003ETu na scenu stupa \u003Cstrong\u003EMarkat\u003C/strong\u003E.\u003C/p\u003E\n\n\n\n\u003Cfigure class=\"wp-block-image size-full is-resized\"\u003E\u003Cimg loading=\"lazy\" decoding=\"async\" width=\"864\" height=\"1184\" src=\"https://front2.edukacija.online/backend/wp-content/uploads/2026/01/Gemini_Generated_Image_zew9qbzew9qbzew9.png\" alt=\"\" class=\"wp-image-516\" style=\"object-fit:cover;width:645px;height:430px\" srcset=\"https://front2.edukacija.online/backend/wp-content/uploads/2026/01/Gemini_Generated_Image_zew9qbzew9qbzew9.png 864w, https://front2.edukacija.online/backend/wp-content/uploads/2026/01/Gemini_Generated_Image_zew9qbzew9qbzew9-219x300.png 219w, https://front2.edukacija.online/backend/wp-content/uploads/2026/01/Gemini_Generated_Image_zew9qbzew9qbzew9-747x1024.png 747w, https://front2.edukacija.online/backend/wp-content/uploads/2026/01/Gemini_Generated_Image_zew9qbzew9qbzew9-768x1052.png 768w\" sizes=\"auto, (max-width: 864px) 100vw, 864px\" /\u003E\u003C/figure\u003E\n\n\n\n\u003Cdiv style=\"height:15px\" aria-hidden=\"true\" class=\"wp-block-spacer\"\u003E\u003C/div\u003E\n\n\n\n\u003Ch2 class=\"wp-block-heading has-text-align-center\"\u003EŠto smo mi zapravo? \u003C/h2\u003E\n\n\n\n\u003Cp class=\"has-text-align-center\"\u003EZamislite nas kao digitalni buvljak s karakterom. Markat je nastao iz jednostavne ideje: \u003Cstrong\u003Ečistoća u domu, poštena cijena u džepu i osmijeh na licu.\u003C/strong\u003E Mi smo most između onoga što vama više ne treba i onoga što netko drugi očajnički traži.\u003C/p\u003E\n\n\n\n\u003Cp class=\"has-text-align-center\"\u003EBilo da imaš 10 godina i želiš proslijediti svoje legiće, ili 100 godina i tražiš novi dom za svoju kolekciju gramofonskih ploča – na pravom si mjestu.\u003C/p\u003E\n\n\n\n\u003Cdiv style=\"height:39px\" aria-hidden=\"true\" class=\"wp-block-spacer\"\u003E\u003C/div\u003E\n\n\n\n\u003Ch2 class=\"wp-block-heading has-text-align-center\"\u003EKod nas je igra malo drugačija (i zabavnija!) \u003C/h2\u003E\n\n\n\n\u003Col class=\"wp-block-list\"\u003E\n\u003Cli\u003E\u003Cstrong\u003ERegistriraj se:\u003C/strong\u003E Postani dio naše obitelji.\u003C/li\u003E\n\n\n\n\u003Cli\u003E\u003Cstrong\u003ELicitiraj (Bidaj):\u003C/strong\u003E Vidiš nešto što ti se sviđa? Ponudi cijenu za koju misliš da je fer.\u003C/li\u003E\n\n\n\n\u003Cli\u003E\u003Cstrong\u003EProdavač je ŠEF:\u003C/strong\u003E Ovo je najbolji dio! Najviša ponuda ne pobjeđuje automatski. Prodavač sam bira kome želi prodati svoj predmet. Možda ćeš izabrati susjeda iz drugog grada jer ti je simpatično objasnio zašto mu baš tvoja stara lampa treba, ili ćeš prihvatiti nižu ponudu jer ti je kupac obećao da će tvoj stari ruksak vidjeti vrhove Alpa.\u003C/li\u003E\n\u003C/ol\u003E\n\n\n\n\u003Cdiv style=\"height:39px\" aria-hidden=\"true\" class=\"wp-block-spacer\"\u003E\u003C/div\u003E\n\n\n\n\u003Ch2 class=\"wp-block-heading has-text-align-center\"\u003EZašto Markat? \u003C/h2\u003E\n\n\n\n\u003Cul class=\"wp-block-list\"\u003E\n\u003Cli\u003E\u003Cstrong\u003EDecluttering (Raščišćavanje):\u003C/strong\u003E Manje stvari, više prostora za disanje.\u003C/li\u003E\n\n\n\n\u003Cli\u003E\u003Cstrong\u003EReuse &amp; Recycle:\u003C/strong\u003E Svaka stvar koju ponovno upotrijebimo je pobjeda za naš planet. Zemlja nam kaže „hvala“, a vaš novčanik se slaže.\u003C/li\u003E\n\n\n\n\u003Cli\u003E\u003Cstrong\u003EFair Price:\u003C/strong\u003E Nema guljenja kože. Cilj je da obje strane završe dan osjećajući se kao pobjednici.\u003C/li\u003E\n\u003C/ul\u003E\n\n\n\n\u003Cdiv style=\"height:34px\" aria-hidden=\"true\" class=\"wp-block-spacer\"\u003E\u003C/div\u003E\n\n\n\n\u003Ch2 class=\"wp-block-heading has-text-align-center\"\u003E\u003Cstrong\u003ENaša misija \u003C/strong\u003E\u003C/h2\u003E\n\n\n\n\u003Cp class=\"has-text-align-center\"\u003EŽelimo da kupnja rabljenih stvari bude prvi izbor, a ne zadnja opcija. Želimo svijet u kojem se stvari ne bacaju, nego kruže. I najvažnije – želimo da se pritom dobro zabavite.\u003C/p\u003E\n\n\n\n\u003Cdiv style=\"height:25px\" aria-hidden=\"true\" class=\"wp-block-spacer\"\u003E\u003C/div\u003E\n\n\n\n\u003Cp class=\"has-text-align-center\"\u003E\u003Cstrong\u003EZato, zaviri u onaj „kaos-ormar“, pronađi nešto što zaslužuje novu priliku i stavi to na Markat. Tvoj dom će ti biti zahvalan, a netko tamo jedva čeka tvoj paket!\u003C/strong\u003E\u003C/p\u003E\n\n\n\n\u003Cdiv style=\"height:69px\" aria-hidden=\"true\" class=\"wp-block-spacer\"\u003E\u003C/div\u003E\n\n\n\n\u003Cdiv class=\"wp-block-buttons is-horizontal is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-499968f5 wp-block-buttons-is-layout-flex\"\u003E\n\u003Cdiv class=\"wp-block-button\"\u003E\u003Ca class=\"wp-block-button__link wp-element-button\"\u003ESAZNAJ VIŠE\u003C/a\u003E\u003C/div\u003E\n\u003C/div\u003E\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "\u003Cp\u003EMarkat – Mjesto gdje tvoj „višak“ postaje nečiji „baš to mi treba!“ Svi smo bili tamo. Otvoriš ormar, a on ti uzvrati udarac. Pogledaš u garažu i zapitaš se: „Odakle mi tri ista seta odvijača i sobni bicikl koji služi isključivo kao vješalica za kapute?“ Tu na scenu stupa Markat. Što smo mi zapravo? Zamislite&#8230;\u003C/p\u003E\n",
+      "protected": false
+    },
+    "author": 6,
+    "featured_media": 491,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": {
+      "_acf_changed": false,
+      "_kad_post_transparent": "",
+      "_kad_post_title": "",
+      "_kad_post_layout": "",
+      "_kad_post_sidebar_id": "",
+      "_kad_post_content_style": "",
+      "_kad_post_vertical_padding": "",
+      "_kad_post_feature": "",
+      "_kad_post_feature_position": "",
+      "_kad_post_header": false,
+      "_kad_post_footer": false,
+      "_kad_post_classname": "",
+      "footnotes": ""
+    },
+    "categories": [13],
+    "tags": [42, 41, 45, 43, 44, 46],
+    "class_list": [
+      "post-489",
+      "post",
+      "type-post",
+      "status-publish",
+      "format-standard",
+      "has-post-thumbnail",
+      "hentry",
+      "category-blog",
+      "tag-declutter",
+      "tag-recycle",
+      "tag-reuse",
+      "tag-second-hand",
+      "tag-sell",
+      "tag-vintage"
+    ],
+    "acf": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/489",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/types/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/6"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/comments?post=489"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 5,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/489/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 517,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/489/revisions/517"
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media/491"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media?parent=489"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "category",
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories?post=489"
+        },
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags?post=489"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    },
+    "_embedded": {
+      "author": [
+        {
+          "id": 6,
+          "name": "Nataša Ćaćić",
+          "url": "",
+          "description": "",
+          "link": "https://front2.edukacija.online/backend/author/nutty/",
+          "slug": "nutty",
+          "avatar_urls": {
+            "24": "https://secure.gravatar.com/avatar/c25baae720e7c13f649ca01a05844b748d9558320b984d798deb8453e562b354?s=24&d=mm&r=g",
+            "48": "https://secure.gravatar.com/avatar/c25baae720e7c13f649ca01a05844b748d9558320b984d798deb8453e562b354?s=48&d=mm&r=g",
+            "96": "https://secure.gravatar.com/avatar/c25baae720e7c13f649ca01a05844b748d9558320b984d798deb8453e562b354?s=96&d=mm&r=g"
+          },
+          "acf": [],
+          "_links": {
+            "self": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/6",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users"
+              }
+            ]
+          }
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "id": 491,
+          "date": "2026-01-11T22:34:55",
+          "slug": "o-nama-3-s",
+          "type": "attachment",
+          "link": "https://front2.edukacija.online/backend/novosti/blog/o-nama-3/attachment/o-nama-3-s/",
+          "title": {
+            "rendered": "o-nama-3-s"
+          },
+          "author": 6,
+          "featured_media": 0,
+          "acf": [],
+          "caption": {
+            "rendered": ""
+          },
+          "alt_text": "",
+          "media_type": "image",
+          "mime_type": "image/png",
+          "media_details": {
+            "width": 645,
+            "height": 430,
+            "file": "2026/01/o-nama-3-s.png",
+            "filesize": 501228,
+            "sizes": {
+              "medium": {
+                "file": "o-nama-3-s-300x200.png",
+                "width": 300,
+                "height": 200,
+                "filesize": 100543,
+                "mime_type": "image/png",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/o-nama-3-s-300x200.png"
+              },
+              "thumbnail": {
+                "file": "o-nama-3-s-150x150.png",
+                "width": 150,
+                "height": 150,
+                "filesize": 40999,
+                "mime_type": "image/png",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/o-nama-3-s-150x150.png"
+              },
+              "full": {
+                "file": "o-nama-3-s.png",
+                "width": 645,
+                "height": 430,
+                "mime_type": "image/png",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/o-nama-3-s.png"
+              }
+            },
+            "image_meta": {
+              "aperture": "0",
+              "credit": "",
+              "camera": "",
+              "caption": "",
+              "created_timestamp": "0",
+              "copyright": "",
+              "focal_length": "0",
+              "iso": "0",
+              "shutter_speed": "0",
+              "title": "",
+              "orientation": "0",
+              "keywords": []
+            }
+          },
+          "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/o-nama-3-s.png",
+          "_links": {
+            "self": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media/491",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media"
+              }
+            ],
+            "about": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/types/attachment"
+              }
+            ],
+            "author": [
+              {
+                "embeddable": true,
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/6"
+              }
+            ],
+            "replies": [
+              {
+                "embeddable": true,
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/comments?post=491"
+              }
+            ],
+            "wp:attached-to": [
+              {
+                "embeddable": true,
+                "post_type": "post",
+                "id": 489,
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/489"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        }
+      ],
+      "wp:term": [
+        [
+          {
+            "id": 13,
+            "link": "https://front2.edukacija.online/backend/category/novosti/blog/",
+            "name": "BLOG",
+            "slug": "blog",
+            "taxonomy": "category",
+            "acf": [],
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories/13",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/category"
+                }
+              ],
+              "up": [
+                {
+                  "embeddable": true,
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories/1"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?categories=13"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "id": 42,
+            "link": "https://front2.edukacija.online/backend/tag/declutter/",
+            "name": "declutter",
+            "slug": "declutter",
+            "taxonomy": "post_tag",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags/42",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/post_tag"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?tags=42"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          },
+          {
+            "id": 41,
+            "link": "https://front2.edukacija.online/backend/tag/recycle/",
+            "name": "recycle",
+            "slug": "recycle",
+            "taxonomy": "post_tag",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags/41",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/post_tag"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?tags=41"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          },
+          {
+            "id": 45,
+            "link": "https://front2.edukacija.online/backend/tag/reuse/",
+            "name": "reuse",
+            "slug": "reuse",
+            "taxonomy": "post_tag",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags/45",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/post_tag"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?tags=45"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          },
+          {
+            "id": 43,
+            "link": "https://front2.edukacija.online/backend/tag/second-hand/",
+            "name": "second hand",
+            "slug": "second-hand",
+            "taxonomy": "post_tag",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags/43",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/post_tag"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?tags=43"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          },
+          {
+            "id": 44,
+            "link": "https://front2.edukacija.online/backend/tag/sell/",
+            "name": "sell",
+            "slug": "sell",
+            "taxonomy": "post_tag",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags/44",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/post_tag"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?tags=44"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          },
+          {
+            "id": 46,
+            "link": "https://front2.edukacija.online/backend/tag/vintage/",
+            "name": "vintage",
+            "slug": "vintage",
+            "taxonomy": "post_tag",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags/46",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/post_tag"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?tags=46"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "id": 419,
+    "date": "2026-01-11T20:43:33",
+    "date_gmt": "2026-01-11T19:43:33",
+    "guid": {
+      "rendered": "https://front2.edukacija.online/backend/?p=419"
+    },
+    "modified": "2026-01-12T08:52:47",
+    "modified_gmt": "2026-01-12T07:52:47",
+    "slug": "pirovac-i-tradicija-maslinarstva",
+    "status": "publish",
+    "type": "post",
+    "link": "https://front2.edukacija.online/backend/novosti/blog/pirovac-i-tradicija-maslinarstva/",
+    "title": {
+      "rendered": "PIROVAC I TRADICIJA MASLINARSTVA"
+    },
+    "content": {
+      "rendered": "\n\u003Cp\u003EPirovac ima dugu tradiciju maslinarstva, koju aktivno čuva kroz zajedničke akcije berbe maslina, gdje se lokalna zajednica, škole i općina udružuju kako bi očuvali taj važan dio identiteta i kulture, a prikupljeni plodovi se prerađuju u ulje, čime se nastavlja stoljetna praksa uzgoja maslina.&nbsp;\u003C/p\u003E\n\n\n\n\u003Cp\u003EKljučne značajke tradicije:\u003C/p\u003E\n\n\n\n\u003Cp\u003EZajedništvo: Berba maslina je događaj koji okuplja sve generacije, od učenika do djelatnika općine, jačajući duh zajednice.\u003C/p\u003E\n\n\n\n\u003Cp\u003EKultura i identitet: Maslinarstvo je duboko ukorijenjeno u lokalnu kulturu, simbolizirajući povezanost s korijenima i ponos na nasljeđe.\u003C/p\u003E\n\n\n\n\u003Cp\u003EPraktična vrijednost: Ubrani plodovi odlaze u uljaru i pretvaraju se u kvalitetno maslinovo ulje, što ima i ekonomski značaj.\u003C/p\u003E\n\n\n\n\u003Cp\u003EOčuvanje javnih površina: Akcije često uključuju berbu maslina s javnih površina u centru mjesta, čime se uređuje prostor i čuva tradicija. \u003C/p\u003E\n\n\n\n\u003Cp\u003EOva tradicija nije samo povijesna, već i živa praksa koja se prenosi s generacije na generaciju, pokazujući važnost masline za Pirovac.&nbsp;\u003C/p\u003E\n\n\n\n\u003Cfigure class=\"wp-block-image is-resized\"\u003E\u003Cimg loading=\"lazy\" decoding=\"async\" width=\"259\" height=\"194\" src=\"https://front2.edukacija.online/backend/wp-content/uploads/2026/01/blog11b.jpg\" alt=\"\" class=\"wp-image-420\" style=\"width:367px;height:auto\"/\u003E\u003C/figure\u003E\n\n\n\n\u003Cfigure class=\"wp-block-image is-resized\"\u003E\u003Cimg loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"168\" src=\"https://front2.edukacija.online/backend/wp-content/uploads/2026/01/blog9a.jpg\" alt=\"\" class=\"wp-image-401\" style=\"aspect-ratio:1.7858220211161389;width:512px;height:auto\"/\u003E\u003C/figure\u003E\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "\u003Cp\u003EPirovac ima dugu tradiciju maslinarstva, koju aktivno čuva kroz zajedničke akcije berbe maslina, gdje se lokalna zajednica, škole i općina udružuju kako bi očuvali taj važan dio identiteta i kulture, a prikupljeni plodovi se prerađuju u ulje, čime se nastavlja stoljetna praksa uzgoja maslina.&nbsp; Ključne značajke tradicije: Zajedništvo: Berba maslina je događaj koji okuplja sve generacije,&#8230;\u003C/p\u003E\n",
+      "protected": false
+    },
+    "author": 2,
+    "featured_media": 422,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": {
+      "_acf_changed": false,
+      "_kad_post_transparent": "",
+      "_kad_post_title": "",
+      "_kad_post_layout": "",
+      "_kad_post_sidebar_id": "",
+      "_kad_post_content_style": "",
+      "_kad_post_vertical_padding": "",
+      "_kad_post_feature": "",
+      "_kad_post_feature_position": "",
+      "_kad_post_header": false,
+      "_kad_post_footer": false,
+      "_kad_post_classname": "",
+      "footnotes": ""
+    },
+    "categories": [13, 14],
+    "tags": [29],
+    "class_list": [
+      "post-419",
+      "post",
+      "type-post",
+      "status-publish",
+      "format-standard",
+      "has-post-thumbnail",
+      "hentry",
+      "category-blog",
+      "category-blogovi",
+      "tag-pirovac"
+    ],
+    "acf": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/419",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/types/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/2"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/comments?post=419"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 2,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/419/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 522,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/419/revisions/522"
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media/422"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media?parent=419"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "category",
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories?post=419"
+        },
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags?post=419"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    },
+    "_embedded": {
+      "author": [
+        {
+          "id": 2,
+          "name": "Antonia Majdandžić",
+          "url": "",
+          "description": "",
+          "link": "https://front2.edukacija.online/backend/author/antonia/",
+          "slug": "antonia",
+          "avatar_urls": {
+            "24": "https://secure.gravatar.com/avatar/1b2420ca66446b54080a9d53a986af0ab4400d07ea9c7ce9f3d64f97a97cb0d2?s=24&d=mm&r=g",
+            "48": "https://secure.gravatar.com/avatar/1b2420ca66446b54080a9d53a986af0ab4400d07ea9c7ce9f3d64f97a97cb0d2?s=48&d=mm&r=g",
+            "96": "https://secure.gravatar.com/avatar/1b2420ca66446b54080a9d53a986af0ab4400d07ea9c7ce9f3d64f97a97cb0d2?s=96&d=mm&r=g"
+          },
+          "acf": [],
+          "_links": {
+            "self": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/2",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users"
+              }
+            ]
+          }
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "id": 422,
+          "date": "2026-01-11T20:40:25",
+          "slug": "poirovacblog11",
+          "type": "attachment",
+          "link": "https://front2.edukacija.online/backend/novosti/blog/pirovac-i-tradicija-maslinarstva/attachment/poirovacblog11/",
+          "title": {
+            "rendered": "poirovacblog11"
+          },
+          "author": 2,
+          "featured_media": 0,
+          "acf": [],
+          "caption": {
+            "rendered": ""
+          },
+          "alt_text": "Pirovac",
+          "media_type": "image",
+          "mime_type": "image/png",
+          "media_details": {
+            "width": 768,
+            "height": 512,
+            "file": "2026/01/poirovacblog11.png",
+            "filesize": 708661,
+            "sizes": {
+              "medium": {
+                "file": "poirovacblog11-300x200.png",
+                "width": 300,
+                "height": 200,
+                "filesize": 118392,
+                "mime_type": "image/png",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/poirovacblog11-300x200.png"
+              },
+              "thumbnail": {
+                "file": "poirovacblog11-150x150.png",
+                "width": 150,
+                "height": 150,
+                "filesize": 48538,
+                "mime_type": "image/png",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/poirovacblog11-150x150.png"
+              },
+              "full": {
+                "file": "poirovacblog11.png",
+                "width": 768,
+                "height": 512,
+                "mime_type": "image/png",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/poirovacblog11.png"
+              }
+            },
+            "image_meta": {
+              "aperture": "0",
+              "credit": "",
+              "camera": "",
+              "caption": "",
+              "created_timestamp": "0",
+              "copyright": "",
+              "focal_length": "0",
+              "iso": "0",
+              "shutter_speed": "0",
+              "title": "",
+              "orientation": "0",
+              "keywords": []
+            }
+          },
+          "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/poirovacblog11.png",
+          "_links": {
+            "self": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media/422",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media"
+              }
+            ],
+            "about": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/types/attachment"
+              }
+            ],
+            "author": [
+              {
+                "embeddable": true,
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/2"
+              }
+            ],
+            "replies": [
+              {
+                "embeddable": true,
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/comments?post=422"
+              }
+            ],
+            "wp:attached-to": [
+              {
+                "embeddable": true,
+                "post_type": "post",
+                "id": 419,
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/419"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        }
+      ],
+      "wp:term": [
+        [
+          {
+            "id": 13,
+            "link": "https://front2.edukacija.online/backend/category/novosti/blog/",
+            "name": "BLOG",
+            "slug": "blog",
+            "taxonomy": "category",
+            "acf": [],
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories/13",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/category"
+                }
+              ],
+              "up": [
+                {
+                  "embeddable": true,
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories/1"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?categories=13"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          },
+          {
+            "id": 14,
+            "link": "https://front2.edukacija.online/backend/category/blogovi/",
+            "name": "Blogovi",
+            "slug": "blogovi",
+            "taxonomy": "category",
+            "acf": [],
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories/14",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/category"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?categories=14"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "id": 29,
+            "link": "https://front2.edukacija.online/backend/tag/pirovac/",
+            "name": "Pirovac",
+            "slug": "pirovac",
+            "taxonomy": "post_tag",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags/29",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/post_tag"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?tags=29"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "id": 413,
+    "date": "2026-01-11T20:38:28",
+    "date_gmt": "2026-01-11T19:38:28",
+    "guid": {
+      "rendered": "https://front2.edukacija.online/backend/?p=413"
+    },
+    "modified": "2026-01-11T20:38:28",
+    "modified_gmt": "2026-01-11T19:38:28",
+    "slug": "nasa-berba-kako-izgleda-sezona-maslinarstva",
+    "status": "publish",
+    "type": "post",
+    "link": "https://front2.edukacija.online/backend/novosti/blog/nasa-berba-kako-izgleda-sezona-maslinarstva/",
+    "title": {
+      "rendered": "NAŠA BERBA – kako izgleda sezona maslinarstva"
+    },
+    "content": {
+      "rendered": "\n\u003Cp\u003E\u003C/p\u003E\n\n\n\n\u003Cfigure class=\"wp-block-image\"\u003E\u003Cimg loading=\"lazy\" decoding=\"async\" width=\"309\" height=\"163\" src=\"https://front2.edukacija.online/backend/wp-content/uploads/2026/01/blog10a.jpg\" alt=\"\" class=\"wp-image-415\" srcset=\"https://front2.edukacija.online/backend/wp-content/uploads/2026/01/blog10a.jpg 309w, https://front2.edukacija.online/backend/wp-content/uploads/2026/01/blog10a-300x158.jpg 300w\" sizes=\"auto, (max-width: 309px) 100vw, 309px\" /\u003E\u003C/figure\u003E\n\n\n\n\u003Cp\u003ENaše maslinarstvo temelji se na obiteljskoj tradiciji i stalnoj prisutnosti u masliniku. Iako živimo u Zagrebu, Pirovac je mjesto kojem se vraćamo kad god možemo, jer masline traže stalnu brigu tijekom cijele godine.\u003C/p\u003E\n\n\n\n\u003Cp\u003ESezona započinje rezidbom i održavanjem maslinika, nastavlja se praćenjem rasta plodova i završava berbom u optimalnom trenutku zrelosti. Svaki korak radimo sami, s naglaskom na prirodan uzgoj i minimalne intervencije. Ne težimo velikim količinama, već stabilnoj kvaliteti i zdravim stablima.\u003C/p\u003E\n\n\n\n\u003Cp\u003EBerbu obavljamo pažljivo i pravovremeno, a masline se odmah prerađuju kako bi se sačuvala njihova svježina i prirodna aroma. Takav pristup daje ulje koje je čisto, uravnoteženo i vjerno podneblju u kojem nastaje.\u003C/p\u003E\n\n\n\n\u003Cp\u003ENaša tradicija nije stvar velikih riječi, nego kontinuiteta – vraćanja u maslinik, poštovanja prirode i odgovornog odnosa prema zemlji. Ekološki pristup za nas znači razumijevanje ritma masline i prilagodbu prirodi, a ne obrnuto.\u003C/p\u003E\n\n\n\n\u003Cp\u003EUlje koje nudimo rezultat je tog procesa i cijelogodišnjeg rada, od maslinika u Pirovcu do boce koja dolazi na vaš stol.\u003C/p\u003E\n\n\n\n\u003Cp\u003E\u003C/p\u003E\n\n\n\n\u003Cfigure class=\"wp-block-image is-resized\"\u003E\u003Cimg loading=\"lazy\" decoding=\"async\" width=\"318\" height=\"159\" src=\"https://front2.edukacija.online/backend/wp-content/uploads/2026/01/blog10.jpg\" alt=\"\" class=\"wp-image-416\" style=\"width:440px;height:auto\" srcset=\"https://front2.edukacija.online/backend/wp-content/uploads/2026/01/blog10.jpg 318w, https://front2.edukacija.online/backend/wp-content/uploads/2026/01/blog10-300x150.jpg 300w\" sizes=\"auto, (max-width: 318px) 100vw, 318px\" /\u003E\u003C/figure\u003E\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "\u003Cp\u003ENaše maslinarstvo temelji se na obiteljskoj tradiciji i stalnoj prisutnosti u masliniku. Iako živimo u Zagrebu, Pirovac je mjesto kojem se vraćamo kad god možemo, jer masline traže stalnu brigu tijekom cijele godine. Sezona započinje rezidbom i održavanjem maslinika, nastavlja se praćenjem rasta plodova i završava berbom u optimalnom trenutku zrelosti. Svaki korak radimo sami,&#8230;\u003C/p\u003E\n",
+      "protected": false
+    },
+    "author": 2,
+    "featured_media": 414,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": {
+      "_acf_changed": false,
+      "_kad_post_transparent": "",
+      "_kad_post_title": "",
+      "_kad_post_layout": "",
+      "_kad_post_sidebar_id": "",
+      "_kad_post_content_style": "",
+      "_kad_post_vertical_padding": "",
+      "_kad_post_feature": "",
+      "_kad_post_feature_position": "",
+      "_kad_post_header": false,
+      "_kad_post_footer": false,
+      "_kad_post_classname": "",
+      "footnotes": ""
+    },
+    "categories": [13, 14],
+    "tags": [28],
+    "class_list": [
+      "post-413",
+      "post",
+      "type-post",
+      "status-publish",
+      "format-standard",
+      "has-post-thumbnail",
+      "hentry",
+      "category-blog",
+      "category-blogovi",
+      "tag-berba"
+    ],
+    "acf": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/413",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/types/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/2"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/comments?post=413"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 2,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/413/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 418,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/413/revisions/418"
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media/414"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media?parent=413"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "category",
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories?post=413"
+        },
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags?post=413"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    },
+    "_embedded": {
+      "author": [
+        {
+          "id": 2,
+          "name": "Antonia Majdandžić",
+          "url": "",
+          "description": "",
+          "link": "https://front2.edukacija.online/backend/author/antonia/",
+          "slug": "antonia",
+          "avatar_urls": {
+            "24": "https://secure.gravatar.com/avatar/1b2420ca66446b54080a9d53a986af0ab4400d07ea9c7ce9f3d64f97a97cb0d2?s=24&d=mm&r=g",
+            "48": "https://secure.gravatar.com/avatar/1b2420ca66446b54080a9d53a986af0ab4400d07ea9c7ce9f3d64f97a97cb0d2?s=48&d=mm&r=g",
+            "96": "https://secure.gravatar.com/avatar/1b2420ca66446b54080a9d53a986af0ab4400d07ea9c7ce9f3d64f97a97cb0d2?s=96&d=mm&r=g"
+          },
+          "acf": [],
+          "_links": {
+            "self": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/2",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users"
+              }
+            ]
+          }
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "id": 414,
+          "date": "2026-01-11T20:35:44",
+          "slug": "blog10b",
+          "type": "attachment",
+          "link": "https://front2.edukacija.online/backend/novosti/blog/nasa-berba-kako-izgleda-sezona-maslinarstva/attachment/blog10b/",
+          "title": {
+            "rendered": "blog10b"
+          },
+          "author": 2,
+          "featured_media": 0,
+          "acf": [],
+          "caption": {
+            "rendered": ""
+          },
+          "alt_text": "",
+          "media_type": "image",
+          "mime_type": "image/jpeg",
+          "media_details": {
+            "width": 194,
+            "height": 259,
+            "file": "2026/01/blog10b.jpg",
+            "filesize": 15188,
+            "sizes": {
+              "thumbnail": {
+                "file": "blog10b-150x150.jpg",
+                "width": 150,
+                "height": 150,
+                "filesize": 8963,
+                "mime_type": "image/jpeg",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/blog10b-150x150.jpg"
+              },
+              "full": {
+                "file": "blog10b.jpg",
+                "width": 194,
+                "height": 259,
+                "mime_type": "image/jpeg",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/blog10b.jpg"
+              }
+            },
+            "image_meta": {
+              "aperture": "0",
+              "credit": "",
+              "camera": "",
+              "caption": "",
+              "created_timestamp": "0",
+              "copyright": "",
+              "focal_length": "0",
+              "iso": "0",
+              "shutter_speed": "0",
+              "title": "",
+              "orientation": "0",
+              "keywords": []
+            }
+          },
+          "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/blog10b.jpg",
+          "_links": {
+            "self": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media/414",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media"
+              }
+            ],
+            "about": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/types/attachment"
+              }
+            ],
+            "author": [
+              {
+                "embeddable": true,
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/2"
+              }
+            ],
+            "replies": [
+              {
+                "embeddable": true,
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/comments?post=414"
+              }
+            ],
+            "wp:attached-to": [
+              {
+                "embeddable": true,
+                "post_type": "post",
+                "id": 413,
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/413"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        }
+      ],
+      "wp:term": [
+        [
+          {
+            "id": 13,
+            "link": "https://front2.edukacija.online/backend/category/novosti/blog/",
+            "name": "BLOG",
+            "slug": "blog",
+            "taxonomy": "category",
+            "acf": [],
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories/13",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/category"
+                }
+              ],
+              "up": [
+                {
+                  "embeddable": true,
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories/1"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?categories=13"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          },
+          {
+            "id": 14,
+            "link": "https://front2.edukacija.online/backend/category/blogovi/",
+            "name": "Blogovi",
+            "slug": "blogovi",
+            "taxonomy": "category",
+            "acf": [],
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories/14",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/category"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?categories=14"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "id": 28,
+            "link": "https://front2.edukacija.online/backend/tag/berba/",
+            "name": "berba",
+            "slug": "berba",
+            "taxonomy": "post_tag",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags/28",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/post_tag"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?tags=28"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "id": 399,
+    "date": "2026-01-11T20:34:23",
+    "date_gmt": "2026-01-11T19:34:23",
+    "guid": {
+      "rendered": "https://front2.edukacija.online/backend/?p=399"
+    },
+    "modified": "2026-01-11T20:34:23",
+    "modified_gmt": "2026-01-11T19:34:23",
+    "slug": "povijest-maslinarstva-u-dalmaciji",
+    "status": "publish",
+    "type": "post",
+    "link": "https://front2.edukacija.online/backend/novosti/blog/povijest-maslinarstva-u-dalmaciji/",
+    "title": {
+      "rendered": "POVIJEST MASLINARSTVA U DALMACIJI"
+    },
+    "content": {
+      "rendered": "\n\u003Cp\u003E\u003C/p\u003E\n\n\n\n\u003Cp\u003EMaslinarstvo u Dalmaciji&nbsp;nije samo poljoprivredna aktivnost, već i dio identiteta, kulture i povijesti ovoga kraja. Ova mediteranska regija, s idealnim klimatskim uvjetima i tisućljetnom tradicijom uzgoja masline, danas sve više koristi moderne tehnike kako bi povećala prinose i poboljšala kvalitetu ulja.\u003C/p\u003E\n\n\n\n\u003Cp\u003EMaslina se na području Dalmacije uzgaja još od&nbsp;ilirskih i rimskih vremena. Arheološki nalazi i povijesni zapisi potvrđuju da su masline bile važan izvor hrane, svjetlosti (ulje za lampe) i trgovine.\u003C/p\u003E\n\n\n\n\u003Cp\u003EPosebno je poznata dalmatinska autohtona sorta&nbsp;Oblica, koja se uzgaja stoljećima i smatra se kraljicom među maslinama u Hrvatskoj. Maslinici su nerijetko nasljeđivani s generacije na generaciju, čineći važan dio&nbsp;obiteljskog i kulturnog nasljeđa.\u003C/p\u003E\n\n\n\u003Cdiv class=\"wp-block-image\"\u003E\n\u003Cfigure class=\"aligncenter is-resized\"\u003E\u003Cimg loading=\"lazy\" decoding=\"async\" width=\"270\" height=\"186\" src=\"https://front2.edukacija.online/backend/wp-content/uploads/2026/01/blog9b.jpg\" alt=\"\" class=\"wp-image-402\" style=\"width:367px;height:auto\"/\u003E\u003C/figure\u003E\n\u003C/div\u003E\n\n\n\u003Cp\u003EDalmacija&nbsp;ima tipičnu&nbsp;mediteransku klimu&nbsp;s toplim, suhim ljetima i blagim, kišovitim zimama – idealno okruženje za uzgoj maslina. Godišnje padaline od oko 600–900 mm, visoka insolacija i propusna tla osiguravaju uvjete u kojima maslina uspijeva bez potrebe za intenzivnim navodnjavanjem.\u003C/p\u003E\n\n\n\n\u003Cp\u003EMeđutim, klimatske promjene donose i&nbsp;izazove:\u003C/p\u003E\n\n\n\n\u003Cp\u003ESušnija ljeta i ekstremne temperature mogu smanjiti prinose.\u003C/p\u003E\n\n\n\n\u003Cp\u003EKasni proljetni mrazevi mogu oštetiti cvjetove.\u003C/p\u003E\n\n\n\n\u003Cp\u003EPojačana pojava štetnika, osobito&nbsp;maslinove muhe.\u003C/p\u003E\n\n\n\n\u003Cp\u003EZato se sve više maslinara okreće&nbsp;agrotehničkim mjerama&nbsp;i modernim pristupima kako bi održali stabilan urod.\u003C/p\u003E\n\n\n\u003Cdiv class=\"wp-block-image\"\u003E\n\u003Cfigure class=\"aligncenter is-resized\"\u003E\u003Cimg loading=\"lazy\" decoding=\"async\" width=\"259\" height=\"194\" src=\"https://front2.edukacija.online/backend/wp-content/uploads/2026/01/blog9c.jpg\" alt=\"\" class=\"wp-image-403\" style=\"width:418px;height:auto\"/\u003E\u003C/figure\u003E\n\u003C/div\u003E\n\n\n\u003Cp\u003EZa uspješan&nbsp;uzgoj maslina&nbsp;ključna je pravilna priprema tla. Tlo mora biti&nbsp;dobro drenirano, bogato mineralima i organskom tvari. Ako je kiselo, potrebno je izvršiti&nbsp;kalcifikaciju&nbsp;radi poboljšanja pH vrijednosti (idealno između 6 i 7).\u003C/p\u003E\n\n\n\n\u003Cp\u003EKljučne faze pripreme:\u003C/p\u003E\n\n\n\n\u003Cp\u003EČišćenje terena&nbsp;(uklanjanje korova i kamenja)\u003C/p\u003E\n\n\n\n\u003Cp\u003EAnaliza tla&nbsp;(kemijska i fizikalna)\u003C/p\u003E\n\n\n\n\u003Cp\u003EDuboko oranje&nbsp;(40–60 cm)\u003C/p\u003E\n\n\n\n\u003Cp\u003EGnojidba&nbsp;stajskim ili kompostiranim gnojivom\u003C/p\u003E\n\n\n\n\u003Cp\u003ESadnja&nbsp;u jesen ili rano proljeće, ovisno o mikroklimatskim uvjetima\u003C/p\u003E\n\n\n\n\u003Cp\u003ERazmak sadnje ovisi o sorti i tipu uzgoja – tradicionalni maslinici imaju veći razmak (7×7 m), dok se kod&nbsp;intenzivnih nasada&nbsp;koristi manji razmak (4×6 m ili 5×5 m).\u003C/p\u003E\n\n\n\n\u003Cp class=\"is-style-text-subtitle\"\u003ENajpopularnije sorte maslina u Dalmaciji\u003C/p\u003E\n\n\n\n\u003Cp\u003E&nbsp;Oblica&nbsp;– najraširenija autohtona sorta u Dalmaciji. Daje visokokvalitetno ulje, dobro podnosi sušu, ali je osjetljiva na maslinovu muhu.\u003C/p\u003E\n\n\n\n\u003Cp\u003E&nbsp;Lastovka&nbsp;– sorta iz južne Dalmacije, otporna na sušu, dobra za miješane nasade.\u003C/p\u003E\n\n\n\n\u003Cp\u003E&nbsp;Leccino&nbsp;– talijanska sorta koja se sve više sadi zbog otpornosti na bolesti i ranog zrenja.\u003C/p\u003E\n\n\n\n\u003Cp\u003E&nbsp;Pendolino&nbsp;– odličan oprašivač, koristi se kao dopuna za povećanje oplodnje u nasadima.\u003C/p\u003E\n\n\n\n\u003Cp\u003E&nbsp;Koroneiki&nbsp;i&nbsp;Arbequina&nbsp;– strane sorte s visokim prinosom i uljem izvrsne kvalitete, prilagođene i dalmatinskim uvjetima.\u003C/p\u003E\n\n\n\n\u003Cp\u003EZa komercijalni uzgoj preporučuje se&nbsp;kombinacija više sorti, kako bi se osigurala bolja oplodnja i stabilan prinos.\u003C/p\u003E\n\n\n\n\u003Cp class=\"is-style-text-subtitle\"\u003EOdržavanje i njega maslinika\u003C/p\u003E\n\n\n\n\u003Cp\u003ERedovita njega maslinika osigurava zdrav rast i bogatu rodnost.\u003C/p\u003E\n\n\n\n\u003Cp\u003EGlavne agrotehničke mjere:\u003C/p\u003E\n\n\n\n\u003Cp\u003ERezidba&nbsp;– svake godine, krajem zime ili početkom proljeća, radi prozračivanja krošnje i poticanja plodonošenja.\u003C/p\u003E\n\n\n\n\u003Cp\u003ENavodnjavanje&nbsp;– posebno važno kod mladih stabala i tijekom sušnih razdoblja. Kap po kap sustavi postaju sve popularniji.\u003C/p\u003E\n\n\n\n\u003Cp\u003EGnojidba&nbsp;– balansirana primjena dušika, fosfora i kalija; organska gnojiva su idealna za eko-uzgoj.\u003C/p\u003E\n\n\n\n\u003Cp\u003EMalčiranje&nbsp;– pomaže u očuvanju vlage i smanjenju korova.\u003C/p\u003E\n\n\n\n\u003Cp\u003ETlo se redovito obrađuje&nbsp;(plitka obrada) radi provjetravanja i uklanjanja konkurentskih biljaka.\u003C/p\u003E\n\n\n\n\u003Cp\u003E\u003C/p\u003E\n\n\n\n\u003Cp class=\"is-style-text-subtitle\"\u003EZaštita od bolesti i štetnika\u003C/p\u003E\n\n\n\n\u003Cfigure class=\"wp-block-image is-resized\"\u003E\u003Cimg loading=\"lazy\" decoding=\"async\" width=\"348\" height=\"145\" src=\"https://front2.edukacija.online/backend/wp-content/uploads/2026/01/stetnici-masline.jpg\" alt=\"\" class=\"wp-image-410\" style=\"width:431px;height:auto\" srcset=\"https://front2.edukacija.online/backend/wp-content/uploads/2026/01/stetnici-masline.jpg 348w, https://front2.edukacija.online/backend/wp-content/uploads/2026/01/stetnici-masline-300x125.jpg 300w\" sizes=\"auto, (max-width: 348px) 100vw, 348px\" /\u003E\u003C/figure\u003E\n\n\n\n\u003Cfigure class=\"wp-block-image is-resized\"\u003E\u003Cimg loading=\"lazy\" decoding=\"async\" width=\"301\" height=\"167\" src=\"https://front2.edukacija.online/backend/wp-content/uploads/2026/01/stetnici.jpg\" alt=\"\" class=\"wp-image-409\" style=\"aspect-ratio:1.8024573161002075;width:430px;height:auto\"/\u003E\u003C/figure\u003E\n\n\n\n\u003Cp\u003EU Dalmaciji su najčešći problemi:\u003C/p\u003E\n\n\n\n\u003Cp\u003EŠtetnici:\u003C/p\u003E\n\n\n\n\u003Cp\u003EMaslinova muha (Bactrocera oleae)&nbsp;– najveća prijetnja. Suzbijanje se vrši žutim klopkama, feromonskim mamcima i biološkim insekticidima.\u003C/p\u003E\n\n\n\n\u003Cp\u003EMaslinin moljac (Prays oleae)&nbsp;– trofazni štetnik koji napada cvijet, plod i list.\u003C/p\u003E\n\n\n\n\u003Cp\u003EMaslinin svrdlaš (Rhynchites cribripennis)&nbsp;– fizička šteta na plodovima.\u003C/p\u003E\n\n\n\n\u003Cfigure class=\"wp-block-image is-resized\"\u003E\u003Cimg loading=\"lazy\" decoding=\"async\" width=\"299\" height=\"168\" src=\"https://front2.edukacija.online/backend/wp-content/uploads/2026/01/stetnici2.jpg\" alt=\"\" class=\"wp-image-408\" style=\"aspect-ratio:1.7798566271798262;width:521px;height:auto\"/\u003E\u003C/figure\u003E\n\n\n\n\u003Cp\u003EBolesti:\u003C/p\u003E\n\n\n\n\u003Cp\u003EPaunovo oko (Spilocaea oleagina)&nbsp;– gljivična bolest koja uzrokuje opadanje lišća.\u003C/p\u003E\n\n\n\n\u003Cp\u003EMaslinina rak rana (Pseudomonas savastanoi)&nbsp;– bakterijska bolest koja stvara izrasline na granama.\u003C/p\u003E\n\n\n\n\u003Cp\u003EZaštita treba biti&nbsp;integrirana i preventivna, uz što manje kemije. Sve veći broj proizvođača prelazi na&nbsp;ekološki uzgoj.\u003C/p\u003E\n\n\n\n\u003Cp class=\"is-style-text-subtitle\"\u003EBerba i prerada – ključ kvalitete ulja\u003C/p\u003E\n\n\n\n\u003Cfigure class=\"wp-block-image is-resized\"\u003E\u003Cimg loading=\"lazy\" decoding=\"async\" width=\"192\" height=\"144\" src=\"https://front2.edukacija.online/backend/wp-content/uploads/2026/01/berba.jpg\" alt=\"\" class=\"wp-image-406\" style=\"width:303px;height:auto\"/\u003E\u003C/figure\u003E\n\n\n\n\u003Cp\u003EBerba maslina u Dalmaciji obično počinje krajem&nbsp;listopada&nbsp;i traje do&nbsp;kraja studenog, ovisno o sorti i klimatskim uvjetima.\u003C/p\u003E\n\n\n\n\u003Cp\u003EMetode berbe:\u003C/p\u003E\n\n\n\n\u003Cp\u003ERučna berba&nbsp;– tradicionalna, ali radno intenzivna. Idealna za male maslinike.\u003C/p\u003E\n\n\n\n\u003Cp\u003EStrojna berba tresačima&nbsp;– sve češća kod intenzivnih nasada.\u003C/p\u003E\n\n\n\n\u003Cp\u003EMasline se prerađuju u&nbsp;uljari&nbsp;unutar 24 sata od berbe, kako bi se očuvala kvaliteta ulja. Najkvalitetnije ulje dobiva se&nbsp;hladnim prešanjem&nbsp;i skladišti se u&nbsp;inox posudama, zaštićeno od svjetla i kisika.\u003C/p\u003E\n\n\n\n\u003Cp\u003ETržište i vrijednost dalmatinskog maslinovog ulja\u003C/p\u003E\n\n\n\n\u003Cfigure class=\"wp-block-image is-resized\"\u003E\u003Cimg loading=\"lazy\" decoding=\"async\" width=\"190\" height=\"265\" src=\"https://front2.edukacija.online/backend/wp-content/uploads/2026/01/blog9d.jpg\" alt=\"Povijest maslinarstva u Dalmaciji\" class=\"wp-image-404\" style=\"width:280px;height:auto\"/\u003E\u003C/figure\u003E\n\n\n\n\u003Cp\u003EDalmatinsko maslinovo ulje&nbsp;ima veliki ugled na tržištu, osobito kada dolazi iz autohtonih sorti poput Oblice i Lastovke. Brojna ulja s hrvatskih otoka i obale redovito osvajaju međunarodne nagrade.\u003C/p\u003E\n\n\n\n\u003Cp\u003ETrendovi pokazuju:\u003C/p\u003E\n\n\n\n\u003Cp\u003EPorast interesa za&nbsp;ekstra djevičansko maslinovo ulje\u003C/p\u003E\n\n\n\n\u003Cp\u003ETraženje&nbsp;organskih i autentičnih proizvoda\u003C/p\u003E\n\n\n\n\u003Cp\u003EKupci sve više cijene&nbsp;lokalni i ručno proizveden proizvod\u003C/p\u003E\n\n\n\n\u003Cp\u003EUlje s oznakom “ekstra djevičansko” mora imati kiselost manju od 0.8.\u003C/p\u003E\n\n\n\n\u003Cp class=\"is-style-text-subtitle\"\u003EEkološki i održivi uzgoj – budućnost maslinarstva\u003C/p\u003E\n\n\n\n\u003Cp\u003EMaslinarstvo u Dalmaciji sve više ide u smjeru&nbsp;održive i ekološke proizvodnje. Ekološki uzgoj zahtijeva strože standarde, ali donosi i veću tržišnu vrijednost proizvoda. Mnogi OPG-ovi već su certificirani ili u prijelaznom razdoblju.\u003C/p\u003E\n\n\n\n\u003Cp\u003EPrednosti ekološkog uzgoja:\u003C/p\u003E\n\n\n\n\u003Cp\u003EViša cijena proizvoda\u003C/p\u003E\n\n\n\n\u003Cp\u003EOčuvanje tla i bioraznolikosti\u003C/p\u003E\n\n\n\n\u003Cp\u003ESmanjena upotreba pesticida\u003C/p\u003E\n\n\n\n\u003Cp\u003EZdraviji proizvod za potrošače\u003C/p\u003E\n\n\n\n\u003Cp\u003EUz to, sve više mladih maslinara koristi&nbsp;digitalne alate, aplikacije i senzore za praćenje vlažnosti tla, temperature i zdravlja biljaka, čime se optimizira uzgoj povećava produktivnost.\u003C/p\u003E\n\n\n\n\u003Chr class=\"wp-block-separator has-alpha-channel-opacity\"/\u003E\n\n\n\n\u003Cp class=\"is-style-text-subtitle\"\u003EZaključak – zašto je uzgoj maslina u Dalmaciji pametna odluka?\u003C/p\u003E\n\n\n\n\u003Cp\u003EUzgoj maslina u Dalmaciji nije samo isplativ, već i&nbsp;dugoročno održiv posao. Klima, tlo, tradicija i sve veći interes tržišta za kvalitetnim domaćim uljem čine ovu granu poljoprivrede izuzetno perspektivnom.\u003C/p\u003E\n\n\n\n\u003Cp\u003EBez obzira jeste li mali uzgajivač s nekoliko stabala, ili ozbiljan proizvođač s tisućama sadnica, Dalmacija nudi sve uvjete za uspješan maslinik. Kroz ulaganje u znanje, kvalitetne sorte i ekološke metode, možete stvoriti brend koji će trajati generacijama.\u003C/p\u003E\n\n\n\u003Cdiv class=\"wp-block-image\"\u003E\n\u003Cfigure class=\"aligncenter\"\u003E\u003Cimg loading=\"lazy\" decoding=\"async\" width=\"1600\" height=\"1200\" src=\"https://front2.edukacija.online/backend/wp-content/uploads/2026/01/blog9.jpg\" alt=\"\" class=\"wp-image-400\" srcset=\"https://front2.edukacija.online/backend/wp-content/uploads/2026/01/blog9.jpg 1600w, https://front2.edukacija.online/backend/wp-content/uploads/2026/01/blog9-300x225.jpg 300w, https://front2.edukacija.online/backend/wp-content/uploads/2026/01/blog9-1024x768.jpg 1024w, https://front2.edukacija.online/backend/wp-content/uploads/2026/01/blog9-768x576.jpg 768w, https://front2.edukacija.online/backend/wp-content/uploads/2026/01/blog9-1536x1152.jpg 1536w\" sizes=\"auto, (max-width: 1600px) 100vw, 1600px\" /\u003E\u003C/figure\u003E\n\u003C/div\u003E\n\n\n\u003Cp\u003E\u003C/p\u003E\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "\u003Cp\u003EMaslinarstvo u Dalmaciji&nbsp;nije samo poljoprivredna aktivnost, već i dio identiteta, kulture i povijesti ovoga kraja. Ova mediteranska regija, s idealnim klimatskim uvjetima i tisućljetnom tradicijom uzgoja masline, danas sve više koristi moderne tehnike kako bi povećala prinose i poboljšala kvalitetu ulja. Maslina se na području Dalmacije uzgaja još od&nbsp;ilirskih i rimskih vremena. Arheološki nalazi i&#8230;\u003C/p\u003E\n",
+      "protected": false
+    },
+    "author": 2,
+    "featured_media": 405,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": {
+      "_acf_changed": false,
+      "_kad_post_transparent": "",
+      "_kad_post_title": "",
+      "_kad_post_layout": "",
+      "_kad_post_sidebar_id": "",
+      "_kad_post_content_style": "",
+      "_kad_post_vertical_padding": "",
+      "_kad_post_feature": "",
+      "_kad_post_feature_position": "",
+      "_kad_post_header": false,
+      "_kad_post_footer": false,
+      "_kad_post_classname": "",
+      "footnotes": ""
+    },
+    "categories": [13, 14],
+    "tags": [39],
+    "class_list": [
+      "post-399",
+      "post",
+      "type-post",
+      "status-publish",
+      "format-standard",
+      "has-post-thumbnail",
+      "hentry",
+      "category-blog",
+      "category-blogovi",
+      "tag-povijest-maslinarstva"
+    ],
+    "acf": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/399",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/types/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/2"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/comments?post=399"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 3,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/399/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 412,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/399/revisions/412"
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media/405"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media?parent=399"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "category",
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories?post=399"
+        },
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags?post=399"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    },
+    "_embedded": {
+      "author": [
+        {
+          "id": 2,
+          "name": "Antonia Majdandžić",
+          "url": "",
+          "description": "",
+          "link": "https://front2.edukacija.online/backend/author/antonia/",
+          "slug": "antonia",
+          "avatar_urls": {
+            "24": "https://secure.gravatar.com/avatar/1b2420ca66446b54080a9d53a986af0ab4400d07ea9c7ce9f3d64f97a97cb0d2?s=24&d=mm&r=g",
+            "48": "https://secure.gravatar.com/avatar/1b2420ca66446b54080a9d53a986af0ab4400d07ea9c7ce9f3d64f97a97cb0d2?s=48&d=mm&r=g",
+            "96": "https://secure.gravatar.com/avatar/1b2420ca66446b54080a9d53a986af0ab4400d07ea9c7ce9f3d64f97a97cb0d2?s=96&d=mm&r=g"
+          },
+          "acf": [],
+          "_links": {
+            "self": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/2",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users"
+              }
+            ]
+          }
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "id": 405,
+          "date": "2026-01-11T19:53:21",
+          "slug": "povijest-maslinarstva",
+          "type": "attachment",
+          "link": "https://front2.edukacija.online/backend/novosti/blog/povijest-maslinarstva-u-dalmaciji/attachment/povijest-maslinarstva/",
+          "title": {
+            "rendered": ""
+          },
+          "author": 2,
+          "featured_media": 0,
+          "acf": [],
+          "caption": {
+            "rendered": ""
+          },
+          "alt_text": "",
+          "media_type": "image",
+          "mime_type": "image/png",
+          "media_details": {
+            "width": 500,
+            "height": 365,
+            "file": "2026/01/povijest-maslinarstva.png",
+            "filesize": 398677,
+            "sizes": {
+              "medium": {
+                "file": "povijest-maslinarstva-300x219.png",
+                "width": 300,
+                "height": 219,
+                "filesize": 136898,
+                "mime_type": "image/png",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/povijest-maslinarstva-300x219.png"
+              },
+              "thumbnail": {
+                "file": "povijest-maslinarstva-150x150.png",
+                "width": 150,
+                "height": 150,
+                "filesize": 48418,
+                "mime_type": "image/png",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/povijest-maslinarstva-150x150.png"
+              },
+              "full": {
+                "file": "povijest-maslinarstva.png",
+                "width": 500,
+                "height": 365,
+                "mime_type": "image/png",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/povijest-maslinarstva.png"
+              }
+            },
+            "image_meta": {
+              "aperture": "0",
+              "credit": "",
+              "camera": "",
+              "caption": "",
+              "created_timestamp": "0",
+              "copyright": "",
+              "focal_length": "0",
+              "iso": "0",
+              "shutter_speed": "0",
+              "title": "",
+              "orientation": "0",
+              "keywords": []
+            }
+          },
+          "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/povijest-maslinarstva.png",
+          "_links": {
+            "self": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media/405",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media"
+              }
+            ],
+            "about": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/types/attachment"
+              }
+            ],
+            "author": [
+              {
+                "embeddable": true,
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/2"
+              }
+            ],
+            "replies": [
+              {
+                "embeddable": true,
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/comments?post=405"
+              }
+            ],
+            "wp:attached-to": [
+              {
+                "embeddable": true,
+                "post_type": "post",
+                "id": 399,
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/399"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        }
+      ],
+      "wp:term": [
+        [
+          {
+            "id": 13,
+            "link": "https://front2.edukacija.online/backend/category/novosti/blog/",
+            "name": "BLOG",
+            "slug": "blog",
+            "taxonomy": "category",
+            "acf": [],
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories/13",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/category"
+                }
+              ],
+              "up": [
+                {
+                  "embeddable": true,
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories/1"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?categories=13"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          },
+          {
+            "id": 14,
+            "link": "https://front2.edukacija.online/backend/category/blogovi/",
+            "name": "Blogovi",
+            "slug": "blogovi",
+            "taxonomy": "category",
+            "acf": [],
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories/14",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/category"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?categories=14"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "id": 39,
+            "link": "https://front2.edukacija.online/backend/tag/povijest-maslinarstva/",
+            "name": "povijest maslinarstva",
+            "slug": "povijest-maslinarstva",
+            "taxonomy": "post_tag",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags/39",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/post_tag"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?tags=39"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "id": 390,
+    "date": "2026-01-11T19:49:02",
+    "date_gmt": "2026-01-11T18:49:02",
+    "guid": {
+      "rendered": "https://front2.edukacija.online/backend/?p=390"
+    },
+    "modified": "2026-01-11T19:49:02",
+    "modified_gmt": "2026-01-11T18:49:02",
+    "slug": "recepti-sa-maslinovim-uljem",
+    "status": "publish",
+    "type": "post",
+    "link": "https://front2.edukacija.online/backend/novosti/blog/recepti-sa-maslinovim-uljem/",
+    "title": {
+      "rendered": "Recepti sa maslinovim uljem"
+    },
+    "content": {
+      "rendered": "\n\u003Cp\u003E\u003C/p\u003E\n\n\n\n\u003Cp class=\"is-style-text-subtitle has-x-large-font-size\"\u003ERiba sa maslinovim uljem\u003C/p\u003E\n\n\n\n\u003Cfigure class=\"wp-block-image size-medium\"\u003E\u003Cimg loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"200\" src=\"https://front2.edukacija.online/backend/wp-content/uploads/2026/01/riba-300x200.jpg\" alt=\"Riba sa maslinovim uljem\" class=\"wp-image-395\" srcset=\"https://front2.edukacija.online/backend/wp-content/uploads/2026/01/riba-300x200.jpg 300w, https://front2.edukacija.online/backend/wp-content/uploads/2026/01/riba-768x511.jpg 768w, https://front2.edukacija.online/backend/wp-content/uploads/2026/01/riba.jpg 940w\" sizes=\"auto, (max-width: 300px) 100vw, 300px\" /\u003E\u003C/figure\u003E\n\n\n\n\u003Cp\u003ESastojci\u003C/p\u003E\n\n\n\n\u003Cp\u003Ebrancin ili arbun, trebat će vam 1 kg ribe za 4 osobe ili pola kile za 2\u003C/p\u003E\n\n\n\n\u003Cp\u003Emaslinovo ulje\u003C/p\u003E\n\n\n\n\u003Cp\u003Eperšin, krasuljica, ružmarin i majčina dušica (pomiješano)\u003C/p\u003E\n\n\n\n\u003Cp\u003E1 list lovora\u003C/p\u003E\n\n\n\n\u003Cp\u003E1 korijen komorača, fino sjeckan\u003C/p\u003E\n\n\n\n\u003Cp\u003E1 do 2&nbsp;prepolovljena limuna\u003C/p\u003E\n\n\n\n\u003Cp\u003EPo porciji\u003C/p\u003E\n\n\n\n\u003Cp\u003E225 kalorija\u003C/p\u003E\n\n\n\n\u003Cp\u003E36,9 g proteina\u003C/p\u003E\n\n\n\n\u003Cp\u003E2,2 g ugljikohidrata\u003C/p\u003E\n\n\n\n\u003Cp\u003E7,6 g masti\u003C/p\u003E\n\n\n\n\u003Cp\u003E1,2 g zasićenih masti\u003C/p\u003E\n\n\n\n\u003Cp\u003E0,7 g vlakna\u003C/p\u003E\n\n\n\n\u003Cp\u003E0,72 g soli\u003C/p\u003E\n\n\n\n\u003Cp\u003EPriprema:\u003C/p\u003E\n\n\n\n\u003Cp\u003EZagrijte pećnicu na 190 stupnjeva (plinska na 5). Ribu isperite,ocijedite i položite u plitku tepsiju – prelijte ju s malo maslinova ulja. Začinskim biljem i komoračem napunite&nbsp;ribu. Dobro začinite i dobro pošpricajte s maslinovim uljem. Tepsiju također prije namažite uljem kako&nbsp;se ne bi zalijepilo.\u003C/p\u003E\n\n\n\n\u003Cp\u003EZagrijte malo maslinovog ulja u tavi i pržite&nbsp;izrezane limune nekoliko&nbsp;minuta licem prema dolje. Prebacite ih u tepsiju i stavite oko ribe. Pecite sve zajedno 20-30 minuta ili dok se riba ne skuha (pogledajte ribu, meso bi trebalo biti neprozirno). Ribu poslužite na velikom ovalu okruženu pečenim limunima.\u003C/p\u003E\n\n\n\n\u003Cp class=\"is-style-text-subtitle\"\u003ESalata od hobotnice za 4 osobe\u003C/p\u003E\n\n\n\n\u003Cfigure class=\"wp-block-image size-medium\"\u003E\u003Cimg loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"199\" src=\"https://front2.edukacija.online/backend/wp-content/uploads/2026/01/hobotnica-300x199.jpg\" alt=\"\" class=\"wp-image-393\" srcset=\"https://front2.edukacija.online/backend/wp-content/uploads/2026/01/hobotnica-300x199.jpg 300w, https://front2.edukacija.online/backend/wp-content/uploads/2026/01/hobotnica-768x510.jpg 768w, https://front2.edukacija.online/backend/wp-content/uploads/2026/01/hobotnica.jpg 940w\" sizes=\"auto, (max-width: 300px) 100vw, 300px\" /\u003E\u003C/figure\u003E\n\n\n\n\u003Cp\u003EHobotnica&nbsp;je odlična na sve načine, ukoliko je volite. No sigurno se svima barem jednom dogodilo da je meso hobotnice ostalo žilavo, a to tek primijetimo kada je sve već gotovo. Kako vam se to ne bi dogodilo i meso bilo&nbsp;savršeno mekano, hobotnica prije samog spremanja obavezno mora biti &nbsp;smrznuta. Ukoliko se odlučite kupiti svježu hobotnicu, računajte da ju kupite dan ranije, kako bi je stigli smrznuti.\u003Cbr\u003EMali savjet pri kupovini svježe hobotnice:&nbsp;kako znati da li je hobotnica svježa?&nbsp;Mišići tijela joj moraju biti čvrsti i žilavi, kao da je upravo odradila trening krakova, koža joj mora biti vlažna i bez sluzi, a i miris mora se mora osjetiti, budući&nbsp;je nedavno&nbsp;plivala u njemu.\u003C/p\u003E\n\n\n\n\u003Cp\u003EUkoliko ste kupili svježu i neočišćenu hobotnicu, obavezno joj očistite i odstranite&nbsp;utrobu, oči, zube i ogulite vanjsku opnu (ako vam je gadljiva) te dobro isperite pod toplom vodom i obavezno zamrznite.\u003C/p\u003E\n\n\n\n\u003Cp\u003E\u003Cem\u003E4 koraka za savršenu hobotnicu:\u003C/em\u003E\u003C/p\u003E\n\n\n\n\u003Cp\u003Ezamrznite hobotnicu (kako bi s kuhanjem dobili mekano meso)\u003C/p\u003E\n\n\n\n\u003Cp\u003Ekuhajte hobotnicu oko 60 minuta uz pluteni čep ili u express-loncu\u003C/p\u003E\n\n\n\n\u003Cp\u003Eisperite hobotnicu i ostavite da se ohladi\u003C/p\u003E\n\n\n\n\u003Cp\u003Enarežite na kolutiće širine do 1 cm\u003C/p\u003E\n\n\n\n\u003Cp\u003EGlavni sastojci za 4 osobe\u003C/p\u003E\n\n\n\n\u003Cp\u003E1,5&nbsp;kg hobotnice\u003C/p\u003E\n\n\n\n\u003Cp\u003E1 manja glavica luka (sitno narezana)\u003C/p\u003E\n\n\n\n\u003Cp\u003E3 češnja češnjaka (sitno narezana)\u003C/p\u003E\n\n\n\n\u003Cp\u003E2 žlice sjeckanog peršina\u003C/p\u003E\n\n\n\n\u003Cp\u003E4&nbsp;žlica maslinovog ulja\u003C/p\u003E\n\n\n\n\u003Cp\u003E2&nbsp;žlice aceta balsamica\u003C/p\u003E\n\n\n\n\u003Cp\u003E1/2 limuna\u003C/p\u003E\n\n\n\n\u003Cp\u003Esol i papar po ukusu\u003C/p\u003E\n\n\n\n\u003Cp\u003Ekapari\u003C/p\u003E\n\n\n\n\u003Cp\u003Emasline\u003C/p\u003E\n\n\n\n\u003Cp\u003Eparmezan\u003C/p\u003E\n\n\n\n\u003Cp\u003EDodatni sastojci za igranje s raznim kombinacijama salate s hobotnicom:\u003C/p\u003E\n\n\n\n\u003Cp\u003Ekrumpir (narezati na komade i skuhati u posoljenoj vodi)\u003C/p\u003E\n\n\n\n\u003Cp\u003Erikola (svježa)\u003C/p\u003E\n\n\n\n\u003Cp\u003Ematovilac (svjež)\u003C/p\u003E\n\n\n\n\u003Cp\u003Echerry rajčica (svježe narezano)\u003C/p\u003E\n\n\n\n\u003Cp\u003Ejabuka (oguljena i narezana)\u003C/p\u003E\n\n\n\n\u003Cp\u003Emrkva\u003C/p\u003E\n\n\n\n\u003Cp class=\"is-style-text-subtitle\"\u003ESalata od tune i tjestenine\u003C/p\u003E\n\n\n\n\u003Cfigure class=\"wp-block-image size-medium\"\u003E\u003Cimg loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"160\" src=\"https://front2.edukacija.online/backend/wp-content/uploads/2026/01/salata-od-tune-300x160.jpg\" alt=\"\" class=\"wp-image-396\" srcset=\"https://front2.edukacija.online/backend/wp-content/uploads/2026/01/salata-od-tune-300x160.jpg 300w, https://front2.edukacija.online/backend/wp-content/uploads/2026/01/salata-od-tune-768x409.jpg 768w, https://front2.edukacija.online/backend/wp-content/uploads/2026/01/salata-od-tune.jpg 940w\" sizes=\"auto, (max-width: 300px) 100vw, 300px\" /\u003E\u003C/figure\u003E\n\n\n\n\u003Cp\u003EVolite tunu i tjesteninu? Donosimo vam lagani i osvježavajući recept.\u003C/p\u003E\n\n\n\n\u003Cp\u003ESASTOJCI:\u003C/p\u003E\n\n\n\n\u003Cp\u003E100 g tjestenine ( preporučujemo integralnu)\u003C/p\u003E\n\n\n\n\u003Cp\u003E1 žlica maslinovog ulja\u003C/p\u003E\n\n\n\n\u003Cp\u003E2 male žlice limunovog soka\u003C/p\u003E\n\n\n\n\u003Cp\u003E200 g tune\u003C/p\u003E\n\n\n\n\u003Cp\u003Epo želji kukuruz\u003C/p\u003E\n\n\n\n\u003Cp\u003EPriprema:\u003C/p\u003E\n\n\n\n\u003Cp\u003ESkuhati tjesteninu\u003C/p\u003E\n\n\n\n\u003Cp\u003ETunu dobro ocijediti, zatim razlomiti na manje komadiće\u003C/p\u003E\n\n\n\n\u003Cp\u003EPomiješati maslinove ulje i limunov sok\u003C/p\u003E\n\n\n\n\u003Cp\u003EJogurt za umak\u003C/p\u003E\n\n\n\n\u003Cp\u003EPomiješati skuhanu i ocijeđenu tjesteninu s tunom, kukuruzom i na kraju umiješati umak\u003C/p\u003E\n\n\n\n\u003Cp class=\"is-style-text-subtitle\"\u003EMorski pas s kuhanom blitvom, krumpirom i azuki grahom\u003C/p\u003E\n\n\n\n\u003Cfigure class=\"wp-block-image size-medium\"\u003E\u003Cimg loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"160\" src=\"https://front2.edukacija.online/backend/wp-content/uploads/2026/01/morski-pas-300x160.jpg\" alt=\"\" class=\"wp-image-394\" srcset=\"https://front2.edukacija.online/backend/wp-content/uploads/2026/01/morski-pas-300x160.jpg 300w, https://front2.edukacija.online/backend/wp-content/uploads/2026/01/morski-pas-768x409.jpg 768w, https://front2.edukacija.online/backend/wp-content/uploads/2026/01/morski-pas.jpg 940w\" sizes=\"auto, (max-width: 300px) 100vw, 300px\" /\u003E\u003C/figure\u003E\n\n\n\n\u003Cp\u003ESASTOJCI OBROKA:\u003C/p\u003E\n\n\n\n\u003Cp\u003Emorski pas na žaru\u003C/p\u003E\n\n\n\n\u003Cp\u003Ekuhana blitva i krumpir\u003C/p\u003E\n\n\n\n\u003Cp\u003Eazuki grah\u003C/p\u003E\n\n\n\n\u003Cp\u003Eribani celer\u003C/p\u003E\n\n\n\n\u003Cp\u003Eklice\u003C/p\u003E\n\n\n\n\u003Cp\u003Esjemenke buče\u003C/p\u003E\n\n\n\n\u003Cp\u003Emaslinovo ulje, sol, češnjak\u003C/p\u003E\n\n\n\n\u003Cp\u003EPRIPREMA:\u003C/p\u003E\n\n\n\n\u003Cp\u003EIspecite file morskog psa na žaru.&nbsp;Meso morskog psa je bogato proteinima, i sadrži jako malo masti.&nbsp;Nutritivno nije snažna namirnica kao neke druge bijele ribe, ali je izuzetno privlačnog okusa, u obliku file-a lagan za pripravu i niže cijene od manjih bijelih riba.\u003C/p\u003E\n\n\n\n\u003Cp\u003EKrumpir&nbsp;ogulite i narežite na kocke te skuhajte.&nbsp;Vilica mora lagano ulaziti, ali pazite da ne prekuhate.\u003C/p\u003E\n\n\n\n\u003Cp\u003EDok je krumpir još al dente dodajte&nbsp;svježu blitvu&nbsp;kojoj ste odrezali stabljiku. Ovako pripremljenu blitvu s krumpirom ocijedite te zalijte s malo&nbsp;maslinova ulja, soli i češnjaka.\u003C/p\u003E\n\n\n\n\u003Cp\u003EAzuki grah&nbsp;je jakog i slatkastog okusa. Prije kuhanja ga treba dobro oprati i ocijediti, a u slučaju da želite poboljšati njegovu probavljivost, namačite ga prije kuhanja nekoliko sati.\u003C/p\u003E\n\n\n\n\u003Cp class=\"is-style-text-subtitle\"\u003EBruschette s posnim sirom i rajčicama\u003C/p\u003E\n\n\n\n\u003Cfigure class=\"wp-block-image size-medium\"\u003E\u003Cimg loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"201\" src=\"https://front2.edukacija.online/backend/wp-content/uploads/2026/01/bruschette-300x201.jpg\" alt=\"Bruscette\" class=\"wp-image-397\" srcset=\"https://front2.edukacija.online/backend/wp-content/uploads/2026/01/bruschette-300x201.jpg 300w, https://front2.edukacija.online/backend/wp-content/uploads/2026/01/bruschette-768x514.jpg 768w, https://front2.edukacija.online/backend/wp-content/uploads/2026/01/bruschette.jpg 940w\" sizes=\"auto, (max-width: 300px) 100vw, 300px\" /\u003E\u003C/figure\u003E\n\n\n\n\u003Cp\u003EBruschette s posnim sirom (ili zrnatim) i rajčicama&nbsp;su vrlo jednostavan i zdrav recept, za koji vam treba svega par namirnica.&nbsp;\u003C/p\u003E\n\n\n\n\u003Cp\u003ESASTOJCI:\u003C/p\u003E\n\n\n\n\u003Cp\u003Efrancuski kruh tj. francuz (s maslina, integralni ili kukuruzni – sve ovisi o vašem ukusu)\u003Cbr\u003E1 kruh je za otprilike 20 bruchettica\u003C/p\u003E\n\n\n\n\u003Cp\u003Emargarin sa mediteranskim začinima\u003C/p\u003E\n\n\n\n\u003Cp\u003E0.5kg posnog sira ili zrnatog sira\u003C/p\u003E\n\n\n\n\u003Cp\u003E1 kiselo vrhnje\u003C/p\u003E\n\n\n\n\u003Cp\u003Ezačini (vegeta, sol, papar i&nbsp;maslinovo ulje)\u003C/p\u003E\n\n\n\n\u003Cp\u003Ezačin crvene paprike\u003C/p\u003E\n\n\n\n\u003Cp\u003E3 rajčice\u003C/p\u003E\n\n\n\n\u003Cp\u003EBRZINSKO PRIPREMANJE:\u003C/p\u003E\n\n\n\n\u003Cp\u003E1. DIO (kruh)\u003C/p\u003E\n\n\n\n\u003Cp\u003Eugrijte pečnicu na 200*C da se zgrije dok vi ne pripremite sve sastojke\u003C/p\u003E\n\n\n\n\u003Cp\u003Enarežite kruh na šnite po dijagonali debljine 1 cm (nareže pod kutom od 45*)\u003C/p\u003E\n\n\n\n\u003Cp\u003Enamažite margarin sa začinskim biljem na sve&nbsp;šnite\u003C/p\u003E\n\n\n\n\u003Cp\u003Eposložite ploške na rešetke pečnice\u003C/p\u003E\n\n\n\n\u003Cp\u003Epečnica se ugrijala na 200*C, tako da ih pecite 10tak minuta (dok se gornji sloj fino zapeče i rubovi pocrne)\u003C/p\u003E\n\n\n\n\u003Cp\u003E2. DIO (namaz od sira)\u003C/p\u003E\n\n\n\n\u003Cp\u003Epomiješajte posni sir + kiselo vrhnje + malo crvene paprike + sol + papar\u003C/p\u003E\n\n\n\n\u003Cp\u003E3. DIO (začinjene rajčice)\u003C/p\u003E\n\n\n\n\u003Cp\u003Enarežite rajčice na male komadiće (5*5 mm)\u003C/p\u003E\n\n\n\n\u003Cp\u003Edodajte onaj sitni dio vegete i maslinovog ulja, te pomiješajte\u003C/p\u003E\n\n\n\n\u003Cp\u003ESada slijedi onaj najzanimljiviji dio, slaganje bruschetta. Slažite ih ovim redosljedom:&nbsp;namažite sirni namaz na kruh te posložite rajčice na vrh.\u003C/p\u003E\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "\u003Cp\u003ERiba sa maslinovim uljem Sastojci brancin ili arbun, trebat će vam 1 kg ribe za 4 osobe ili pola kile za 2 maslinovo ulje peršin, krasuljica, ružmarin i majčina dušica (pomiješano) 1 list lovora 1 korijen komorača, fino sjeckan 1 do 2&nbsp;prepolovljena limuna Po porciji 225 kalorija 36,9 g proteina 2,2 g ugljikohidrata 7,6 g&#8230;\u003C/p\u003E\n",
+      "protected": false
+    },
+    "author": 2,
+    "featured_media": 392,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": {
+      "_acf_changed": false,
+      "_kad_post_transparent": "",
+      "_kad_post_title": "",
+      "_kad_post_layout": "",
+      "_kad_post_sidebar_id": "",
+      "_kad_post_content_style": "",
+      "_kad_post_vertical_padding": "",
+      "_kad_post_feature": "",
+      "_kad_post_feature_position": "",
+      "_kad_post_header": false,
+      "_kad_post_footer": false,
+      "_kad_post_classname": "",
+      "footnotes": ""
+    },
+    "categories": [13, 14],
+    "tags": [35, 38, 33, 34, 36, 37],
+    "class_list": [
+      "post-390",
+      "post",
+      "type-post",
+      "status-publish",
+      "format-standard",
+      "has-post-thumbnail",
+      "hentry",
+      "category-blog",
+      "category-blogovi",
+      "tag-bruscette",
+      "tag-morski-pas",
+      "tag-recepti-sa-maslinovim-uljem",
+      "tag-riba",
+      "tag-salata",
+      "tag-tuna"
+    ],
+    "acf": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/390",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/types/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/2"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/comments?post=390"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 1,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/390/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 398,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/390/revisions/398"
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media/392"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media?parent=390"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "category",
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories?post=390"
+        },
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags?post=390"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    },
+    "_embedded": {
+      "author": [
+        {
+          "id": 2,
+          "name": "Antonia Majdandžić",
+          "url": "",
+          "description": "",
+          "link": "https://front2.edukacija.online/backend/author/antonia/",
+          "slug": "antonia",
+          "avatar_urls": {
+            "24": "https://secure.gravatar.com/avatar/1b2420ca66446b54080a9d53a986af0ab4400d07ea9c7ce9f3d64f97a97cb0d2?s=24&d=mm&r=g",
+            "48": "https://secure.gravatar.com/avatar/1b2420ca66446b54080a9d53a986af0ab4400d07ea9c7ce9f3d64f97a97cb0d2?s=48&d=mm&r=g",
+            "96": "https://secure.gravatar.com/avatar/1b2420ca66446b54080a9d53a986af0ab4400d07ea9c7ce9f3d64f97a97cb0d2?s=96&d=mm&r=g"
+          },
+          "acf": [],
+          "_links": {
+            "self": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/2",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users"
+              }
+            ]
+          }
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "id": 392,
+          "date": "2026-01-11T19:40:45",
+          "slug": "olive-oil-with-herbs",
+          "type": "attachment",
+          "link": "https://front2.edukacija.online/backend/novosti/blog/recepti-sa-maslinovim-uljem/attachment/olive-oil-with-herbs/",
+          "title": {
+            "rendered": "Olive oil with herbs"
+          },
+          "author": 2,
+          "featured_media": 0,
+          "acf": [],
+          "caption": {
+            "rendered": "\u003Cp\u003EOlive oil with fresh herbs on wooden background.\u003C/p\u003E\n"
+          },
+          "alt_text": "Recepti sa maslinovim uljem",
+          "media_type": "image",
+          "mime_type": "image/jpeg",
+          "media_details": {
+            "width": 1024,
+            "height": 683,
+            "file": "2026/01/blog8a.jpg",
+            "filesize": 221453,
+            "sizes": {
+              "medium": {
+                "file": "blog8a-300x200.jpg",
+                "width": 300,
+                "height": 200,
+                "filesize": 29982,
+                "mime_type": "image/jpeg",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/blog8a-300x200.jpg"
+              },
+              "thumbnail": {
+                "file": "blog8a-150x150.jpg",
+                "width": 150,
+                "height": 150,
+                "filesize": 18399,
+                "mime_type": "image/jpeg",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/blog8a-150x150.jpg"
+              },
+              "medium_large": {
+                "file": "blog8a-768x512.jpg",
+                "width": 768,
+                "height": 512,
+                "filesize": 124850,
+                "mime_type": "image/jpeg",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/blog8a-768x512.jpg"
+              },
+              "full": {
+                "file": "blog8a.jpg",
+                "width": 1024,
+                "height": 683,
+                "mime_type": "image/jpeg",
+                "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/blog8a.jpg"
+              }
+            },
+            "image_meta": {
+              "aperture": "11",
+              "credit": "Dusan Zidar",
+              "camera": "NIKON D800",
+              "caption": "Olive oil with fresh herbs on wooden background.",
+              "created_timestamp": "1449139807",
+              "copyright": "Dusan Zidar",
+              "focal_length": "50",
+              "iso": "100",
+              "shutter_speed": "0.005",
+              "title": "Olive oil with herbs",
+              "orientation": "1",
+              "keywords": [
+                "oil",
+                "olive",
+                "virgin",
+                "extra",
+                "pouring",
+                "greek",
+                "gourmet",
+                "close",
+                "food",
+                "flow",
+                "spanish",
+                "italian",
+                "clear",
+                "natural",
+                "dripping",
+                "liquid",
+                "yellow",
+                "healthy",
+                "transparent",
+                "cuisine",
+                "mediterranean",
+                "ingredient",
+                "golden",
+                "cooking",
+                "eating",
+                "dressing",
+                "herbs",
+                "spaces",
+                "olives",
+                "olive fruit",
+                "thyme",
+                "rosemary",
+                "bowl",
+                "dish",
+                "soak"
+              ]
+            }
+          },
+          "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/blog8a.jpg",
+          "_links": {
+            "self": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media/392",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media"
+              }
+            ],
+            "about": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/types/attachment"
+              }
+            ],
+            "author": [
+              {
+                "embeddable": true,
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/2"
+              }
+            ],
+            "replies": [
+              {
+                "embeddable": true,
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/comments?post=392"
+              }
+            ],
+            "wp:attached-to": [
+              {
+                "embeddable": true,
+                "post_type": "post",
+                "id": 390,
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/390"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        }
+      ],
+      "wp:term": [
+        [
+          {
+            "id": 13,
+            "link": "https://front2.edukacija.online/backend/category/novosti/blog/",
+            "name": "BLOG",
+            "slug": "blog",
+            "taxonomy": "category",
+            "acf": [],
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories/13",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/category"
+                }
+              ],
+              "up": [
+                {
+                  "embeddable": true,
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories/1"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?categories=13"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          },
+          {
+            "id": 14,
+            "link": "https://front2.edukacija.online/backend/category/blogovi/",
+            "name": "Blogovi",
+            "slug": "blogovi",
+            "taxonomy": "category",
+            "acf": [],
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories/14",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/category"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?categories=14"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          }
+        ],
+        [
+          {
+            "id": 35,
+            "link": "https://front2.edukacija.online/backend/tag/bruscette/",
+            "name": "bruscette",
+            "slug": "bruscette",
+            "taxonomy": "post_tag",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags/35",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/post_tag"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?tags=35"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          },
+          {
+            "id": 38,
+            "link": "https://front2.edukacija.online/backend/tag/morski-pas/",
+            "name": "morski pas",
+            "slug": "morski-pas",
+            "taxonomy": "post_tag",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags/38",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/post_tag"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?tags=38"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          },
+          {
+            "id": 33,
+            "link": "https://front2.edukacija.online/backend/tag/recepti-sa-maslinovim-uljem/",
+            "name": "recepti sa maslinovim uljem",
+            "slug": "recepti-sa-maslinovim-uljem",
+            "taxonomy": "post_tag",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags/33",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/post_tag"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?tags=33"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          },
+          {
+            "id": 34,
+            "link": "https://front2.edukacija.online/backend/tag/riba/",
+            "name": "riba",
+            "slug": "riba",
+            "taxonomy": "post_tag",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags/34",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/post_tag"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?tags=34"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          },
+          {
+            "id": 36,
+            "link": "https://front2.edukacija.online/backend/tag/salata/",
+            "name": "salata",
+            "slug": "salata",
+            "taxonomy": "post_tag",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags/36",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/post_tag"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?tags=36"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          },
+          {
+            "id": 37,
+            "link": "https://front2.edukacija.online/backend/tag/tuna/",
+            "name": "tuna",
+            "slug": "tuna",
+            "taxonomy": "post_tag",
+            "_links": {
+              "self": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags/37",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags"
+                }
+              ],
+              "about": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/post_tag"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?tags=37"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          }
+        ]
+      ]
+    }
+  }
+]

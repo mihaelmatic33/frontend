@@ -1,7 +1,37 @@
+import { useState, useEffect } from "react";
+
+
+
+
 const BlogSingle = () => {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
+
+  useEffect(
+
+    () => {
+      fetch('https://front2.edukacija.online/backend/wp-json/wp/v2/posts/680?_embed')
+      .then(response => response.json())
+      .then(
+        (data) => {
+          setPosts(data);
+          console.log(data)
+        }
+      )
+      .catch((error) => {
+	console.log(error)
+})
+    }, []
+  )
+  console.log(posts)
+
+
   return (
     <>
-        
+        <div className='blog-single'>
+          <div class="masthead" style={{
+            backgroundImage: "url("+posts._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url+")"          }}>
         <div className="container">
           <div class="naslov align-items-center">
         <h1 class="naslov-blog text-center text-md-center text-uppercase mt-4 mb-3">
@@ -56,6 +86,8 @@ const BlogSingle = () => {
 
     </section>
     </div>
+        </div>
+        </div>
         </div>
         
     </>

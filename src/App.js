@@ -10,6 +10,10 @@ import Shop from './pages/Shop';
 import Contact from './pages/Contact';
 import Categories from './pages/Categories';
 import BlogSingle from './pages/BlogSingle';
+import Profil from "./components/zadaci/Profil";
+import Profilil from './components/zadaci/Profilil';
+import Tekstovi from './components/zadaci/Tekstovi';
+import Tecaj from './components/zadaci/tecaj';
 
 
 function App() {
@@ -24,6 +28,10 @@ function App() {
         <Route path='/shop' element={<Shop />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/blogsingle' element={<BlogSingle />} />
+        <Route path='/profil' element={<Profil />} />
+        <Route path='/profilil' element={<Profilil />} />
+        <Route path='/tekstovi' element={<Tekstovi />} />
+        <Route path='/tecaj' element={<Tecaj />} />
         
       </Routes>
       <Footer />

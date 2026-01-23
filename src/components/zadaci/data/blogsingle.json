@@ -1,0 +1,350 @@
+{
+  "id": 680,
+  "date": "2026-01-17T17:01:51",
+  "date_gmt": "2026-01-17T16:01:51",
+  "guid": {
+    "rendered": "https://front2.edukacija.online/backend/?p=680"
+  },
+  "modified": "2026-01-17T17:01:52",
+  "modified_gmt": "2026-01-17T16:01:52",
+  "slug": "slastice-iz-srca-slavonije",
+  "status": "publish",
+  "type": "post",
+  "link": "https://front2.edukacija.online/backend/hero-slider/slastice-iz-srca-slavonije/",
+  "title": {
+    "rendered": "Slastice iz srca Slavonije"
+  },
+  "content": {
+    "rendered": "\n\u003Cp\u003ERučno rađene torte za vaše najvažnije trenutke. Tradicija i kvaliteta u svakom zalogaju.\u003C/p\u003E\n",
+    "protected": false
+  },
+  "excerpt": {
+    "rendered": "\u003Cp\u003ERučno rađene torte za vaše najvažnije trenutke. Tradicija i kvaliteta u svakom zalogaju.\u003C/p\u003E\n",
+    "protected": false
+  },
+  "author": 10,
+  "featured_media": 681,
+  "comment_status": "open",
+  "ping_status": "open",
+  "sticky": false,
+  "template": "",
+  "format": "standard",
+  "meta": {
+    "_acf_changed": false,
+    "_kad_post_transparent": "",
+    "_kad_post_title": "",
+    "_kad_post_layout": "",
+    "_kad_post_sidebar_id": "",
+    "_kad_post_content_style": "",
+    "_kad_post_vertical_padding": "",
+    "_kad_post_feature": "",
+    "_kad_post_feature_position": "",
+    "_kad_post_header": false,
+    "_kad_post_footer": false,
+    "_kad_post_classname": "",
+    "footnotes": ""
+  },
+  "categories": [59],
+  "tags": [],
+  "class_list": [
+    "post-680",
+    "post",
+    "type-post",
+    "status-publish",
+    "format-standard",
+    "has-post-thumbnail",
+    "hentry",
+    "category-hero-slider"
+  ],
+  "acf": [],
+  "_links": {
+    "self": [
+      {
+        "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/680",
+        "targetHints": {
+          "allow": [
+            "GET"
+          ]
+        }
+      }
+    ],
+    "collection": [
+      {
+        "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts"
+      }
+    ],
+    "about": [
+      {
+        "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/types/post"
+      }
+    ],
+    "author": [
+      {
+        "embeddable": true,
+        "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/10"
+      }
+    ],
+    "replies": [
+      {
+        "embeddable": true,
+        "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/comments?post=680"
+      }
+    ],
+    "version-history": [
+      {
+        "count": 2,
+        "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/680/revisions"
+      }
+    ],
+    "predecessor-version": [
+      {
+        "id": 768,
+        "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/680/revisions/768"
+      }
+    ],
+    "wp:featuredmedia": [
+      {
+        "embeddable": true,
+        "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media/681"
+      }
+    ],
+    "wp:attachment": [
+      {
+        "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media?parent=680"
+      }
+    ],
+    "wp:term": [
+      {
+        "taxonomy": "category",
+        "embeddable": true,
+        "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories?post=680"
+      },
+      {
+        "taxonomy": "post_tag",
+        "embeddable": true,
+        "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/tags?post=680"
+      }
+    ],
+    "curies": [
+      {
+        "name": "wp",
+        "href": "https://api.w.org/{rel}",
+        "templated": true
+      }
+    ]
+  },
+  "_embedded": {
+    "author": [
+      {
+        "id": 10,
+        "name": "Antonio Birtić",
+        "url": "",
+        "description": "",
+        "link": "https://front2.edukacija.online/backend/author/abirtic/",
+        "slug": "abirtic",
+        "avatar_urls": {
+          "24": "https://secure.gravatar.com/avatar/c348af79dfa510161c16834eb19503de87b9fd91a1b3e21b4e2a73c3b28eb4cd?s=24&d=mm&r=g",
+          "48": "https://secure.gravatar.com/avatar/c348af79dfa510161c16834eb19503de87b9fd91a1b3e21b4e2a73c3b28eb4cd?s=48&d=mm&r=g",
+          "96": "https://secure.gravatar.com/avatar/c348af79dfa510161c16834eb19503de87b9fd91a1b3e21b4e2a73c3b28eb4cd?s=96&d=mm&r=g"
+        },
+        "acf": [],
+        "_links": {
+          "self": [
+            {
+              "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/10",
+              "targetHints": {
+                "allow": [
+                  "GET"
+                ]
+              }
+            }
+          ],
+          "collection": [
+            {
+              "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users"
+            }
+          ]
+        }
+      }
+    ],
+    "wp:featuredmedia": [
+      {
+        "id": 681,
+        "date": "2026-01-17T17:01:26",
+        "slug": "torta-hero-1",
+        "type": "attachment",
+        "link": "https://front2.edukacija.online/backend/hero-slider/slastice-iz-srca-slavonije/attachment/torta-hero-1/",
+        "title": {
+          "rendered": "torta-hero-1"
+        },
+        "author": 10,
+        "featured_media": 0,
+        "acf": [],
+        "caption": {
+          "rendered": ""
+        },
+        "alt_text": "Tota, posebna, tamburica.",
+        "media_type": "image",
+        "mime_type": "image/jpeg",
+        "media_details": {
+          "width": 1440,
+          "height": 1440,
+          "file": "2026/01/torta-hero-1.jpg",
+          "filesize": 237820,
+          "sizes": {
+            "medium": {
+              "file": "torta-hero-1-300x300.jpg",
+              "width": 300,
+              "height": 300,
+              "filesize": 14066,
+              "mime_type": "image/jpeg",
+              "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/torta-hero-1-300x300.jpg"
+            },
+            "large": {
+              "file": "torta-hero-1-1024x1024.jpg",
+              "width": 1024,
+              "height": 1024,
+              "filesize": 89136,
+              "mime_type": "image/jpeg",
+              "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/torta-hero-1-1024x1024.jpg"
+            },
+            "thumbnail": {
+              "file": "torta-hero-1-150x150.jpg",
+              "width": 150,
+              "height": 150,
+              "filesize": 5022,
+              "mime_type": "image/jpeg",
+              "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/torta-hero-1-150x150.jpg"
+            },
+            "medium_large": {
+              "file": "torta-hero-1-768x768.jpg",
+              "width": 768,
+              "height": 768,
+              "filesize": 58025,
+              "mime_type": "image/jpeg",
+              "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/torta-hero-1-768x768.jpg"
+            },
+            "full": {
+              "file": "torta-hero-1.jpg",
+              "width": 1440,
+              "height": 1440,
+              "mime_type": "image/jpeg",
+              "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/torta-hero-1.jpg"
+            }
+          },
+          "image_meta": {
+            "aperture": "0",
+            "credit": "",
+            "camera": "",
+            "caption": "",
+            "created_timestamp": "0",
+            "copyright": "",
+            "focal_length": "0",
+            "iso": "0",
+            "shutter_speed": "0",
+            "title": "",
+            "orientation": "0",
+            "keywords": []
+          }
+        },
+        "source_url": "https://front2.edukacija.online/backend/wp-content/uploads/2026/01/torta-hero-1.jpg",
+        "_links": {
+          "self": [
+            {
+              "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media/681",
+              "targetHints": {
+                "allow": [
+                  "GET"
+                ]
+              }
+            }
+          ],
+          "collection": [
+            {
+              "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/media"
+            }
+          ],
+          "about": [
+            {
+              "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/types/attachment"
+            }
+          ],
+          "author": [
+            {
+              "embeddable": true,
+              "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/users/10"
+            }
+          ],
+          "replies": [
+            {
+              "embeddable": true,
+              "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/comments?post=681"
+            }
+          ],
+          "wp:attached-to": [
+            {
+              "embeddable": true,
+              "post_type": "post",
+              "id": 680,
+              "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts/680"
+            }
+          ],
+          "curies": [
+            {
+              "name": "wp",
+              "href": "https://api.w.org/{rel}",
+              "templated": true
+            }
+          ]
+        }
+      }
+    ],
+    "wp:term": [
+      [
+        {
+          "id": 59,
+          "link": "https://front2.edukacija.online/backend/category/hero-slider/",
+          "name": "Hero slider",
+          "slug": "hero-slider",
+          "taxonomy": "category",
+          "acf": [],
+          "_links": {
+            "self": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories/59",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/categories"
+              }
+            ],
+            "about": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/taxonomies/category"
+              }
+            ],
+            "wp:post_type": [
+              {
+                "href": "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?categories=59"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        }
+      ],
+      []
+    ]
+  }
+}

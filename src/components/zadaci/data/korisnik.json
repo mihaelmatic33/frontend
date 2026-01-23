@@ -1,0 +1,22 @@
+
+
+  {
+        
+        "name" : "Mihael",
+        "surrname" : "Matić",
+        "godine" : 26,
+        "vozacka" : true,
+    "vjestine" : [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React"
+    ],
+    "adresa" : {
+        "ulica" : "Ul. Sv. Leopolda Mandića",
+        "grad" : "Zagreb",
+        "pbroj" : 10040
+    }
+
+  }
+
