@@ -1,12 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+import './Gutenberg.css'
 import './App.css';
 
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Blog from './pages/Blog';
-import Shop from './pages/Shop';
+import Mystery from './pages/Mystery';
 import Contact from './pages/Contact';
 import Categories from './pages/Categories';
 import BlogSingle from './pages/BlogSingle';
@@ -25,7 +26,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/categories' element={<Categories />} />
         <Route path='/blog' element={<Blog />} />
-        <Route path='/shop' element={<Shop />} />
+        <Route path='/mystery' element={<Mystery />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/blogsingle' element={<BlogSingle />} />
         <Route path='/profil' element={<Profil />} />
