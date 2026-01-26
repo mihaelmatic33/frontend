@@ -9,6 +9,13 @@
 .blog-post h2{
     font-size: 2rem;
 }
+.blog-page{
+    min-height: calc(100vh - 56px);
+}
+.blog-single{
+    min-height: calc(100vh - 56px);
+}
+
 
 @media(min-width: 440px){
     .blog-post img{

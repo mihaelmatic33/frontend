@@ -1,92 +1,71 @@
 import { useState, useEffect } from "react";
+import './Blog.css';
+import { useParams } from "react-router-dom";
+import Loader from "../components/Loader";
+
 
 
 
 
 const BlogSingle = () => {
+  const {slug} = useParams();
   const [posts, setPosts] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [page, setPage] = useState(1);
-
+  
   useEffect(
 
     () => {
-      fetch('https://front2.edukacija.online/backend/wp-json/wp/v2/posts/680?_embed')
+      fetch(`https://front2.edukacija.online/backend/wp-json/wp/v2/posts?slug=${slug}&_embed`)
       .then(response => response.json())
-      .then(
-        (data) => {
-          setPosts(data);
-          console.log(data)
-        }
+      .then((data) => setPosts(data[0]))
+        
+        }, [slug]
       )
-    }, []
-  )
+    
+  
   console.log(posts)
 
-  if(!posts) return <p>Ucitavanje</p>
+  if(!posts) return  <Loader />
   return (
     <>
-        <div className='blog-single'>
-          <div class="masthead" style={{
-            backgroundImage: "url("+posts._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url+")"          }}>
-        <div className="container">
-          <div class="naslov align-items-center">
-        <h1 class="naslov-blog text-center text-md-center text-uppercase mt-4 mb-3">
-          ručni satovi
-        </h1>
+        <div className="blog-single">
+      <div
+        class="masthead"
+        style={{
+          backgroundImage:
+            "url(" +
+            posts._embedded["wp:featuredmedia"][0].media_details.sizes.full
+              .source_url +
+            ")",
+        }}
+      >
+        <div class="container position-relative px-4 px-lg-5">
+          <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+              <div class="post-heading">
+                <h1>{posts.title.rendered}</h1>
+                <h2 class="subheading"></h2>
+                <span class="meta">
+                  Autor:
+                  <a href="#!">{posts._embedded.author[0].name}</a>,{" "}
+                  {new Date(posts.date).toLocaleDateString("hr-HR")}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="container-fluid align-items-center">
-        <img src="img/rucni-satovi-watch-centar-1.jpg" class="responziva" />
-      </div>
-      <div class="container">
-      <div class="container mt-5">
-        <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
-      <h2 class="prod-info text-center">
-        Ručni sat je odavno prestao biti puki instrument za mjerenje vremena. U
-        današnje je vrijeme on modni dodatak koji ponekad preuzima funkciju
-        nakita, a nerijetko je i statusni simbol te simbol prestiža. Ipak, nije
-        uvijek bilo tako.
-      </h2>
-      <div class="col-md-3"></div>
-      </div>
-      </div>
+      <article class="mb-4">
+        <div class="container px-4 px-lg-5">
+          <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+              <div
+                dangerouslySetInnerHTML={{ __html: posts.content.rendered }}
+              ></div>
+            </div>
+          </div>
+        </div>
+      </article>
     </div>
-    
-
-
-    <section class="prod-history mt-5 justify-content-between">
-      <div class="container">
-      <div class="row">
-      <div class="col-md-6">
-        <p class="history-tekst">Sve do kraja 19. stoljeća ručne su satove češće nosile žene nego muškarci. Muškarcima je džepni sat bio mnogo privlačniji, što zbog veličine, što zbog preciznosti koju je pružao. Širu upotrebu kod muškaraca ručni su satovi našli krajem 19. stoljeća, kada su britanski vojnici sat vezali za zapešće pomoću kožnog remena jer im je tijekom bitke bilo teško posezati za satom u džep. Vidjevši da muškarci – osobito vojnici – nose džepne satove na zapešćima, nekoliko tvrtki krajem 19. stoljeća počelo je stvarati satove posebno dizajnirane za tu svrhu. Girard-Perregaux prva je tvrtka koja je masovno proizvodila ručne satove za muškarce, a tvrtka Waterbury Clock – danas poznata kao Timex – je otprilike u isto vrijeme započela prodaju muških ručnih satova. No čak i uz izniman uspjeh u vojnim redovima, ručni satovi nisu odmah stekli naklonost šire javnosti. U širu su upotrebu ušli nakon Prvog svjetskog rata, kada su vojnici postavili standard civilnim muškarcima. Proizvođači su unapređivali tehnologiju mehanizma i dizajn te tako zainteresirali potrošače kojima ručni satovi postaju sve privlačniji zbog svoje praktičnosti, zanimljivog dizajna i bolje preciznosti.</p>
-      </div>
-      <div class="col-md-6">
-        <img src="img/rucni-satovi-watch-centar-3.jpg" />
-      </div>
-      </div>
-      </div>
-
-    </section>
-    <section class="prod-history mt-5 justify-content-between">
-      <div class="container">
-      <div class="row">
-      <div class="col-md-6">
-        <p class="history-tekst">Tehnologija satova konstatno se razvija sve do danas, a ručni sat postao je vodeći modni dodatak za muškarce i žene. Satovi se razlikuju po svojim funkcijama i značajkama te dizajnu koji ih razdvaja po stilu u koji se trebaju uklopiti. Osim klasičnih analognih satova, danas se mogu nabaviti i digitalni satovi koji vrijeme prikazuju na LED ili LCD ekranima. Osim toga, na tržištu se pojavila još jedna varijanta ručnog sata koja postaje sve popularnija, a to je pametni sat. U današnje vrijeme on je postao statusnim simbolom. Pametni satovi imaju pristup internetu, e-mailu i raznim aplikacijama. Jasno je da se ručni satovi konstantno prilagođavaju potrebama vremena te odavno više nisu samo instrument za mjerenje vremena, već počinju zadovoljavati potrebe užurbanih modernih pojedinaca koji sve potrebne informacije žele imati nadohvat ruke.</p>
-      </div>
-      <div class="col-md-6">
-        <img src="img/rucni-satovi-watch-centar-2.jpg" />
-      </div>
-      </div>
-      </div>
-
-    </section>
-    </div>
-        </div>
-        </div>
-        </div>
-        
     </>
   );
 };

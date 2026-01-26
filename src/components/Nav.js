@@ -109,6 +109,10 @@ const Nav = () => {
               <li className="nav-item">
                 <Link className="nav-link text-end" to="/blog">
                   BLOG
+                </Link></li>
+                <li className="nav-item">
+                <Link className="nav-link text-end" to="/kategorije">
+                  KATEGORIJE
                 </Link>
               </li>
               <li className="nav-item">

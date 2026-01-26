@@ -15,6 +15,7 @@ import Profil from "./components/zadaci/Profil";
 import Profilil from './components/zadaci/Profilil';
 import Tekstovi from './components/zadaci/Tekstovi';
 import Tecaj from './components/zadaci/tecaj';
+import Kategorije from './pages/Kategorije';
 
 
 function App() {
@@ -28,7 +29,8 @@ function App() {
         <Route path='/blog' element={<Blog />} />
         <Route path='/mystery' element={<Mystery />} />
         <Route path='/contact' element={<Contact />} />
-        <Route path='/blogsingle' element={<BlogSingle />} />
+        <Route path='/blog/:slug' element={<BlogSingle />} />
+        <Route path='/kategorije' element={<Kategorije />} />
         <Route path='/profil' element={<Profil />} />
         <Route path='/profilil' element={<Profilil />} />
         <Route path='/tekstovi' element={<Tekstovi />} />
