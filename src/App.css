@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 
+
+.pagination {
+  --bs-pagination-active-color: #fff;
+  --bs-pagination-active-bg: #141615;
+  --bs-pagination-active-border-color: #141615;
+}
+.page-link {
+  color: #141615;
+}
+
+
 body{
 	font-family: "Questrial", sans-serif;
   	font-weight: 400;

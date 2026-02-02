@@ -16,6 +16,8 @@ import Profilil from './components/zadaci/Profilil';
 import Tekstovi from './components/zadaci/Tekstovi';
 import Tecaj from './components/zadaci/tecaj';
 import Kategorije from './pages/Kategorije';
+import Shops from './pages/Shops';
+import ShopsSingle from './pages/ShopsSingle';
 
 
 function App() {
@@ -35,6 +37,9 @@ function App() {
         <Route path='/profilil' element={<Profilil />} />
         <Route path='/tekstovi' element={<Tekstovi />} />
         <Route path='/tecaj' element={<Tecaj />} />
+        <Route path='/shops' element={<Shops />} />
+        
+        <Route path='/shops/:slug' element={<ShopsSingle />} />
         
       </Routes>
       <Footer />

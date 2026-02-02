@@ -1,0 +1,68 @@
+.left-part{
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    background-color: #141615;
+    color: white;
+    size: 16px;
+    line-height: auto;
+    padding: 20px;
+
+
+}
+.naslov-lijevo{
+}
+.left-part a{
+    color: white;
+}
+.ikone{
+    display: flex;
+    gap: 15px;
+    
+   
+
+   
+    
+    
+    a{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-color: grey;
+    border-radius: 50%;
+    padding: 8px;
+    aspect-ratio: 1;
+   
+    
+    }
+
+
+}
+.ikone a:hover{
+    background-color: white;
+    color: #141615;
+
+}
+
+.right-part input{
+    border: none;
+    margin-top: 60px;
+    border-bottom: solid 1px black;
+    
+}
+.right-part textarea{
+    border: none;
+    margin-top: 60px;
+    border-bottom: solid 1px black;
+    
+}
+
+.message-bttn{
+    background-color: #141615;
+    margin-top: 60px;
+    color: white;
+    align-items: end ; 
+    line-height: 50px;
+    border-radius: 5px;
+    align-self: flex-end;
+}
