@@ -1,10 +1,16 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 
 
 
 const Nav = () => {
+
+  const location = useLocation();
+
+  if (location.pathname === "/signin")
+
+
   return (
-     <nav className="navbar navbar-expand-lg navbar-light bg-ligh">
+     <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container">
           <Link className="navbar-brand" to="/index.html">
             <img src="img/header/logo.svg" alt="logo" height="12" />
@@ -22,7 +28,7 @@ const Nav = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          <div className="navbar-collapse collapse show" id="mainNavbar">
+          <div className="navbar-collapse collapse" id="mainNavbar">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item dropdown text-end">
                 <Link

@@ -18,6 +18,7 @@ import Tecaj from './components/zadaci/tecaj';
 import Kategorije from './pages/Kategorije';
 import Shops from './pages/Shops';
 import ShopsSingle from './pages/ShopsSingle';
+import SignIn from './pages/SignIn';
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
         <Route path='/tekstovi' element={<Tekstovi />} />
         <Route path='/tecaj' element={<Tecaj />} />
         <Route path='/shops' element={<Shops />} />
+        <Route path='/signin' element={<SignIn />} />
         
         <Route path='/shops/:slug' element={<ShopsSingle />} />
         

@@ -1,0 +1,62 @@
+.profile-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #141414;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    height: calc(100vh - 516px);
+    h1{
+        color: white;
+    }
+}
+
+
+.profile-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h2{
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    p{
+        text-align: center;
+        color: #828282;
+
+    }
+    .signing-form{
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    
+
+        input{
+            border: none;
+            border-bottom: 1px solid black;
+
+        }
+        a:hover{
+            color:#828282;
+            text-decoration: underline 1px #828282;
+        
+        }
+        
+
+}
+}
+
+.buton-right{
+    background-color: #141615;
+    margin-top: 60px;
+    color: white;
+     
+    line-height: 50px;
+    border-radius: 5px;
+    align-self: flex-end;
+    margin-bottom: 15px;
+    width: 100%;
+    
+}

@@ -1,3 +1,6 @@
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+
 import { useState, useEffect } from "react";
 import "./contact.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,6 +13,27 @@ import { faInstagram, faLinkedin, faXTwitter } from "@fortawesome/free-brands-sv
 
 
 const Contact = () => {
+
+  const form = useRef();
+  const [isSent, setIsSent] = useState(false);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm('service_dwhzjcu', 'template_882p0bt', form.current, {
+        publicKey: 'St2MIqCGGqaIGQ1ND',
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+          setIsSent(true);
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      );
+  };
   
 
 
@@ -47,15 +71,20 @@ const Contact = () => {
       
       <div className="col-md-8 gap-5 d-flex flex-column">
         <div className="d-flex flex-column right-part">
-        <label htmlFor="name">First name</label>
-        <input type="text" />
-        <label htmlFor="email">Email</label>
-        <input type="text" />
-        <label htmlFor="message">Message</label>
-        <textarea></textarea>
+       <form ref={form} onSubmit={sendEmail} className='d-flex flex-column'>
+                  <label>Name</label>
+                  <input type="text" name="user_name" className='inputform' />
+                  <label>Email</label>
+                  <input type="email" name="user_email" className='inputform'  />
+                  <label>Message</label>
+                  <textarea rows={2} name="message" className='inputform'  />
+                   <button type='submit' value="Send" className="button message-bttn mt-5 " disabled={isSent}>
+                    {isSent ? "Message sent" : "Send Message"}
+                   </button>
+              </form>
         
         </div>
-        <button className="button message-bttn">Send Message</button>
+       
         
       </div>
       
