@@ -1,10 +1,10 @@
-import { useState } from "react";
-import "./signin.css";
+import './register.css';
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 
 
-const SignIn = () => {
+const Register = () => {
     const navigate = useNavigate();
 
     const [error,setError] = useState("");
@@ -14,7 +14,15 @@ const SignIn = () => {
     const [form, setForm] = useState({
         username: "",
         password: "",
+        email: ""
     })
+    
+     useEffect(() => {
+    const token = localStorage.getItem("token");
+        if (token) {
+        navigate("/", { replace: true });
+        }
+        }, [navigate]);
 
     const handleChange = (e) =>{
         setForm({
@@ -22,13 +30,13 @@ const SignIn = () => {
             [e.target.name]: e.target.value
         })
     }
-    const handleLogin = async(e) => {
+    const handleRegister = async(e) => {
         e.preventDefault();
         setLoading(true);
         
         try {
       const response = await fetch(
-        "https://front2.edukacija.online/backend/wp-json/jwt-auth/v1/token",
+        "https://front2.edukacija.online/backend/wp/v2/users",
         {
           method: "POST",
           headers: { "Content-type": "application/json" },
@@ -42,10 +50,9 @@ const SignIn = () => {
         setError("Wrong Email or password");
         return;
       }
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("username", data.user_display_name);
+      
 
-      navigate("/", {replace: true});
+      navigate("/signin", {replace: true});
       
 
       //window.location.reload()
@@ -64,16 +71,16 @@ const SignIn = () => {
         
        
         <div className="col-md-6 profile-left">
-            <h1>Welcome</h1>
+            <h1>Become a member</h1>
             <img src="/img/header/logo_light.svg" alt="" />
         </div>
         <div className="col-md-6 profile-right">
             <div>
-            <h2>Sign in</h2>
-            <p>Nekakav bzvz tekst</p>
-            <form onSubmit={handleLogin} className="signing-form">
+            <h2>Register here</h2>
+            <p>For better expirience</p>
+            <form onSubmit={handleRegister} className="signing-form">
                 <label htmlFor="">
-                    Username
+                    Choose your Username:
                 </label>
                 <input 
                 type="text" 
@@ -83,7 +90,18 @@ const SignIn = () => {
                 
                 />
                 <label htmlFor="">
-                    Password
+                    Enter your email address:
+                </label>
+                <input 
+                type="email" 
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                
+                />
+
+                <label htmlFor="">
+                    Create Password:
                 </label>
                 <input 
                 type="password" 
@@ -91,8 +109,10 @@ const SignIn = () => {
                 value={form.password}
                 onChange={handleChange}
                  />
-                <a href="#">Forgot password?</a>
-                <button type="submit" className="btn buton-right">Log in</button>
+
+                
+                
+                <button type="submit" className="btn register-btn">Register now</button>
                 
                 <p>{error}</p>
             </form>
@@ -104,4 +124,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default Register;

@@ -19,6 +19,7 @@ import Kategorije from './pages/Kategorije';
 import Shops from './pages/Shops';
 import ShopsSingle from './pages/ShopsSingle';
 import SignIn from './pages/SignIn';
+import Register from './pages/Register';
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
         <Route path='/tecaj' element={<Tecaj />} />
         <Route path='/shops' element={<Shops />} />
         <Route path='/signin' element={<SignIn />} />
+        <Route path='/register' element={<Register />} />
         
         <Route path='/shops/:slug' element={<ShopsSingle />} />
         

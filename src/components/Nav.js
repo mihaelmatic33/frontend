@@ -1,4 +1,5 @@
-import { Link, useLocation } from "react-router-dom"
+import { useEffect, useState } from "react";
+import { Link, useLocation, useSearchParams } from "react-router-dom"
 
 
 
@@ -6,7 +7,27 @@ const Nav = () => {
 
   const location = useLocation();
 
-  if (location.pathname === "/signin")
+ 
+
+
+  const [name, setName] = useState(null);
+  useEffect(
+    () => {
+      const user = localStorage.getItem('username');
+      if(user) setName(user);
+    }, []);
+
+     if (location.pathname === "/signin"){
+    return;
+  }
+
+
+  const logout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('username');
+    //window.location.reload()
+    setName(null);
+  }
 
 
   return (
@@ -159,13 +180,21 @@ const Nav = () => {
 
             <ul className="navbar-nav ms-auto align-items-center">
               <li className="nav-item">
-                <Link className="nav-link" to="/signin" title="Sign in">
+                { name ? (
+                  <button onClick={logout} className="btn btn-primary">Dobrodošli {name}</button>
+                ) : (
+                  <Link className="nav-link" to="/signin" title="Sign in">
                   <img
                     src="img/header/user.svg"
                     alt="Sign in"
                     className="icon-sm"
+                    
                   />
+
+                  
                 </Link>
+                ) }
+                
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/cart" title="Cart">
