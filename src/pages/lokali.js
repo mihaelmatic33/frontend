@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 
+
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import BlogSingle from "./BlogSingle";
@@ -10,11 +11,10 @@ import './Blog.css'
 import Loader from '../components/Loader'
 import ReactPaginate from "react-paginate";
 import ScrollToTop from "../components/ScrollToTop";
-import BlogPost from "../components/BlogPost";
 
 console.log(posts);
 
-const Blog = () => {
+const Lokali = () => {
   
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -31,7 +31,7 @@ const Blog = () => {
 
   useEffect(() =>{
     setLoading(true);
-    fetch('https://front2.edukacija.online/backend/wp-json/wp/v2/categories')
+    fetch('https://front2.edukacija.online/backend/wp-json/wp/v2/lokal')
     .then((response)=> response.json())
     .then(
       (data) => {
@@ -54,11 +54,11 @@ const Blog = () => {
     () => {
       setLoading(true)
 
-      const per_page = 1
+      const per_page = 6
 
 
 
-      let url = `https://front2.edukacija.online/backend/wp-json/wp/v2/posts?_embed&per_page=${per_page}&page=${currentPage +1}` 
+      let url = `https://front2.edukacija.online/backend/wp-json/wp/v2/lokal?_embed&per_page=${per_page}&page=${currentPage +1}` 
       if(selectedCategory) url += "&categories="+ selectedCategory;
       
       if(selectedAuthor) url += "&author="+ selectedAuthor;
@@ -121,10 +121,36 @@ return (
           
           <div className="row">
             {posts.map((post) => {
-              
+              const image =
+                post._embedded?.["wp:featuredmedia"]?.[0]?.media_details?.sizes
+                  ?.full?.source_url;
               return (
-                <BlogPost key={post.id} post={post}/>
-              
+                <div key={post.id} className="col-md-4 mb-4 blog-post">
+                  {image && (
+                    <Link to={'/lokali/' + post.slug}>
+<img
+                      src={image}
+                      className="mb-3"
+                      alt={post.title.rendered}
+                    />
+                    </Link>
+                  )}
+                  <Link to={'/lokali/' + post.slug}>
+                    <h2>{post.title.rendered}</h2>
+                    
+                    
+                  </Link>
+                  <div
+                    dangerouslySetInnerHTML={{__html: post.excerpt.rendered }}
+                  />
+                  <p>
+                    {post._embedded?.author?.[0]?.name}|{" "}
+                    {new Date(post.date).toLocaleDateString("hr-HR", {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}
+                  </p>
+                </div>
               );
             })}
           </div>
@@ -155,4 +181,4 @@ return (
   );
 };
 
-export default Blog;
+export default Lokali;

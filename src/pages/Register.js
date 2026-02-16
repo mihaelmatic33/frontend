@@ -71,7 +71,7 @@ const Register = () => {
         
        
         <div className="col-md-6 profile-left">
-            <h1>Become a member</h1>
+            <h1>Become a collector</h1>
             <img src="/img/header/logo_light.svg" alt="" />
         </div>
         <div className="col-md-6 profile-right">

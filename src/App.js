@@ -20,6 +20,8 @@ import Shops from './pages/Shops';
 import ShopsSingle from './pages/ShopsSingle';
 import SignIn from './pages/SignIn';
 import Register from './pages/Register';
+import Lokali from './pages/lokali';
+import LokaliSingle from './pages/LokaliSingle';
 
 
 function App() {
@@ -42,6 +44,9 @@ function App() {
         <Route path='/shops' element={<Shops />} />
         <Route path='/signin' element={<SignIn />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/lokali' element={<Lokali />} />
+        <Route path='/lokali/:slug' element={<LokaliSingle />} />
+        
         
         <Route path='/shops/:slug' element={<ShopsSingle />} />
         

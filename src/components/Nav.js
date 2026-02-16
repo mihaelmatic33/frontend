@@ -34,7 +34,7 @@ const Nav = () => {
      <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container">
           <Link className="navbar-brand" to="/index.html">
-            <img src="img/header/logo.svg" alt="logo" height="12" />
+            <img src="img/pokestuff-logo-removebg-preview.png" alt="logo" height="150" />
           </Link>
 
           <button
@@ -109,30 +109,7 @@ const Nav = () => {
                   </li>
                 </ul>
               </li>
-              <li className="nav-item dropdown text-end">
-                <Link
-                  className="nav-link dropdown-toggle"
-                  to="#"
-                  id="ddElectric"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  BLOG
-                </Link>
-                <ul className="dropdown-menu" aria-labelledby="ddElectric">
-                  <li>
-                    <Link className="dropdown-item text-end" to="#">
-                      El Bear
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item text-end" to="#">
-                      El Robin
-                    </Link>
-                  </li>
-                </ul>
-              </li>
+              
               <li className="nav-item">
                 <Link className="nav-link text-end" to="/blog">
                   BLOG
