@@ -1,0 +1,28 @@
+.naslovna{
+    content: "" ;
+    width: 100%;
+    height: 282px ;
+    background-color:rgb(160, 185, 202);
+
+}
+.profile-pic{
+  
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    top: -40px;
+    left: 30px;
+    border: 7px solid white;
+
+    
+}
+h1{
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+}
+
+u1{
+    list-style: none;
+    text-decoration: none;
+}

@@ -28,10 +28,10 @@ const Lokali = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [pageCount, setPageCount] = useState(0);
   
-
+  const BASE_URL = process.env.REACT_APP_API_URL;
   useEffect(() =>{
     setLoading(true);
-    fetch('https://front2.edukacija.online/backend/wp-json/wp/v2/lokal')
+    fetch(`${BASE_URL}v2/lokal`)
     .then((response)=> response.json())
     .then(
       (data) => {
@@ -40,7 +40,7 @@ const Lokali = () => {
     });
 
      
-    fetch('https://front2.edukacija.online/backend/wp-json/wp/v2/users?per_page=20')
+    fetch(`${BASE_URL}v2/users?per_page=20`)
     .then((response)=> response.json())
     .then(
       (data) => {
@@ -58,7 +58,7 @@ const Lokali = () => {
 
 
 
-      let url = `https://front2.edukacija.online/backend/wp-json/wp/v2/lokal?_embed&per_page=${per_page}&page=${currentPage +1}` 
+      let url = `${BASE_URL}v2/lokal?_embed&per_page=${per_page}&page=${currentPage +1}` 
       if(selectedCategory) url += "&categories="+ selectedCategory;
       
       if(selectedAuthor) url += "&author="+ selectedAuthor;

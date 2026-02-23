@@ -46,6 +46,7 @@ const SignIn = () => {
       localStorage.setItem("username", data.user_display_name);
 
       navigate("/", {replace: true});
+      window.location.reload();
       
 
       //window.location.reload()

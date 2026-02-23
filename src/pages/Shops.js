@@ -11,7 +11,7 @@ import Loader from '../components/Loader'
 import ShopsSingle from "./ShopsSingle";
 
 
-
+const BASE_URL = process.env.REACT_APP_API_URL;
 const Shops = () => {
   
   const [posts, setPosts] = useState([]);
@@ -21,7 +21,7 @@ const Shops = () => {
   const [izabraniShop, setIzabraniShop] = useState("");
 
   useEffect(() => {
-    fetch('https://front2.edukacija.online/backend/wp-json/wp/v2/prod-category')
+    fetch(`${BASE_URL}v2/prod-category`)
     .then((response) => response.json())
     .then((data) => setShops(data))
   }, [])
@@ -32,7 +32,7 @@ const Shops = () => {
     () => {
       setLoading(true)
 
-      let url = 'https://front2.edukacija.online/backend/wp-json/wp/v2/shop?_embed';
+      let url = `${BASE_URL}v2/shop?_embed`;
       if(izabraniShop) url += "&prod-category=" + izabraniShop;
       console.log(url)
 

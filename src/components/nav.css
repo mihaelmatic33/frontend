@@ -1,0 +1,13 @@
+.navbar-color{
+    background-color: rgb(236, 219, 64);
+}
+.login_btn{
+    background-color: #141615;
+    color:  rgb(236, 219, 64);
+    align-items: end ; 
+    line-height:40px;
+    border-radius: 10px;
+   
+}
+
+

@@ -11,8 +11,9 @@ import Loader from '../components/Loader'
 import ReactPaginate from "react-paginate";
 import ScrollToTop from "../components/ScrollToTop";
 import BlogPost from "../components/BlogPost";
+import SwiperComponent from "../components/SwiperComponent";
 
-console.log(posts);
+const BASE_URL = process.env.REACT_APP_API_URL;
 
 const Blog = () => {
   
@@ -31,7 +32,7 @@ const Blog = () => {
 
   useEffect(() =>{
     setLoading(true);
-    fetch('https://front2.edukacija.online/backend/wp-json/wp/v2/categories')
+    fetch(`${BASE_URL}v2/categories`)
     .then((response)=> response.json())
     .then(
       (data) => {
@@ -40,7 +41,7 @@ const Blog = () => {
     });
 
      
-    fetch('https://front2.edukacija.online/backend/wp-json/wp/v2/users?per_page=20')
+    fetch(`${BASE_URL}v2/users?per_page=20`)
     .then((response)=> response.json())
     .then(
       (data) => {
@@ -54,11 +55,11 @@ const Blog = () => {
     () => {
       setLoading(true)
 
-      const per_page = 1
+      const per_page = 6
 
 
 
-      let url = `https://front2.edukacija.online/backend/wp-json/wp/v2/posts?_embed&per_page=${per_page}&page=${currentPage +1}` 
+      let url = `${BASE_URL}v2/posts?_embed&per_page=${per_page}&page=${currentPage +1}` 
       if(selectedCategory) url += "&categories="+ selectedCategory;
       
       if(selectedAuthor) url += "&author="+ selectedAuthor;
@@ -89,6 +90,7 @@ return (
       <div className="blog-page">
         <div className="container">
           <h1>Blog</h1>
+          <SwiperComponent posts={posts} />
           <div className="row">
             <div className="col-12 d-flex gap-1 mb-2">
               {

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 
 
-
+const BASE_URL = process.env.REACT_APP_API_URL;
 const Categories = () => {
   const [page, setPage] = useState(null);
 
@@ -10,7 +10,7 @@ const Categories = () => {
   useEffect(
 
     () => {
-      fetch('https://front2.edukacija.online/backend/wp-json/wp/v2/pages/652')
+      fetch(`${BASE_URL}v2/pages/652`)
       .then(response => response.json())
       .then(
         (data) => {

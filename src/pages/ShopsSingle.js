@@ -7,7 +7,7 @@ import Loader from "../components/Loader";
 
 
 
-
+const BASE_URL = process.env.REACT_APP_API_URL;
 const ShopsSingle = () => {
   const {slug} = useParams();
   const [posts, setPosts] = useState(null);
@@ -15,7 +15,7 @@ const ShopsSingle = () => {
   useEffect(
 
     () => {
-      fetch(`https://front2.edukacija.online/backend/wp-json/wp/v2/shop?slug=${slug}&_embed`)
+      fetch(`${BASE_URL}v2/shop?slug=${slug}&_embed`)
       .then(response => response.json())
       .then((data) => setPosts(data[0]))
         

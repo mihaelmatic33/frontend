@@ -6,7 +6,7 @@ import Loader from "../components/Loader";
 
 
 
-
+const BASE_URL = process.env.REACT_APP_API_URL;
 const LokaliSingle = () => {
   const {slug} = useParams();
   const [posts, setPosts] = useState(null);
@@ -14,7 +14,7 @@ const LokaliSingle = () => {
   useEffect(
 
     () => {
-      fetch(`https://front2.edukacija.online/backend/wp-json/wp/v2/lokal?slug=${slug}&_embed`)
+      fetch(`${BASE_URL}v2/lokal?slug=${slug}&_embed`)
       .then(response => response.json())
       .then((data) => setPosts(data[0]))
         

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useSearchParams } from "react-router-dom"
+import "./nav.css"
 
 
 
@@ -31,9 +32,9 @@ const Nav = () => {
 
 
   return (
-     <nav className="navbar navbar-expand-lg navbar-light bg-light">
+     <nav className="navbar navbar-expand-lg navbar-color">
         <div className="container">
-          <Link className="navbar-brand" to="/index.html">
+          <Link className="navbar-brand" to="/">
             <img src="img/pokestuff-logo-removebg-preview.png" alt="logo" height="150" />
           </Link>
 
@@ -85,30 +86,7 @@ const Nav = () => {
                   </li>
                 </ul>
               </li>
-              <li className="nav-item dropdown text-end">
-                <Link
-                  className="nav-link dropdown-toggle"
-                  to="/shop"
-                  id="ddElectric"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  SHOP
-                </Link>
-                <ul className="dropdown-menu" aria-labelledby="ddElectric">
-                  <li>
-                    <Link className="dropdown-item text-end" to="#">
-                      Caféracer
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item text-end" to="#">
-                      Robyn
-                    </Link>
-                  </li>
-                </ul>
-              </li>
+             
               
               <li className="nav-item">
                 <Link className="nav-link text-end" to="/blog">
@@ -153,12 +131,21 @@ const Nav = () => {
                   </li>
                 </ul>
               </li>
+              { name ? (
+               <li className="nav-item">
+                <Link className="nav-link text-end" to="/admin">
+                  Admin
+                </Link>
+              </li>
+              ) : ( 
+                ""
+              )}
             </ul>
 
             <ul className="navbar-nav ms-auto align-items-center">
               <li className="nav-item">
                 { name ? (
-                  <button onClick={logout} className="btn btn-primary">Dobrodošli {name}</button>
+                  <button onClick={logout} className="btn login_btn">Dobrodošli {name}</button>
                 ) : (
                   <Link className="nav-link" to="/signin" title="Sign in">
                   <img

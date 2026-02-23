@@ -23,6 +23,13 @@ import Register from './pages/Register';
 import Lokali from './pages/lokali';
 import LokaliSingle from './pages/LokaliSingle';
 
+import AdminLayout from './pages/admin/AdminLayout';
+import MyDetails from './pages/admin/MyDetails';
+import MySettings from './pages/admin/MySettings';
+import MyPosts from './pages/admin/MyPosts';
+import AuthorsPage from "./pages/AuthorsPage";
+import AuthorProfile from "./pages/AuthorProfile";
+
 
 function App() {
   return (
@@ -49,6 +56,18 @@ function App() {
         
         
         <Route path='/shops/:slug' element={<ShopsSingle />} />
+         <Route path="/autori" element={<AuthorsPage />} />
+        <Route path="/autori/:id" element={<AuthorProfile />} />
+        
+        
+    
+    
+        <Route path='/admin' element={<AdminLayout />} >
+          <Route path='mydetails' element={<MyDetails />} />
+          <Route path='myposts' element={<MyPosts />} />
+          <Route path='mysettings' element={<MySettings />} />
+        </Route>
+
         
       </Routes>
       <Footer />

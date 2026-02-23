@@ -6,7 +6,7 @@ import Author from "../components/Author";
 
 
 
-
+const BASE_URL = process.env.REACT_APP_API_URL;
 
 const BlogSingle = () => {
   const {slug} = useParams();
@@ -15,7 +15,7 @@ const BlogSingle = () => {
   useEffect(
 
     () => {
-      fetch(`https://front2.edukacija.online/backend/wp-json/wp/v2/posts?slug=${slug}&_embed`)
+      fetch(`${BASE_URL}v2/posts?slug=${slug}&_embed`)
       .then(response => response.json())
       .then((data) => setPost(data[0]))
         
@@ -28,6 +28,7 @@ const BlogSingle = () => {
   if(!post) return  <Loader />
   return (
     <>
+    
         <div className="blog-single">
       <div
         class="masthead"

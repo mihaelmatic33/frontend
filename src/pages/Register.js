@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 
-
+const BASE_URL = process.env.REACT_APP_API_URL;
 const Register = () => {
     const navigate = useNavigate();
 
@@ -36,7 +36,7 @@ const Register = () => {
         
         try {
       const response = await fetch(
-        "https://front2.edukacija.online/backend/wp/v2/users",
+        `${BASE_URL}v2/users`,
         {
           method: "POST",
           headers: { "Content-type": "application/json" },
