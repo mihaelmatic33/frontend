@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import Nav from "../components/Nav";
 import FeaturedImg from "../components/FeaturedImg";
 import HeroSection from "../components/HeroSection";
+import SEO from "../components/SEO";
 const BASE_URL = process.env.REACT_APP_API_URL;
 const Home = () => {
 
@@ -30,6 +31,10 @@ const Home = () => {
 
   return (
    <>
+    <SEO
+      title="Blog"
+      description="Pročitaj najnovije članke o web developmentu, Reactu i modernim tehnologijama."
+    />
       <HeroSection 
       stranica={page}   
       fallback="https://placehold.co/600x400" 
@@ -37,6 +42,13 @@ const Home = () => {
       />
       {/*<FeaturedImg page={page} fallback="https://placehold.co/600x400" size="full"  /> */}
       <div dangerouslySetInnerHTML={{ __html:page.content.rendered }} />
+
+      <div className="data">
+        {page.acf.adresa ? page.acf.adresa : "nema adrese"}
+      </div>
+
+
+
     </>
    
   );

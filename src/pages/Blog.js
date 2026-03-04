@@ -12,6 +12,7 @@ import ReactPaginate from "react-paginate";
 import ScrollToTop from "../components/ScrollToTop";
 import BlogPost from "../components/BlogPost";
 import SwiperComponent from "../components/SwiperComponent";
+import SEO from "../components/SEO";
 
 const BASE_URL = process.env.REACT_APP_API_URL;
 
@@ -76,6 +77,23 @@ const Blog = () => {
       })
       .finally(() => setLoading(false));
   }, [selectedCategory, selectedAuthor, currentPage]);
+  const [yoast, setYoast] = useState(null);
+  useEffect(() => {
+  fetch(`${BASE_URL}v2/pages/123`) // ← promijeni 123 u pravi ID stranice Blog
+    .then(res => res.json())
+    .then(data => {
+      if (data.yoast_head_json) {
+        setYoast(data.yoast_head_json);
+      } else {
+        // fallback ako Yoast nije postavljen
+        setYoast({ title: "Blog", og_description: "Pročitaj najnovije članke o web developmentu." });
+      }
+    })
+    .catch(() => {
+      // fallback na error
+      setYoast({ title: "Blog", og_description: "Pročitaj najnovije članke o web developmentu." });
+    });
+}, []);
 
 
 
@@ -85,8 +103,20 @@ const Blog = () => {
 
 
 return (
+   
     <>
+    {yoast && (
+  <SEO
+    title={
+      selectedCategory
+        ? `${yoast.title} - ${categories.find(c => c.id === selectedCategory)?.name}`
+        : yoast.title
+    }
+    description={yoast.og_description || yoast.meta_description}
+  />
+)}
       {loading && <Loader />}
+       
       <div className="blog-page">
         <div className="container">
           <h1>Blog</h1>

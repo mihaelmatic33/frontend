@@ -35,7 +35,7 @@ const Nav = () => {
      <nav className="navbar navbar-expand-lg navbar-color">
         <div className="container">
           <Link className="navbar-brand" to="/">
-            <img src="img/pokestuff-logo-removebg-preview.png" alt="logo" height="150" />
+            <img src="img/pokestuff-logo-removebg-preview.png" alt="logo" height="140" />
           </Link>
 
           <button

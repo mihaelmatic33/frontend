@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocation, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { faInstagram, faLinkedin, faXTwitter } from "@fortawesome/free-brands-svg-icons";
+import  SEO from '../components/SEO';
 
 
 
@@ -34,7 +35,15 @@ const Contact = () => {
         },
       );
   };
-  
+  const [yoast, setYoast] = useState(null);
+
+useEffect(() => {
+  fetch("https://front2.edukacija.online/backend/wp-json/wp/v2/pages/617")
+    .then((res) => res.json())
+    .then((data) => {
+      setYoast(data.yoast_head_json);
+    });
+}, []);
 
 
 
@@ -42,6 +51,13 @@ const Contact = () => {
 
   return (
     <>
+   {yoast && (
+  <SEO
+    title={yoast.title}
+    description={yoast.og_description || yoast.meta_description}
+  />
+)}
+
     <div className="container">
       <div className="row my-4 ">
         

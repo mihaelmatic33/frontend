@@ -64,9 +64,10 @@ const SignIn = () => {
     <div className="row my-3">
         
        
-        <div className="col-md-6 profile-left">
-            <h1>Welcome</h1>
-            <img src="/img/header/logo_light.svg" alt="" />
+        <div className="col-md-6 profile-left justify-items-center">
+            <h1 className="mt-3">Welcome</h1>
+            <h1>to</h1>
+            <img className="mb-4" src="img/pokestuff-logo-removebg-preview.png" alt="" width="240px" />
         </div>
         <div className="col-md-6 profile-right">
             <div>

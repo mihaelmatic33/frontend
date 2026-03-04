@@ -5,6 +5,7 @@ import Loader from "../components/Loader";
 import ReactPaginate from "react-paginate";
 import ScrollToTop from "../components/ScrollToTop";
 import BlogPost from "../components/BlogPost";
+import SEO from "../components/SEO";
 
 
 const BASE_URL = process.env.REACT_APP_API_URL;
@@ -46,10 +47,24 @@ const Kategorije = () => {
     }
 
 
-
+    const selectedCategoryName =
+  kategorije.find(kat => kat.id === selectedKategorije)?.name;
       return (
         <>
-        {loading && <Loader />}
+          <SEO
+    title={
+      selectedCategoryName
+        ? `Kategorija: ${selectedCategoryName}`
+        : "Kategorije"
+    }
+    description={
+      selectedCategoryName
+        ? `Pogledaj sve članke iz kategorije ${selectedCategoryName}.`
+        : "Odaberi kategoriju i pregledaj članke."
+    }
+  />
+
+  {loading && <Loader />}
    <div className="container blog-page">
     <div className="row">
         <div className="col-12 d-flex justify-content-center">
