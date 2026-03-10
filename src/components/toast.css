@@ -1,0 +1,13 @@
+.toast {
+  position: fixed;       /* fiksiran u odnosu na viewport */
+  bottom: 30px;          /* 30px od dna */
+  right: 30px;           /* 30px od desnog ruba */
+  background: #ffcc00;   /* jarko žuto */
+  color: #000;           /* crni tekst */
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  z-index: 9999;         /* iznad svega */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  font-size: 16px;
+}

@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Toast from "../../components/Toast"; // 2 levels up to src/components
 
 const Cart = () => {
   const [cart, setCart] = useState([]);
+  const [toast, setToast] = useState(null); // poruka za toast
   const navigate = useNavigate();
-
-  // flag za preskakanje prvog zapisa u localStorage
   const isFirstRender = useRef(true);
 
-  // Učitavanje košarice
+  // Učitavanje košarice iz localStorage
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -37,7 +37,6 @@ const Cart = () => {
         ? { ...item, quantity: Math.max(1, item.quantity + amount) }
         : item
     );
-
     setCart(updatedCart);
   };
 
@@ -53,17 +52,19 @@ const Cart = () => {
     0
   );
 
-  // Zaključi narudžbu - SAMO preusmjeravanje
+  // Zaključi narudžbu
   const finishOrder = () => {
     navigate("/checkout");
   };
 
+  // Ako je košarica prazna
   if (cart.length === 0) {
     return (
       <div className="container mt-5">
+        {toast && <Toast message={toast} onClose={() => setToast(null)} />}
         <h2>Košarica je prazna</h2>
         <button
-          className="btn btn-primary mt-3"
+          className="btn signin-btn mt-3"
           onClick={() => navigate("/shop")}
         >
           Nastavi kupovinu
@@ -74,6 +75,8 @@ const Cart = () => {
 
   return (
     <div className="container mt-5">
+      {toast && <Toast message={toast} onClose={() => setToast(null)} />}
+
       <h2 className="mb-4">Moja košarica</h2>
 
       {cart.map(item => (
@@ -101,9 +104,7 @@ const Cart = () => {
                 >
                   -
                 </button>
-
                 <span className="mx-3">{item.quantity}</span>
-
                 <button
                   className="btn btn-outline-secondary btn-sm"
                   onClick={() => changeQuantity(item.id, 1)}

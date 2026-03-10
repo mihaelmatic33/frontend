@@ -66,7 +66,7 @@ useEffect(() => {
           <div className="col-md-4 left-part">
             <div className="naslov-lijevo">
             <h2 className="text-left">Contact Information</h2>
-            <p className="text-left">Say something to start a live chat!</p>
+            <p className="text-left">Feel free to contact us at any time</p>
           </div>
 
          

@@ -1,46 +1,76 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import Toast from "../../components/Toast";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
+  const [toast, setToast] = useState(null);
+
+  // Dohvat proizvoda
   useEffect(() => {
-    const fetchPage = async () => {
+    const fetchProducts = async () => {
       try {
-        const response = await fetch("https://dummyjson.com/products");
-        if (!response.ok) {
-          throw new Error("Ne mogu povući podatke");
-        }
-        const data = await response.json();
+        const res = await fetch("https://dummyjson.com/products");
+        const data = await res.json();
         setProducts(data.products);
       } catch (err) {
-        console.log(err.message);
+        console.error(err);
       }
     };
-    fetchPage();
+    fetchProducts();
   }, []);
 
+  // Dodavanje u košaricu i prikaz toast-a
   const addToCart = (product) => {
-
+    // Dohvati trenutnu košaricu ili napravi praznu
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const existingItem = cart.find(item => item.id === product.id);
+
+    // Provjeri postoji li proizvod već
+    const existingItem = cart.find((item) => item.id === product.id);
+
     if (existingItem) {
+      // Ako postoji, poveća količinu
       existingItem.quantity = (existingItem.quantity || 1) + 1;
     } else {
-      cart.push({ ...product, quantity: 1 });;
+      // Ako ne postoji, dodaj novi proizvod s quantity 1
+      cart.push({ ...product, quantity: 1 });
     }
+
+    // Spremi košaricu natrag u localStorage
     localStorage.setItem("cart", JSON.stringify(cart));
-    alert('Dodano u košaricu:' + product.title);
-  }
-  if (!products) return <p>Učitavanje...</p>;
+
+    // Prikaz toast notifikacije
+    setToast(`Dodano u košaricu: ${product.title}`);
+  };
+
+  if (!products || products.length === 0) return <p>Učitavanje...</p>;
+
   return (
-    <div className="container">
-      <h1> shop</h1>
+    <div className="container mt-4">
+      <h1>Shop</h1>
+
+      {/* Toast notifikacija */}
+      {toast && <Toast message={toast} onClose={() => setToast(null)} />}
+
       <div className="row">
         {products.map((product) => (
-          <div className="col-md-4" key={product.id}>
-            <img src={product.images[0]} alt={product.title} />
-            <h3 key={product.id}>{product.title}</h3>
-
-            <button className="btn btn-success" onClick={() => addToCart(product)}>{product.price} EUR</button>
+          <div key={product.id} className="col-md-4 mb-4">
+            <div className="card h-100">
+              <img
+                src={product.images[0]}
+                alt={product.title}
+                style={{ maxHeight: "150px", objectFit: "cover" }}
+              />
+              <div className="card-body">
+                <h5>{product.title}</h5>
+                <p>{product.price} EUR</p>
+                <button
+                  className="btn btn-success"
+                  onClick={() => addToCart(product)}
+                >
+                  Dodaj u košaricu
+                </button>
+              </div>
+            </div>
           </div>
         ))}
       </div>

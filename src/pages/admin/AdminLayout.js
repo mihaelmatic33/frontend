@@ -32,25 +32,25 @@ const AdminLayout = ({}) => {
           </div>
         </div>
         <div className="col-md-6 px-3 py-3 d-flex justify-content-end gap-2">
-          <button className="btn btn-info">Cancel</button>
-          <button className="btn btn-primary">Save</button>
+          <button className="btn cancel-btn">Cancel</button>
+          <button className="btn save-btn">Save</button>
         </div>
       </div>
       <div className="row">
-        <div className="col-md-12 ">
-          <ul>
-            <li>
-              <Link to="mydetails" className={`${path === "/admin/mydetails" ? "text-danger" : ""}`}>My details</Link>
-            </li>
-            <li>
-              <Link to="myposts" className={`${path === "/admin/myposts" ? "text-danger" : ""}`}>My posts</Link>
-            </li>
-            <li>
-              <Link to="mysettings" className={`${path === "/admin/mysettings" ? "text-danger" : ""}`}>My settings</Link>
-            </li>
-          </ul>
-        </div>
-      </div>
+  <div className="col-md-12">
+    <ul className="admin-links">
+      <li>
+        <Link to="mydetails" className={`${path === "/admin/mydetails" ? "text-danger" : ""}`}>My details</Link>
+      </li>
+      <li>
+        <Link to="myposts" className={`${path === "/admin/myposts" ? "text-danger" : ""}`}>My posts</Link>
+      </li>
+      <li>
+        <Link to="mysettings" className={`${path === "/admin/mysettings" ? "text-danger" : ""}`}>My settings</Link>
+      </li>
+    </ul>
+  </div>
+</div>
       <Outlet />
     </div>
   );
