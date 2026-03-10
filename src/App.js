@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
 import './Gutenberg.css'
 import './App.css';
 
@@ -23,7 +22,6 @@ import SignIn from './pages/SignIn';
 import Register from './pages/Register';
 import Lokali from './pages/lokali';
 import LokaliSingle from './pages/LokaliSingle';
-
 import AdminLayout from './pages/admin/AdminLayout';
 import MyDetails from './pages/admin/MyDetails';
 import MySettings from './pages/admin/MySettings';
@@ -34,54 +32,45 @@ import Checkout from './pages/shop/Checkout';
 import Shop from './pages/shop/Shop';
 import Cart from './pages/shop/Cart';
 
-
 function App() {
   return (
     <CartProvider>
       <BrowserRouter basename={"/mmatic"}>
-      <Nav />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/categories' element={<Categories />} />
-          <Route path='/blog' element={<Blog />} />
-          <Route path='/mystery' element={<Mystery />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path='/blog/:slug' element={<BlogSingle />} />
-          <Route path='/kategorije' element={<Kategorije />} />
-          <Route path='/profil' element={<Profil />} />
-          <Route path='/profilil' element={<Profilil />} />
-          <Route path='/tekstovi' element={<Tekstovi />} />
-          <Route path='/tecaj' element={<Tecaj />} />
-          <Route path='/shops' element={<Shops />} />
-          <Route path='/signin' element={<SignIn />} />
-          <Route path='/register' element={<Register />} />
-          <Route path='/lokali' element={<Lokali />} />
-          <Route path='/lokali/:slug' element={<LokaliSingle />} />
-          
-          
-          <Route path='/shops/:slug' element={<ShopsSingle />} />
-           <Route path="/autori" element={<AuthorsPage />} />
-          <Route path="/autori/:id" element={<AuthorProfile />} />
-          
-          
-      
-      
-          <Route path='/admin' element={<AdminLayout />} >
-            <Route path='mydetails' element={<MyDetails />} />
-            <Route path='myposts' element={<MyPosts />} />
-            <Route path='mysettings' element={<MySettings />} />
-          </Route>
-
-
-          <Route path='/cart' element={<Cart />} />
-          <Route path='/checkout' element={<Checkout />} />
-          <Route path='/shop' element={<Shop />} />
-
-         
-
-          
-        </Routes>
-        <Footer />
+        <div className="page-wrapper">
+          <Nav />
+          <div className="content">
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/categories' element={<Categories />} />
+              <Route path='/blog' element={<Blog />} />
+              <Route path='/mystery' element={<Mystery />} />
+              <Route path='/contact' element={<Contact />} />
+              <Route path='/blog/:slug' element={<BlogSingle />} />
+              <Route path='/kategorije' element={<Kategorije />} />
+              <Route path='/profil' element={<Profil />} />
+              <Route path='/profilil' element={<Profilil />} />
+              <Route path='/tekstovi' element={<Tekstovi />} />
+              <Route path='/tecaj' element={<Tecaj />} />
+              <Route path='/shops' element={<Shops />} />
+              <Route path='/signin' element={<SignIn />} />
+              <Route path='/register' element={<Register />} />
+              <Route path='/lokali' element={<Lokali />} />
+              <Route path='/lokali/:slug' element={<LokaliSingle />} />
+              <Route path='/shops/:slug' element={<ShopsSingle />} />
+              <Route path="/autori" element={<AuthorsPage />} />
+              <Route path="/autori/:id" element={<AuthorProfile />} />
+              <Route path='/admin' element={<AdminLayout />} >
+                <Route path='mydetails' element={<MyDetails />} />
+                <Route path='myposts' element={<MyPosts />} />
+                <Route path='mysettings' element={<MySettings />} />
+              </Route>
+              <Route path='/cart' element={<Cart />} />
+              <Route path='/checkout' element={<Checkout />} />
+              <Route path='/shop' element={<Shop />} />
+            </Routes>
+          </div>
+          <Footer />
+        </div>
       </BrowserRouter>
     </CartProvider>
   );

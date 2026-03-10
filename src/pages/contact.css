@@ -1,75 +1,132 @@
-.left-part{
+/* ======================================
+   CONTACT PAGE STYLES
+====================================== */
+
+/* LEFT PART */
+.left-part {
     display: flex;
     flex-direction: column;
-    gap: 100px;
-    background-color:rgb(236, 219, 64);
-    color: white;
-    size: 16px;
-    line-height: auto;
+    gap: 60px; /* smanjeno sa 100px radi preglednosti */
+    background-color: #f6e05e;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 16px;
+    line-height: 1.5;
     padding: 20px;
+}
 
+.naslov-lijevo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 
+.left-part a {
+    color: rgba(255, 255, 255, 0.95);
+    text-decoration: none;
+    transition: color 0.25s ease;
 }
-.naslov-lijevo{
+
+.left-part a:hover {
+    color: rgb(238, 10, 10);
 }
-.left-part a{
-    color: white;
-}
-.ikone{
+
+/* ICONS */
+.ikone {
     display: flex;
     gap: 15px;
-    
-   
+}
 
-   
-    
-    
-    a{
+.ikone a {
     justify-content: center;
     align-items: center;
     display: flex;
-    background-color: orange;
+    color: #f6e05e;
+    background-color: white;
     border-radius: 50%;
     padding: 8px;
     aspect-ratio: 1;
-   
-    
-    }
-
-
+    transition: all 0.25s ease;
 }
-.ikone a:hover{
+
+.ikone a:hover {
     background-color: white;
-    color: orange;
-
+    color: rgb(238, 10, 10);
+    transform: scale(1.1);
 }
 
-.right-part .inputform{
+/* RIGHT PART - FORM */
+.right-part {
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* kontroliramo margine na inputima */
+}
+
+.right-part .inputform,
+.right-part textarea {
     border: none;
-    margin-top: 60px;
+    margin-top: 30px; /* smanjeno sa 60px radi preglednosti */
     border-bottom: solid 1px black;
-    
-}
-.right-part textarea{
-    border: none;
-    margin-top: 60px;
-    border-bottom: solid 1px black;
-    
+    padding: 6px 4px;
+    font-size: 16px;
+    transition: border-bottom 0.25s ease;
 }
 
-.message-bttn{
-    background-color: rgb(236, 219, 64);
-    border-color:  rgb(236, 219, 64);
-    margin-top: 60px;
+.right-part .inputform:focus,
+.right-part textarea:focus {
+    outline: none;
+    border-bottom: 2px solid rgb(238, 10, 10); /* narančasta boja */
+}
+
+/* MESSAGE BUTTON */
+.message-bttn {
+    background-color: #f6e05e;
+    border-color: #f6e05e;
+    margin-top: 30px;
     color: white;
-    align-items: end ; 
+    align-self: flex-end;
     line-height: 50px;
     border-radius: 5px;
-    align-self: flex-end;
-    
+    padding: 8px 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
 }
 
-.message-bttn:hover{
-        color: rgb(238, 10, 10);
-        text-decoration: underline;
+.message-bttn:hover:not(:disabled) {
+    color: rgb(238, 10, 10);
+    text-decoration: underline;
+    transform: translateY(-2px);
+}
+
+.message-bttn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transition: opacity 0.3s ease;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+    .container .row {
+        flex-direction: column;
     }
+
+    .left-part {
+        gap: 40px;
+        padding: 15px;
+    }
+
+    .right-part .inputform,
+    .right-part textarea {
+        margin-top: 20px;
+    }
+
+    .message-bttn {
+        margin-top: 20px;
+        align-self: stretch;
+    }
+}
+
+/* OPTIONAL: SMOOTH SCROLL FOR LINKS IN LEFT-PART */
+.left-part a {
+    scroll-behavior: smooth;
+}

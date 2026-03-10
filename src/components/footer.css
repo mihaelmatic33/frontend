@@ -1,0 +1,133 @@
+.footer {
+  background: linear-gradient(135deg, #f6e05e, #eccb2f);
+  color: #141615;
+  padding: 60px 20px 20px 20px;
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0 -4px 15px rgba(0,0,0,0.08);
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+.footer-section p,
+.footer-section li {
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-nav ul li a {
+  color: #141615;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 6px;
+  transition: all 0.2s ease;
+}
+
+.footer-nav ul li a:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.footer-social .social-icons {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.footer-social .social-icons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  color: #141615;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.footer-social .social-icons a:hover {
+  background-color: white;
+  color: rgb(238, 10, 10);
+  transform: rotate(15deg) scale(1.2);
+}
+
+.footer-newsletter p {
+  margin-bottom: 12px;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+}
+
+.newsletter-form button {
+  padding: 8px 14px;
+  background-color: #141615;
+  color: #f6e05e;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.newsletter-form button:hover {
+  background-color: rgb(238, 10, 10);
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 0.85rem;
+  border-top: 1px solid rgb(238, 10, 10);
+  padding-top: 12px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-social .social-icons {
+    justify-content: center;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-form input {
+    width: 100%;
+  }
+}

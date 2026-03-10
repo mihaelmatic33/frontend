@@ -1,15 +1,14 @@
-
 import "./Loader.css";
 
 const Loader = () => {
   return (
-   
-       <div class="wrapper">
-  <div class="pokeball">
-  </div>
-</div>
-
-   
+    <div className="loader-wrapper">
+      <div className="pokeball">
+        <div className="pokeball-top"></div>
+        <div className="pokeball-bottom"></div>
+        <div className="pokeball-center"></div>
+      </div>
+    </div>
   );
 };
 

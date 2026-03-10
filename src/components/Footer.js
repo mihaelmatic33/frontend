@@ -1,99 +1,75 @@
-import ScrollToTop from "./ScrollToTop"
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInstagram, faLinkedin, faXTwitter, faFacebook } from "@fortawesome/free-brands-svg-icons";
+import "./footer.css";
 
-// test
 const Footer = () => {
-  return (
-     <footer>
-        <div className="container">
-          <div className="row">
-            <div className="col-md-8">
-              <div className="row">
-                <div className="col-md-3">
-                  <h4>Explorer</h4>
-                  <ul>
-                    <li>
-                      <a href="#">Electric bikes</a>
-                    </li>
-                    <li>
-                      <a href="#">City bikes</a>
-                    </li>
-                    <li>
-                      <a href="#">Kid's bikes</a>
-                    </li>
-                    <li>
-                      <a href="#">Accessories</a>
-                    </li>
-                    <li>
-                      <a href="#">Outlet</a>
-                    </li>
-                    <li>
-                      <a href="#">Business</a>
-                    </li>
-                    <li>
-                      <a href="#">Insurance Electric</a>
-                    </li>
-                    <li>
-                      <a href="#">Size Guide</a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="col-md-3">
-                  <h4>About</h4>
-                  <ul>
-                    <li>
-                      <a href="#">About us</a>
-                    </li>
-                    <li>
-                      <a href="#">Journal</a>
-                    </li>
-                    <li>
-                      <a href="#">Reviews</a>
-                    </li>
-                    <li>
-                      <a href="#">Press</a>
-                    </li>
-                    <li>
-                      <a href="#">Jobs</a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="col-md-3">
-                  <h4>Help</h4>
-                  <ul>
-                    <li>
-                      <a href="#">Contact</a>
-                    </li>
-                    <li>
-                      <a href="#">FAQ</a>
-                    </li>
-                    <li>
-                      <a href="#">Delivery</a>
-                    </li>
-                    <li>
-                      <a href="#">Assembly & manuals</a>
-                    </li>
-                    <li>
-                      <a href="#">Payment options</a>
-                    </li>
-                    <li>
-                      <a href="#">Privacy policy</a>
-                    </li>
-                    <li>
-                      <a href="#">Terms & conditions</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <h4>Join the ride.</h4>
-              <p>Sign up for our newsletter.</p>
-            </div>
-          </div>
-          <button className="btn btn-danger" onClick={ScrollToTop}>TOP</button>
-        </div>
-      </footer>
-  )
-}
+  const [email, setEmail] = useState("");
 
-export default Footer
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    if (email) {
+      alert(`Subscribed with ${email}`);
+      setEmail("");
+    }
+  };
+
+  return (
+    <footer className="footer">
+      <div className="footer-container">
+
+        <div className="footer-section footer-contact">
+          <h3>Contact Us</h3>
+          <p>Email: demo@gmail.com</p>
+          <p>Phone: +1012 3456 789</p>
+          <p>Address: 132 Ulica, City</p>
+          <p>Open: 10:00 - 15:00</p>
+        </div>
+
+        <div className="footer-section footer-nav">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><Link to="/categories">Categories</Link></li>
+            <li><Link to="/blog">Blog</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
+            <li><Link to="/signin">Sign In</Link></li>
+            <li><Link to="/kategorije">Kategorije</Link></li>
+          </ul>
+        </div>
+
+        <div className="footer-section footer-social">
+          <h3>Follow Us</h3>
+          <div className="social-icons">
+            <a href="https://x.com"><FontAwesomeIcon icon={faXTwitter} /></a>
+            <a href="https://instagram.com"><FontAwesomeIcon icon={faInstagram} /></a>
+            <a href="https://linkedin.com"><FontAwesomeIcon icon={faLinkedin} /></a>
+            <a href="https://facebook.com"><FontAwesomeIcon icon={faFacebook} /></a>
+          </div>
+        </div>
+
+        <div className="footer-section footer-newsletter">
+          <h3>Newsletter</h3>
+          <p>Subscribe to our newsletter for latest updates</p>
+          <form onSubmit={handleSubscribe} className="newsletter-form">
+            <input 
+              type="email" 
+              placeholder="Your email" 
+              value={email} 
+              onChange={(e) => setEmail(e.target.value)} 
+              required
+            />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+
+      </div>
+
+      <div className="footer-bottom">
+        <p>© 2026 Pokestuff. All rights reserved. Designed with ❤️</p>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
