@@ -9,7 +9,7 @@ import Home from './pages/Home';
 import Blog from './pages/Blog';
 import Mystery from './pages/Mystery';
 import Contact from './pages/Contact';
-import Categories from './pages/Categories';
+import ShopCategories from './pages/ShopCategories';
 import BlogSingle from './pages/BlogSingle';
 import Profil from "./components/zadaci/Profil";
 import Profilil from './components/zadaci/Profilil';
@@ -41,7 +41,7 @@ function App() {
           <div className="content">
             <Routes>
               <Route path='/' element={<Home />} />
-              <Route path='/categories' element={<Categories />} />
+              <Route path='/shop-categories' element={<ShopCategories />} />
               <Route path='/blog' element={<Blog />} />
               <Route path='/mystery' element={<Mystery />} />
               <Route path='/contact' element={<Contact />} />
