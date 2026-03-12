@@ -1,0 +1,25 @@
+{
+  "github.copilot.enable": {
+    "*": true,
+    "javascript": true,
+    "javascriptreact": true,
+    "css": true,
+    "json": true,
+    "markdown": true
+  },
+  "github.copilot.chat.localeOverride": "auto",
+  "editor.inlineSuggest.enabled": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  }
+}
