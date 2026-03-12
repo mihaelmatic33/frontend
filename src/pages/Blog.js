@@ -85,12 +85,10 @@ const Blog = () => {
       if (data.yoast_head_json) {
         setYoast(data.yoast_head_json);
       } else {
-        // fallback ako Yoast nije postavljen
         setYoast({ title: "Blog", og_description: "Pročitaj najnovije članke o web developmentu." });
       }
     })
     .catch(() => {
-      // fallback na error
       setYoast({ title: "Blog", og_description: "Pročitaj najnovije članke o web developmentu." });
     });
 }, []);

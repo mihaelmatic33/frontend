@@ -7,8 +7,6 @@ const Cart = () => {
   const [toast, setToast] = useState(null); // poruka za toast
   const navigate = useNavigate();
   const isFirstRender = useRef(true);
-
-  // Učitavanje košarice iz localStorage
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -19,8 +17,6 @@ const Cart = () => {
 
     setCart(updatedCart);
   }, []);
-
-  // Spremanje u localStorage kad se cart promijeni
   useEffect(() => {
     if (isFirstRender.current) {
       isFirstRender.current = false;
@@ -29,8 +25,6 @@ const Cart = () => {
 
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
-
-  // Promjena količine
   const changeQuantity = (id, amount) => {
     const updatedCart = cart.map(item =>
       item.id === id
@@ -39,25 +33,17 @@ const Cart = () => {
     );
     setCart(updatedCart);
   };
-
-  // Brisanje proizvoda
   const removeItem = (id) => {
     const updatedCart = cart.filter(item => item.id !== id);
     setCart(updatedCart);
   };
-
-  // Ukupna cijena
   const totalPrice = cart.reduce(
     (total, item) => total + item.price * item.quantity,
     0
   );
-
-  // Zaključi narudžbu
   const finishOrder = () => {
     navigate("/checkout");
   };
-
-  // Ako je košarica prazna
   if (cart.length === 0) {
     return (
       <div className="container mt-5">

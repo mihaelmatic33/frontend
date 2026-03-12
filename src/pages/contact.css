@@ -2,11 +2,11 @@
    CONTACT PAGE STYLES
 ====================================== */
 
-/* LEFT PART */
+
 .left-part {
     display: flex;
     flex-direction: column;
-    gap: 60px; /* smanjeno sa 100px radi preglednosti */
+    gap: 60px; 
     background-color: #f6e05e;
     color: rgba(255, 255, 255, 0.95);
     font-size: 16px;
@@ -30,7 +30,7 @@
     color: rgb(238, 10, 10);
 }
 
-/* ICONS */
+
 .ikone {
     display: flex;
     gap: 15px;
@@ -54,17 +54,17 @@
     transform: scale(1.1);
 }
 
-/* RIGHT PART - FORM */
+
 .right-part {
     display: flex;
     flex-direction: column;
-    gap: 0; /* kontroliramo margine na inputima */
+    gap: 0; 
 }
 
 .right-part .inputform,
 .right-part textarea {
     border: none;
-    margin-top: 30px; /* smanjeno sa 60px radi preglednosti */
+    margin-top: 30px; 
     border-bottom: solid 1px black;
     padding: 6px 4px;
     font-size: 16px;
@@ -74,10 +74,10 @@
 .right-part .inputform:focus,
 .right-part textarea:focus {
     outline: none;
-    border-bottom: 2px solid rgb(238, 10, 10); /* narančasta boja */
+    border-bottom: 2px solid rgb(238, 10, 10); 
 }
 
-/* MESSAGE BUTTON */
+
 .message-bttn {
     background-color: #f6e05e;
     border-color: #f6e05e;
@@ -104,7 +104,7 @@
     transition: opacity 0.3s ease;
 }
 
-/* MOBILE RESPONSIVE */
+
 @media (max-width: 768px) {
     .container .row {
         flex-direction: column;
@@ -126,7 +126,7 @@
     }
 }
 
-/* OPTIONAL: SMOOTH SCROLL FOR LINKS IN LEFT-PART */
+
 .left-part a {
     scroll-behavior: smooth;
 }

@@ -1,4 +1,3 @@
-//import korisnici from './data/korisnici.json';
 import { useState } from "react";
 import { data } from "react-router-dom";
 const Profilil = () => {

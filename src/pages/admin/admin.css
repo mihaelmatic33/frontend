@@ -61,7 +61,7 @@ u1{
     padding: 0;
     margin: 20px 0;
     display: flex;
-    gap: 30px; /* razmak između linkova */
+    gap: 30px; 
 }
 
 .admin-links li {
@@ -76,5 +76,5 @@ u1{
 
 .admin-links li a:hover,
 .admin-links li a.text-danger {
-    color: rgb(238, 10, 10); /* npr. tvoja glavna boja */
+    color: rgb(238, 10, 10); 
 }

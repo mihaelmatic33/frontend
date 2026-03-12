@@ -3,27 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import "./nav.css";
 
 const Nav = () => {
-
   const location = useLocation();
   const [name, setName] = useState(null);
-  useEffect(() => {
-  const dropdowns = document.querySelectorAll('.nav-item.dropdown');
-
-  dropdowns.forEach(dropdown => {
-    const link = dropdown.querySelector('.nav-link.dropdown-toggle');
-    const menu = dropdown.querySelector('.dropdown-menu');
-
-    link.addEventListener('click', (e) => {
-      e.preventDefault(); // sprječava navigaciju
-      menu.classList.toggle('show'); // toggle bootstrap dropdown
-      if (menu.classList.contains('show')) {
-        menu.style.maxHeight = menu.scrollHeight + "px";
-      } else {
-        menu.style.maxHeight = "0px";
-      }
-    });
-  });
-}, []);
 
   useEffect(() => {
     const user = localStorage.getItem("username");
@@ -42,18 +23,13 @@ const Nav = () => {
 
   return (
     <nav className="nav navbar navbar-expand-lg">
-
       <div className="container nav__container">
-
-        {/* LOGO */}
+        {}
         <Link className="navbar-brand nav__logo" to="/">
-          <img
-            src="img/pokestuff-logo-removebg-preview.png"
-            alt="logo"
-          />
+          <img src="img/pokestuff-logo-removebg-preview.png" alt="logo" />
         </Link>
 
-        {/* MOBILE BUTTON */}
+        {}
         <button
           className="navbar-toggler"
           type="button"
@@ -64,17 +40,13 @@ const Nav = () => {
         </button>
 
         <div className="collapse navbar-collapse" id="mainNavbar">
-
-          {/* LEFT MENU */}
+          {}
           <ul className="navbar-nav me-auto nav__menu">
-
-            {/* CATEGORIES */}
+            {}
             <li className="nav-item dropdown nav__item">
               <Link
                 className="nav-link dropdown-toggle nav__link"
-                to="/categories"
-                role="button"
-                data-bs-toggle="dropdown"
+                to="/shop-categories"
               >
                 CATEGORIES
               </Link>
@@ -103,34 +75,25 @@ const Nav = () => {
               </ul>
             </li>
 
-            {/* BLOG */}
+            {}
             <li className="nav-item nav__item">
               <Link className="nav-link nav__link" to="/blog">
                 BLOG
               </Link>
             </li>
 
-            {/* KATEGORIJE */}
-            <li className="nav-item nav__item">
-              <Link className="nav-link nav__link" to="/kategorije">
-                KATEGORIJE
-              </Link>
-            </li>
-
-            {/* CONTACT */}
+            {}
             <li className="nav-item nav__item">
               <Link className="nav-link nav__link" to="/contact">
                 CONTACT
               </Link>
             </li>
 
-            {/* MYSTERY */}
+            {}
             <li className="nav-item dropdown nav__item">
               <Link
                 className="nav-link dropdown-toggle nav__link"
-                to="#"
-                role="button"
-                data-bs-toggle="dropdown"
+                to="/mystery"
               >
                 MYSTERIOUS POKESTUFF
               </Link>
@@ -154,21 +117,22 @@ const Nav = () => {
               </ul>
             </li>
 
-            {/* ADMIN */}
+            {}
             {name && (
               <li className="nav-item nav__item">
-                <Link className="nav-link nav__link nav__link--admin" to="/admin">
+                <Link
+                  className="nav-link nav__link nav__link--admin"
+                  to="/admin"
+                >
                   Admin
                 </Link>
               </li>
             )}
-
           </ul>
 
-          {/* RIGHT SIDE */}
+          {}
           <ul className="navbar-nav nav__actions">
-
-            {/* LOGIN */}
+            {}
             <li className="nav-item nav__item">
               {name ? (
                 <button onClick={logout} className="nav__login-btn">
@@ -185,7 +149,7 @@ const Nav = () => {
               )}
             </li>
 
-            {/* CART */}
+            {}
             <li className="nav-item nav__item">
               <Link className="nav-link nav__link" to="/cart">
                 <img
@@ -195,9 +159,7 @@ const Nav = () => {
                 />
               </Link>
             </li>
-
           </ul>
-
         </div>
       </div>
     </nav>

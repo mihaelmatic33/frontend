@@ -4,8 +4,6 @@ import Toast from "../../components/Toast";
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const [toast, setToast] = useState(null);
-
-  // Dohvat proizvoda
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -18,27 +16,16 @@ const Shop = () => {
     };
     fetchProducts();
   }, []);
-
-  // Dodavanje u košaricu i prikaz toast-a
   const addToCart = (product) => {
-    // Dohvati trenutnu košaricu ili napravi praznu
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    // Provjeri postoji li proizvod već
     const existingItem = cart.find((item) => item.id === product.id);
 
     if (existingItem) {
-      // Ako postoji, poveća količinu
       existingItem.quantity = (existingItem.quantity || 1) + 1;
     } else {
-      // Ako ne postoji, dodaj novi proizvod s quantity 1
       cart.push({ ...product, quantity: 1 });
     }
-
-    // Spremi košaricu natrag u localStorage
     localStorage.setItem("cart", JSON.stringify(cart));
-
-    // Prikaz toast notifikacije
     setToast(`Dodano u košaricu: ${product.title}`);
   };
 
@@ -48,7 +35,7 @@ const Shop = () => {
     <div className="container mt-4">
       <h1>Shop</h1>
 
-      {/* Toast notifikacija */}
+      {}
       {toast && <Toast message={toast} onClose={() => setToast(null)} />}
 
       <div className="row">

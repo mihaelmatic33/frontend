@@ -53,9 +53,6 @@ const Register = () => {
       
 
       navigate("/signin", {replace: true});
-      
-
-      //window.location.reload()
     } catch (error) {
       setLoading(false);
       setError("Something went wrong. Please try again.");

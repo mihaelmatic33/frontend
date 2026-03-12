@@ -5,11 +5,7 @@ import emailjs from "@emailjs/browser"; // <-- dodano
 const Checkout = () => {
   const [cart, setCart] = useState([]);
   const navigate = useNavigate();
-
-  // flag za preskakanje prvog zapisa u localStorage
   const isFirstRender = useRef(true);
-
-  // delivery / payment form state
   const [deliveryInfo, setDeliveryInfo] = useState({
     fullName: "",
     address: "",
@@ -26,15 +22,9 @@ const Checkout = () => {
     expiry: "",
     cvv: "",
   });
-
-  // novi state za Terms & Conditions
   const [termsAccepted, setTermsAccepted] = useState(false);
-
-  // EmailJS form ref i state
   const form = useRef();
   const [isSent, setIsSent] = useState(false);
-
-  // --- košarica ---
 
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -44,8 +34,6 @@ const Checkout = () => {
     }));
     setCart(updatedCart);
   }, []);
-
-  // Spremanje u localStorage kad se cart promijeni
   useEffect(() => {
     if (isFirstRender.current) {
       isFirstRender.current = false;
@@ -53,8 +41,6 @@ const Checkout = () => {
     }
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
-
-  // Promjena količine
   const changeQuantity = (id, amount) => {
     const updatedCart = cart.map((item) =>
       item.id === id
@@ -63,20 +49,14 @@ const Checkout = () => {
     );
     setCart(updatedCart);
   };
-
-  // Brisanje proizvoda
   const removeItem = (id) => {
     const updatedCart = cart.filter((item) => item.id !== id);
     setCart(updatedCart);
   };
-
-  // Ukupna cijena
   const totalPrice = cart.reduce(
     (total, item) => total + item.price * item.quantity,
     0
   );
-
-  // --- delivery form handlers ---
 
   const handleDeliveryChange = (e) => {
     const { name, value } = e.target;
@@ -96,13 +76,7 @@ const Checkout = () => {
     setTermsAccepted(e.target.checked);
   };
 
-  // --- EmailJS slanje ---
-
   const sendEmail = () => {
-    // **VAŽNO**: ovdje koristiš svoj Service ID, Template ID, i Public Key
-    // Ti si u pitanju dao:
-    // service_dwhzjcu, template_882p0bt, St2MIqCGGqaIGQ1ND
-    // Provjeri da su to stvarno tvoji ID-evi u EmailJS dashboardu.
     emailjs
       .sendForm(
         "service_dwhzjcu",
@@ -123,32 +97,20 @@ const Checkout = () => {
       );
   };
 
-  // --- final order ---
-
   const handleOrder = () => {
-    // Provjera terms - button bi ionako bio disabled ako nije prihvaćeno,
-    // ali ovdje osiguravamo da se kôd dalje ne pokrene ako nije
     if (!termsAccepted) return;
 
     const confirmed = window.confirm("Želim naručiti");
     if (confirmed) {
-      // 1) Pošalji email
       sendEmail();
-
-      // 2) Ukloni košaricu i resetiraj
       localStorage.removeItem("cart");
       setCart([]);
-
-      // 3) Možeš navesti navigaciju tek nakon što je e-mail poslan
-      //    ili odmah; ovdje radimo odmah:
       alert("Narudžba uspješno završena!");
       navigate("/"); // ili "/shop"
     } else {
       navigate("/cart");
     }
   };
-
-  // --- empty cart fallback ---
   if (cart.length === 0) {
     return (
       <div className="container mt-5">
@@ -164,7 +126,7 @@ const Checkout = () => {
     <div className="container mt-4">
       <h2 className="mb-4">Checkout</h2>
       <div className="row">
-        {/* Lijeva strana: proizvodi */}
+        {}
         <div className="col-lg-7">
           <h4 className="mb-3">Proizvodi</h4>
           {cart.map((item) => (
@@ -215,12 +177,12 @@ const Checkout = () => {
           </div>
         </div>
 
-        {/* Desna strana: forma za dostavu i plaćanje */}
+        {}
         <div className="col-lg-5">
           <h4 className="mb-3">Podaci za dostavu</h4>
-          {/* Formu refamo radi EmailJS */}
+          {}
           <form ref={form}>
-            {/* Podaci za dostavu */}
+            {}
             <div className="mb-2">
               <label className="form-label" htmlFor="fullName">
                 Ime i prezime
@@ -320,7 +282,7 @@ const Checkout = () => {
               </select>
             </div>
 
-            {/* Ako je kartica odabrana, pokaži dodatna polja */}
+            {}
             {paymentMethod === "card" && (
               <div className="border rounded p-3 mb-3">
                 <h6 className="mb-2">Podaci kartice</h6>
@@ -385,8 +347,8 @@ const Checkout = () => {
               </div>
             )}
 
-            {/* Možeš staviti dodatne skrivene polja s podacima o košarici */}
-            {/* Npr. pošalji JSON ili tekst koji si pripremio */}
+            {}
+            {}
             <input
               type="hidden"
               name="cart_items"
@@ -398,7 +360,7 @@ const Checkout = () => {
               value={totalPrice.toFixed(2)}
             />
 
-            {/* checkbox za Terms & Conditions */}
+            {}
             <div className="form-check mb-3">
               <input
                 className="form-check-input"
@@ -419,7 +381,7 @@ const Checkout = () => {
               </label>
             </div>
 
-            {/* tipke */}
+            {}
             <div className="d-flex justify-content-between mt-4">
               <button
                 type="button"

@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInstagram, faLinkedin, faXTwitter, faFacebook } from "@fortawesome/free-brands-svg-icons";
+import {
+  faInstagram,
+  faLinkedin,
+  faXTwitter,
+  faFacebook,
+} from "@fortawesome/free-brands-svg-icons";
 import "./footer.css";
 
 const Footer = () => {
@@ -18,7 +23,6 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
-
         <div className="footer-section footer-contact">
           <h3>Contact Us</h3>
           <p>Email: demo@gmail.com</p>
@@ -30,21 +34,36 @@ const Footer = () => {
         <div className="footer-section footer-nav">
           <h3>Quick Links</h3>
           <ul>
-            <li><Link to="/categories">Categories</Link></li>
-            <li><Link to="/blog">Blog</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
-            <li><Link to="/signin">Sign In</Link></li>
-            <li><Link to="/kategorije">Kategorije</Link></li>
+            <li>
+              <Link to="/categories">Categories</Link>
+            </li>
+            <li>
+              <Link to="/blog">Blog</Link>
+            </li>
+            <li>
+              <Link to="/contact">Contact</Link>
+            </li>
+            <li>
+              <Link to="/signin">Sign In</Link>
+            </li>
           </ul>
         </div>
 
         <div className="footer-section footer-social">
           <h3>Follow Us</h3>
           <div className="social-icons">
-            <a href="https://x.com"><FontAwesomeIcon icon={faXTwitter} /></a>
-            <a href="https://instagram.com"><FontAwesomeIcon icon={faInstagram} /></a>
-            <a href="https://linkedin.com"><FontAwesomeIcon icon={faLinkedin} /></a>
-            <a href="https://facebook.com"><FontAwesomeIcon icon={faFacebook} /></a>
+            <a href="https://x.com">
+              <FontAwesomeIcon icon={faXTwitter} />
+            </a>
+            <a href="https://instagram.com">
+              <FontAwesomeIcon icon={faInstagram} />
+            </a>
+            <a href="https://linkedin.com">
+              <FontAwesomeIcon icon={faLinkedin} />
+            </a>
+            <a href="https://facebook.com">
+              <FontAwesomeIcon icon={faFacebook} />
+            </a>
           </div>
         </div>
 
@@ -52,17 +71,16 @@ const Footer = () => {
           <h3>Newsletter</h3>
           <p>Subscribe to our newsletter for latest updates</p>
           <form onSubmit={handleSubscribe} className="newsletter-form">
-            <input 
-              type="email" 
-              placeholder="Your email" 
-              value={email} 
-              onChange={(e) => setEmail(e.target.value)} 
+            <input
+              type="email"
+              placeholder="Your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
             <button type="submit">Subscribe</button>
           </form>
         </div>
-
       </div>
 
       <div className="footer-bottom">

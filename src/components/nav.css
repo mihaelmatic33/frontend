@@ -1,15 +1,15 @@
-/* BLOCK */
+
 .nav {
   background: linear-gradient(90deg, #f6e05e, #eccb2f);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   padding: 6px 0;
 }
 
-/* ELEMENTS */
+
 
 .nav__logo img {
   height: 90px;
-  transition: transform .2s ease;
+  transition: transform 0.2s ease;
 }
 
 .nav__logo img:hover {
@@ -26,9 +26,9 @@
 
 .nav__link {
   font-weight: 600;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   color: #141615 !important;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
 }
 
 .nav__link:hover {
@@ -36,37 +36,46 @@
   transform: translateY(-1px);
 }
 
-/* DROPDOWN */
+
 
 .nav__dropdown-menu {
   border: none;
   border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
   padding: 10px;
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s ease;
 }
 
 .nav__dropdown-item {
   border-radius: 8px;
   font-weight: 500;
   padding: 8px 12px;
-  transition: background .2s ease;
+  transition: background 0.2s ease;
 }
 
 .nav__dropdown-item:hover {
   background: #f3e27a;
 }
-/* ===== KLIZNI DROPDOWN ===== */
-.nav__dropdown-menu {
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.3s ease;
+
+@media (min-width: 993px) {
+  .nav__item.dropdown:hover > .nav__dropdown-menu,
+  .nav__item.dropdown:focus-within > .nav__dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
 }
 
-.nav__dropdown-menu.show {
-  /* max-height se postavlja iz JS-a dinamički */
-}
 
-/* RIGHT SIDE */
 
 .nav__actions {
   display: flex;
@@ -76,14 +85,14 @@
 
 .nav__icon {
   width: 26px;
-  transition: transform .2s ease;
+  transition: transform 0.2s ease;
 }
 
 .nav__icon:hover {
   transform: scale(1.15);
 }
 
-/* LOGIN BUTTON */
+
 
 .nav__login-btn {
   background: #141615;
@@ -92,7 +101,7 @@
   padding: 6px 14px;
   font-weight: 600;
   border: none;
-  transition: all .25s ease;
+  transition: all 0.25s ease;
 }
 
 .nav__login-btn:hover {
@@ -100,17 +109,16 @@
   transform: translateY(-1px);
 }
 
-/* ADMIN LINK */
+
 
 .nav__link--admin {
   color: #b40000 !important;
   font-weight: 700;
 }
 
-/* MOBILE */
+
 
 @media (max-width: 992px) {
-
   .nav__menu {
     margin-top: 10px;
   }
@@ -122,5 +130,4 @@
   .nav__actions {
     margin-top: 10px;
   }
-
 }

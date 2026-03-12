@@ -1,8 +1,5 @@
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import FeaturedImg from './FeaturedImg'
-
-// Import Swiper styles
 import 'swiper/css';
 
 export default ({posts}) => {
