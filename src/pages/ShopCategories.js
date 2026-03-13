@@ -2,6 +2,7 @@ import React, { useState, useCallback } from "react";
 import SEO from "../components/SEO";
 import Toast from "../components/Toast";
 import ShopProduct from "../components/ShopProduct";
+import { getProductTitle, normalizeProductForCart } from "../utils/cartItem";
 
 const API_URL = "https://front2.edukacija.online/backend/wp-json/wp/v2/shop";
 
@@ -78,25 +79,30 @@ const ShopCategories = () => {
 
   const addToCart = (product) => {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const existingItem = cart.find((item) => item.id === product.id);
+    const normalizedItem = normalizeProductForCart(product);
+    const existingItem = cart.find((item) => item.id === normalizedItem.id);
+
     if (existingItem) {
       existingItem.quantity = (existingItem.quantity || 1) + 1;
     } else {
-      cart.push({ ...product, quantity: 1 });
+      cart.push(normalizedItem);
     }
+
     localStorage.setItem("cart", JSON.stringify(cart));
-    setToast(`Dodano u košaricu: ${product.title?.rendered || product.title}`);
+    setToast(`Dodano u košaricu: ${getProductTitle(product)}`);
   };
 
   return (
     <div className="container mt-4">
-      <SEO title="Shop Kategorije" description="Pregledajte naše proizvode po kategorijama" />
+      <SEO
+        title="Shop Kategorije"
+        description="Pregledajte naše proizvode po kategorijama"
+      />
 
-      <h1 className="mb-4">Shop Kategorije</h1>
+      <h1 className="mb-4">Shop categories</h1>
 
       {toast && <Toast message={toast} onClose={() => setToast(null)} />}
 
-      {}
       <div className="d-flex flex-wrap gap-2 mb-3">
         {CATEGORIES.map((cat) => (
           <button
@@ -109,7 +115,6 @@ const ShopCategories = () => {
         ))}
       </div>
 
-      {}
       {activeCategory && activeCategory.subcategories.length > 0 && (
         <div className="d-flex flex-wrap gap-2 mb-4">
           {activeCategory.subcategories.map((sub) => (
@@ -124,7 +129,6 @@ const ShopCategories = () => {
         </div>
       )}
 
-      {}
       {loading ? (
         <p>Učitavanje proizvoda...</p>
       ) : !activeCategory ? (

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import emailjs from "@emailjs/browser"; // <-- dodano
+import emailjs from "@emailjs/browser";
+import { getProductTitle, parsePrice } from "../../utils/cartItem";
 
 const Checkout = () => {
   const [cart, setCart] = useState([]);
@@ -24,7 +25,6 @@ const Checkout = () => {
   });
   const [termsAccepted, setTermsAccepted] = useState(false);
   const form = useRef();
-  const [isSent, setIsSent] = useState(false);
 
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -45,7 +45,7 @@ const Checkout = () => {
     const updatedCart = cart.map((item) =>
       item.id === id
         ? { ...item, quantity: Math.max(1, item.quantity + amount) }
-        : item
+        : item,
     );
     setCart(updatedCart);
   };
@@ -53,10 +53,9 @@ const Checkout = () => {
     const updatedCart = cart.filter((item) => item.id !== id);
     setCart(updatedCart);
   };
-  const totalPrice = cart.reduce(
-    (total, item) => total + item.price * item.quantity,
-    0
-  );
+  const totalPrice = cart.reduce((total, item) => {
+    return total + parsePrice(item.price) * item.quantity;
+  }, 0);
 
   const handleDeliveryChange = (e) => {
     const { name, value } = e.target;
@@ -78,22 +77,16 @@ const Checkout = () => {
 
   const sendEmail = () => {
     emailjs
-      .sendForm(
-        "service_dwhzjcu",
-        "template_882p0bt",
-        form.current,
-        {
-          publicKey: "St2MIqCGGqaIGQ1ND",
-        }
-      )
+      .sendForm("service_dwhzjcu", "template_882p0bt", form.current, {
+        publicKey: "St2MIqCGGqaIGQ1ND",
+      })
       .then(
         () => {
           console.log("SUCCESS!");
-          setIsSent(true);
         },
         (error) => {
           console.log("FAILED...", error.text);
-        }
+        },
       );
   };
 
@@ -115,7 +108,10 @@ const Checkout = () => {
     return (
       <div className="container mt-5">
         <h2>Košarica je prazna</h2>
-        <button className="btn btn-primary mt-3" onClick={() => navigate("/shop")}>
+        <button
+          className="btn btn-primary mt-3"
+          onClick={() => navigate("/shop")}
+        >
           Nastavi kupovinu
         </button>
       </div>
@@ -126,7 +122,6 @@ const Checkout = () => {
     <div className="container mt-4">
       <h2 className="mb-4">Checkout</h2>
       <div className="row">
-        {}
         <div className="col-lg-7">
           <h4 className="mb-3">Proizvodi</h4>
           {cart.map((item) => (
@@ -134,15 +129,17 @@ const Checkout = () => {
               <div className="row g-0 align-items-center p-3">
                 <div className="col-md-3">
                   <img
-                    src={item.images?.[0]}
-                    alt={item.title}
+                    src={item.images?.[0] || item.image || ""}
+                    alt={getProductTitle(item)}
                     className="img-fluid"
                     style={{ maxHeight: "100px", objectFit: "cover" }}
                   />
                 </div>
                 <div className="col-md-4">
-                  <h6>{item.title}</h6>
-                  <p className="mb-1">{item.price} EUR</p>
+                  <h6>{getProductTitle(item)}</h6>
+                  <p className="mb-1">
+                    {parsePrice(item.price).toFixed(2)} EUR
+                  </p>
                 </div>
                 <div className="col-md-3">
                   <div className="d-flex align-items-center">
@@ -177,12 +174,9 @@ const Checkout = () => {
           </div>
         </div>
 
-        {}
         <div className="col-lg-5">
           <h4 className="mb-3">Podaci za dostavu</h4>
-          {}
           <form ref={form}>
-            {}
             <div className="mb-2">
               <label className="form-label" htmlFor="fullName">
                 Ime i prezime
@@ -247,7 +241,7 @@ const Checkout = () => {
               <input
                 type="tel"
                 id="phone"
-                name="phone"
+                name="fullName"
                 className="form-control"
                 value={deliveryInfo.phone}
                 onChange={handleDeliveryChange}
@@ -274,7 +268,7 @@ const Checkout = () => {
                 className="form-select"
                 value={paymentMethod}
                 onChange={handlePaymentChange}
-                name="paymentMethod" // može ići u formu ako želiš
+                name="paymentMethod"
               >
                 <option value="cash">Gotovina / pouzećem</option>
                 <option value="card">Kartično plaćanje</option>
@@ -282,7 +276,6 @@ const Checkout = () => {
               </select>
             </div>
 
-            {}
             {paymentMethod === "card" && (
               <div className="border rounded p-3 mb-3">
                 <h6 className="mb-2">Podaci kartice</h6>
@@ -347,8 +340,6 @@ const Checkout = () => {
               </div>
             )}
 
-            {}
-            {}
             <input
               type="hidden"
               name="cart_items"
@@ -371,11 +362,7 @@ const Checkout = () => {
               />
               <label className="form-check-label" htmlFor="termsCheck">
                 Prihvaćam{" "}
-                <a
-                  href="/terms"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href="/terms" target="_blank" rel="noopener noreferrer">
                   uvjete i odredbe
                 </a>
               </label>

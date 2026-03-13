@@ -5,13 +5,41 @@ import "./nav.css";
 const Nav = () => {
   const location = useLocation();
   const [name, setName] = useState(null);
+  const [navOpacity, setNavOpacity] = useState(1);
+  const logoSrc = `${process.env.PUBLIC_URL}/img/pokestuff-logo-removebg-preview.png`;
+  const userIconSrc = `${process.env.PUBLIC_URL}/img/header/user.svg`;
+  const cartIconSrc = `${process.env.PUBLIC_URL}/img/header/cart.svg`;
+  const isHomeRoute = location.pathname === "/";
 
   useEffect(() => {
     const user = localStorage.getItem("username");
     if (user) setName(user);
   }, []);
 
-  if (location.pathname === "/signin") {
+  useEffect(() => {
+    if (!isHomeRoute) {
+      setNavOpacity(1);
+      return;
+    }
+
+    const updateNavOpacity = () => {
+      const heroSection = document.querySelector(".hero_section");
+      const heroHeight = heroSection?.offsetHeight || window.innerHeight;
+      const progress = Math.min(window.scrollY / heroHeight, 1);
+      setNavOpacity(progress);
+    };
+
+    updateNavOpacity();
+    window.addEventListener("scroll", updateNavOpacity, { passive: true });
+    window.addEventListener("resize", updateNavOpacity);
+
+    return () => {
+      window.removeEventListener("scroll", updateNavOpacity);
+      window.removeEventListener("resize", updateNavOpacity);
+    };
+  }, [isHomeRoute]);
+
+  if (location.pathname === "/signin" || location.pathname === "/register") {
     return null;
   }
 
@@ -21,15 +49,23 @@ const Nav = () => {
     setName(null);
   };
 
+  const navStyle = isHomeRoute
+    ? {
+        backgroundColor: `rgba(246, 224, 94, ${navOpacity})`,
+        boxShadow: `0 4px 10px rgba(0, 0, 0, ${0.08 * navOpacity})`,
+      }
+    : undefined;
+
   return (
-    <nav className="nav navbar navbar-expand-lg">
+    <nav
+      className={`nav navbar navbar-expand-lg ${isHomeRoute ? "nav--overlay" : ""}`}
+      style={navStyle}
+    >
       <div className="container nav__container">
-        {}
         <Link className="navbar-brand nav__logo" to="/">
-          <img src="img/pokestuff-logo-removebg-preview.png" alt="logo" />
+          <img src={logoSrc} alt="logo" />
         </Link>
 
-        {}
         <button
           className="navbar-toggler"
           type="button"
@@ -40,9 +76,7 @@ const Nav = () => {
         </button>
 
         <div className="collapse navbar-collapse" id="mainNavbar">
-          {}
           <ul className="navbar-nav me-auto nav__menu">
-            {}
             <li className="nav-item dropdown nav__item">
               <Link
                 className="nav-link dropdown-toggle nav__link"
@@ -82,14 +116,12 @@ const Nav = () => {
               </Link>
             </li>
 
-            {}
             <li className="nav-item nav__item">
               <Link className="nav-link nav__link" to="/contact">
                 CONTACT
               </Link>
             </li>
 
-            {}
             <li className="nav-item dropdown nav__item">
               <Link
                 className="nav-link dropdown-toggle nav__link"
@@ -117,7 +149,6 @@ const Nav = () => {
               </ul>
             </li>
 
-            {}
             {name && (
               <li className="nav-item nav__item">
                 <Link
@@ -130,9 +161,7 @@ const Nav = () => {
             )}
           </ul>
 
-          {}
           <ul className="navbar-nav nav__actions">
-            {}
             <li className="nav-item nav__item">
               {name ? (
                 <button onClick={logout} className="nav__login-btn">
@@ -140,20 +169,15 @@ const Nav = () => {
                 </button>
               ) : (
                 <Link className="nav-link nav__link" to="/signin">
-                  <img
-                    src="img/header/user.svg"
-                    alt="Sign in"
-                    className="nav__icon"
-                  />
+                  <img src={userIconSrc} alt="Sign in" className="nav__icon" />
                 </Link>
               )}
             </li>
 
-            {}
             <li className="nav-item nav__item">
               <Link className="nav-link nav__link" to="/cart">
                 <img
-                  src="img/header/cart.svg"
+                  src={cartIconSrc}
                   alt="Cart"
                   className="nav__icon nav__icon--cart"
                 />

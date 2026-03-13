@@ -24,7 +24,7 @@ const SignIn = () => {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(form),
-        }
+        },
       );
       const data = await response.json();
       setLoading(false);
@@ -90,6 +90,10 @@ const SignIn = () => {
           <button type="submit" className="signin-btn" disabled={loading}>
             {loading ? "Logging in..." : "Log In"}
           </button>
+
+          <Link to="/register" className="forgot-link register-link">
+            You dont have account? Register here
+          </Link>
 
           {error && <p className="error">{error}</p>}
         </form>
