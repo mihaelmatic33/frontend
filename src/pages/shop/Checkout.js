@@ -1,12 +1,21 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
-import { getProductTitle, parsePrice } from "../../utils/cartItem";
+import {
+  getCartItemImage,
+  getProductTitle,
+  parsePrice,
+} from "../../utils/cartItem";
+import { useCart } from "../../CartContext";
 
 const Checkout = () => {
-  const [cart, setCart] = useState([]);
+  const {
+    cartItems: cart,
+    removeFromCart,
+    updateQuantity,
+    clearCart,
+  } = useCart();
   const navigate = useNavigate();
-  const isFirstRender = useRef(true);
   const [deliveryInfo, setDeliveryInfo] = useState({
     fullName: "",
     address: "",
@@ -26,32 +35,16 @@ const Checkout = () => {
   const [termsAccepted, setTermsAccepted] = useState(false);
   const form = useRef();
 
-  useEffect(() => {
-    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
-    const updatedCart = storedCart.map((item) => ({
-      ...item,
-      quantity: item.quantity || 1,
-    }));
-    setCart(updatedCart);
-  }, []);
-  useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return;
-    }
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
   const changeQuantity = (id, amount) => {
-    const updatedCart = cart.map((item) =>
-      item.id === id
-        ? { ...item, quantity: Math.max(1, item.quantity + amount) }
-        : item,
-    );
-    setCart(updatedCart);
+    const item = cart.find((cartItem) => cartItem.id === id);
+    if (!item) return;
+
+    const nextQuantity = Math.max(1, (item.quantity || 1) + amount);
+    updateQuantity(id, nextQuantity);
   };
+
   const removeItem = (id) => {
-    const updatedCart = cart.filter((item) => item.id !== id);
-    setCart(updatedCart);
+    removeFromCart(id);
   };
   const totalPrice = cart.reduce((total, item) => {
     return total + parsePrice(item.price) * item.quantity;
@@ -96,8 +89,8 @@ const Checkout = () => {
     const confirmed = window.confirm("Želim naručiti");
     if (confirmed) {
       sendEmail();
-      localStorage.removeItem("cart");
-      setCart([]);
+      clearCart();
+      localStorage.removeItem("cartItems");
       alert("Narudžba uspješno završena!");
       navigate("/"); // ili "/shop"
     } else {
@@ -128,12 +121,21 @@ const Checkout = () => {
             <div className="card mb-3" key={item.id}>
               <div className="row g-0 align-items-center p-3">
                 <div className="col-md-3">
-                  <img
-                    src={item.images?.[0] || item.image || ""}
-                    alt={getProductTitle(item)}
-                    className="img-fluid"
-                    style={{ maxHeight: "100px", objectFit: "cover" }}
-                  />
+                  {getCartItemImage(item) ? (
+                    <img
+                      src={getCartItemImage(item)}
+                      alt="Product"
+                      className="img-fluid"
+                      style={{ maxHeight: "100px", objectFit: "cover" }}
+                    />
+                  ) : (
+                    <div
+                      className="d-flex align-items-center justify-content-center text-muted border rounded"
+                      style={{ height: "100px", backgroundColor: "#f5f5f5" }}
+                    >
+                      No image
+                    </div>
+                  )}
                 </div>
                 <div className="col-md-4">
                   <h6>{getProductTitle(item)}</h6>

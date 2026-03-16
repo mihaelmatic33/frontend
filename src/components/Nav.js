@@ -115,13 +115,13 @@ const Nav = () => {
             <li className="nav-item dropdown nav__item nav__item--dropdown">
               <div className="nav__dropdown-trigger">
                 <Link className="nav-link nav__link" to="/shop-categories">
-                  CATEGORIES
+                  SHOP
                 </Link>
                 <button
                   type="button"
                   className="nav__dropdown-toggle dropdown-toggle"
                   aria-expanded={mobileDropdownOpen.categories}
-                  aria-label="Prikaži Categories izbornik"
+                  aria-label="Prikaži Shop izbornik"
                   onClick={() => toggleMobileDropdown("categories")}
                 ></button>
               </div>

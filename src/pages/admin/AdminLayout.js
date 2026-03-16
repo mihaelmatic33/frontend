@@ -2,10 +2,9 @@ import { useEffect } from "react";
 import { useNavigate, Outlet, Link, useLocation } from "react-router-dom";
 import "./admin.css";
 
-const AdminLayout = ({}) => {
+const AdminLayout = () => {
   const location = useLocation();
   const path = location.pathname;
-
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -23,7 +22,7 @@ const AdminLayout = ({}) => {
             <div className="col-md-3 position-relative">
               {" "}
               <div className="profile-pic">
-                <img src="https://i.pravatar.cc/300" />
+                <img src="https://i.pravatar.cc/300" alt="Profile avatar" />
               </div>
             </div>
             <div className="col-md-9">
@@ -37,20 +36,35 @@ const AdminLayout = ({}) => {
         </div>
       </div>
       <div className="row">
-  <div className="col-md-12">
-    <ul className="admin-links">
-      <li>
-        <Link to="mydetails" className={`${path === "/admin/mydetails" ? "text-danger" : ""}`}>My details</Link>
-      </li>
-      <li>
-        <Link to="myposts" className={`${path === "/admin/myposts" ? "text-danger" : ""}`}>My posts</Link>
-      </li>
-      <li>
-        <Link to="mysettings" className={`${path === "/admin/mysettings" ? "text-danger" : ""}`}>My settings</Link>
-      </li>
-    </ul>
-  </div>
-</div>
+        <div className="col-md-12">
+          <ul className="admin-links">
+            <li>
+              <Link
+                to="mydetails"
+                className={`${path === "/admin/mydetails" ? "text-danger" : ""}`}
+              >
+                My details
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="myposts"
+                className={`${path === "/admin/myposts" ? "text-danger" : ""}`}
+              >
+                My posts
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="mysettings"
+                className={`${path === "/admin/mysettings" ? "text-danger" : ""}`}
+              >
+                My settings
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
       <Outlet />
     </div>
   );

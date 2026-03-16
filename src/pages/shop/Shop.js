@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Toast from "../../components/Toast";
 import ShopProduct from "../../components/ShopProduct";
-import { getProductTitle, normalizeProductForCart } from "../../utils/cartItem";
+import { getProductTitle } from "../../utils/cartItem";
+import { useCart } from "../../CartContext";
 
 const API_URL = "https://front2.edukacija.online/backend/wp-json/wp/v2/shop";
 
 const Shop = () => {
+  const { addToCart } = useCart();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [toast, setToast] = useState(null);
@@ -46,18 +48,14 @@ const Shop = () => {
     fetchProducts();
   }, []);
 
-  const addToCart = (product) => {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const normalizedItem = normalizeProductForCart(product);
-    const existingItem = cart.find((item) => item.id === normalizedItem.id);
+  const handleAddToCart = (product) => {
+    const added = addToCart(product);
 
-    if (existingItem) {
-      existingItem.quantity = (existingItem.quantity || 1) + 1;
-    } else {
-      cart.push(normalizedItem);
+    if (!added) {
+      setToast("Unable to add this product to cart.");
+      return;
     }
 
-    localStorage.setItem("cart", JSON.stringify(cart));
     setToast(`Dodano u košaricu: ${getProductTitle(product)}`);
   };
 
@@ -77,7 +75,7 @@ const Shop = () => {
             <ShopProduct
               key={product.id}
               product={product}
-              onAddToCart={addToCart}
+              onAddToCart={handleAddToCart}
             />
           ))}
         </div>

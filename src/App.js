@@ -86,9 +86,11 @@ const AppShell = () => {
 };
 
 function App() {
+  const basename = process.env.PUBLIC_URL || "/";
+
   return (
     <CartProvider>
-      <BrowserRouter basename={"/mmatic"}>
+      <BrowserRouter basename={basename}>
         <AppShell />
       </BrowserRouter>
     </CartProvider>

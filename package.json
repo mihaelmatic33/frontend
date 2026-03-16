@@ -27,6 +27,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "import:shop:acf": "node scripts/import-shop-acf.js",
+    "rollback:shop:acf": "node scripts/rollback-shop-acf-import.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

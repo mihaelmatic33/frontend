@@ -5,7 +5,7 @@ import {
   parsePrice,
   resolveProductImageUrl,
 } from "../utils/cartItem";
-import { getArticleFields, getGroupedAcfFields } from "../utils/shopAcf";
+import { getArticleFields } from "../utils/shopAcf";
 
 const ShopProduct = ({ product, onAddToCart }) => {
   const [imageUrl, setImageUrl] = useState(() => getProductImage(product));
@@ -33,32 +33,54 @@ const ShopProduct = ({ product, onAddToCart }) => {
   }, [product]);
 
   const articleFields = getArticleFields(acf, { includePrice: false });
-  const groupedFields = getGroupedAcfFields(product);
+
+  const acfGradingCompany = acf?.grading_company;
+  const acfGrade = acf?.grade;
+  const acfRarity = acf?.rarity;
 
   return (
-    <div className="col-md-4 mb-4">
-      <div className="card h-100">
-        {imageUrl && (
-          <img
-            src={imageUrl}
-            alt={title ? `Slika proizvoda: ${title}` : "Slika proizvoda"}
-            className="card-img-top"
-            style={{ maxHeight: "200px", objectFit: "cover" }}
-          />
-        )}
-        <div className="card-body d-flex flex-column">
+    <div className="col-6 col-lg-4">
+      <div className="shop-product-card">
+        <div className="shop-product-card__img-wrap">
+          {imageUrl && (
+            <img
+              src={imageUrl}
+              alt={title ? `Slika proizvoda: ${title}` : "Slika proizvoda"}
+            />
+          )}
+        </div>
+        <div className="shop-product-card__body">
           {hasRenderedTitle ? (
             <h5
-              className="card-title"
+              className="shop-product-card__title"
               dangerouslySetInnerHTML={{ __html: product.title.rendered }}
             />
           ) : (
-            <h5 className="card-title">{title}</h5>
+            <h5 className="shop-product-card__title">{title}</h5>
           )}
-          <p className="card-text fw-bold">{price.toFixed(2)} EUR</p>
+
+          <p className="shop-product-card__price">{price.toFixed(2)} EUR</p>
+
+          {(acfGradingCompany || acfGrade || acfRarity) && (
+            <div className="shop-product-card__badge-row">
+              {acfGradingCompany && (
+                <span className="shop-product-card__badge">
+                  {acfGradingCompany}
+                </span>
+              )}
+              {acfGrade && (
+                <span className="shop-product-card__badge shop-product-card__badge--grade">
+                  Grade {acfGrade}
+                </span>
+              )}
+              {acfRarity && (
+                <span className="shop-product-card__badge">{acfRarity}</span>
+              )}
+            </div>
+          )}
 
           {articleFields.length > 0 && (
-            <div className="small text-muted mb-3">
+            <div className="shop-product-card__meta">
               {articleFields.map((field) => (
                 <p key={field.key} className="mb-1">
                   <strong>{field.label}:</strong> {field.value}
@@ -67,26 +89,16 @@ const ShopProduct = ({ product, onAddToCart }) => {
             </div>
           )}
 
-          {groupedFields.length > 0 && (
-            <div className="small text-muted mb-3">
-              {groupedFields.map((group) => (
-                <div key={group.title} className="mb-2">
-                  <p className="mb-1 fw-semibold">{group.title}</p>
-                  {group.fields.map((field) => (
-                    <p key={field.key} className="mb-1">
-                      <strong>{field.label}:</strong> {field.value}
-                    </p>
-                  ))}
-                </div>
-              ))}
-            </div>
-          )}
-
           <button
-            className="btn btn-success mt-auto"
-            onClick={() => onAddToCart(product)}
+            type="button"
+            className="shop-product-card__btn"
+            onClick={() => {
+              if (typeof onAddToCart === "function") {
+                onAddToCart(product);
+              }
+            }}
           >
-            Dodaj u košaricu
+            Add to cart
           </button>
         </div>
       </div>
