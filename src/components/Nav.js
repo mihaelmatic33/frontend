@@ -6,15 +6,39 @@ const Nav = () => {
   const location = useLocation();
   const [name, setName] = useState(null);
   const [navOpacity, setNavOpacity] = useState(1);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState({
+    categories: false,
+    mystery: false,
+  });
   const logoSrc = `${process.env.PUBLIC_URL}/img/pokestuff-logo-removebg-preview.png`;
   const userIconSrc = `${process.env.PUBLIC_URL}/img/header/user.svg`;
   const cartIconSrc = `${process.env.PUBLIC_URL}/img/header/cart.svg`;
   const isHomeRoute = location.pathname === "/";
+  const searchParams = new URLSearchParams(location.search);
+  const activeCategoryId = Number(searchParams.get("category"));
+  const activeSubcategoryId = Number(searchParams.get("subcategory"));
+  const isShopCategoriesRoute = location.pathname === "/shop-categories";
+
+  const getCategoryItemClass = (categoryId) =>
+    `dropdown-item nav__dropdown-item ${isShopCategoriesRoute && activeCategoryId === categoryId ? "active" : ""}`;
+
+  const getMysteryItemClass = (subcategoryId) =>
+    `dropdown-item nav__dropdown-item ${
+      isShopCategoriesRoute &&
+      activeCategoryId === 100 &&
+      activeSubcategoryId === subcategoryId
+        ? "active"
+        : ""
+    }`;
 
   useEffect(() => {
     const user = localStorage.getItem("username");
     if (user) setName(user);
   }, []);
+
+  useEffect(() => {
+    setMobileDropdownOpen({ categories: false, mystery: false });
+  }, [location.pathname, location.search]);
 
   useEffect(() => {
     if (!isHomeRoute) {
@@ -49,6 +73,17 @@ const Nav = () => {
     setName(null);
   };
 
+  const toggleMobileDropdown = (dropdownKey) => {
+    if (window.innerWidth > 992) {
+      return;
+    }
+
+    setMobileDropdownOpen((prev) => ({
+      categories: dropdownKey === "categories" ? !prev.categories : false,
+      mystery: dropdownKey === "mystery" ? !prev.mystery : false,
+    }));
+  };
+
   const navStyle = isHomeRoute
     ? {
         backgroundColor: `rgba(246, 224, 94, ${navOpacity})`,
@@ -77,32 +112,60 @@ const Nav = () => {
 
         <div className="collapse navbar-collapse" id="mainNavbar">
           <ul className="navbar-nav me-auto nav__menu">
-            <li className="nav-item dropdown nav__item">
-              <Link
-                className="nav-link dropdown-toggle nav__link"
-                to="/shop-categories"
-              >
-                CATEGORIES
-              </Link>
+            <li className="nav-item dropdown nav__item nav__item--dropdown">
+              <div className="nav__dropdown-trigger">
+                <Link className="nav-link nav__link" to="/shop-categories">
+                  CATEGORIES
+                </Link>
+                <button
+                  type="button"
+                  className="nav__dropdown-toggle dropdown-toggle"
+                  aria-expanded={mobileDropdownOpen.categories}
+                  aria-label="Prikaži Categories izbornik"
+                  onClick={() => toggleMobileDropdown("categories")}
+                ></button>
+              </div>
 
-              <ul className="dropdown-menu nav__dropdown-menu">
+              <ul
+                className={`dropdown-menu nav__dropdown-menu ${mobileDropdownOpen.categories ? "show" : ""}`}
+              >
                 <li>
-                  <Link className="dropdown-item nav__dropdown-item" to="#">
+                  <Link
+                    className={getCategoryItemClass(100)}
+                    to="/shop-categories?category=100"
+                  >
+                    Mystery
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className={getCategoryItemClass(95)}
+                    to="/shop-categories?category=95"
+                  >
                     Trading Card Game (TCG)
                   </Link>
                 </li>
                 <li>
-                  <Link className="dropdown-item nav__dropdown-item" to="#">
+                  <Link
+                    className={getCategoryItemClass(98)}
+                    to="/shop-categories?category=98"
+                  >
                     Figures
                   </Link>
                 </li>
                 <li>
-                  <Link className="dropdown-item nav__dropdown-item" to="#">
+                  <Link
+                    className={getCategoryItemClass(248)}
+                    to="/shop-categories?category=248"
+                  >
                     Video Games
                   </Link>
                 </li>
                 <li>
-                  <Link className="dropdown-item nav__dropdown-item" to="#">
+                  <Link
+                    className={getCategoryItemClass(96)}
+                    to="/shop-categories?category=96"
+                  >
                     Accessories
                   </Link>
                 </li>
@@ -122,28 +185,53 @@ const Nav = () => {
               </Link>
             </li>
 
-            <li className="nav-item dropdown nav__item">
-              <Link
-                className="nav-link dropdown-toggle nav__link"
-                to="/mystery"
-              >
-                MYSTERIOUS POKESTUFF
-              </Link>
+            <li className="nav-item dropdown nav__item nav__item--dropdown">
+              <div className="nav__dropdown-trigger">
+                <Link className="nav-link nav__link" to="/mystery">
+                  MYSTERIOUS POKESTUFF
+                </Link>
+                <button
+                  type="button"
+                  className="nav__dropdown-toggle dropdown-toggle"
+                  aria-expanded={mobileDropdownOpen.mystery}
+                  aria-label="Prikaži Mysterious Pokestuff izbornik"
+                  onClick={() => toggleMobileDropdown("mystery")}
+                ></button>
+              </div>
 
-              <ul className="dropdown-menu nav__dropdown-menu">
+              <ul
+                className={`dropdown-menu nav__dropdown-menu ${mobileDropdownOpen.mystery ? "show" : ""}`}
+              >
                 <li>
-                  <Link className="dropdown-item nav__dropdown-item" to="#">
-                    Mystery pack
-                  </Link>
-                </li>
-                <li>
-                  <Link className="dropdown-item nav__dropdown-item" to="#">
-                    Mystery slab
-                  </Link>
-                </li>
-                <li>
-                  <Link className="dropdown-item nav__dropdown-item" to="#">
+                  <Link
+                    className={getMysteryItemClass(140)}
+                    to="/shop-categories?category=100&subcategory=140"
+                  >
                     Mystery box
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className={getMysteryItemClass(137)}
+                    to="/shop-categories?category=100&subcategory=137"
+                  >
+                    Mystery card
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className={getMysteryItemClass(138)}
+                    to="/shop-categories?category=100&subcategory=138"
+                  >
+                    Mystery slab (graded card)
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className={getMysteryItemClass(139)}
+                    to="/shop-categories?category=100&subcategory=139"
+                  >
+                    Mystery sealed (product)
                   </Link>
                 </li>
               </ul>

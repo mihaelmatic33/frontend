@@ -44,6 +44,46 @@
   margin: 0 6px;
 }
 
+.nav__item--dropdown {
+  position: relative;
+}
+
+.nav__dropdown-trigger {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav__item--dropdown .nav__link {
+  padding-right: 12px !important;
+}
+
+.nav__dropdown-toggle {
+  position: absolute;
+  top: 50%;
+  right: -12px;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: #141615;
+  padding: 6px 6px;
+  margin-left: 0;
+  border-radius: 999px;
+  line-height: 1;
+}
+
+.nav__dropdown-toggle::after {
+  margin-left: 0;
+  vertical-align: middle;
+}
+
+.nav__dropdown-toggle:hover,
+.nav__dropdown-toggle:focus-visible {
+  background-color: rgba(255, 255, 255, 0.22);
+  box-shadow: none;
+  outline: none;
+}
+
 .nav__link {
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -143,8 +183,7 @@
 }
 
 @media (min-width: 993px) {
-  .nav__item.dropdown:hover > .nav__dropdown-menu,
-  .nav__item.dropdown:focus-within > .nav__dropdown-menu {
+  .nav__item.dropdown:hover > .nav__dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -215,6 +254,35 @@
     margin: 6px 0;
   }
 
+  .nav__dropdown-trigger {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 28px auto 28px;
+    align-items: center;
+  }
+
+  .nav__dropdown-trigger::before {
+    content: "";
+    width: 28px;
+    height: 1px;
+  }
+
+  .nav__item--dropdown .nav__link {
+    grid-column: 2;
+    justify-self: center;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .nav__dropdown-toggle {
+    position: static;
+    grid-column: 3;
+    justify-self: start;
+    transform: none;
+    width: 28px;
+    padding: 6px 0;
+  }
+
   .nav__link {
     width: auto;
     padding: 6px 12px !important;
@@ -239,18 +307,35 @@
   .nav__dropdown-menu {
     position: static;
     float: none;
-    margin-top: 4px;
+    margin-top: 0;
     box-shadow: none;
     border: 1px solid rgba(20, 22, 21, 0.12);
-    display: none;
-    opacity: 1;
+    display: block;
+    opacity: 0;
     visibility: visible;
-    transform: none;
-    pointer-events: auto;
+    transform: translateY(-6px);
+    pointer-events: none;
+    max-height: 0;
+    overflow: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
+    transition:
+      max-height 0.28s ease,
+      opacity 0.2s ease,
+      transform 0.2s ease,
+      margin-top 0.2s ease,
+      padding-top 0.2s ease,
+      padding-bottom 0.2s ease;
   }
 
   .nav__dropdown-menu.show {
-    display: block;
+    margin-top: 4px;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    max-height: 420px;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
   .nav__actions {
