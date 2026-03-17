@@ -1,24 +1,104 @@
-.blog-post img{
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
-    width: 100%;
-
-
+.blog-page {
+  min-height: calc(100vh - 56px);
 }
 
-.blog-post h2{
-    font-size: 2rem;
-}
-.blog-page{
-    min-height: calc(100vh - 56px);
-}
-.blog-single{
-    min-height: calc(100vh - 56px);
+.blog-single {
+  min-height: calc(100vh - 56px);
 }
 
+.pokemon-blog-page {
+  background:
+    radial-gradient(
+      circle at 10% -5%,
+      rgba(244, 228, 77, 0.24),
+      transparent 42%
+    ),
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(76, 125, 246, 0.14),
+      transparent 38%
+    ),
+    linear-gradient(180deg, #f9fbf1 0%, #eef2e4 100%);
+  padding: 20px 0 38px;
+}
 
-@media(min-width: 440px){
-    .blog-post img{
-    aspect-ratio: 16 / 9;
-    }
+.pokemon-blog-header {
+  background: #141615;
+  color: #fff;
+  border: 2px solid #f6e05e;
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 16px;
+}
+
+.pokemon-blog-header p {
+  margin: 0 0 6px;
+  color: #f6e05e;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pokemon-blog-header h1 {
+  margin: 0 0 8px;
+  color: #f6e05e;
+}
+
+.pokemon-blog-header span {
+  color: rgba(255, 255, 255, 0.84);
+  max-width: 760px;
+  display: inline-block;
+}
+
+.pokemon-blog-filters {
+  margin: 14px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pokemon-blog-filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pokemon-blog-empty {
+  margin: 16px 0;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px dashed #cfd5bf;
+  background: #fff;
+  color: #5f6658;
+}
+
+.blog-post img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.blog-post h2 {
+  font-size: 1.3rem;
+  margin: 0 0 8px;
+}
+
+.blog-post a {
+  color: #141615;
+  text-decoration: none;
+}
+
+.blog-post a:hover h2 {
+  color: #4b64d8;
+}
+
+@media (max-width: 640px) {
+  .pokemon-blog-page {
+    padding-top: 10px;
+  }
+
+  .pokemon-blog-header {
+    border-radius: 12px;
+  }
 }

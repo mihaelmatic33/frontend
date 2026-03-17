@@ -7,7 +7,8 @@ const Nav = () => {
   const { cartItems } = useCart();
   const location = useLocation();
   const [name, setName] = useState(null);
-  const [navOpacity, setNavOpacity] = useState(1);
+  const [navOpacity, setNavOpacity] = useState(0);
+  const [navBlend, setNavBlend] = useState(0);
   const [isCartAnimating, setIsCartAnimating] = useState(false);
   const cartAnimationTimeoutRef = useRef(null);
   const previousCartCountRef = useRef(0);
@@ -48,14 +49,16 @@ const Nav = () => {
   useEffect(() => {
     if (!isHomeRoute) {
       setNavOpacity(1);
+      setNavBlend(1);
       return;
     }
 
     const updateNavOpacity = () => {
-      const heroSection = document.querySelector(".hero_section");
+      const heroSection = document.querySelector(".home-epic__hero");
       const heroHeight = heroSection?.offsetHeight || window.innerHeight;
-      const progress = Math.min(window.scrollY / heroHeight, 1);
+      const progress = Math.min(window.scrollY / Math.max(heroHeight * 0.92, 1), 1);
       setNavOpacity(progress);
+      setNavBlend(progress);
     };
 
     updateNavOpacity();
@@ -89,6 +92,11 @@ const Nav = () => {
     ? {
         backgroundColor: `rgba(246, 224, 94, ${navOpacity})`,
         boxShadow: `0 4px 10px rgba(0, 0, 0, ${0.08 * navOpacity})`,
+        backdropFilter: "blur(8px) saturate(130%)",
+        WebkitBackdropFilter: "blur(8px) saturate(130%)",
+        "--nav-link-color": `rgb(${Math.round(255 - 235 * navBlend)}, ${Math.round(
+          255 - 233 * navBlend,
+        )}, ${Math.round(255 - 234 * navBlend)})`,
       }
     : undefined;
 
@@ -129,11 +137,12 @@ const Nav = () => {
   }
 
   return (
-    <nav
-      className={`nav navbar navbar-expand-lg ${isHomeRoute ? "nav--overlay" : ""}`}
-      style={navStyle}
-    >
-      <div className="container nav__container">
+    <>
+      <nav
+        className={`nav navbar navbar-expand-lg ${isHomeRoute ? "nav--overlay" : ""}`}
+        style={navStyle}
+      >
+        <div className="container nav__container">
         <Link className="navbar-brand nav__logo" to="/">
           <img src={logoSrc} alt="logo" />
         </Link>
@@ -158,7 +167,7 @@ const Nav = () => {
                   type="button"
                   className="nav__dropdown-toggle dropdown-toggle"
                   aria-expanded={mobileDropdownOpen.categories}
-                  aria-label="Prikaži Shop izbornik"
+                  aria-label="Show Shop menu"
                   onClick={() => toggleMobileDropdown("categories")}
                 ></button>
               </div>
@@ -231,7 +240,7 @@ const Nav = () => {
                   type="button"
                   className="nav__dropdown-toggle dropdown-toggle"
                   aria-expanded={mobileDropdownOpen.mystery}
-                  aria-label="Prikaži Mysterious Pokestuff izbornik"
+                  aria-label="Show Mysterious Pokestuff menu"
                   onClick={() => toggleMobileDropdown("mystery")}
                 ></button>
               </div>
@@ -290,7 +299,7 @@ const Nav = () => {
             <li className="nav-item nav__item">
               {name ? (
                 <button onClick={logout} className="nav__login-btn">
-                  Dobrodošli {name}
+                  Welcome, {name}
                 </button>
               ) : (
                 <Link
@@ -322,11 +331,12 @@ const Nav = () => {
           </ul>
         </div>
       </div>
+      </nav>
 
       <Link
         to="/cart"
         className={`nav__floating-cart${isCartAnimating ? " is-cart-added" : ""}`}
-        aria-label="Otvori košaricu"
+        aria-label="Open cart"
       >
         <img src={cartIconSrc} alt="Cart" className="nav__floating-cart-icon" />
         {cartCount > 0 && (
@@ -335,7 +345,7 @@ const Nav = () => {
           </span>
         )}
       </Link>
-    </nav>
+    </>
   );
 };
 
