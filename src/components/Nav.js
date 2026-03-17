@@ -1,11 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useCart } from "../CartContext";
 import "./nav.css";
 
 const Nav = () => {
+  const { cartItems } = useCart();
   const location = useLocation();
   const [name, setName] = useState(null);
   const [navOpacity, setNavOpacity] = useState(1);
+  const [isCartAnimating, setIsCartAnimating] = useState(false);
+  const cartAnimationTimeoutRef = useRef(null);
+  const previousCartCountRef = useRef(0);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState({
     categories: false,
     mystery: false,
@@ -63,10 +68,6 @@ const Nav = () => {
     };
   }, [isHomeRoute]);
 
-  if (location.pathname === "/signin" || location.pathname === "/register") {
-    return null;
-  }
-
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("username");
@@ -90,6 +91,42 @@ const Nav = () => {
         boxShadow: `0 4px 10px rgba(0, 0, 0, ${0.08 * navOpacity})`,
       }
     : undefined;
+
+  const cartCount = cartItems.reduce(
+    (sum, item) => sum + Number(item?.quantity || 1),
+    0,
+  );
+
+  const cartCountLabel = cartCount > 99 ? "99+" : String(cartCount);
+
+  useEffect(() => {
+    const previousCount = previousCartCountRef.current;
+    if (cartCount > previousCount) {
+      setIsCartAnimating(true);
+
+      if (cartAnimationTimeoutRef.current) {
+        clearTimeout(cartAnimationTimeoutRef.current);
+      }
+
+      cartAnimationTimeoutRef.current = setTimeout(() => {
+        setIsCartAnimating(false);
+      }, 560);
+    }
+
+    previousCartCountRef.current = cartCount;
+  }, [cartCount]);
+
+  useEffect(() => {
+    return () => {
+      if (cartAnimationTimeoutRef.current) {
+        clearTimeout(cartAnimationTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  if (location.pathname === "/signin" || location.pathname === "/register") {
+    return null;
+  }
 
   return (
     <nav
@@ -256,24 +293,48 @@ const Nav = () => {
                   Dobrodošli {name}
                 </button>
               ) : (
-                <Link className="nav-link nav__link" to="/signin">
+                <Link
+                  className="nav-link nav__link nav__link--icon"
+                  to="/signin"
+                >
                   <img src={userIconSrc} alt="Sign in" className="nav__icon" />
                 </Link>
               )}
             </li>
 
             <li className="nav-item nav__item">
-              <Link className="nav-link nav__link" to="/cart">
+              <Link
+                className={`nav-link nav__link nav__link--icon nav__cart-link${
+                  isCartAnimating ? " is-cart-added" : ""
+                }`}
+                to="/cart"
+              >
                 <img
                   src={cartIconSrc}
                   alt="Cart"
                   className="nav__icon nav__icon--cart"
                 />
+                {cartCount > 0 && (
+                  <span className="nav__cart-badge">{cartCountLabel}</span>
+                )}
               </Link>
             </li>
           </ul>
         </div>
       </div>
+
+      <Link
+        to="/cart"
+        className={`nav__floating-cart${isCartAnimating ? " is-cart-added" : ""}`}
+        aria-label="Otvori košaricu"
+      >
+        <img src={cartIconSrc} alt="Cart" className="nav__floating-cart-icon" />
+        {cartCount > 0 && (
+          <span className="nav__cart-badge nav__cart-badge--floating">
+            {cartCountLabel}
+          </span>
+        )}
+      </Link>
     </nav>
   );
 };

@@ -1,5 +1,6 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import Loader from "../components/Loader";
 import SEO from "../components/SEO";
 import Toast from "../components/Toast";
 import ShopProduct from "../components/ShopProduct";
@@ -88,7 +89,25 @@ const SHOWCASE_ROWS = [
   { categoryId: 248, label: "Video Games", direction: "left", duration: 44 },
 ];
 
+const HEADER_BG_BY_CATEGORY = {
+  100: "hover-mystery.png",
+  95: "tcg-cover.webp",
+  96: "accessories-cover.png",
+  98: "plush-cover.webp",
+  248: "video-cover.png",
+};
+
+const getHeaderBackgroundImage = (categoryId) => {
+  const fileName = HEADER_BG_BY_CATEGORY[categoryId];
+  if (!fileName) {
+    return "none";
+  }
+
+  return `url(${process.env.PUBLIC_URL}/img/${fileName})`;
+};
+
 const ShopCategories = () => {
+  const ITEMS_PER_PAGE = 6;
   const { addToCart } = useCart();
   const [searchParams, setSearchParams] = useSearchParams();
   const [categories, setCategories] = useState(FALLBACK_CATEGORIES);
@@ -96,12 +115,16 @@ const ShopCategories = () => {
   const [loading, setLoading] = useState(false);
   const [activeCategory, setActiveCategory] = useState(null);
   const [activeSubcategory, setActiveSubcategory] = useState(null);
+  const [hoveredCategoryId, setHoveredCategoryId] = useState(null);
+  const [isStickyElevated, setIsStickyElevated] = useState(false);
   const [toast, setToast] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
+  const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [showcaseRows, setShowcaseRows] = useState([]);
   const [showcaseLoading, setShowcaseLoading] = useState(false);
-  const ITEMS_PER_PAGE = 6;
+  const loadMoreRef = useRef(null);
+  const loadMoreTimeoutRef = useRef(null);
 
   useEffect(() => {
     const fetchCategoryTree = async () => {
@@ -231,6 +254,10 @@ const ShopCategories = () => {
     setSearchParams({ category: String(category.id) });
   };
 
+  const selectedCategoryId = Number(searchParams.get("category")) || null;
+  const headerCategoryId = hoveredCategoryId ?? selectedCategoryId;
+  const headerBackgroundImage = getHeaderBackgroundImage(headerCategoryId);
+
   const handleSubcategoryClick = (subcategory) => {
     if (!activeCategory) return;
 
@@ -248,6 +275,7 @@ const ShopCategories = () => {
       setActiveCategory(null);
       setActiveSubcategory(null);
       setProducts([]);
+      setVisibleCount(ITEMS_PER_PAGE);
       return;
     }
 
@@ -256,6 +284,7 @@ const ShopCategories = () => {
       setActiveCategory(null);
       setActiveSubcategory(null);
       setProducts([]);
+      setVisibleCount(ITEMS_PER_PAGE);
       return;
     }
 
@@ -274,12 +303,37 @@ const ShopCategories = () => {
     }
 
     setActiveSubcategory(null);
-    setCurrentPage(1);
+    setVisibleCount(ITEMS_PER_PAGE);
     fetchProducts([
       selectedCategory.id,
       ...selectedCategory.subcategories.map((sub) => sub.id),
     ]);
   }, [searchParams, fetchProducts, categories]);
+
+  useEffect(() => {
+    setVisibleCount(ITEMS_PER_PAGE);
+  }, [activeCategory?.id, activeSubcategory?.id, searchQuery]);
+
+  useEffect(() => {
+    return () => {
+      if (loadMoreTimeoutRef.current) {
+        clearTimeout(loadMoreTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setIsStickyElevated(window.scrollY > 16);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
 
   const filteredProducts = products
     .filter((product) => {
@@ -300,17 +354,58 @@ const ShopCategories = () => {
       return leftTitle.localeCompare(rightTitle);
     });
 
-  const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
-  const paginatedProducts = filteredProducts.slice(
-    (currentPage - 1) * ITEMS_PER_PAGE,
-    currentPage * ITEMS_PER_PAGE,
-  );
+  const visibleProducts = filteredProducts.slice(0, visibleCount);
+  const hasMoreProducts = visibleCount < filteredProducts.length;
 
-  const handlePageChange = (nextPage) => {
-    if (nextPage === currentPage) return;
-    setCurrentPage(nextPage);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  useEffect(() => {
+    if (!activeCategory || loading || !hasMoreProducts || isLoadingMore) {
+      return;
+    }
+
+    const sentinel = loadMoreRef.current;
+    if (!sentinel) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const firstEntry = entries[0];
+        if (!firstEntry?.isIntersecting || isLoadingMore) {
+          return;
+        }
+
+        setIsLoadingMore(true);
+        if (loadMoreTimeoutRef.current) {
+          clearTimeout(loadMoreTimeoutRef.current);
+        }
+
+        loadMoreTimeoutRef.current = setTimeout(() => {
+          setVisibleCount((prev) =>
+            Math.min(prev + ITEMS_PER_PAGE, filteredProducts.length),
+          );
+          setIsLoadingMore(false);
+        }, 240);
+      },
+      {
+        root: null,
+        rootMargin: "220px 0px",
+        threshold: 0.01,
+      },
+    );
+
+    observer.observe(sentinel);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [
+    activeCategory,
+    loading,
+    hasMoreProducts,
+    isLoadingMore,
+    filteredProducts.length,
+    ITEMS_PER_PAGE,
+  ]);
 
   const handleAddToCart = (product, options = {}) => {
     const added = addToCart(product, options);
@@ -345,7 +440,10 @@ const ShopCategories = () => {
         description="Browse our products by category"
       />
 
-      <div className="shop-categories__header">
+      <div
+        className={`shop-categories__header${headerBackgroundImage !== "none" ? " has-cover" : ""}`}
+        style={{ "--shop-header-bg-image": headerBackgroundImage }}
+      >
         <div className="container">
           <h1>Shop</h1>
           <p>Find your perfect Pokemon product</p>
@@ -355,48 +453,57 @@ const ShopCategories = () => {
       <div className="container">
         {toast && <Toast message={toast} onClose={() => setToast(null)} />}
 
-        <div className="d-flex flex-wrap align-items-start justify-content-between gap-3 mb-3">
-          <div className="shop-filter-bar">
-            <span className="shop-filter-bar__label">Category:</span>
-            {categories.map((cat) => (
-              <button
-                key={cat.id}
-                className={`shop-cat-btn${activeCategory?.id === cat.id ? " active" : ""}`}
-                onClick={() => handleCategoryClick(cat)}
-              >
-                {cat.label}
-              </button>
-            ))}
-          </div>
+        <div
+          className={`shop-sticky-controls${isStickyElevated ? " is-elevated" : ""}`}
+        >
+          <div className="shop-sticky-controls__row">
+            <div className="shop-filter-bar">
+              <span className="shop-filter-bar__label">Category:</span>
+              {categories.map((cat) => (
+                <button
+                  key={cat.id}
+                  className={`shop-cat-btn${activeCategory?.id === cat.id ? " active" : ""}`}
+                  onClick={() => handleCategoryClick(cat)}
+                  onMouseEnter={() => setHoveredCategoryId(cat.id)}
+                  onMouseLeave={() => setHoveredCategoryId(null)}
+                  onFocus={() => setHoveredCategoryId(cat.id)}
+                  onBlur={() => setHoveredCategoryId(null)}
+                >
+                  {cat.label}
+                </button>
+              ))}
+            </div>
 
-          <div className="shop-search-wrap">
-            <i className="fas fa-search shop-search-icon"></i>
-            <input
-              type="text"
-              placeholder="Search by name..."
-              value={searchQuery}
-              onChange={(e) => {
-                setSearchQuery(e.target.value);
-                setCurrentPage(1);
-              }}
-            />
+            <div className="shop-sticky-controls__right">
+              <div className="shop-search-wrap">
+                <i className="fas fa-search shop-search-icon"></i>
+                <input
+                  type="text"
+                  placeholder="Search by name..."
+                  value={searchQuery}
+                  onChange={(e) => {
+                    setSearchQuery(e.target.value);
+                  }}
+                />
+              </div>
+
+              {activeCategory && activeCategory.subcategories.length > 0 && (
+                <div className="shop-filter-bar shop-filter-bar--subcategories">
+                  <span className="shop-filter-bar__label">Subcategory:</span>
+                  {activeCategory.subcategories.map((sub) => (
+                    <button
+                      key={sub.id}
+                      className={`shop-subcat-btn${activeSubcategory?.id === sub.id ? " active" : ""}`}
+                      onClick={() => handleSubcategoryClick(sub)}
+                    >
+                      {sub.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </div>
-
-        {activeCategory && activeCategory.subcategories.length > 0 && (
-          <div className="shop-filter-bar mb-2">
-            <span className="shop-filter-bar__label">Subcategory:</span>
-            {activeCategory.subcategories.map((sub) => (
-              <button
-                key={sub.id}
-                className={`shop-subcat-btn${activeSubcategory?.id === sub.id ? " active" : ""}`}
-                onClick={() => handleSubcategoryClick(sub)}
-              >
-                {sub.label}
-              </button>
-            ))}
-          </div>
-        )}
 
         <hr className="shop-divider" />
 
@@ -535,7 +642,7 @@ const ShopCategories = () => {
         ) : (
           <>
             <div className="row g-4">
-              {paginatedProducts.map((product) => (
+              {visibleProducts.map((product) => (
                 <ShopProduct
                   key={product.id}
                   product={product}
@@ -544,27 +651,24 @@ const ShopCategories = () => {
               ))}
             </div>
 
-            {totalPages > 1 && (
-              <div className="shop-pagination">
-                <button
-                  className="shop-pagination__btn"
-                  onClick={() => handlePageChange(Math.max(currentPage - 1, 1))}
-                  disabled={currentPage === 1}
-                >
-                  ← Previous
-                </button>
-                <span className="shop-pagination__info">
-                  Page {currentPage} / {totalPages}
-                </span>
-                <button
-                  className="shop-pagination__btn"
-                  onClick={() =>
-                    handlePageChange(Math.min(currentPage + 1, totalPages))
-                  }
-                  disabled={currentPage === totalPages}
-                >
-                  Next →
-                </button>
+            {hasMoreProducts && (
+              <>
+                <div
+                  ref={loadMoreRef}
+                  className="shop-infinite-sentinel"
+                  aria-hidden="true"
+                ></div>
+                {isLoadingMore && (
+                  <div className="shop-infinite-loader" aria-live="polite">
+                    <Loader />
+                  </div>
+                )}
+              </>
+            )}
+
+            {!hasMoreProducts && filteredProducts.length > ITEMS_PER_PAGE && (
+              <div className="shop-results-end">
+                Prikazani su svi proizvodi u ovoj kategoriji.
               </div>
             )}
           </>

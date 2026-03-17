@@ -1,18 +1,5 @@
 [
   {
-    "title": "Pikachu Enamel Keychain Charm",
-    "imageUrl": "pikachu-keychain.jpg",
-    "prodCategoryIds": [96, 247],
-    "acf": {
-      "article_name": "Pikachu Enamel Keychain Charm",
-      "product_description": "Compact enamel keychain with a bright yellow finish and metal clasp for backpacks, keys, or display boards.",
-      "price": 12.9,
-      "categories": ["Accessories"],
-      "add_ons_type": ["Key chains"],
-      "color": "Yellow"
-    }
-  },
-  {
     "title": "Eevee Pocket Phone Mask",
     "imageUrl": "eevee-phone-mask.jpg",
     "prodCategoryIds": [96, 247],
@@ -49,6 +36,19 @@
       "categories": ["Accessories"],
       "add_ons_type": ["Phone masks"],
       "color": "Purple"
+    }
+  },
+  {
+    "title": "Pikachu Enamel Keychain Charm",
+    "imageUrl": "pikachu-keychain.jpg",
+    "prodCategoryIds": [96, 247],
+    "acf": {
+      "article_name": "Pikachu Enamel Keychain Charm",
+      "product_description": "Durable enamel keychain charm with polished metal hardware and a compact Pikachu silhouette for bags, keys, or display boards.",
+      "price": 9.9,
+      "categories": ["Accessories"],
+      "add_ons_type": ["Key chains"],
+      "color": "Yellow"
     }
   },
   {
@@ -369,7 +369,7 @@
     "prodCategoryIds": [100, 138],
     "acf": {
       "article_name": "Mystery Graded Card",
-      "product_description": "Mystery slab card with authenticated grading, prepared for collectors who want a surprise reveal with display-ready protection.",
+      "product_description": "One authenticated mystery graded card selected from trusted grading slabs, curated for collector appeal and surprise value.",
       "price": 89.99,
       "categories": ["Mystery"],
       "prefrences": ["Slabs"]

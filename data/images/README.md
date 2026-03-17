@@ -8,16 +8,16 @@ and store the resulting media ID in `acf.product_image`.
 
 ---
 
-## Expected files for `shop_seed_non_graded.json` (44 products)
+## Expected files for `shop_seed_non_graded.json` (39 products)
 
 ### Accessories – Add-ons
 
 | Filename                | Product                       |
 | ----------------------- | ----------------------------- |
-| `pikachu-keychain.jpg`  | Pikachu Enamel Keychain Charm |
 | `eevee-phone-mask.jpg`  | Eevee Pocket Phone Mask       |
 | `pokeball-mug.jpg`      | Pokeball Ceramic Mug          |
 | `gengar-phone-mask.jpg` | Gengar Ghost Phone Mask       |
+| `pikachu-keychain.jpg`  | Pikachu Enamel Keychain Charm |
 
 ### Accessories – Wearables
 
@@ -75,14 +75,9 @@ and store the resulting media ID in `acf.product_image`.
 
 ### Mystery – Card
 
-| Filename             | Product             |
-| -------------------- | ------------------- |
-| `mystery-single.jpg` | Mystery Single Card |
-
-### Mystery – Graded Card
-
 | Filename                  | Product             |
 | ------------------------- | ------------------- |
+| `mystery-single.jpg`      | Mystery Single Card |
 | `mystery-graded-card.jpg` | Mystery Graded Card |
 
 ### Mystery – Sealed

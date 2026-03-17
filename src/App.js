@@ -12,10 +12,12 @@ import "./App.css";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import Loader from "./components/Loader";
+import ScrollToTop from "./components/ScrollToTop";
 import { CartProvider } from "./CartContext";
 import Home from "./pages/Home";
 import Blog from "./pages/Blog";
 import Mystery from "./pages/Mystery";
+import CustomMysteryBox from "./pages/CustomMysteryBox";
 import Contact from "./pages/Contact";
 import ShopCategories from "./pages/ShopCategories";
 import BlogSingle from "./pages/BlogSingle";
@@ -63,6 +65,7 @@ const AppShell = () => {
           <Route path="/shop-categories" element={<ShopCategories />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/mystery" element={<Mystery />} />
+          <Route path="/mystery/custom-box" element={<CustomMysteryBox />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/blog/:slug" element={<BlogSingle />} />
           <Route path="/profil" element={<Profil />} />
@@ -88,6 +91,7 @@ const AppShell = () => {
           />
         </Routes>
       </div>
+      <ScrollToTop />
       <Footer />
     </div>
   );
