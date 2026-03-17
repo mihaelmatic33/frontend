@@ -8,6 +8,28 @@ const LAST_RUN_PATH = path.resolve(
   "scripts",
   "import-shop-acf.last-run.json",
 );
+const ARRAY_ACF_KEYS = new Set([
+  "categories",
+  "rarity",
+  "add_ons_type",
+  "wearables_type",
+  "prefrences",
+  "type",
+  "console",
+]);
+const NUMBER_ACF_KEYS = new Set(["price", "grade"]);
+const OPTIONAL_ACF_KEYS = [
+  "wearables_type",
+  "color",
+  "add_ons_type",
+  "rarity",
+  "grading_company",
+  "grade",
+  "prefrences",
+  "type",
+  "console",
+  "product_image",
+];
 
 function loadEnvFile() {
   const envPath = path.resolve(process.cwd(), ".env");
@@ -110,9 +132,114 @@ function parseCsv(content) {
   });
 }
 
+function parseJson(content) {
+  const parsed = JSON.parse(content);
+
+  if (!Array.isArray(parsed)) {
+    throw new Error("JSON import file must contain an array of products.");
+  }
+
+  return parsed;
+}
+
 function toNumber(value) {
   const parsed = Number(value);
   return Number.isFinite(parsed) ? parsed : null;
+}
+
+function parseInputFile(absolutePath) {
+  const rawContent = fs.readFileSync(absolutePath, "utf8");
+  const extension = path.extname(absolutePath).toLowerCase();
+
+  if (extension === ".json") {
+    return parseJson(rawContent);
+  }
+
+  return parseCsv(rawContent);
+}
+
+function getRowName(row) {
+  return (
+    row?.Name ||
+    row?.name ||
+    row?.title ||
+    row?.acf?.article_name ||
+    "Untitled product"
+  );
+}
+
+function getRowImageUrl(row) {
+  return row?.Images || row?.imageUrl || row?.image || "";
+}
+
+function parseTaxonomyIds(value) {
+  if (Array.isArray(value)) {
+    return value.map((entry) => Number(entry)).filter(Number.isFinite);
+  }
+
+  if (typeof value === "string") {
+    return value
+      .split(/[|,]/)
+      .map((entry) => Number(entry.trim()))
+      .filter(Number.isFinite);
+  }
+
+  if (Number.isFinite(Number(value))) {
+    return [Number(value)];
+  }
+
+  return [];
+}
+
+function normalizeArrayValue(value) {
+  if (Array.isArray(value)) {
+    return value.map((entry) => String(entry).trim()).filter(Boolean);
+  }
+
+  if (typeof value === "string") {
+    return value
+      .split("|")
+      .map((entry) => entry.trim())
+      .filter(Boolean);
+  }
+
+  if (value == null) {
+    return [];
+  }
+
+  return [String(value).trim()].filter(Boolean);
+}
+
+function normalizeAcfValue(key, value) {
+  if (value === null) {
+    return null;
+  }
+
+  if (ARRAY_ACF_KEYS.has(key)) {
+    return normalizeArrayValue(value);
+  }
+
+  if (NUMBER_ACF_KEYS.has(key)) {
+    return toNumber(value) ?? "";
+  }
+
+  if (typeof value === "string") {
+    return value.trim();
+  }
+
+  return value ?? "";
+}
+
+function compactAcf(acf) {
+  return Object.fromEntries(
+    Object.entries(acf).filter(([, value]) => {
+      if (Array.isArray(value)) {
+        return value.length > 0;
+      }
+
+      return value !== "" && value != null;
+    }),
+  );
 }
 
 function normalizeCategory(value) {
@@ -172,31 +299,58 @@ function makeAuthHeader() {
   return `Basic ${Buffer.from(raw).toString("base64")}`;
 }
 
+const LOCAL_IMAGE_MIME = {
+  ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
+  ".png": "image/png",
+  ".webp": "image/webp",
+  ".gif": "image/gif",
+};
+
 async function uploadImageToMedia(imageUrl, authHeader, wpBaseUrl) {
   if (!imageUrl) return null;
 
-  const imageResponse = await fetch(imageUrl);
-  if (!imageResponse.ok) {
-    console.warn(`Image download failed: ${imageUrl}`);
-    return null;
+  let buffer;
+  let contentType;
+  let safeFileName;
+
+  if (imageUrl.startsWith("http://") || imageUrl.startsWith("https://")) {
+    const imageResponse = await fetch(imageUrl);
+    if (!imageResponse.ok) {
+      console.warn(`Image download failed: ${imageUrl}`);
+      return null;
+    }
+
+    const arrayBuffer = await imageResponse.arrayBuffer();
+    buffer = Buffer.from(arrayBuffer);
+    contentType = imageResponse.headers.get("content-type") || "image/jpeg";
+
+    const imageUrlObj = new URL(imageUrl);
+    const fileNameFromPath =
+      path.basename(imageUrlObj.pathname) || "product-image.jpg";
+    safeFileName = fileNameFromPath.includes(".")
+      ? fileNameFromPath
+      : `${fileNameFromPath}.jpg`;
+  } else {
+    const localPath = path.resolve(process.cwd(), "data", "images", imageUrl);
+
+    if (!fs.existsSync(localPath)) {
+      console.warn(`Local image not found: ${localPath}`);
+      return null;
+    }
+
+    buffer = fs.readFileSync(localPath);
+    const ext = path.extname(imageUrl).toLowerCase();
+    contentType = LOCAL_IMAGE_MIME[ext] || "image/jpeg";
+    safeFileName = path.basename(imageUrl);
   }
-
-  const arrayBuffer = await imageResponse.arrayBuffer();
-  const buffer = Buffer.from(arrayBuffer);
-
-  const imageUrlObj = new URL(imageUrl);
-  const fileNameFromPath =
-    path.basename(imageUrlObj.pathname) || "product-image.png";
-  const safeFileName = fileNameFromPath.includes(".")
-    ? fileNameFromPath
-    : `${fileNameFromPath}.png`;
 
   const mediaResponse = await fetch(`${wpBaseUrl}/wp-json/wp/v2/media`, {
     method: "POST",
     headers: {
       Authorization: authHeader,
       "Content-Disposition": `attachment; filename="${safeFileName}"`,
-      "Content-Type": imageResponse.headers.get("content-type") || "image/png",
+      "Content-Type": contentType,
     },
     body: buffer,
   });
@@ -211,26 +365,70 @@ async function uploadImageToMedia(imageUrl, authHeader, wpBaseUrl) {
   return mediaJson?.id ?? null;
 }
 
+function buildLegacyAcf(row) {
+  return compactAcf({
+    article_name: getRowName(row),
+    price: toNumber(row["Regular price"]),
+    categories: normalizeArrayValue(normalizeCategory(row["categories"])),
+    product_description: row["Description"] || "",
+    grading_company: normalizeGradingCompany(row["Meta:grading_company"]),
+    grade: toNumber(row["Meta:grade"]),
+    rarity: normalizeArrayValue(normalizeRarity(row["Meta:rarity"])),
+  });
+}
+
+function buildAcf(row) {
+  if (row?.acf && typeof row.acf === "object") {
+    const baseAcf = Object.fromEntries(
+      OPTIONAL_ACF_KEYS.map((key) => [key, null]),
+    );
+    const normalizedEntries = Object.entries({ ...baseAcf, ...row.acf }).map(
+      ([key, value]) => [key, normalizeAcfValue(key, value)],
+    );
+
+    const acf = Object.fromEntries(normalizedEntries);
+
+    if (!acf.article_name) {
+      acf.article_name = getRowName(row);
+    }
+
+    if (!Object.hasOwn(acf, "product_description") && row.description) {
+      acf.product_description = String(row.description).trim();
+    }
+
+    if (!Object.hasOwn(acf, "price") && Number.isFinite(Number(row.price))) {
+      acf.price = Number(row.price);
+    }
+
+    return acf;
+  }
+
+  return buildLegacyAcf(row);
+}
+
 async function createShopPost(row, authHeader, wpBaseUrl) {
-  const name = row["Name"] || "Untitled product";
-  const imageUrl = row["Images"] || "";
+  const name = getRowName(row);
+  const imageUrl = getRowImageUrl(row);
+  const taxonomyIds = parseTaxonomyIds(
+    row?.["Taxonomy:prod-category"] || row?.prodCategoryIds,
+  );
 
   const imageId = await uploadImageToMedia(imageUrl, authHeader, wpBaseUrl);
+
+  const acf = buildAcf(row);
+  if (imageId) {
+    acf.product_image = imageId;
+  }
 
   const payload = {
     title: name,
     status: "publish",
-    acf: {
-      article_name: name,
-      price: toNumber(row["Regular price"]),
-      categories: normalizeCategory(row["categories"]),
-      product_description: row["Description"] || "",
-      product_image: imageId,
-      grading_company: normalizeGradingCompany(row["Meta:grading_company"]),
-      grade: toNumber(row["Meta:grade"]),
-      rarity: normalizeRarity(row["Meta:rarity"]),
-    },
+    acf,
   };
+
+  if (taxonomyIds.length > 0) {
+    payload["prod-category"] = taxonomyIds;
+  }
 
   const response = await fetch(`${wpBaseUrl}/wp-json/wp/v2/shop`, {
     method: "POST",
@@ -275,8 +473,7 @@ async function main() {
     throw new Error(`CSV file not found: ${absoluteCsvPath}`);
   }
 
-  const rawCsv = fs.readFileSync(absoluteCsvPath, "utf8");
-  const allRows = parseCsv(rawCsv);
+  const allRows = parseInputFile(absoluteCsvPath);
   const requestedLimit = Number.isFinite(Number(limitArg))
     ? Number(limitArg)
     : 40;
@@ -306,7 +503,7 @@ async function main() {
 
   for (let i = 0; i < rows.length; i += 1) {
     const row = rows[i];
-    const label = row["Name"] || `row-${i + 1}`;
+    const label = getRowName(row);
 
     try {
       const created = await createShopPost(row, authHeader, wpBaseUrl);

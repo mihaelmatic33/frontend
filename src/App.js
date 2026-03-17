@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+} from "react-router-dom";
 import "./Gutenberg.css";
 import "./App.css";
 
@@ -28,7 +34,6 @@ import MyPosts from "./pages/admin/MyPosts";
 import AuthorsPage from "./pages/AuthorsPage";
 import AuthorProfile from "./pages/AuthorProfile";
 import Checkout from "./pages/shop/Checkout";
-import Shop from "./pages/shop/Shop";
 import Cart from "./pages/shop/Cart";
 
 const AppShell = () => {
@@ -77,7 +82,10 @@ const AppShell = () => {
           </Route>
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
-          <Route path="/shop" element={<Shop />} />
+          <Route
+            path="/shop"
+            element={<Navigate to="/shop-categories" replace />}
+          />
         </Routes>
       </div>
       <Footer />

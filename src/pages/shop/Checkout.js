@@ -103,7 +103,7 @@ const Checkout = () => {
         <h2>Košarica je prazna</h2>
         <button
           className="btn btn-primary mt-3"
-          onClick={() => navigate("/shop")}
+          onClick={() => navigate("/shop-categories")}
         >
           Nastavi kupovinu
         </button>
@@ -142,6 +142,12 @@ const Checkout = () => {
                   <p className="mb-1">
                     {parsePrice(item.price).toFixed(2)} EUR
                   </p>
+                  {Array.isArray(item.customPreferences) &&
+                    item.customPreferences.length > 0 && (
+                      <p className="mb-1 text-muted">
+                        Preference: {item.customPreferences.join(", ")}
+                      </p>
+                    )}
                 </div>
                 <div className="col-md-3">
                   <div className="d-flex align-items-center">
@@ -375,7 +381,7 @@ const Checkout = () => {
               <button
                 type="button"
                 className="btn btn-secondary"
-                onClick={() => navigate("/shop")}
+                onClick={() => navigate("/shop-categories")}
               >
                 Nastavi kupovinu
               </button>

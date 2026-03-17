@@ -19,8 +19,8 @@ const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(() => getStoredCart());
 
-  const addToCart = (product) => {
-    const normalizedItem = normalizeProductForCart(product);
+  const addToCart = (product, options = {}) => {
+    const normalizedItem = normalizeProductForCart(product, options);
 
     if (!normalizedItem?.id) {
       return false;

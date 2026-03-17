@@ -83,7 +83,7 @@ const Cart = () => {
         </p>
         <button
           className="cart-btn cart-btn--primary mt-3"
-          onClick={() => navigate("/shop")}
+          onClick={() => navigate("/shop-categories")}
         >
           Continue Shopping
         </button>
@@ -122,6 +122,12 @@ const Cart = () => {
               <p className="cart-item__price">
                 {parsePrice(item.price).toFixed(2)} EUR
               </p>
+              {Array.isArray(item.customPreferences) &&
+                item.customPreferences.length > 0 && (
+                  <p className="mb-0 text-muted">
+                    Preference: {item.customPreferences.join(", ")}
+                  </p>
+                )}
             </div>
 
             <div className="col-md-3">
@@ -161,7 +167,7 @@ const Cart = () => {
       <div className="cart-actions d-flex justify-content-between mt-4">
         <button
           className="cart-btn cart-btn--ghost"
-          onClick={() => navigate("/shop")}
+          onClick={() => navigate("/shop-categories")}
         >
           Nastavi kupovinu
         </button>

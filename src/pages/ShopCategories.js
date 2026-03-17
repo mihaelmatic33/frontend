@@ -3,7 +3,12 @@ import { useSearchParams } from "react-router-dom";
 import SEO from "../components/SEO";
 import Toast from "../components/Toast";
 import ShopProduct from "../components/ShopProduct";
-import { getProductTitle } from "../utils/cartItem";
+import {
+  getProductImage,
+  getProductTitle,
+  parsePrice,
+  resolveProductImageUrl,
+} from "../utils/cartItem";
 import { useCart } from "../CartContext";
 import "./ShopCategories.css";
 
@@ -63,6 +68,26 @@ const FALLBACK_CATEGORIES = [
   },
 ];
 
+const MYSTERY_BOX_ORDER = {
+  "mystery box bronze tier": 1,
+  "mystery box silver tier": 2,
+  "mystery box gold tier": 3,
+  "custom mystery box": 4,
+};
+
+const SHOWCASE_ROWS = [
+  { categoryId: 100, label: "Mystery", direction: "left", duration: 46 },
+  {
+    categoryId: 95,
+    label: "Trading Card Game",
+    direction: "right",
+    duration: 40,
+  },
+  { categoryId: 96, label: "Accessories", direction: "left", duration: 42 },
+  { categoryId: 98, label: "Toys", direction: "right", duration: 38 },
+  { categoryId: 248, label: "Video Games", direction: "left", duration: 44 },
+];
+
 const ShopCategories = () => {
   const { addToCart } = useCart();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -74,6 +99,8 @@ const ShopCategories = () => {
   const [toast, setToast] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const [showcaseRows, setShowcaseRows] = useState([]);
+  const [showcaseLoading, setShowcaseLoading] = useState(false);
   const ITEMS_PER_PAGE = 6;
 
   useEffect(() => {
@@ -112,6 +139,55 @@ const ShopCategories = () => {
     };
 
     fetchCategoryTree();
+  }, []);
+
+  useEffect(() => {
+    const fetchShowcaseRows = async () => {
+      setShowcaseLoading(true);
+
+      try {
+        const rows = await Promise.all(
+          SHOWCASE_ROWS.map(async (row) => {
+            const response = await fetch(
+              `${API_URL}?prod-category=${row.categoryId}&_embed&per_page=10`,
+            );
+
+            if (!response.ok) {
+              throw new Error(`HTTP error: ${response.status}`);
+            }
+
+            const list = await response.json();
+            const safeList = Array.isArray(list) ? list : [];
+
+            const withImages = await Promise.all(
+              safeList.map(async (product) => {
+                const directImage = getProductImage(product);
+                if (directImage) return product;
+
+                const resolved = await resolveProductImageUrl(product);
+                return resolved
+                  ? { ...product, _resolvedImageUrl: resolved }
+                  : product;
+              }),
+            );
+
+            return {
+              ...row,
+              products: withImages,
+            };
+          }),
+        );
+
+        setShowcaseRows(rows.filter((row) => row.products.length > 0));
+      } catch (error) {
+        console.error("Failed to fetch showcase rows:", error);
+        setShowcaseRows([]);
+      } finally {
+        setShowcaseLoading(false);
+      }
+    };
+
+    fetchShowcaseRows();
   }, []);
 
   const fetchProducts = useCallback(async (categoryIds) => {
@@ -205,11 +281,24 @@ const ShopCategories = () => {
     ]);
   }, [searchParams, fetchProducts, categories]);
 
-  const filteredProducts = products.filter((product) => {
-    if (!searchQuery.trim()) return true;
-    const title = product?.title?.rendered || "";
-    return title.toLowerCase().includes(searchQuery.toLowerCase());
-  });
+  const filteredProducts = products
+    .filter((product) => {
+      if (!searchQuery.trim()) return true;
+      const title = product?.title?.rendered || "";
+      return title.toLowerCase().includes(searchQuery.toLowerCase());
+    })
+    .sort((left, right) => {
+      if (activeSubcategory?.id !== 140) return 0;
+
+      const leftTitle = (left?.title?.rendered || "").toLowerCase();
+      const rightTitle = (right?.title?.rendered || "").toLowerCase();
+      const leftOrder = MYSTERY_BOX_ORDER[leftTitle] || 999;
+      const rightOrder = MYSTERY_BOX_ORDER[rightTitle] || 999;
+
+      if (leftOrder !== rightOrder) return leftOrder - rightOrder;
+
+      return leftTitle.localeCompare(rightTitle);
+    });
 
   const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
   const paginatedProducts = filteredProducts.slice(
@@ -223,15 +312,30 @@ const ShopCategories = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const handleAddToCart = (product) => {
-    const added = addToCart(product);
+  const handleAddToCart = (product, options = {}) => {
+    const added = addToCart(product, options);
 
     if (!added) {
       setToast("Unable to add this product to cart.");
       return;
     }
 
-    setToast(`Added to cart: ${getProductTitle(product)}`);
+    const chosenPrice = Number(options?.customPrice);
+    const label =
+      Number.isFinite(chosenPrice) && chosenPrice > 0
+        ? `${getProductTitle(product)} (${chosenPrice.toFixed(2)} EUR)`
+        : getProductTitle(product);
+
+    setToast(`Added to cart: ${label}`);
+  };
+
+  const handleShowcaseProductClick = (categoryId) => {
+    setSearchParams({ category: String(categoryId) });
+  };
+
+  const handleShowcaseAddToCart = (event, product) => {
+    event.stopPropagation();
+    handleAddToCart(product);
   };
 
   return (
@@ -311,9 +415,114 @@ const ShopCategories = () => {
             ))}
           </div>
         ) : !activeCategory ? (
-          <div className="shop-empty-state">
-            <span className="shop-empty-state__icon">🛍️</span>
-            <p>Select a category to view products.</p>
+          <div className="shop-discovery">
+            <div className="shop-empty-state shop-empty-state--compact">
+              <span className="shop-empty-state__icon">🛍️</span>
+              <p>
+                Odaberi kategoriju ili istraži proizvode kroz slider redove.
+              </p>
+            </div>
+
+            {showcaseLoading ? (
+              <div className="shop-skeleton-grid">
+                {[1, 2, 3, 4, 5, 6].map((i) => (
+                  <div key={i} className="shop-skeleton-card" />
+                ))}
+              </div>
+            ) : (
+              <div className="shop-showcase-rows">
+                {showcaseRows.map((row) => (
+                  <section className="shop-showcase-row" key={row.categoryId}>
+                    <div className="shop-showcase-row__header">
+                      <h3>{row.label}</h3>
+                      <button
+                        type="button"
+                        className="shop-showcase-row__open-btn"
+                        onClick={() =>
+                          handleShowcaseProductClick(row.categoryId)
+                        }
+                      >
+                        Otvori kategoriju
+                      </button>
+                    </div>
+
+                    <div className="shop-showcase-row__viewport">
+                      <div
+                        className={`shop-showcase-row__track ${
+                          row.direction === "right"
+                            ? "shop-showcase-row__track--right"
+                            : "shop-showcase-row__track--left"
+                        }`}
+                        style={{
+                          "--marquee-duration": `${row.duration || 40}s`,
+                        }}
+                      >
+                        {[...row.products, ...row.products].map(
+                          (product, index) => (
+                            <div
+                              key={`${row.categoryId}-${product.id}-${index}`}
+                              className="shop-showcase-item"
+                              onClick={() =>
+                                handleShowcaseProductClick(row.categoryId)
+                              }
+                              role="button"
+                              tabIndex={0}
+                              onKeyDown={(event) => {
+                                if (
+                                  event.key === "Enter" ||
+                                  event.key === " "
+                                ) {
+                                  event.preventDefault();
+                                  handleShowcaseProductClick(row.categoryId);
+                                }
+                              }}
+                            >
+                              {getProductImage(product) ? (
+                                <img
+                                  src={getProductImage(product)}
+                                  alt={getProductTitle(product)}
+                                  loading="lazy"
+                                  decoding="async"
+                                />
+                              ) : (
+                                <div className="shop-showcase-item__fallback">
+                                  No image
+                                </div>
+                              )}
+                              <div className="shop-showcase-item__meta">
+                                <p>{getProductTitle(product)}</p>
+                                <div className="shop-showcase-item__bottom">
+                                  <span>
+                                    {parsePrice(product?.acf?.price).toFixed(2)}{" "}
+                                    EUR
+                                  </span>
+                                  <button
+                                    type="button"
+                                    className="shop-showcase-item__cart-btn"
+                                    aria-label={`Dodaj u košaricu: ${getProductTitle(product)}`}
+                                    onClick={(event) =>
+                                      handleShowcaseAddToCart(event, product)
+                                    }
+                                  >
+                                    <i
+                                      className="fas fa-shopping-cart"
+                                      aria-hidden="true"
+                                    ></i>
+                                    <span className="shop-showcase-item__cart-label">
+                                      Add
+                                    </span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          ),
+                        )}
+                      </div>
+                    </div>
+                  </section>
+                ))}
+              </div>
+            )}
           </div>
         ) : filteredProducts.length === 0 ? (
           <div className="shop-empty-state">

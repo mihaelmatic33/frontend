@@ -1,5 +1,9 @@
 export const getProductTitle = (product) => {
   if (!product) return "Proizvod";
+  if (typeof product.customDisplayTitle === "string") {
+    const customTitle = product.customDisplayTitle.trim();
+    if (customTitle) return customTitle;
+  }
   if (typeof product.title === "string") return product.title;
   if (product.title?.rendered) return product.title.rendered;
   return "Proizvod";
@@ -224,19 +228,43 @@ export const getProductId = (product) => {
   return null;
 };
 
-export const normalizeProductForCart = (product) => {
+export const normalizeProductForCart = (product, options = {}) => {
   const title = getProductTitle(product);
   const image = getProductImage(product);
   const imageId = getProductImageId(product);
-  const price = parsePrice(product?.acf?.price ?? product?.price);
-  const id = getProductId(product);
+  const defaultPrice = parsePrice(product?.acf?.price ?? product?.price);
+  const customPrice = parsePrice(options?.customPrice);
+  const resolvedPrice = customPrice > 0 ? customPrice : defaultPrice;
+  const baseId = getProductId(product);
+
+  const customPreferences = Array.isArray(options?.customPreferences)
+    ? options.customPreferences
+        .map((entry) => String(entry).trim())
+        .filter(Boolean)
+    : [];
+
+  const customSuffix =
+    customPrice > 0 || customPreferences.length > 0
+      ? `::custom:${resolvedPrice.toFixed(2)}:${customPreferences
+          .join("|")
+          .toLowerCase()}`
+      : "";
+
+  const id = baseId ? `${baseId}${customSuffix}` : null;
+
+  const customDisplayTitle =
+    customPrice > 0 ? `${title} (${resolvedPrice.toFixed(2)} EUR)` : title;
 
   return {
     id,
+    baseProductId: baseId,
     title,
-    price,
+    customDisplayTitle,
+    price: resolvedPrice,
     imageId,
     image,
+    customPrice: customPrice > 0 ? resolvedPrice : null,
+    customPreferences,
     images: image ? [image] : [],
     quantity: 1,
   };
