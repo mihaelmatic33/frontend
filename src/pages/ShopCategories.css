@@ -169,26 +169,20 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  gap: 8px;
   background: transparent;
   border-radius: 16px;
   padding: 8px 12px;
 }
 
-.shop-sticky-controls__right {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 10px;
-  flex: 1;
-  padding-left: 10px;
-  border-left: 1px dashed rgba(20, 22, 21, 0.2);
-}
-
-.shop-filter-bar--subcategories {
-  justify-content: flex-end;
+/* vertical separator between category buttons and side controls */
+.shop-row-sep {
+  display: inline-block;
+  width: 1px;
+  height: 22px;
+  background: rgba(20, 22, 21, 0.18);
+  align-self: center;
+  flex-shrink: 0;
 }
 
 .shop-filter-bar__label {
@@ -736,6 +730,14 @@
   color: #f6e05e;
 }
 
+.shop-product-card__actions {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  margin-top: auto;
+  align-items: center;
+}
+
 .shop-product-card__btn {
   background: #141615;
   color: #f6e05e;
@@ -745,16 +747,38 @@
   font-size: 0.88rem;
   font-weight: 500;
   cursor: pointer;
-  width: 100%;
   transition: background 0.18s;
   font-family: inherit;
-  margin-top: auto;
+  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.shop-product-card__btn:hover {
+.shop-product-card__btn--cart {
+  width: 100%;
+}
+
+.shop-product-card__btn--details {
+  background: transparent;
+  color: #141615;
+  border: 2px solid #141615;
+  white-space: nowrap;
+  padding: 11px 16px;
+  font-size: 0.82rem;
+}
+
+.shop-product-card__btn:hover,
+.shop-product-card__btn--cart:hover {
   background: #f6e05e;
   border-color: #f6e05e;
   color: #141615;
+}
+
+.shop-product-card__btn--details:hover {
+  background: #141615;
+  color: #f6e05e;
 }
 
 /* ─── Pagination ─────────────────────────────────────────────── */
@@ -800,6 +824,90 @@
   color: #888;
   min-width: 110px;
   text-align: center;
+}
+
+/* ─── Mobile search toggle ───────────────────────────────────── */
+.shop-search-toggle-btn {
+  display: none;
+  background: none;
+  border: 1px solid #d7dacd;
+  border-radius: 50px;
+  width: 38px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #141615;
+  font-size: 0.9rem;
+  transition:
+    background 0.18s,
+    border-color 0.18s;
+  flex-shrink: 0;
+}
+
+.shop-search-toggle-btn:hover {
+  background: #f6e05e;
+  border-color: #141615;
+}
+
+/* ─── Subcategory dropdown ──────────────────────────────────── */
+.shop-subcat-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.shop-subcat-dropdown__toggle {
+  border: 1px solid #c7cbbc;
+  background: #f5f7ef;
+  color: #141615;
+  border-radius: 50px;
+  padding: 6px 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.18s,
+    color 0.18s,
+    border-color 0.18s;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1.2;
+}
+
+.shop-subcat-dropdown__toggle:hover,
+.shop-subcat-dropdown__toggle.open {
+  background: #141615;
+  color: #f6e05e;
+  border-color: #141615;
+}
+
+.shop-subcat-dropdown__chevron {
+  font-size: 0.72rem;
+  transition: transform 0.2s;
+  display: inline-block;
+}
+
+.shop-subcat-dropdown__toggle.open .shop-subcat-dropdown__chevron {
+  transform: rotate(180deg);
+}
+
+.shop-subcat-dropdown__panel {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 100;
+  background: #fff;
+  border: 1px solid #dde3d3;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  padding: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 240px;
+  max-width: 360px;
 }
 
 /* ─── Responsive ─────────────────────────────────────────────── */
@@ -848,8 +956,32 @@
     padding: 8px 9px;
   }
 
-  .shop-filter-bar--subcategories {
-    justify-content: flex-start;
+  .shop-row-sep {
+    display: none;
+  }
+
+  /* Show toggle button, hide input by default on mobile */
+  .shop-search-toggle-btn {
+    display: flex;
+  }
+
+  .shop-search-wrap {
+    display: none;
+    max-width: 100%;
+  }
+
+  .shop-search-wrap.shop-search-wrap--mobile-open {
+    display: block;
+    width: 100%;
+  }
+
+  /* Product meta hidden on mobile for compact layout */
+  .shop-product-card__meta {
+    display: none;
+  }
+
+  .shop-product-card__actions {
+    grid-template-columns: 1fr 1fr;
   }
 }
 

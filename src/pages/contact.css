@@ -172,3 +172,141 @@
     text-align: center;
   }
 }
+
+/* ── About Us accordion ────────────────────────────────── */
+.about-accordion {
+  margin-top: 2.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid #e7e7e7;
+  border-radius: 16px;
+  overflow: hidden;
+  scroll-margin-top: 80px;
+}
+
+.about-accordion__toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #141615;
+  color: #f6e05e;
+  border: none;
+  padding: 18px 24px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: 0.01em;
+  transition: background 0.2s;
+}
+
+.about-accordion__toggle:hover {
+  background: #222;
+}
+
+.about-accordion__chevron {
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+}
+
+.about-accordion__toggle.open .about-accordion__chevron {
+  transform: rotate(180deg);
+}
+
+.about-accordion__body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.about-accordion__body.open {
+  max-height: 800px;
+}
+
+.about-accordion__inner {
+  padding: 28px 24px 24px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.about-accordion__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.about-accordion__grid h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #141615;
+}
+
+.about-accordion__grid p {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin-bottom: 10px;
+}
+
+.about-accordion__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.about-accordion__list li {
+  padding: 10px 14px;
+  background: #f9f9f7;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: #444;
+  border-left: 3px solid #f6e05e;
+}
+
+.about-accordion__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  border-top: 1px solid #f0f0ec;
+  padding-top: 20px;
+}
+
+.about-accordion__stat {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.about-accordion__stat strong {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #141615;
+  line-height: 1;
+}
+
+.about-accordion__stat span {
+  font-size: 0.82rem;
+  color: #888;
+}
+
+@media (max-width: 768px) {
+  .about-accordion__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-accordion__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-accordion__toggle {
+    padding: 16px 18px;
+    font-size: 0.98rem;
+  }
+}

@@ -56,7 +56,10 @@ const Nav = () => {
     const updateNavOpacity = () => {
       const heroSection = document.querySelector(".home-epic__hero");
       const heroHeight = heroSection?.offsetHeight || window.innerHeight;
-      const progress = Math.min(window.scrollY / Math.max(heroHeight * 0.92, 1), 1);
+      const progress = Math.min(
+        window.scrollY / Math.max(heroHeight * 0.92, 1),
+        1,
+      );
       setNavOpacity(progress);
       setNavBlend(progress);
     };
@@ -143,194 +146,198 @@ const Nav = () => {
         style={navStyle}
       >
         <div className="container nav__container">
-        <Link className="navbar-brand nav__logo" to="/">
-          <img src={logoSrc} alt="logo" />
-        </Link>
+          <Link className="navbar-brand nav__logo" to="/">
+            <img src={logoSrc} alt="logo" />
+          </Link>
 
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#mainNavbar"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
 
-        <div className="collapse navbar-collapse" id="mainNavbar">
-          <ul className="navbar-nav me-auto nav__menu">
-            <li className="nav-item dropdown nav__item nav__item--dropdown">
-              <div className="nav__dropdown-trigger">
-                <Link className="nav-link nav__link" to="/shop-categories">
-                  SHOP
-                </Link>
-                <button
-                  type="button"
-                  className="nav__dropdown-toggle dropdown-toggle"
-                  aria-expanded={mobileDropdownOpen.categories}
-                  aria-label="Show Shop menu"
-                  onClick={() => toggleMobileDropdown("categories")}
-                ></button>
-              </div>
+          <div className="collapse navbar-collapse" id="mainNavbar">
+            <ul className="navbar-nav me-auto nav__menu">
+              <li className="nav-item dropdown nav__item nav__item--dropdown">
+                <div className="nav__dropdown-trigger">
+                  <Link className="nav-link nav__link" to="/shop-categories">
+                    SHOP
+                  </Link>
+                  <button
+                    type="button"
+                    className="nav__dropdown-toggle dropdown-toggle"
+                    aria-expanded={mobileDropdownOpen.categories}
+                    aria-label="Show Shop menu"
+                    onClick={() => toggleMobileDropdown("categories")}
+                  ></button>
+                </div>
 
-              <ul
-                className={`dropdown-menu nav__dropdown-menu ${mobileDropdownOpen.categories ? "show" : ""}`}
-              >
-                <li>
-                  <Link
-                    className={getCategoryItemClass(100)}
-                    to="/shop-categories?category=100"
-                  >
-                    Mystery
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className={getCategoryItemClass(95)}
-                    to="/shop-categories?category=95"
-                  >
-                    Trading Card Game (TCG)
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className={getCategoryItemClass(98)}
-                    to="/shop-categories?category=98"
-                  >
-                    Figures
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className={getCategoryItemClass(248)}
-                    to="/shop-categories?category=248"
-                  >
-                    Video Games
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className={getCategoryItemClass(96)}
-                    to="/shop-categories?category=96"
-                  >
-                    Accessories
-                  </Link>
-                </li>
-              </ul>
-            </li>
-
-            {}
-            <li className="nav-item nav__item">
-              <Link className="nav-link nav__link" to="/blog">
-                BLOG
-              </Link>
-            </li>
-
-            <li className="nav-item nav__item">
-              <Link className="nav-link nav__link" to="/contact">
-                CONTACT
-              </Link>
-            </li>
-
-            <li className="nav-item dropdown nav__item nav__item--dropdown">
-              <div className="nav__dropdown-trigger">
-                <Link className="nav-link nav__link" to="/mystery">
-                  MYSTERIOUS POKESTUFF
-                </Link>
-                <button
-                  type="button"
-                  className="nav__dropdown-toggle dropdown-toggle"
-                  aria-expanded={mobileDropdownOpen.mystery}
-                  aria-label="Show Mysterious Pokestuff menu"
-                  onClick={() => toggleMobileDropdown("mystery")}
-                ></button>
-              </div>
-
-              <ul
-                className={`dropdown-menu nav__dropdown-menu ${mobileDropdownOpen.mystery ? "show" : ""}`}
-              >
-                <li>
-                  <Link
-                    className={getMysteryItemClass(140)}
-                    to="/shop-categories?category=100&subcategory=140"
-                  >
-                    Mystery box
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className={getMysteryItemClass(137)}
-                    to="/shop-categories?category=100&subcategory=137"
-                  >
-                    Mystery card
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className={getMysteryItemClass(138)}
-                    to="/shop-categories?category=100&subcategory=138"
-                  >
-                    Mystery slab (graded card)
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className={getMysteryItemClass(139)}
-                    to="/shop-categories?category=100&subcategory=139"
-                  >
-                    Mystery sealed (product)
-                  </Link>
-                </li>
-              </ul>
-            </li>
-
-            {name && (
-              <li className="nav-item nav__item">
-                <Link
-                  className="nav-link nav__link nav__link--admin"
-                  to="/admin"
+                <ul
+                  className={`dropdown-menu nav__dropdown-menu ${mobileDropdownOpen.categories ? "show" : ""}`}
                 >
-                  Admin
+                  <li>
+                    <Link
+                      className={getCategoryItemClass(100)}
+                      to="/shop-categories?category=100"
+                    >
+                      Mystery
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      className={getCategoryItemClass(95)}
+                      to="/shop-categories?category=95"
+                    >
+                      Trading Card Game (TCG)
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      className={getCategoryItemClass(98)}
+                      to="/shop-categories?category=98"
+                    >
+                      Figures
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      className={getCategoryItemClass(248)}
+                      to="/shop-categories?category=248"
+                    >
+                      Video Games
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      className={getCategoryItemClass(96)}
+                      to="/shop-categories?category=96"
+                    >
+                      Accessories
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+
+              {}
+              <li className="nav-item nav__item">
+                <Link className="nav-link nav__link" to="/blog">
+                  BLOG
                 </Link>
               </li>
-            )}
-          </ul>
 
-          <ul className="navbar-nav nav__actions">
-            <li className="nav-item nav__item">
-              {name ? (
-                <button onClick={logout} className="nav__login-btn">
-                  Welcome, {name}
-                </button>
-              ) : (
-                <Link
-                  className="nav-link nav__link nav__link--icon"
-                  to="/signin"
-                >
-                  <img src={userIconSrc} alt="Sign in" className="nav__icon" />
+              <li className="nav-item nav__item">
+                <Link className="nav-link nav__link" to="/contact">
+                  CONTACT
                 </Link>
-              )}
-            </li>
+              </li>
 
-            <li className="nav-item nav__item">
-              <Link
-                className={`nav-link nav__link nav__link--icon nav__cart-link${
-                  isCartAnimating ? " is-cart-added" : ""
-                }`}
-                to="/cart"
-              >
-                <img
-                  src={cartIconSrc}
-                  alt="Cart"
-                  className="nav__icon nav__icon--cart"
-                />
-                {cartCount > 0 && (
-                  <span className="nav__cart-badge">{cartCountLabel}</span>
+              <li className="nav-item dropdown nav__item nav__item--dropdown">
+                <div className="nav__dropdown-trigger">
+                  <Link className="nav-link nav__link" to="/mystery">
+                    MYSTERIOUS POKESTUFF
+                  </Link>
+                  <button
+                    type="button"
+                    className="nav__dropdown-toggle dropdown-toggle"
+                    aria-expanded={mobileDropdownOpen.mystery}
+                    aria-label="Show Mysterious Pokestuff menu"
+                    onClick={() => toggleMobileDropdown("mystery")}
+                  ></button>
+                </div>
+
+                <ul
+                  className={`dropdown-menu nav__dropdown-menu ${mobileDropdownOpen.mystery ? "show" : ""}`}
+                >
+                  <li>
+                    <Link
+                      className={getMysteryItemClass(140)}
+                      to="/shop-categories?category=100&subcategory=140"
+                    >
+                      Mystery box
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      className={getMysteryItemClass(137)}
+                      to="/shop-categories?category=100&subcategory=137"
+                    >
+                      Mystery card
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      className={getMysteryItemClass(138)}
+                      to="/shop-categories?category=100&subcategory=138"
+                    >
+                      Mystery slab (graded card)
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      className={getMysteryItemClass(139)}
+                      to="/shop-categories?category=100&subcategory=139"
+                    >
+                      Mystery sealed (product)
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+
+              {name && (
+                <li className="nav-item nav__item">
+                  <Link
+                    className="nav-link nav__link nav__link--admin"
+                    to="/admin"
+                  >
+                    Admin
+                  </Link>
+                </li>
+              )}
+            </ul>
+
+            <ul className="navbar-nav nav__actions">
+              <li className="nav-item nav__item">
+                {name ? (
+                  <button onClick={logout} className="nav__login-btn">
+                    Welcome, {name}
+                  </button>
+                ) : (
+                  <Link
+                    className="nav-link nav__link nav__link--icon"
+                    to="/signin"
+                  >
+                    <img
+                      src={userIconSrc}
+                      alt="Sign in"
+                      className="nav__icon"
+                    />
+                  </Link>
                 )}
-              </Link>
-            </li>
-          </ul>
+              </li>
+
+              <li className="nav-item nav__item">
+                <Link
+                  className={`nav-link nav__link nav__link--icon nav__cart-link${
+                    isCartAnimating ? " is-cart-added" : ""
+                  }`}
+                  to="/cart"
+                >
+                  <img
+                    src={cartIconSrc}
+                    alt="Cart"
+                    className="nav__icon nav__icon--cart"
+                  />
+                  {cartCount > 0 && (
+                    <span className="nav__cart-badge">{cartCountLabel}</span>
+                  )}
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
       </nav>
 
       <Link

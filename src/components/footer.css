@@ -2,8 +2,8 @@
   background: linear-gradient(135deg, #f6e05e, #eccb2f);
   color: #141615;
   padding: 60px 20px 20px 20px;
-  font-family: 'Arial', sans-serif;
-  box-shadow: 0 -4px 15px rgba(0,0,0,0.08);
+  font-family: "Arial", sans-serif;
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.08);
 }
 
 .footer-container {
@@ -70,6 +70,26 @@
   transform: rotate(15deg) scale(1.2);
 }
 
+.footer-about-link {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #141615;
+  text-decoration: none;
+  border: 2px solid #141615;
+  border-radius: 999px;
+  padding: 6px 16px;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+
+.footer-about-link:hover {
+  background: #141615;
+  color: #f6e05e;
+}
+
 .footer-newsletter p {
   margin-bottom: 12px;
 }
@@ -110,7 +130,6 @@
   border-top: 1px solid rgb(238, 10, 10);
   padding-top: 12px;
 }
-
 
 @media (max-width: 768px) {
   .footer-container {

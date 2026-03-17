@@ -123,6 +123,8 @@ const ShopCategories = () => {
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [showcaseRows, setShowcaseRows] = useState([]);
   const [showcaseLoading, setShowcaseLoading] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [subcatDropdownOpen, setSubcatDropdownOpen] = useState(false);
   const loadMoreRef = useRef(null);
   const loadMoreTimeoutRef = useRef(null);
 
@@ -312,6 +314,7 @@ const ShopCategories = () => {
 
   useEffect(() => {
     setVisibleCount(ITEMS_PER_PAGE);
+    setSubcatDropdownOpen(false);
   }, [activeCategory?.id, activeSubcategory?.id, searchQuery]);
 
   useEffect(() => {
@@ -457,50 +460,94 @@ const ShopCategories = () => {
           className={`shop-sticky-controls${isStickyElevated ? " is-elevated" : ""}`}
         >
           <div className="shop-sticky-controls__row">
-            <div className="shop-filter-bar">
-              <span className="shop-filter-bar__label">Category:</span>
-              {categories.map((cat) => (
-                <button
-                  key={cat.id}
-                  className={`shop-cat-btn${activeCategory?.id === cat.id ? " active" : ""}`}
-                  onClick={() => handleCategoryClick(cat)}
-                  onMouseEnter={() => setHoveredCategoryId(cat.id)}
-                  onMouseLeave={() => setHoveredCategoryId(null)}
-                  onFocus={() => setHoveredCategoryId(cat.id)}
-                  onBlur={() => setHoveredCategoryId(null)}
-                >
-                  {cat.label}
-                </button>
-              ))}
-            </div>
+            <span className="shop-filter-bar__label">Category:</span>
 
-            <div className="shop-sticky-controls__right">
-              <div className="shop-search-wrap">
-                <i className="fas fa-search shop-search-icon"></i>
-                <input
-                  type="text"
-                  placeholder="Search by name..."
-                  value={searchQuery}
-                  onChange={(e) => {
-                    setSearchQuery(e.target.value);
-                  }}
-                />
-              </div>
+            {categories.map((cat) => (
+              <button
+                key={cat.id}
+                className={`shop-cat-btn${activeCategory?.id === cat.id ? " active" : ""}`}
+                onClick={() => handleCategoryClick(cat)}
+                onMouseEnter={() => setHoveredCategoryId(cat.id)}
+                onMouseLeave={() => setHoveredCategoryId(null)}
+                onFocus={() => setHoveredCategoryId(cat.id)}
+                onBlur={() => setHoveredCategoryId(null)}
+              >
+                {cat.label}
+              </button>
+            ))}
 
-              {activeCategory && activeCategory.subcategories.length > 0 && (
-                <div className="shop-filter-bar shop-filter-bar--subcategories">
-                  <span className="shop-filter-bar__label">Subcategory:</span>
-                  {activeCategory.subcategories.map((sub) => (
-                    <button
-                      key={sub.id}
-                      className={`shop-subcat-btn${activeSubcategory?.id === sub.id ? " active" : ""}`}
-                      onClick={() => handleSubcategoryClick(sub)}
-                    >
-                      {sub.label}
-                    </button>
-                  ))}
+            {activeCategory && activeCategory.subcategories.length > 0 && (
+              <>
+                <span className="shop-row-sep" aria-hidden="true" />
+                <div className="shop-subcat-dropdown">
+                  <button
+                    type="button"
+                    className={`shop-subcat-dropdown__toggle${subcatDropdownOpen ? " open" : ""}`}
+                    onClick={() => setSubcatDropdownOpen((prev) => !prev)}
+                  >
+                    {activeSubcategory
+                      ? activeSubcategory.label
+                      : "Subcategories"}
+                    <span className="shop-subcat-dropdown__chevron">▾</span>
+                  </button>
+
+                  {subcatDropdownOpen && (
+                    <div className="shop-subcat-dropdown__panel">
+                      <button
+                        key="all"
+                        className={`shop-subcat-btn${!activeSubcategory ? " active" : ""}`}
+                        onClick={() => {
+                          setSubcatDropdownOpen(false);
+                          setSearchParams({
+                            category: String(activeCategory.id),
+                          });
+                        }}
+                      >
+                        All
+                      </button>
+                      {activeCategory.subcategories.map((sub) => (
+                        <button
+                          key={sub.id}
+                          className={`shop-subcat-btn${activeSubcategory?.id === sub.id ? " active" : ""}`}
+                          onClick={() => {
+                            setSubcatDropdownOpen(false);
+                            handleSubcategoryClick(sub);
+                          }}
+                        >
+                          {sub.label}
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
-              )}
+              </>
+            )}
+
+            <span className="shop-row-sep" aria-hidden="true" />
+
+            {/* Mobile: toggle icon. Desktop: always-visible input */}
+            <button
+              type="button"
+              className="shop-search-toggle-btn"
+              aria-label="Pretraži proizvode"
+              onClick={() => setSearchOpen((prev) => !prev)}
+            >
+              <i className="fas fa-magnifying-glass" aria-hidden="true"></i>
+            </button>
+
+            <div
+              className={`shop-search-wrap${searchOpen ? " shop-search-wrap--mobile-open" : ""}`}
+            >
+              <i
+                className="fas fa-magnifying-glass shop-search-icon"
+                aria-hidden="true"
+              ></i>
+              <input
+                type="text"
+                placeholder="Search by name..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
             </div>
           </div>
         </div>

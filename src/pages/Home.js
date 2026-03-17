@@ -44,7 +44,9 @@ const Home = () => {
             if (image) return product;
 
             const resolved = await resolveProductImageUrl(product);
-            return resolved ? { ...product, _resolvedImageUrl: resolved } : product;
+            return resolved
+              ? { ...product, _resolvedImageUrl: resolved }
+              : product;
           }),
         );
 
@@ -92,7 +94,7 @@ const Home = () => {
     <>
       <SEO
         title="Pokestuff - Home"
-        description="Premium Pokemon shopping destination: mystery drops, collector products, and a polished buying experience." 
+        description="Premium Pokemon shopping destination: mystery drops, collector products, and a polished buying experience."
       />
 
       <main className="home-epic">
@@ -114,10 +116,16 @@ const Home = () => {
                 unnecessary clicks.
               </p>
               <div className="home-epic__hero-actions">
-                <Link to="/shop-categories" className="home-epic__btn home-epic__btn--solid">
+                <Link
+                  to="/shop-categories"
+                  className="home-epic__btn home-epic__btn--solid"
+                >
                   Start Shopping
                 </Link>
-                <Link to="/mystery" className="home-epic__btn home-epic__btn--ghost">
+                <Link
+                  to="/mystery"
+                  className="home-epic__btn home-epic__btn--ghost"
+                >
                   Open Mystery Zone
                 </Link>
               </div>
@@ -143,7 +151,11 @@ const Home = () => {
           <div className="home-epic__spotlight-box">
             <div>
               <p>Spotlight pick</p>
-              <h2>{spotlightProduct ? getProductTitle(spotlightProduct) : "Custom Mystery Box"}</h2>
+              <h2>
+                {spotlightProduct
+                  ? getProductTitle(spotlightProduct)
+                  : "Custom Mystery Box"}
+              </h2>
               <span>
                 A direct path into the highest-intent section of the storefront,
                 focused on premium unboxing moments and personalized collector
@@ -151,10 +163,16 @@ const Home = () => {
               </span>
             </div>
             <div className="home-epic__spotlight-actions">
-              <Link to="/mystery/custom-box" className="home-epic__btn home-epic__btn--solid">
+              <Link
+                to="/mystery/custom-box"
+                className="home-epic__btn home-epic__btn--solid"
+              >
                 Configure Custom Box
               </Link>
-              <Link to="/shop-categories?category=100" className="home-epic__btn home-epic__btn--ghost">
+              <Link
+                to="/shop-categories?category=100"
+                className="home-epic__btn home-epic__btn--ghost"
+              >
                 Browse Mystery Catalog
               </Link>
             </div>
@@ -192,24 +210,38 @@ const Home = () => {
           {loadingProducts ? (
             <div className="home-epic__empty">Loading products...</div>
           ) : featuredProducts.length === 0 ? (
-            <div className="home-epic__empty">No products are available right now.</div>
+            <div className="home-epic__empty">
+              No products are available right now.
+            </div>
           ) : (
             <div className="home-epic__product-grid">
               {featuredProducts.slice(0, 8).map((product) => {
-                const image = getProductImage(product) || `${process.env.PUBLIC_URL}/img/pokestuff-blank.png`;
+                const image =
+                  getProductImage(product) ||
+                  `${process.env.PUBLIC_URL}/img/pokestuff-blank.png`;
                 const title = getProductTitle(product);
                 const price = parsePrice(product?.acf?.price ?? product?.price);
 
                 return (
                   <article key={product.id} className="home-epic__product-card">
-                    <Link to={`/shops/${product.slug || ""}`} className="home-epic__product-image-wrap">
+                    <Link
+                      to={`/shops/${product.slug || ""}`}
+                      className="home-epic__product-image-wrap"
+                    >
                       <img src={image} alt={title} />
                     </Link>
                     <div className="home-epic__product-body">
                       <h3>{title}</h3>
-                      <p>{price > 0 ? `${price.toFixed(2)} EUR` : "Price on request"}</p>
+                      <p>
+                        {price > 0
+                          ? `${price.toFixed(2)} EUR`
+                          : "Price on request"}
+                      </p>
                       <div className="home-epic__product-actions">
-                        <button type="button" onClick={() => handleQuickAdd(product)}>
+                        <button
+                          type="button"
+                          onClick={() => handleQuickAdd(product)}
+                        >
                           Add to Cart
                         </button>
                         <Link to={`/shops/${product.slug || ""}`}>Details</Link>
@@ -227,14 +259,20 @@ const Home = () => {
             <h2>Explore The Full Experience</h2>
             <p>
               Continue to Shop Categories for a complete product view, or open
-              Mystery to build a personalized box experience with collector-level
-              control over your preferences.
+              Mystery to build a personalized box experience with
+              collector-level control over your preferences.
             </p>
             <div className="home-epic__cta-actions">
-              <Link to="/shop-categories" className="home-epic__btn home-epic__btn--solid">
+              <Link
+                to="/shop-categories"
+                className="home-epic__btn home-epic__btn--solid"
+              >
                 Open Shop Categories
               </Link>
-              <Link to="/mystery/custom-box" className="home-epic__btn home-epic__btn--ghost">
+              <Link
+                to="/mystery/custom-box"
+                className="home-epic__btn home-epic__btn--ghost"
+              >
                 Build Custom Mystery Box
               </Link>
               <Link to="/blog" className="home-epic__btn home-epic__btn--ghost">

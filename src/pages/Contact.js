@@ -2,7 +2,11 @@ import React, { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import "./contact.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocation, faPhone } from "@fortawesome/free-solid-svg-icons";
+import {
+  faLocation,
+  faPhone,
+  faChevronDown,
+} from "@fortawesome/free-solid-svg-icons";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import {
   faInstagram,
@@ -15,6 +19,21 @@ const Contact = () => {
   const form = useRef();
   const [isSent, setIsSent] = useState(false);
   const [yoast, setYoast] = useState(null);
+  const [aboutOpen, setAboutOpen] = useState(false);
+  const aboutRef = useRef();
+
+  // Auto-open and scroll when navigated via #about-us hash
+  useEffect(() => {
+    if (window.location.hash === "#about-us") {
+      setAboutOpen(true);
+      setTimeout(() => {
+        aboutRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 120);
+    }
+  }, []);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -154,6 +173,84 @@ const Contact = () => {
                   {isSent ? "Message sent" : "Send Message"}
                 </button>
               </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── About Us accordion ── */}
+      <div id="about-us" ref={aboutRef} className="about-accordion">
+        <button
+          type="button"
+          className={`about-accordion__toggle${aboutOpen ? " open" : ""}`}
+          onClick={() => setAboutOpen((prev) => !prev)}
+          aria-expanded={aboutOpen}
+        >
+          <span>About Us</span>
+          <FontAwesomeIcon
+            icon={faChevronDown}
+            className="about-accordion__chevron"
+          />
+        </button>
+
+        <div className={`about-accordion__body${aboutOpen ? " open" : ""}`}>
+          <div className="about-accordion__inner">
+            <div className="about-accordion__grid">
+              <div>
+                <h3>Our Story</h3>
+                <p>
+                  Pokestuff was born out of a genuine passion for Pokemon
+                  collecting. As collectors ourselves, we knew how difficult it
+                  can be to find authentic, high-quality cards and products in
+                  one place. That is why we built this store for collectors, by
+                  collectors.
+                </p>
+                <p>
+                  Our mission is simple: give you access to top-tier Pokemon
+                  products with guaranteed authenticity, fast delivery, and
+                  outstanding customer support.
+                </p>
+              </div>
+              <div>
+                <h3>What Makes Us Different?</h3>
+                <ul className="about-accordion__list">
+                  <li>
+                    <strong>Authenticity</strong> - every product is verified
+                    before shipping
+                  </li>
+                  <li>
+                    <strong>Mystery Boxes</strong> - our exclusive mystery boxes
+                    are carefully curated for every collector level
+                  </li>
+                  <li>
+                    <strong>Graded Cards</strong> - we work with PSA and CGC
+                    grading standards for certified cards
+                  </li>
+                  <li>
+                    <strong>Community</strong> - follow us on social media and
+                    join thousands of Pokemon enthusiasts
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="about-accordion__stats">
+              <div className="about-accordion__stat">
+                <strong>500+</strong>
+                <span>Happy Customers</span>
+              </div>
+              <div className="about-accordion__stat">
+                <strong>1000+</strong>
+                <span>Products Available</span>
+              </div>
+              <div className="about-accordion__stat">
+                <strong>24/7</strong>
+                <span>Online Availability</span>
+              </div>
+              <div className="about-accordion__stat">
+                <strong>100%</strong>
+                <span>Authenticity Guarantee</span>
+              </div>
             </div>
           </div>
         </div>

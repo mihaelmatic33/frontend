@@ -65,6 +65,9 @@ const Footer = () => {
               <FontAwesomeIcon icon={faFacebook} />
             </a>
           </div>
+          <Link to="/contact#about-us" className="footer-about-link">
+            About Us
+          </Link>
         </div>
 
         <div className="footer-section footer-newsletter">

@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   getProductImage,
   getProductTitle,
@@ -209,13 +210,21 @@ const ShopProduct = ({ product, onAddToCart }) => {
             </div>
           )}
 
-          <button
-            type="button"
-            className="shop-product-card__btn"
-            onClick={handleAddClick}
-          >
-            Add to cart
-          </button>
+          <div className="shop-product-card__actions">
+            <button
+              type="button"
+              className="shop-product-card__btn shop-product-card__btn--cart"
+              onClick={handleAddClick}
+            >
+              Add to cart
+            </button>
+            <Link
+              to={`/shops/${product.slug || ""}`}
+              className="shop-product-card__btn shop-product-card__btn--details"
+            >
+              Details
+            </Link>
+          </div>
         </div>
       </div>
     </div>

@@ -488,15 +488,30 @@ async function createOrUpdateNewsPost(item, source, categoryId) {
   const articleUrl = meta.articleUrl || item.link;
 
   if (!isAllowedOfficialDomain(articleUrl)) {
-    return { created: false, updatedThumb: false, skipped: true, reason: "domain" };
+    return {
+      created: false,
+      updatedThumb: false,
+      skipped: true,
+      reason: "domain",
+    };
   }
 
   if (!isLikelyArticlePath(articleUrl)) {
-    return { created: false, updatedThumb: false, skipped: true, reason: "path" };
+    return {
+      created: false,
+      updatedThumb: false,
+      skipped: true,
+      reason: "path",
+    };
   }
 
   if (!isLikelyNewsTitle(item.title)) {
-    return { created: false, updatedThumb: false, skipped: true, reason: "title" };
+    return {
+      created: false,
+      updatedThumb: false,
+      skipped: true,
+      reason: "title",
+    };
   }
 
   const existing = await findPostBySlug(slug);

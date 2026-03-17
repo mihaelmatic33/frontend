@@ -1,9 +1,17 @@
 .home-epic {
   background:
-    radial-gradient(circle at 8% 10%, rgba(246, 224, 94, 0.22), transparent 36%),
-    radial-gradient(circle at 92% 2%, rgba(82, 126, 255, 0.18), transparent 35%),
+    radial-gradient(
+      circle at 8% 10%,
+      rgba(246, 224, 94, 0.22),
+      transparent 36%
+    ),
+    radial-gradient(
+      circle at 92% 2%,
+      rgba(82, 126, 255, 0.18),
+      transparent 35%
+    ),
     linear-gradient(180deg, #f8faef 0%, #edf1e2 100%);
-  padding-bottom: 56px;
+  padding-bottom: 96px;
 }
 
 .home-epic__hero {
@@ -11,7 +19,7 @@
   overflow: hidden;
   background: #141615;
   border-bottom: 4px solid #f6e05e;
-  margin-bottom: 18px;
+  margin-bottom: 40px;
 }
 
 .home-epic__gradient-orb {
@@ -48,7 +56,7 @@
 
 .home-epic__hero-copy {
   color: #fff;
-  padding: clamp(118px, 9.2vw, 146px) 0 40px;
+  padding: clamp(118px, 9.2vw, 146px) 0 60px;
 }
 
 .home-epic__eyebrow {
@@ -154,17 +162,17 @@
 }
 
 .home-epic__spotlight {
-  margin-bottom: 8px;
+  margin-bottom: 32px;
 }
 
 .home-epic__spotlight-box {
   border-radius: 16px;
   background: #fff;
   border: 1px solid #dde3d3;
-  padding: 18px;
+  padding: 32px 28px;
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
-  gap: 16px;
+  gap: 24px;
   align-items: center;
 }
 
@@ -193,25 +201,25 @@
 }
 
 .home-epic__section {
-  margin-top: 22px;
+  margin-top: 64px;
 }
 
 .home-epic__section--copy,
 .home-epic__section--cta {
-  margin-top: 16px;
+  margin-top: 40px;
 }
 
 .home-epic__copy-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  gap: 20px;
 }
 
 .home-epic__copy-grid article {
   background: #fff;
   border: 1px solid #e3e7dc;
   border-radius: 14px;
-  padding: 16px;
+  padding: 28px 24px;
 }
 
 .home-epic__copy-grid h2 {
@@ -229,7 +237,7 @@
   border-radius: 16px;
   border: 2px solid #f6e05e;
   color: #fff;
-  padding: 20px;
+  padding: 40px 36px;
 }
 
 .home-epic__cta-box h2 {
@@ -253,7 +261,7 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 12px;
+  margin-bottom: 24px;
 }
 
 .home-epic__section-head h2 {
@@ -278,7 +286,7 @@
 .home-epic__product-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
+  gap: 20px;
 }
 
 .home-epic__product-card {
@@ -303,10 +311,10 @@
 }
 
 .home-epic__product-body {
-  padding: 12px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   flex: 1;
 }
 
@@ -376,7 +384,7 @@
 
 @media (max-width: 640px) {
   .home-epic__hero {
-    margin-bottom: 10px;
+    margin-bottom: 24px;
   }
 
   .home-epic__hero-grid {
@@ -384,7 +392,7 @@
   }
 
   .home-epic__hero-copy {
-    padding: 100px 0 12px;
+    padding: 100px 0 24px;
   }
 
   .home-epic__hero-stats {
@@ -395,8 +403,21 @@
     padding-bottom: 30px;
   }
 
-  .home-epic__copy-grid,
-  .home-epic__product-grid {
+  .home-epic__copy-grid {
     grid-template-columns: 1fr;
+  }
+
+  .home-epic__product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .home-epic__section {
+    margin-top: 40px;
+  }
+
+  .home-epic__section--copy,
+  .home-epic__section--cta {
+    margin-top: 24px;
   }
 }
