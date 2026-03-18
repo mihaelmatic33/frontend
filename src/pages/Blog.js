@@ -11,6 +11,45 @@ const BASE_URL =
 
 const POSTS_PER_PAGE = 6;
 const MY_AUTHOR_NAMES = ["mihael matic"];
+const BLOG_CACHE_TTL_MS = 5 * 60 * 1000;
+const BLOG_POSTS_CACHE_KEY = "blog_posts_cache_v1";
+const BLOG_CATEGORIES_CACHE_KEY = "blog_categories_cache_v1";
+
+const getCachedData = (key) => {
+  try {
+    const raw = sessionStorage.getItem(key);
+    if (!raw) {
+      return null;
+    }
+
+    const parsed = JSON.parse(raw);
+    if (!parsed?.timestamp || !Array.isArray(parsed?.data)) {
+      return null;
+    }
+
+    if (Date.now() - parsed.timestamp > BLOG_CACHE_TTL_MS) {
+      return null;
+    }
+
+    return parsed.data;
+  } catch {
+    return null;
+  }
+};
+
+const setCachedData = (key, data) => {
+  try {
+    sessionStorage.setItem(
+      key,
+      JSON.stringify({
+        timestamp: Date.now(),
+        data,
+      }),
+    );
+  } catch {
+    // Ignore storage errors (private mode / quota exceeded).
+  }
+};
 
 const normalizeText = (value) =>
   String(value || "")
@@ -41,53 +80,97 @@ const Blog = () => {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [currentPage, setCurrentPage] = useState(0);
-  const [pageCount, setPageCount] = useState(0);
   const [categoriesOpen, setCategoriesOpen] = useState(false);
 
   useEffect(() => {
-    fetch(`${BASE_URL}v2/categories?per_page=100`)
-      .then((response) => response.json())
-      .then((data) => {
-        setCategories(Array.isArray(data) ? data : []);
+    const cachedPosts = getCachedData(BLOG_POSTS_CACHE_KEY);
+    const cachedCategories = getCachedData(BLOG_CATEGORIES_CACHE_KEY);
+    const hasCachedData =
+      Array.isArray(cachedPosts) || Array.isArray(cachedCategories);
+
+    if (Array.isArray(cachedPosts)) {
+      setPosts(cachedPosts);
+    }
+
+    if (Array.isArray(cachedCategories)) {
+      setCategories(cachedCategories);
+    }
+
+    setLoading(!hasCachedData);
+
+    const controller = new AbortController();
+
+    Promise.allSettled([
+      fetch(`${BASE_URL}v2/categories?per_page=100&_fields=id,name`, {
+        signal: controller.signal,
+      }),
+      fetch(`${BASE_URL}v2/posts?_embed&orderby=date&order=desc&per_page=100`, {
+        signal: controller.signal,
+      }),
+    ])
+      .then(async ([categoriesResult, postsResult]) => {
+        if (categoriesResult.status === "fulfilled") {
+          const categoriesResponse = categoriesResult.value;
+          if (categoriesResponse.ok) {
+            const categoriesData = await categoriesResponse.json();
+            const nextCategories = Array.isArray(categoriesData)
+              ? categoriesData
+              : [];
+            setCategories(nextCategories);
+            setCachedData(BLOG_CATEGORIES_CACHE_KEY, nextCategories);
+          }
+        }
+
+        if (postsResult.status === "fulfilled") {
+          const postsResponse = postsResult.value;
+          if (postsResponse.ok) {
+            const postsData = await postsResponse.json();
+            const nextPosts = Array.isArray(postsData) ? postsData : [];
+            setPosts(nextPosts);
+            setCachedData(BLOG_POSTS_CACHE_KEY, nextPosts);
+          }
+        }
       })
-      .catch(() => setCategories([]));
+      .finally(() => {
+        setLoading(false);
+      });
+
+    return () => {
+      controller.abort();
+    };
   }, []);
 
   useEffect(() => {
     setCurrentPage(0);
   }, [selectedCategory]);
 
-  useEffect(() => {
-    let url = `${BASE_URL}v2/posts?_embed&orderby=date&order=desc&per_page=100`;
+  const ownPosts = useMemo(
+    () => posts.filter((post) => isMyPost(post)),
+    [posts],
+  );
 
-    if (selectedCategory) {
-      url += `&categories=${selectedCategory}`;
+  const filteredPosts = useMemo(() => {
+    if (!selectedCategory) {
+      return ownPosts;
     }
 
-    setLoading(true);
-    fetch(url)
-      .then((response) => {
-        if (!response.ok) {
-          setPageCount(0);
-          setPosts([]);
-          return [];
-        }
-        return response.json();
-      })
-      .then((data) => {
-        const rawPosts = Array.isArray(data) ? data : [];
-        const ownPosts = rawPosts.filter((post) => isMyPost(post));
+    const selectedCategoryId = Number(selectedCategory);
+    return ownPosts.filter((post) =>
+      Array.isArray(post?.categories)
+        ? post.categories.includes(selectedCategoryId)
+        : false,
+    );
+  }, [ownPosts, selectedCategory]);
 
-        setPosts(ownPosts);
-        setPageCount(Math.ceil(ownPosts.length / POSTS_PER_PAGE));
-      })
-      .finally(() => setLoading(false));
-  }, [selectedCategory]);
+  const pageCount = useMemo(
+    () => Math.ceil(filteredPosts.length / POSTS_PER_PAGE),
+    [filteredPosts.length],
+  );
 
   const pagedPosts = useMemo(() => {
     const start = currentPage * POSTS_PER_PAGE;
-    return posts.slice(start, start + POSTS_PER_PAGE);
-  }, [posts, currentPage]);
+    return filteredPosts.slice(start, start + POSTS_PER_PAGE);
+  }, [filteredPosts, currentPage]);
 
   const pokemonCategories = useMemo(
     () => categories.filter((category) => isPokemonCategory(category.name)),
@@ -177,7 +260,7 @@ const Blog = () => {
             </div>
           </section>
 
-          {posts.length === 0 && !loading && (
+          {filteredPosts.length === 0 && !loading && (
             <div className="pokemon-blog-empty">
               Nema objava za odabranu kategoriju. Ovdje prikazujemo samo tvoje
               originalne Pokemon teme.

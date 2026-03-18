@@ -179,6 +179,8 @@ const ShopProduct = ({
             <img
               src={imageUrl}
               alt={title ? `Slika proizvoda: ${title}` : "Slika proizvoda"}
+              loading="lazy"
+              decoding="async"
             />
           )}
         </div>

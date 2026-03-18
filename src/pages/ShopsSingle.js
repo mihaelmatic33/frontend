@@ -6,6 +6,7 @@ import Toast from "../components/Toast";
 import { getProductImage, resolveProductImageUrl } from "../utils/cartItem";
 import { getArticleFields, getGroupedAcfFields } from "../utils/shopAcf";
 import { useCart } from "../CartContext";
+import { fetchJsonCached } from "../utils/httpCache";
 
 const BASE_URL = process.env.REACT_APP_API_URL;
 
@@ -19,9 +20,26 @@ const ShopsSingle = () => {
   const [toast, setToast] = useState(null);
 
   useEffect(() => {
-    fetch(`${BASE_URL}v2/shop?slug=${slug}&_embed`)
-      .then((response) => response.json())
-      .then((data) => setPost(data[0] || null));
+    let active = true;
+
+    fetchJsonCached(`${BASE_URL}v2/shop?slug=${slug}&_embed`, {
+      cacheKey: `shop_post_${slug}`,
+      ttlMs: 5 * 60 * 1000,
+    })
+      .then((data) => {
+        if (active) {
+          setPost(Array.isArray(data) ? data[0] || null : null);
+        }
+      })
+      .catch(() => {
+        if (active) {
+          setPost(null);
+        }
+      });
+
+    return () => {
+      active = false;
+    };
   }, [slug]);
 
   useEffect(() => {

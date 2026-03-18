@@ -10,6 +10,7 @@ import {
   parsePrice,
   resolveProductImageUrl,
 } from "../utils/cartItem";
+import { fetchJsonCached } from "../utils/httpCache";
 import { useCart } from "../CartContext";
 import "./ShopCategories.css";
 
@@ -139,9 +140,13 @@ const ShopCategories = () => {
   useEffect(() => {
     const fetchCategoryTree = async () => {
       try {
-        const response = await fetch(`${CATEGORY_API_URL}?per_page=100`);
-        if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
-        const terms = await response.json();
+        const terms = await fetchJsonCached(
+          `${CATEGORY_API_URL}?per_page=100`,
+          {
+            cacheKey: "shop_categories_tree",
+            ttlMs: 30 * 60 * 1000,
+          },
+        );
         if (!Array.isArray(terms)) return;
 
         const mapped = TOP_LEVEL_CATEGORY_ORDER.map((parentId) => {
@@ -181,15 +186,13 @@ const ShopCategories = () => {
       try {
         const rows = await Promise.all(
           SHOWCASE_ROWS.map(async (row) => {
-            const response = await fetch(
+            const list = await fetchJsonCached(
               `${API_URL}?prod-category=${row.categoryId}&_embed&per_page=10`,
+              {
+                cacheKey: `shop_showcase_${row.categoryId}`,
+                ttlMs: 5 * 60 * 1000,
+              },
             );
-
-            if (!response.ok) {
-              throw new Error(`HTTP error: ${response.status}`);
-            }
-
-            const list = await response.json();
             const safeList = Array.isArray(list) ? list : [];
 
             const withImages = await Promise.all(
@@ -235,9 +238,10 @@ const ShopCategories = () => {
       const responses = await Promise.all(
         ids.map(async (id) => {
           const url = `${API_URL}?prod-category=${id}&_embed&per_page=100`;
-          const res = await fetch(url);
-          if (!res.ok) throw new Error(`HTTP error: ${res.status}`);
-          return res.json();
+          return fetchJsonCached(url, {
+            cacheKey: `shop_products_category_${id}`,
+            ttlMs: 5 * 60 * 1000,
+          });
         }),
       );
 

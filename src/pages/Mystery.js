@@ -9,6 +9,7 @@ import {
   parsePrice,
   resolveProductImageUrl,
 } from "../utils/cartItem";
+import { fetchJsonCached } from "../utils/httpCache";
 import "./Mystery.css";
 
 const SHOP_API_URL =
@@ -39,14 +40,13 @@ const Mystery = () => {
       setLoading(true);
 
       try {
-        const categoriesResponse = await fetch(
+        const terms = await fetchJsonCached(
           `${CATEGORY_API_URL}?per_page=100`,
+          {
+            cacheKey: "shop_categories_tree",
+            ttlMs: 30 * 60 * 1000,
+          },
         );
-        if (!categoriesResponse.ok) {
-          throw new Error(`HTTP error: ${categoriesResponse.status}`);
-        }
-
-        const terms = await categoriesResponse.json();
         const subcategoryIds = Array.isArray(terms)
           ? terms
               .filter((term) => Number(term.parent) === MYSTERY_CATEGORY_ID)
@@ -56,15 +56,13 @@ const Mystery = () => {
         const idsToQuery = [MYSTERY_CATEGORY_ID, ...subcategoryIds];
         const responses = await Promise.all(
           idsToQuery.map(async (id) => {
-            const response = await fetch(
+            return fetchJsonCached(
               `${SHOP_API_URL}?prod-category=${id}&_embed&per_page=100`,
+              {
+                cacheKey: `shop_products_category_${id}`,
+                ttlMs: 5 * 60 * 1000,
+              },
             );
-
-            if (!response.ok) {
-              throw new Error(`HTTP error: ${response.status}`);
-            }
-
-            return response.json();
           }),
         );
 

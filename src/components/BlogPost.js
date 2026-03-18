@@ -54,7 +54,13 @@ const BlogPost = ({ post }) => {
     <div key={post.id} className="col-md-4 mb-4 blog-post">
       <article className="blog-post-card h-100">
         <Link to={"/blog/" + post.slug} className="blog-post-image-link">
-          <img src={image} className="mb-3" alt={post.title.rendered} />
+          <img
+            src={image}
+            className="mb-3"
+            alt={post.title.rendered}
+            loading="lazy"
+            decoding="async"
+          />
         </Link>
         <div className="blog-post-body">
           <span className="blog-post-badge">{primaryCategory}</span>

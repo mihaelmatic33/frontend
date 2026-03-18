@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./Blog.css";
 import { useParams } from "react-router-dom";
 import Loader from "../components/Loader";
+import { fetchJsonCached } from "../utils/httpCache";
 
 const BASE_URL = process.env.REACT_APP_API_URL;
 const BLOG_FALLBACK_IMAGE = `${process.env.PUBLIC_URL}/img/post-sample-image.jpg`;
@@ -48,9 +49,26 @@ const BlogSingle = () => {
   const [post, setPost] = useState(null);
 
   useEffect(() => {
-    fetch(`${BASE_URL}v2/posts?slug=${slug}&_embed`)
-      .then((response) => response.json())
-      .then((data) => setPost(data[0]));
+    let active = true;
+
+    fetchJsonCached(`${BASE_URL}v2/posts?slug=${slug}&_embed`, {
+      cacheKey: `blog_post_${slug}`,
+      ttlMs: 5 * 60 * 1000,
+    })
+      .then((data) => {
+        if (active) {
+          setPost(Array.isArray(data) ? data[0] : null);
+        }
+      })
+      .catch(() => {
+        if (active) {
+          setPost(null);
+        }
+      });
+
+    return () => {
+      active = false;
+    };
   }, [slug]);
 
   if (!post) return <Loader />;

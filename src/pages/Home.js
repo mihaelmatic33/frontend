@@ -9,6 +9,7 @@ import {
   parsePrice,
   resolveProductImageUrl,
 } from "../utils/cartItem";
+import { fetchJsonCached } from "../utils/httpCache";
 import "./Home.css";
 
 const BASE_URL =
@@ -79,18 +80,18 @@ const Home = () => {
   const [toast, setToast] = useState(null);
 
   useEffect(() => {
+    let active = true;
+
     const fetchFeaturedProducts = async () => {
       setLoadingProducts(true);
       try {
-        const response = await fetch(
+        const products = await fetchJsonCached(
           `${BASE_URL}v2/shop?_embed&per_page=8&orderby=date&order=desc`,
+          {
+            cacheKey: "home_featured_products",
+            ttlMs: 5 * 60 * 1000,
+          },
         );
-
-        if (!response.ok) {
-          throw new Error(`HTTP ${response.status}`);
-        }
-
-        const products = await response.json();
         const source = Array.isArray(products) ? products.slice(0, 8) : [];
 
         const withImages = await Promise.all(
@@ -105,31 +106,41 @@ const Home = () => {
           }),
         );
 
-        setFeaturedProducts(withImages);
+        if (active) {
+          setFeaturedProducts(withImages);
+        }
       } catch (error) {
         console.error("Unable to load products:", error);
-        setFeaturedProducts([]);
+        if (active) {
+          setFeaturedProducts([]);
+        }
       } finally {
-        setLoadingProducts(false);
+        if (active) {
+          setLoadingProducts(false);
+        }
       }
     };
 
     fetchFeaturedProducts();
+
+    return () => {
+      active = false;
+    };
   }, []);
 
   useEffect(() => {
+    let active = true;
+
     const fetchBlogHighlights = async () => {
       setLoadingBlogs(true);
       try {
-        const usersResponse = await fetch(
+        const users = await fetchJsonCached(
           `${BASE_URL}v2/users?search=${encodeURIComponent(HOME_BLOG_AUTHOR_NAME)}&per_page=100`,
+          {
+            cacheKey: `home_author_search_${HOME_BLOG_AUTHOR_NAME.toLowerCase()}`,
+            ttlMs: 30 * 60 * 1000,
+          },
         );
-
-        if (!usersResponse.ok) {
-          throw new Error(`HTTP ${usersResponse.status}`);
-        }
-
-        const users = await usersResponse.json();
         const normalizedTarget = HOME_BLOG_AUTHOR_NAME.toLowerCase();
         const author = Array.isArray(users)
           ? users.find(
@@ -139,29 +150,39 @@ const Home = () => {
           : null;
 
         if (!author?.id) {
-          setBlogHighlights([]);
+          if (active) {
+            setBlogHighlights([]);
+          }
           return;
         }
 
-        const response = await fetch(
+        const posts = await fetchJsonCached(
           `${BASE_URL}v2/posts?_embed&author=${author.id}&per_page=3&orderby=date&order=desc`,
+          {
+            cacheKey: `home_author_posts_${author.id}`,
+            ttlMs: 5 * 60 * 1000,
+          },
         );
-
-        if (!response.ok) {
-          throw new Error(`HTTP ${response.status}`);
+        if (active) {
+          setBlogHighlights(Array.isArray(posts) ? posts.slice(0, 3) : []);
         }
-
-        const posts = await response.json();
-        setBlogHighlights(Array.isArray(posts) ? posts.slice(0, 3) : []);
       } catch (error) {
         console.error("Unable to load blog highlights:", error);
-        setBlogHighlights([]);
+        if (active) {
+          setBlogHighlights([]);
+        }
       } finally {
-        setLoadingBlogs(false);
+        if (active) {
+          setLoadingBlogs(false);
+        }
       }
     };
 
     fetchBlogHighlights();
+
+    return () => {
+      active = false;
+    };
   }, []);
 
   const spotlightProduct = useMemo(() => {
@@ -243,7 +264,13 @@ const Home = () => {
             </div>
 
             <div className="home-epic__hero-visual">
-              <img src={heroVisualImage} alt={heroVisualAlt} />
+              <img
+                src={heroVisualImage}
+                alt={heroVisualAlt}
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+              />
             </div>
           </div>
         </section>
@@ -368,7 +395,12 @@ const Home = () => {
                       to={`/blog/${post.slug}`}
                       className="home-epic__blog-image-wrap"
                     >
-                      <img src={image} alt={stripHtml(post?.title?.rendered)} />
+                      <img
+                        src={image}
+                        alt={stripHtml(post?.title?.rendered)}
+                        loading="lazy"
+                        decoding="async"
+                      />
                     </Link>
                     <div className="home-epic__blog-body">
                       <h3>{stripHtml(post?.title?.rendered)}</h3>
@@ -417,7 +449,12 @@ const Home = () => {
                       to={`/shops/${product.slug || ""}`}
                       className="home-epic__product-image-wrap"
                     >
-                      <img src={image} alt={title} />
+                      <img
+                        src={image}
+                        alt={title}
+                        loading="lazy"
+                        decoding="async"
+                      />
                     </Link>
                     <div className="home-epic__product-body">
                       <h3>{title}</h3>
