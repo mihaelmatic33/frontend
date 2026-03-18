@@ -21,10 +21,6 @@ import CustomMysteryBox from "./pages/CustomMysteryBox";
 import Contact from "./pages/Contact";
 import ShopCategories from "./pages/ShopCategories";
 import BlogSingle from "./pages/BlogSingle";
-import Profil from "./components/zadaci/Profil";
-import Profilil from "./components/zadaci/Profilil";
-import Tekstovi from "./components/zadaci/Tekstovi";
-import Tecaj from "./components/zadaci/tecaj";
 import Shops from "./pages/Shops";
 import ShopsSingle from "./pages/ShopsSingle";
 import SignIn from "./pages/SignIn";
@@ -68,10 +64,6 @@ const AppShell = () => {
           <Route path="/mystery/custom-box" element={<CustomMysteryBox />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/blog/:slug" element={<BlogSingle />} />
-          <Route path="/profil" element={<Profil />} />
-          <Route path="/profilil" element={<Profilil />} />
-          <Route path="/tekstovi" element={<Tekstovi />} />
-          <Route path="/tecaj" element={<Tecaj />} />
           <Route path="/shops" element={<Shops />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/register" element={<Register />} />

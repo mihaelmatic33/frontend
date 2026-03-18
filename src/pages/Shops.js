@@ -1,37 +1,37 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
-import Nav from "../components/Nav";
-import Footer from "../components/Footer";
-import BlogSingle from "./BlogSingle";
-import posts from "../components/zadaci/data/blog.json";
-import "./Blog.css";
 import Loader from "../components/Loader";
-import ShopsSingle from "./ShopsSingle";
 import { getProductImage, resolveProductImageUrl } from "../utils/cartItem";
+import "./Blog.css";
 
-const BASE_URL = process.env.REACT_APP_API_URL;
+const BASE_URL =
+  process.env.REACT_APP_API_URL ||
+  "https://front2.edukacija.online/backend/wp-json/wp/";
+
 const Shops = () => {
-  const [posts, setPosts] = useState([]);
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [page, setPage] = useState(1);
-  const [shops, setShops] = useState([]);
-  const [izabraniShop, setIzabraniShop] = useState("");
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   useEffect(() => {
     fetch(`${BASE_URL}v2/prod-category`)
       .then((response) => response.json())
-      .then((data) => setShops(data));
+      .then((data) => setCategories(Array.isArray(data) ? data : []))
+      .catch(() => setCategories([]));
   }, []);
 
   useEffect(() => {
     setLoading(true);
 
-    let url = `${BASE_URL}v2/shop?_embed`;
-    if (izabraniShop) url += "&prod-category=" + izabraniShop;
-    console.log(url);
+    const url = new URL(`${BASE_URL}v2/shop`);
+    url.searchParams.set("_embed", "1");
 
-    fetch(url)
+    if (selectedCategory) {
+      url.searchParams.set("prod-category", selectedCategory);
+    }
+
+    fetch(url.toString())
       .then((response) => response.json())
       .then(async (data) => {
         const safeData = Array.isArray(data) ? data : [];
@@ -45,10 +45,11 @@ const Shops = () => {
           }),
         );
 
-        setPosts(withResolvedImages);
+        setProducts(withResolvedImages);
       })
+      .catch(() => setProducts([]))
       .finally(() => setLoading(false));
-  }, [izabraniShop]);
+  }, [selectedCategory]);
 
   return (
     <>
@@ -59,13 +60,13 @@ const Shops = () => {
             <div className="col-6">
               <select
                 className="form-select"
-                value={izabraniShop}
-                onChange={(e) => setIzabraniShop(e.target.value)}
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
               >
                 <option value="">All categories</option>
-                {shops.map((shop) => (
-                  <option key={shop.id} value={shop.id}>
-                    {shop.name}
+                {categories.map((category) => (
+                  <option key={category.id} value={category.id}>
+                    {category.name}
                   </option>
                 ))}
               </select>
@@ -73,26 +74,28 @@ const Shops = () => {
           </div>
 
           <div className="row">
-            {posts.map((post) => {
-              const image = getProductImage(post);
+            {products.map((product) => {
+              const image = getProductImage(product);
               return (
-                <div key={post.id} className="col-md-4 mb-4 blog-post">
+                <div key={product.id} className="col-md-4 mb-4 blog-post">
                   {image && (
                     <img
                       src={image}
                       className="mb-3"
-                      alt={post.title.rendered}
+                      alt={product.title?.rendered || "Product image"}
                     />
                   )}
-                  <Link to={"/shops/" + post.slug}>
-                    <h2>{post.title.rendered}</h2>
+                  <Link to={`/shops/${product.slug}`}>
+                    <h2>{product.title?.rendered || "Untitled product"}</h2>
                   </Link>
                   <div
-                    dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
+                    dangerouslySetInnerHTML={{
+                      __html: product.excerpt?.rendered || "",
+                    }}
                   />
                   <p>
-                    {post._embedded?.author?.[0]?.name} |{" "}
-                    {new Date(post.date).toLocaleDateString("en-GB", {
+                    {product._embedded?.author?.[0]?.name || "Pokestuff"} |{" "}
+                    {new Date(product.date).toLocaleDateString("en-GB", {
                       hour: "2-digit",
                       minute: "2-digit",
                     })}
