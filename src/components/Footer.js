@@ -90,7 +90,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom">
-        <p>© 2026 Pokestuff. All rights reserved. Designed with ❤️</p>
+        <p>© 2026 Pokestuff. All rights reserved. XIAO XIAOOO</p>
       </div>
     </footer>
   );

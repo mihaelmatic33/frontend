@@ -594,6 +594,10 @@
 }
 
 @media (min-width: 1440px) {
+  .home-epic__hero-visual {
+    align-self: center;
+  }
+
   .home-epic__deconstruct-card--dark {
     display: flex;
     flex-direction: column;

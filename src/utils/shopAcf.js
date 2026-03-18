@@ -84,6 +84,24 @@ export const formatAcfValue = (value) => {
   return "";
 };
 
+const formatPriceWithEur = (value) => {
+  const base = formatAcfValue(value);
+  if (!base) return "";
+
+  if (/\beur\b|€/i.test(base)) {
+    return base;
+  }
+
+  const normalized = base.replace(/\s+/g, "").replace(",", ".");
+  const numeric = Number(normalized);
+
+  if (Number.isFinite(numeric)) {
+    return `${numeric.toFixed(2)} EUR`;
+  }
+
+  return `${base} EUR`;
+};
+
 const toHumanLabel = (key) =>
   key
     .split("_")
@@ -94,7 +112,7 @@ const toHumanLabel = (key) =>
 const toField = (key, value) => ({
   key,
   label: FIELD_LABELS[key] || toHumanLabel(key),
-  value: formatAcfValue(value),
+  value: key === "price" ? formatPriceWithEur(value) : formatAcfValue(value),
 });
 
 export const getArticleFields = (acf, options = {}) => {

@@ -308,11 +308,12 @@ const Nav = () => {
                   <Link
                     className="nav-link nav__link nav__link--icon"
                     to="/signin"
+                    aria-label="Sign in"
                   >
-                    <img
-                      src={userIconSrc}
-                      alt="Sign in"
-                      className="nav__icon"
+                    <span
+                      className="nav__icon nav__icon--user"
+                      aria-hidden="true"
+                      style={{ "--nav-icon-src": `url(${userIconSrc})` }}
                     />
                   </Link>
                 )}
@@ -324,11 +325,12 @@ const Nav = () => {
                     isCartAnimating ? " is-cart-added" : ""
                   }`}
                   to="/cart"
+                  aria-label="Cart"
                 >
-                  <img
-                    src={cartIconSrc}
-                    alt="Cart"
+                  <span
                     className="nav__icon nav__icon--cart"
+                    aria-hidden="true"
+                    style={{ "--nav-icon-src": `url(${cartIconSrc})` }}
                   />
                   {cartCount > 0 && (
                     <span className="nav__cart-badge">{cartCountLabel}</span>
