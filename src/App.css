@@ -35,7 +35,7 @@ a {
 }
 
 .hero {
-  background-image: url("./img/hero.jpg");
+  background-image: url("../public/img/hero.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -43,7 +43,7 @@ a {
 }
 
 .home-2 {
-  background-image: url("./img/home-2.jpg");
+  background-image: url("../public/img/home-2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -51,11 +51,11 @@ a {
 }
 
 .home-2.home-2-products {
-  background-image: url("./img/home-2-products.png");
+  background-image: url("../public/img/home-2-products.png");
 }
 
 .home-2.home-3-products {
-  background-image: url("./img/home-3-products.png");
+  background-image: url("../public/img/home-3-products.png");
 }
 
 .home-2 .btn,

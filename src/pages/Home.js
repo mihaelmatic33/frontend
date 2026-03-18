@@ -17,6 +17,7 @@ const BASE_URL =
 
 const HERO_IMAGE = `${process.env.PUBLIC_URL}/img/hero-products.png`;
 const BLOG_FALLBACK_IMAGE = `${process.env.PUBLIC_URL}/img/header/background.webp`;
+const HOME_BLOG_AUTHOR_NAME = "Mihael Matić";
 
 const HOME_CATEGORY_LANES = [
   {
@@ -120,8 +121,30 @@ const Home = () => {
     const fetchBlogHighlights = async () => {
       setLoadingBlogs(true);
       try {
+        const usersResponse = await fetch(
+          `${BASE_URL}v2/users?search=${encodeURIComponent(HOME_BLOG_AUTHOR_NAME)}&per_page=100`,
+        );
+
+        if (!usersResponse.ok) {
+          throw new Error(`HTTP ${usersResponse.status}`);
+        }
+
+        const users = await usersResponse.json();
+        const normalizedTarget = HOME_BLOG_AUTHOR_NAME.toLowerCase();
+        const author = Array.isArray(users)
+          ? users.find(
+              (user) =>
+                String(user?.name || "").toLowerCase() === normalizedTarget,
+            ) || users[0]
+          : null;
+
+        if (!author?.id) {
+          setBlogHighlights([]);
+          return;
+        }
+
         const response = await fetch(
-          `${BASE_URL}v2/posts?_embed&per_page=3&orderby=date&order=desc`,
+          `${BASE_URL}v2/posts?_embed&author=${author.id}&per_page=3&orderby=date&order=desc`,
         );
 
         if (!response.ok) {
@@ -278,6 +301,24 @@ const Home = () => {
                   strongest categories.
                 </li>
               </ul>
+              <div className="home-epic__desktop-metrics" aria-hidden="true">
+                <div className="home-epic__desktop-metric">
+                  <strong>500+</strong>
+                  <small>Happy Customers</small>
+                </div>
+                <div className="home-epic__desktop-metric">
+                  <strong>100+</strong>
+                  <small>Products Available</small>
+                </div>
+                <div className="home-epic__desktop-metric">
+                  <strong>24/7</strong>
+                  <small>Online Availability</small>
+                </div>
+                <div className="home-epic__desktop-metric">
+                  <strong>100%</strong>
+                  <small>Authenticity Guarantee</small>
+                </div>
+              </div>
             </article>
 
             <article className="home-epic__deconstruct-card">

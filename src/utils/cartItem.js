@@ -10,20 +10,61 @@ export const getProductTitle = (product) => {
 };
 
 export const getProductImage = (product) => {
+  const getBestWpMediaUrl = (media) => {
+    if (!media || typeof media !== "object") return "";
+
+    const sizes = media?.media_details?.sizes || {};
+    const candidates = [
+      sizes?.full?.source_url,
+      sizes?.full?.url,
+      sizes?.scaled?.source_url,
+      sizes?.scaled?.url,
+      sizes?.medium_large?.source_url,
+      sizes?.medium_large?.url,
+      sizes?.large?.source_url,
+      sizes?.large?.url,
+      media?.source_url,
+      sizes?.medium?.source_url,
+      sizes?.medium?.url,
+      sizes?.thumbnail?.source_url,
+      sizes?.thumbnail?.url,
+    ];
+
+    return (
+      candidates.find(
+        (value) => typeof value === "string" && value.startsWith("http"),
+      ) || ""
+    );
+  };
+
   const acfImage = product?.acf?.product_image;
+  const acfSizes = acfImage?.sizes || {};
   const acfImageUrl =
     (typeof acfImage === "string" && acfImage.startsWith("http")
       ? acfImage
       : "") ||
-    acfImage?.url ||
-    acfImage?.source_url ||
     acfImage?.sizes?.full?.url ||
     acfImage?.sizes?.full?.source_url ||
+    acfImage?.sizes?.scaled?.url ||
+    acfImage?.sizes?.scaled?.source_url ||
+    acfImage?.sizes?.medium_large?.url ||
+    acfImage?.sizes?.medium_large?.source_url ||
+    acfImage?.sizes?.large?.url ||
+    acfImage?.sizes?.large?.source_url ||
+    acfImage?.source_url ||
+    acfImage?.url ||
+    (typeof acfSizes?.medium_large === "string" && acfSizes.medium_large) ||
+    (typeof acfSizes?.large === "string" && acfSizes.large) ||
+    (typeof acfSizes?.medium === "string" && acfSizes.medium) ||
+    (typeof acfSizes?.thumbnail === "string" && acfSizes.thumbnail) ||
     "";
+
+  const embeddedMedia = product?._embedded?.["wp:featuredmedia"]?.[0];
+  const embeddedMediaUrl = getBestWpMediaUrl(embeddedMedia);
 
   return (
     product?._resolvedImageUrl ||
-    product?._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
+    embeddedMediaUrl ||
     acfImageUrl ||
     product?.images?.[0] ||
     product?.image ||
@@ -90,12 +131,10 @@ const SHOP_API_URL =
 const mediaCache = new Map();
 
 export const resolveProductImageUrl = async (product) => {
-  const existingImage = getProductImage(product);
-  if (existingImage) return existingImage;
-
   const imageId = getProductImageId(product);
+  const existingImage = getProductImage(product);
 
-  if (!imageId) return "";
+  if (!imageId) return existingImage || "";
   if (mediaCache.has(imageId)) return mediaCache.get(imageId);
 
   try {
@@ -107,10 +146,10 @@ export const resolveProductImageUrl = async (product) => {
       media?.source_url || media?.media_details?.sizes?.full?.source_url || "";
 
     mediaCache.set(imageId, url);
-    return url;
+    return url || existingImage || "";
   } catch (error) {
     console.error("Ne mogu dohvatiti ACF sliku:", error);
-    return "";
+    return existingImage || "";
   }
 };
 

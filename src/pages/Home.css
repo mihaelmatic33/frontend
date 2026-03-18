@@ -280,6 +280,10 @@
   color: #f6e05e;
 }
 
+.home-epic__desktop-metrics {
+  display: none;
+}
+
 .home-epic__lane-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -586,6 +590,49 @@
   .home-epic__product-grid,
   .home-epic__blog-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1200px) {
+  .home-epic__deconstruct-card--dark {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 100%;
+  }
+
+  .home-epic__desktop-metrics {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(246, 224, 94, 0.22);
+  }
+
+  .home-epic__desktop-metric {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(246, 224, 94, 0.26);
+    border-radius: 12px;
+    padding: 12px;
+    min-height: 82px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+  }
+
+  .home-epic__desktop-metric strong {
+    color: #f6e05e;
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+
+  .home-epic__desktop-metric small {
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 0.77rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 }
 
