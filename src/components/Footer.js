@@ -9,6 +9,9 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import "./footer.css";
 
+// Theme options: footer--theme-a (current approved), footer--theme-b (new), footer--theme-c (old footer)
+const FOOTER_THEME_CLASS = "footer--theme-b";
+
 const Footer = () => {
   const [email, setEmail] = useState("");
 
@@ -21,7 +24,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="footer">
+    <footer className={`footer ${FOOTER_THEME_CLASS}`}>
       <div className="footer-container">
         <div className="footer-section footer-contact">
           <h3>Contact Us</h3>
