@@ -75,7 +75,8 @@
   margin-top: 14px;
   font-size: 0.9rem;
   font-weight: 700;
-  color: #141615;
+  color: #f6e05e;
+  background-color: #141615;
   text-decoration: none;
   border: 2px solid #141615;
   border-radius: 999px;
@@ -86,7 +87,8 @@
 }
 
 .footer-about-link:hover {
-  background: #141615;
+  background: rgb(238, 10, 10);
+  border-color: rgb(238, 10, 10);
   color: #f6e05e;
 }
 

@@ -80,7 +80,7 @@ const AppShell = () => {
           <Route path="/autori/:id" element={<AuthorProfile />} />
           <Route path="/admin" element={<AdminLayout />}>
             <Route path="mydetails" element={<MyDetails />} />
-            <Route path="myposts" element={<MyPosts />} />
+            <Route path="shophistory" element={<MyPosts />} />
             <Route path="mysettings" element={<MySettings />} />
           </Route>
           <Route path="/cart" element={<Cart />} />

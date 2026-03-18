@@ -89,6 +89,23 @@ const Checkout = () => {
 
     const confirmed = window.confirm("Do you want to place this order?");
     if (confirmed) {
+      // Save order to history before clearing cart
+      const order = {
+        id: Date.now(),
+        date: new Date().toISOString(),
+        items: cart.map((item) => ({
+          title: getProductTitle(item),
+          price: parsePrice(item.price),
+          quantity: item.quantity,
+          image: getCartItemImage(item),
+        })),
+        total: totalPrice,
+        delivery: deliveryInfo,
+      };
+      const existing = JSON.parse(localStorage.getItem("orderHistory") || "[]");
+      existing.unshift(order);
+      localStorage.setItem("orderHistory", JSON.stringify(existing));
+
       sendEmail();
       clearCart();
       localStorage.removeItem("cartItems");

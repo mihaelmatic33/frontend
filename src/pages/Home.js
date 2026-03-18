@@ -16,11 +16,65 @@ const BASE_URL =
   "https://front2.edukacija.online/backend/wp-json/wp/";
 
 const HERO_IMAGE = `${process.env.PUBLIC_URL}/img/hero-products.png`;
+const BLOG_FALLBACK_IMAGE = `${process.env.PUBLIC_URL}/img/header/background.webp`;
+
+const HOME_CATEGORY_LANES = [
+  {
+    title: "Mystery Drops",
+    description:
+      "Curated surprise products from cards to premium sealed tiers.",
+    to: "/shop-categories?category=100",
+    cta: "Open Mystery",
+  },
+  {
+    title: "TCG Essentials",
+    description:
+      "Singles, sealed and collector staples for serious Pokemon runs.",
+    to: "/shop-categories?category=95",
+    cta: "Browse TCG",
+  },
+  {
+    title: "Accessories",
+    description:
+      "Binders, sleeves and add-ons that protect and elevate collections.",
+    to: "/shop-categories?category=96",
+    cta: "View Accessories",
+  },
+  {
+    title: "Toys and Plush",
+    description:
+      "Shelf-ready Pokemon favorites for display, gifts and daily vibes.",
+    to: "/shop-categories?category=98",
+    cta: "Shop Toys",
+  },
+];
+
+const stripHtml = (value) =>
+  String(value || "")
+    .replace(/<[^>]*>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+const getBlogImage = (post) => {
+  const media = post?._embedded?.["wp:featuredmedia"]?.[0];
+  if (!media) return "";
+
+  const sizes = media?.media_details?.sizes || {};
+  return (
+    sizes?.medium_large?.source_url ||
+    sizes?.large?.source_url ||
+    sizes?.medium?.source_url ||
+    media?.source_url ||
+    ""
+  );
+};
 
 const Home = () => {
   const { addToCart } = useCart();
   const [featuredProducts, setFeaturedProducts] = useState([]);
+  const [blogHighlights, setBlogHighlights] = useState([]);
   const [loadingProducts, setLoadingProducts] = useState(true);
+  const [loadingBlogs, setLoadingBlogs] = useState(true);
   const [toast, setToast] = useState(null);
 
   useEffect(() => {
@@ -60,6 +114,31 @@ const Home = () => {
     };
 
     fetchFeaturedProducts();
+  }, []);
+
+  useEffect(() => {
+    const fetchBlogHighlights = async () => {
+      setLoadingBlogs(true);
+      try {
+        const response = await fetch(
+          `${BASE_URL}v2/posts?_embed&per_page=3&orderby=date&order=desc`,
+        );
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        const posts = await response.json();
+        setBlogHighlights(Array.isArray(posts) ? posts.slice(0, 3) : []);
+      } catch (error) {
+        console.error("Unable to load blog highlights:", error);
+        setBlogHighlights([]);
+      } finally {
+        setLoadingBlogs(false);
+      }
+    };
+
+    fetchBlogHighlights();
   }, []);
 
   const spotlightProduct = useMemo(() => {
@@ -103,17 +182,16 @@ const Home = () => {
           <div className="home-epic__gradient-orb home-epic__gradient-orb--two" />
           <div className="container home-epic__hero-grid">
             <div className="home-epic__hero-copy">
-              <p className="home-epic__eyebrow">Pokemon Collector Universe</p>
-              <h1>The Ultimate Pokemon Storefront Experience</h1>
+              <p className="home-epic__eyebrow">PokeStuff</p>
+              <h1>Your Pokemon Hub For Cards, Sealed and Mystery Hits</h1>
               <p>
-                From curated mystery drops to premium collector picks, this home
-                page is built as a fast, modern, conversion-focused shopping
-                surface powered directly by your WordPress backend.
+                From chase singles and sealed products to custom Mystery Box
+                builds, PokeStuff is designed for collectors who want quality,
+                speed and confidence in every order.
               </p>
               <p className="home-epic__hero-subcopy">
-                Discover high-demand products, move quickly through categories,
-                and jump straight into custom mystery configurations without
-                unnecessary clicks.
+                Explore top categories, add products in seconds, and jump into
+                personalized mystery configurations without extra steps.
               </p>
               <div className="home-epic__hero-actions">
                 <Link
@@ -131,7 +209,7 @@ const Home = () => {
               </div>
               <div className="home-epic__hero-stats">
                 <span>
-                  <strong>{featuredProducts.length || "8+"}</strong>
+                  <strong>{featuredProducts.length}</strong>
                   <small>featured products</small>
                 </span>
                 <span>
@@ -180,25 +258,95 @@ const Home = () => {
         </section>
 
         <section className="container home-epic__section home-epic__section--copy">
-          <div className="home-epic__copy-grid">
-            <article>
-              <h2>Built For Pokemon Collectors</h2>
-              <p>
-                This homepage is intentionally structured around discovery,
-                confidence, and speed. Visitors can immediately understand the
-                brand direction, jump into the right category, and add products
-                to cart in seconds.
-              </p>
+          <div className="home-epic__deconstruct-grid">
+            <article className="home-epic__deconstruct-card home-epic__deconstruct-card--dark">
+              <p className="home-epic__deconstruct-label">Collector Signals</p>
+              <h2>What Is Moving Right Now</h2>
+              <ul>
+                <li>
+                  <strong>{featuredProducts.length}</strong> high-intent
+                  products are live in the featured shelf.
+                </li>
+                <li>
+                  <strong>
+                    {loadingBlogs ? "..." : blogHighlights.length}
+                  </strong>{" "}
+                  fresh blog stories are ready for trend watchers.
+                </li>
+                <li>
+                  <strong>5+</strong> direct navigation paths into your
+                  strongest categories.
+                </li>
+              </ul>
             </article>
-            <article>
-              <h2>Focused, Not Noisy</h2>
-              <p>
-                Unverified blog content has been removed from the homepage flow.
-                The focus stays on quality product merchandising, clear actions,
-                and a frictionless path toward checkout.
-              </p>
+
+            <article className="home-epic__deconstruct-card">
+              <p className="home-epic__deconstruct-label">Pokemon Lanes</p>
+              <h2>Jump Exactly Where You Need To</h2>
+              <div className="home-epic__lane-grid">
+                {HOME_CATEGORY_LANES.map((lane) => (
+                  <Link
+                    key={lane.title}
+                    to={lane.to}
+                    className="home-epic__lane-card"
+                  >
+                    <h3>{lane.title}</h3>
+                    <p>{lane.description}</p>
+                    <span>{lane.cta}</span>
+                  </Link>
+                ))}
+              </div>
             </article>
           </div>
+        </section>
+
+        <section className="container home-epic__section">
+          <div className="home-epic__section-head">
+            <h2>From The Poke Journal</h2>
+            <Link to="/blog">Read More</Link>
+          </div>
+
+          {loadingBlogs ? (
+            <div className="home-epic__empty">Loading stories...</div>
+          ) : blogHighlights.length === 0 ? (
+            <div className="home-epic__empty">
+              No blog stories available right now.
+            </div>
+          ) : (
+            <div className="home-epic__blog-grid">
+              {blogHighlights.map((post) => {
+                const image = getBlogImage(post) || BLOG_FALLBACK_IMAGE;
+                const excerpt = stripHtml(post?.excerpt?.rendered).slice(
+                  0,
+                  140,
+                );
+
+                return (
+                  <article key={post.id} className="home-epic__blog-card">
+                    <Link
+                      to={`/blog/${post.slug}`}
+                      className="home-epic__blog-image-wrap"
+                    >
+                      <img src={image} alt={stripHtml(post?.title?.rendered)} />
+                    </Link>
+                    <div className="home-epic__blog-body">
+                      <h3>{stripHtml(post?.title?.rendered)}</h3>
+                      <p>
+                        {excerpt}
+                        {excerpt.length >= 140 ? "..." : ""}
+                      </p>
+                      <Link
+                        to={`/blog/${post.slug}`}
+                        className="home-epic__blog-link"
+                      >
+                        Open Story
+                      </Link>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          )}
         </section>
 
         <section className="container home-epic__section">

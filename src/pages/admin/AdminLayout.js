@@ -1,18 +1,34 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, Outlet, Link, useLocation } from "react-router-dom";
 import "./admin.css";
+
+const BASE_URL = "https://front2.edukacija.online/backend/wp-json/wp/v2/";
 
 const AdminLayout = () => {
   const location = useLocation();
   const path = location.pathname;
-
   const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
       navigate("/");
+      return;
     }
+    fetch(`${BASE_URL}users/me`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((r) => r.json())
+      .then((data) => setUser(data))
+      .catch(() => {});
   }, [navigate]);
+
+  const avatarUrl =
+    localStorage.getItem("userAvatar") ||
+    user?.avatar_urls?.["96"] ||
+    "https://i.pravatar.cc/300";
+
   return (
     <div className="container">
       <div className="naslovna"></div>
@@ -22,11 +38,16 @@ const AdminLayout = () => {
             <div className="col-md-3 position-relative">
               {" "}
               <div className="profile-pic">
-                <img src="https://i.pravatar.cc/300" alt="Profile avatar" />
+                <img src={avatarUrl} alt="Profile avatar" />
               </div>
             </div>
             <div className="col-md-9">
               <h1>Settings</h1>
+              {user && (
+                <p className="admin-welcome">
+                  {user.first_name || user.name || ""}
+                </p>
+              )}
             </div>
           </div>
         </div>
@@ -43,15 +64,15 @@ const AdminLayout = () => {
                 to="mydetails"
                 className={`${path === "/admin/mydetails" ? "text-danger" : ""}`}
               >
-                My details
+                My Details
               </Link>
             </li>
             <li>
               <Link
-                to="myposts"
-                className={`${path === "/admin/myposts" ? "text-danger" : ""}`}
+                to="shophistory"
+                className={`${path === "/admin/shophistory" ? "text-danger" : ""}`}
               >
-                My posts
+                Shop History
               </Link>
             </li>
             <li>
@@ -59,7 +80,7 @@ const AdminLayout = () => {
                 to="mysettings"
                 className={`${path === "/admin/mysettings" ? "text-danger" : ""}`}
               >
-                My settings
+                My Settings
               </Link>
             </li>
           </ul>
