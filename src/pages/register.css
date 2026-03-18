@@ -133,7 +133,7 @@
   text-align: center;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1023px) {
   .register-container {
     flex-direction: column;
   }
@@ -151,5 +151,17 @@
   .register-panel {
     max-width: 520px;
     width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .register-btn,
+  .register-form input,
+  .register-form label {
+    transition: none;
+  }
+
+  .register-btn:hover {
+    transform: none;
   }
 }

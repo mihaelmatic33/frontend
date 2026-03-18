@@ -161,7 +161,7 @@
   cursor: not-allowed;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .left-part,
   .right-part {
     padding: 20px;

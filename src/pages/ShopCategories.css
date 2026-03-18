@@ -1044,7 +1044,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 374px) {
   .shop-skeleton-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1053,5 +1053,20 @@
   }
   .shop-pagination__btn {
     padding: 8px 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shop-product-card,
+  .shop-product-card__img-wrap,
+  .shop-product-card__content,
+  .shop-pagination__btn {
+    transition: none;
+  }
+
+  .shop-product-card:hover,
+  .shop-pagination__btn:hover {
+    transform: none;
+    opacity: 1;
   }
 }

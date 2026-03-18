@@ -82,7 +82,7 @@ u1 {
 }
 
 /* ── Mobile header fix ─────────────────────────────────── */
-@media (max-width: 575px) {
+@media (max-width: 374px) {
   .profile-pic {
     position: static;
     top: auto;
@@ -158,7 +158,7 @@ u1 {
   color: #141615;
 }
 
-@media (max-width: 575px) {
+@media (max-width: 374px) {
   .admin-details-card {
     flex-direction: column;
     align-items: center;

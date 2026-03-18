@@ -572,7 +572,7 @@
   background: #f2f4eb;
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 1439px) {
   .home-epic__hero-grid,
   .home-epic__spotlight-box {
     grid-template-columns: 1fr;
@@ -593,7 +593,7 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1440px) {
   .home-epic__deconstruct-card--dark {
     display: flex;
     flex-direction: column;
@@ -636,7 +636,7 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 767px) {
   .home-epic__hero {
     margin-bottom: 24px;
   }
@@ -682,5 +682,17 @@
   .home-epic__section--copy,
   .home-epic__section--cta {
     margin-top: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-epic__btn,
+  .home-epic__lane-card {
+    transition: none;
+  }
+
+  .home-epic__btn:hover,
+  .home-epic__lane-card:hover {
+    transform: none;
   }
 }

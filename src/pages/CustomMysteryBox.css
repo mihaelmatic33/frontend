@@ -193,13 +193,13 @@
   text-decoration: underline;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1023px) {
   .custom-mystery-layout {
     grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 767px) {
   .custom-mystery-range-row {
     grid-template-columns: 1fr;
   }

@@ -16,9 +16,38 @@ body {
   font-family: "Questrial", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 14px;
-  line-height: 21px;
+  font-size: clamp(16px, 1.6vw, 16px);
+  line-height: 1.5;
   color: #141615;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ─── Touch targets (WCAG AA) ───────────────────────────────── */
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="checkbox"],
+input[type="radio"],
+.btn,
+.page-link,
+.nav__link,
+.footer-socials a,
+.scroll-to-top-btn {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 img {
@@ -468,7 +497,7 @@ body {
   flex: 1; /* Ovo gura footer na dno kad sadržaj nije dovoljno visok */
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .post-preview > a > .post-title {
     font-size: 2.25rem;
   }
@@ -492,7 +521,7 @@ body {
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1440px) {
   .h1,
   h1 {
     font-size: 4rem;

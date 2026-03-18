@@ -49,3 +49,14 @@
     bottom: 14px;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-to-top-btn {
+    transition: none;
+  }
+
+  .scroll-to-top-btn:hover,
+  .scroll-to-top-btn:active {
+    transform: none;
+  }
+}

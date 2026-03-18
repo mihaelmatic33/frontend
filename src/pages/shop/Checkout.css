@@ -213,7 +213,7 @@
   border-color: rgb(238, 10, 10);
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1023px) {
   .checkout-actions {
     flex-direction: column;
   }
