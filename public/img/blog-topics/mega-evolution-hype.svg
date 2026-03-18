@@ -1,0 +1,18 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#111827"/>
+  <circle cx="1260" cy="180" r="280" fill="#2563EB" fill-opacity="0.35"/>
+  <circle cx="300" cy="720" r="320" fill="#F59E0B" fill-opacity="0.28"/>
+  <rect x="90" y="96" width="1420" height="708" rx="36" fill="url(#panel)" stroke="#FCD34D" stroke-width="3"/>
+  <path d="M112 670C280 560 442 520 620 558C760 590 878 664 1020 660C1157 656 1289 559 1484 374" stroke="#FCD34D" stroke-width="20" stroke-linecap="round" opacity="0.9"/>
+  <path d="M176 530L394 334L572 444L802 232L1010 356L1242 186" stroke="#60A5FA" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+  <text x="150" y="280" fill="#F9FAFB" font-size="62" font-family="Verdana, sans-serif" font-weight="700">Pokemon TCG 2026</text>
+  <text x="150" y="370" fill="#FCD34D" font-size="108" font-family="Verdana, sans-serif" font-weight="800">Mega Evolution</text>
+  <text x="150" y="470" fill="#FCD34D" font-size="108" font-family="Verdana, sans-serif" font-weight="800">Hype</text>
+  <text x="150" y="580" fill="#D1D5DB" font-size="34" font-family="Verdana, sans-serif">sealed proizvodi, promo val i chase karte ponovno nose trziste</text>
+  <defs>
+    <linearGradient id="panel" x1="90" y1="96" x2="1510" y2="804" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#1E293B"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -62,7 +62,7 @@ const Shops = () => {
                 value={izabraniShop}
                 onChange={(e) => setIzabraniShop(e.target.value)}
               >
-                <option value="">svi shopovi</option>
+                <option value="">All categories</option>
                 {shops.map((shop) => (
                   <option key={shop.id} value={shop.id}>
                     {shop.name}
@@ -92,7 +92,7 @@ const Shops = () => {
                   />
                   <p>
                     {post._embedded?.author?.[0]?.name} |{" "}
-                    {new Date(post.date).toLocaleDateString("hr-HR", {
+                    {new Date(post.date).toLocaleDateString("en-GB", {
                       hour: "2-digit",
                       minute: "2-digit",
                     })}

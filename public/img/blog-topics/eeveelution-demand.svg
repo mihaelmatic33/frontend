@@ -1,0 +1,13 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#4C1D95"/>
+  <circle cx="230" cy="240" r="160" fill="#F9A8D4" fill-opacity="0.35"/>
+  <circle cx="1360" cy="640" r="220" fill="#60A5FA" fill-opacity="0.28"/>
+  <rect x="108" y="108" width="1384" height="684" rx="36" fill="#111827" fill-opacity="0.72" stroke="#E9D5FF" stroke-width="3"/>
+  <text x="162" y="280" fill="#F5F3FF" font-size="62" font-family="Verdana, sans-serif" font-weight="700">collector focus</text>
+  <text x="160" y="396" fill="#E9D5FF" font-size="112" font-family="Verdana, sans-serif" font-weight="800">Eeveelution</text>
+  <text x="160" y="498" fill="#E9D5FF" font-size="112" font-family="Verdana, sans-serif" font-weight="800">demand</text>
+  <text x="160" y="604" fill="#DDD6FE" font-size="36" font-family="Verdana, sans-serif">zasto ove linije stalno ostaju medu najtrazenijima</text>
+  <path d="M988 262C1052 216 1120 188 1178 186C1242 184 1308 216 1390 292" stroke="#F5D0FE" stroke-width="16" stroke-linecap="round"/>
+  <path d="M988 478C1052 432 1120 404 1178 402C1242 400 1308 432 1390 508" stroke="#93C5FD" stroke-width="16" stroke-linecap="round"/>
+  <path d="M988 694C1052 648 1120 620 1178 618C1242 616 1308 648 1390 724" stroke="#FDE68A" stroke-width="16" stroke-linecap="round"/>
+</svg>

@@ -169,52 +169,54 @@ const Mystery = () => {
         </div>
       </header>
 
-      <section className="mystery-story container">
-        <div className="mystery-story__card">
-          <h2>Why Mystery?</h2>
-          <p>
-            Mystery products turn collecting into a moment of excitement. Every
-            order is curated to balance value, variety and surprise. Whether you
-            collect singles, graded slabs or sealed packs, each unboxing is
-            built to feel special.
-          </p>
-        </div>
-        <div className="mystery-story__card">
-          <h2>How it works</h2>
-          <ul>
-            <li>Pick your Mystery product or box tier.</li>
-            <li>Choose your budget and preferences (Custom Box).</li>
-            <li>We curate the mix and prepare your mystery unboxing.</li>
-          </ul>
-        </div>
-      </section>
-
-      {customBoxProduct && (
-        <section className="container mystery-custom-highlight">
-          <div className="mystery-custom-highlight__content">
-            <p className="mystery-custom-highlight__label">
-              Featured experience
-            </p>
-            <h2>Custom Mystery Box</h2>
+      <div className="container mystery-intro-stack">
+        <section className="mystery-story">
+          <div className="mystery-story__card">
+            <h2>Why Mystery?</h2>
             <p>
-              Choose your budget range, set product preferences and craft your
-              own mystery profile. This is the best choice if you want deeper
-              personalization before checkout.
+              Mystery products turn collecting into a moment of excitement.
+              Every order is curated to balance value, variety and surprise.
+              Whether you collect singles, graded slabs or sealed packs, each
+              unboxing is built to feel special.
             </p>
-            <Link to="/mystery/custom-box" className="mystery-btn">
-              Customize your box
-            </Link>
           </div>
-          {getProductImage(customBoxProduct) && (
-            <img
-              src={getProductImage(customBoxProduct)}
-              alt="Custom Mystery Box"
-              loading="lazy"
-              decoding="async"
-            />
-          )}
+          <div className="mystery-story__card">
+            <h2>How it works</h2>
+            <ul>
+              <li>Pick your Mystery product or box tier.</li>
+              <li>Choose your budget and preferences (Custom Box).</li>
+              <li>We curate the mix and prepare your mystery unboxing.</li>
+            </ul>
+          </div>
         </section>
-      )}
+
+        {customBoxProduct && (
+          <section className="mystery-custom-highlight">
+            <div className="mystery-custom-highlight__content">
+              <p className="mystery-custom-highlight__label">
+                Featured experience
+              </p>
+              <h2>Custom Mystery Box</h2>
+              <p>
+                Choose your budget range, set product preferences and craft your
+                own mystery profile. This is the best choice if you want deeper
+                personalization before checkout.
+              </p>
+              <Link to="/mystery/custom-box" className="mystery-btn">
+                Customize your box
+              </Link>
+            </div>
+            {getProductImage(customBoxProduct) && (
+              <img
+                src={getProductImage(customBoxProduct)}
+                alt="Custom Mystery Box"
+                loading="lazy"
+                decoding="async"
+              />
+            )}
+          </section>
+        )}
+      </div>
 
       <section className="container mystery-products" id="mystery-products">
         <div className="mystery-products__head">

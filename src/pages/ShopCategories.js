@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import Loader from "../components/Loader";
 import SEO from "../components/SEO";
 import Toast from "../components/Toast";
@@ -125,8 +125,16 @@ const ShopCategories = () => {
   const [showcaseLoading, setShowcaseLoading] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [subcatDropdownOpen, setSubcatDropdownOpen] = useState(false);
+  const navigate = useNavigate();
   const loadMoreRef = useRef(null);
   const loadMoreTimeoutRef = useRef(null);
+  const dragStateRef = useRef({
+    isDragging: false,
+    pointerId: null,
+    startX: 0,
+    startScrollLeft: 0,
+    moved: false,
+  });
 
   useEffect(() => {
     const fetchCategoryTree = async () => {
@@ -436,6 +444,93 @@ const ShopCategories = () => {
     handleAddToCart(product);
   };
 
+  const buildDetailsState = useCallback(
+    (fallbackCategoryId) => ({
+      fromShopCategories: true,
+      categoryId: activeCategory?.id || fallbackCategoryId || null,
+      subcategoryId: activeSubcategory?.id || null,
+      scrollY: window.scrollY,
+    }),
+    [activeCategory?.id, activeSubcategory?.id],
+  );
+
+  const handleShowcaseProductDetails = useCallback(
+    (event, product, rowCategoryId) => {
+      event.stopPropagation();
+      navigate(`/shops/${product.slug || ""}`, {
+        state: buildDetailsState(rowCategoryId),
+      });
+    },
+    [navigate, buildDetailsState],
+  );
+
+  const isMobileViewport = () =>
+    typeof window !== "undefined" &&
+    window.matchMedia("(max-width: 991px)").matches;
+
+  const handleShowcasePointerDown = (event) => {
+    if (!isMobileViewport()) {
+      return;
+    }
+
+    const viewport = event.currentTarget;
+    dragStateRef.current = {
+      isDragging: true,
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startScrollLeft: viewport.scrollLeft,
+      moved: false,
+    };
+
+    viewport.classList.add("is-dragging");
+    if (typeof viewport.setPointerCapture === "function") {
+      viewport.setPointerCapture(event.pointerId);
+    }
+  };
+
+  const handleShowcasePointerMove = (event) => {
+    const drag = dragStateRef.current;
+    if (!drag.isDragging || drag.pointerId !== event.pointerId) {
+      return;
+    }
+
+    const viewport = event.currentTarget;
+    const deltaX = event.clientX - drag.startX;
+    if (Math.abs(deltaX) > 6) {
+      dragStateRef.current.moved = true;
+    }
+
+    viewport.scrollLeft = drag.startScrollLeft - deltaX;
+  };
+
+  const stopShowcaseDrag = (event) => {
+    const drag = dragStateRef.current;
+    if (!drag.isDragging || drag.pointerId !== event.pointerId) {
+      return;
+    }
+
+    const viewport = event.currentTarget;
+    if (typeof viewport.releasePointerCapture === "function") {
+      try {
+        viewport.releasePointerCapture(event.pointerId);
+      } catch (error) {
+        // no-op
+      }
+    }
+
+    viewport.classList.remove("is-dragging");
+
+    setTimeout(() => {
+      dragStateRef.current = {
+        isDragging: false,
+        pointerId: null,
+        startX: 0,
+        startScrollLeft: 0,
+        moved: false,
+      };
+    }, 0);
+  };
+
   return (
     <div className="shop-categories-page">
       <SEO
@@ -600,7 +695,14 @@ const ShopCategories = () => {
                       </button>
                     </div>
 
-                    <div className="shop-showcase-row__viewport">
+                    <div
+                      className="shop-showcase-row__viewport"
+                      onPointerDown={handleShowcasePointerDown}
+                      onPointerMove={handleShowcasePointerMove}
+                      onPointerUp={stopShowcaseDrag}
+                      onPointerCancel={stopShowcaseDrag}
+                      onPointerLeave={stopShowcaseDrag}
+                    >
                       <div
                         className={`shop-showcase-row__track ${
                           row.direction === "right"
@@ -616,9 +718,13 @@ const ShopCategories = () => {
                             <div
                               key={`${row.categoryId}-${product.id}-${index}`}
                               className="shop-showcase-item"
-                              onClick={() =>
-                                handleShowcaseProductClick(row.categoryId)
-                              }
+                              onClick={() => {
+                                if (dragStateRef.current.moved) {
+                                  return;
+                                }
+
+                                handleShowcaseProductClick(row.categoryId);
+                              }}
                               role="button"
                               tabIndex={0}
                               onKeyDown={(event) => {
@@ -631,20 +737,42 @@ const ShopCategories = () => {
                                 }
                               }}
                             >
-                              {getProductImage(product) ? (
-                                <img
-                                  src={getProductImage(product)}
-                                  alt={getProductTitle(product)}
-                                  loading="lazy"
-                                  decoding="async"
-                                />
-                              ) : (
-                                <div className="shop-showcase-item__fallback">
-                                  No image
-                                </div>
-                              )}
+                              <Link
+                                to={`/shops/${product.slug || ""}`}
+                                className="shop-showcase-item__details-link"
+                                state={buildDetailsState(row.categoryId)}
+                                onClick={(event) => event.stopPropagation()}
+                                aria-label={`Open details for ${getProductTitle(product)}`}
+                              >
+                                {getProductImage(product) ? (
+                                  <img
+                                    src={getProductImage(product)}
+                                    alt={getProductTitle(product)}
+                                    loading="lazy"
+                                    decoding="async"
+                                  />
+                                ) : (
+                                  <div className="shop-showcase-item__fallback">
+                                    No image
+                                  </div>
+                                )}
+                              </Link>
                               <div className="shop-showcase-item__meta">
-                                <p>{getProductTitle(product)}</p>
+                                <p>
+                                  <button
+                                    type="button"
+                                    className="shop-showcase-item__title-btn"
+                                    onClick={(event) =>
+                                      handleShowcaseProductDetails(
+                                        event,
+                                        product,
+                                        row.categoryId,
+                                      )
+                                    }
+                                  >
+                                    {getProductTitle(product)}
+                                  </button>
+                                </p>
                                 <div className="shop-showcase-item__bottom">
                                   <span>
                                     {parsePrice(product?.acf?.price).toFixed(2)}{" "}
@@ -694,6 +822,9 @@ const ShopCategories = () => {
                   key={product.id}
                   product={product}
                   onAddToCart={handleAddToCart}
+                  cardClickable
+                  showDetailsButton={false}
+                  detailsState={buildDetailsState()}
                 />
               ))}
             </div>

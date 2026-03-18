@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from "react";
 import Loader from "../components/Loader";
 import ReactPaginate from "react-paginate";
 import BlogPost from "../components/BlogPost";
-import SwiperComponent from "../components/SwiperComponent";
 import SEO from "../components/SEO";
 import "./Blog.css";
 
@@ -10,16 +9,21 @@ const BASE_URL =
   process.env.REACT_APP_API_URL ||
   "https://front2.edukacija.online/backend/wp-json/wp/";
 
-const SOURCE_FILTERS = [
-  { key: "all", label: "Sve novosti" },
-  { key: "pokemon-official", label: "Pokemon Official" },
-  { key: "pokemon-tcg-official", label: "Pokemon TCG Official" },
-];
+const POSTS_PER_PAGE = 6;
+const MY_AUTHOR_NAMES = ["mihael matic"];
 
-const SOURCE_SEARCH = {
-  all: "",
-  "pokemon-official": "pokemon.com official news",
-  "pokemon-tcg-official": "pokemon tcg official",
+const normalizeText = (value) =>
+  String(value || "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .trim();
+
+const isMyPost = (post) => {
+  const authorName = normalizeText(post?._embedded?.author?.[0]?.name);
+  return MY_AUTHOR_NAMES.some((entry) =>
+    authorName.includes(normalizeText(entry)),
+  );
 };
 
 const isPokemonCategory = (name) => {
@@ -36,7 +40,6 @@ const Blog = () => {
   const [loading, setLoading] = useState(false);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
-  const [selectedSource, setSelectedSource] = useState("all");
   const [currentPage, setCurrentPage] = useState(0);
   const [pageCount, setPageCount] = useState(0);
 
@@ -51,18 +54,13 @@ const Blog = () => {
 
   useEffect(() => {
     setCurrentPage(0);
-  }, [selectedSource, selectedCategory]);
+  }, [selectedCategory]);
 
   useEffect(() => {
-    const perPage = 6;
-    let url = `${BASE_URL}v2/posts?_embed&orderby=date&order=desc&per_page=${perPage}&page=${currentPage + 1}`;
+    let url = `${BASE_URL}v2/posts?_embed&orderby=date&order=desc&per_page=100`;
 
     if (selectedCategory) {
       url += `&categories=${selectedCategory}`;
-    }
-
-    if (selectedSource !== "all") {
-      url += `&search=${encodeURIComponent(SOURCE_SEARCH[selectedSource])}`;
     }
 
     setLoading(true);
@@ -73,16 +71,22 @@ const Blog = () => {
           setPosts([]);
           return [];
         }
-
-        const totalPages = Number(response.headers.get("X-WP-TotalPages") || 1);
-        setPageCount(totalPages);
         return response.json();
       })
       .then((data) => {
-        setPosts(Array.isArray(data) ? data : []);
+        const rawPosts = Array.isArray(data) ? data : [];
+        const ownPosts = rawPosts.filter((post) => isMyPost(post));
+
+        setPosts(ownPosts);
+        setPageCount(Math.ceil(ownPosts.length / POSTS_PER_PAGE));
       })
       .finally(() => setLoading(false));
-  }, [selectedCategory, selectedSource, currentPage]);
+  }, [selectedCategory]);
+
+  const pagedPosts = useMemo(() => {
+    const start = currentPage * POSTS_PER_PAGE;
+    return posts.slice(start, start + POSTS_PER_PAGE);
+  }, [posts, currentPage]);
 
   const pokemonCategories = useMemo(
     () => categories.filter((category) => isPokemonCategory(category.name)),
@@ -101,7 +105,7 @@ const Blog = () => {
             ? `Pokemon Blog - ${selectedCategoryName}`
             : "Pokemon Blog"
         }
-        description="Najnovije Pokemon i Pokemon TCG novosti koje se povlace preko WordPress API-ja."
+        description="Originalne Pokemon i Pokemon TCG teme objavljene kroz tvoj WordPress blog."
       />
 
       {loading && <Loader />}
@@ -110,33 +114,10 @@ const Blog = () => {
         <div className="container">
           <header className="pokemon-blog-header">
             <p>News Hub</p>
-            <h1>Pokemon Blog & Novosti</h1>
-            <span>
-              Sadrzaj se povlaci preko tvog WordPress API-ja, uz source filtere
-              za Pokemon Official i Pokemon TCG Official.
-            </span>
+            <h1>Pokemon Blog & Trendovi</h1>
           </header>
 
-          {posts.length > 0 && <SwiperComponent posts={posts} />}
-
           <section className="pokemon-blog-filters">
-            <div className="pokemon-blog-filter-group">
-              {SOURCE_FILTERS.map((source) => (
-                <button
-                  type="button"
-                  key={source.key}
-                  className={`btn btn-sm ${
-                    selectedSource === source.key
-                      ? "btn-warning"
-                      : "btn-outline-dark"
-                  }`}
-                  onClick={() => setSelectedSource(source.key)}
-                >
-                  {source.label}
-                </button>
-              ))}
-            </div>
-
             <div className="pokemon-blog-filter-group">
               <button
                 type="button"
@@ -167,14 +148,13 @@ const Blog = () => {
 
           {posts.length === 0 && !loading && (
             <div className="pokemon-blog-empty">
-              Nema objava za odabrani filter. Ako zelis official feed, importaj
-              Pokemon/Pokemon TCG vijesti u WordPress i ova stranica ce ih odmah
-              prikazati kroz API.
+              Nema objava za odabranu kategoriju. Ovdje prikazujemo samo tvoje
+              originalne Pokemon teme.
             </div>
           )}
 
           <div className="row">
-            {posts.map((post) => (
+            {pagedPosts.map((post) => (
               <BlogPost key={post.id} post={post} />
             ))}
           </div>

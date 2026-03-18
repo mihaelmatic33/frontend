@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   getProductImage,
   getProductTitle,
@@ -8,12 +8,31 @@ import {
 } from "../utils/cartItem";
 import { getArticleFields } from "../utils/shopAcf";
 
-const ShopProduct = ({ product, onAddToCart }) => {
+const ShopProduct = ({
+  product,
+  onAddToCart,
+  cardClickable = false,
+  showDetailsButton = true,
+  detailsState,
+}) => {
+  const navigate = useNavigate();
   const [imageUrl, setImageUrl] = useState(() => getProductImage(product));
   const title = getProductTitle(product);
   const price = parsePrice(product?.acf?.price ?? product?.price);
   const hasRenderedTitle = Boolean(product?.title?.rendered);
   const acf = product?.acf || {};
+  const productCategoryIds = Array.isArray(product?.["prod-category"])
+    ? product["prod-category"]
+    : [];
+  const productCategoryNames = Array.isArray(acf?.categories)
+    ? acf.categories.map((entry) =>
+        String(entry || "")
+          .toLowerCase()
+          .trim(),
+      )
+    : [];
+  const isSealedSubcategory =
+    productCategoryIds.includes(110) || productCategoryNames.includes("sealed");
   const isCustomMysteryBox =
     title.trim().toLowerCase() === "custom mystery box";
   const minPrice = 100;
@@ -78,9 +97,9 @@ const ShopProduct = ({ product, onAddToCart }) => {
 
   const articleFields = getArticleFields(acf, { includePrice: false });
 
-  const acfGradingCompany = acf?.grading_company;
+  const acfGradingCompany = isSealedSubcategory ? "" : acf?.grading_company;
   const acfGrade = acf?.grade;
-  const acfRarity = acf?.rarity;
+  const acfRarity = isSealedSubcategory ? "" : acf?.rarity;
   const handleAddClick = () => {
     if (typeof onAddToCart !== "function") return;
 
@@ -98,6 +117,44 @@ const ShopProduct = ({ product, onAddToCart }) => {
     });
   };
 
+  const openDetails = () => {
+    navigate(`/shops/${product.slug || ""}`, {
+      state: detailsState,
+    });
+  };
+
+  const shouldPreventCardNavigation = (event) => {
+    if (!cardClickable) {
+      return true;
+    }
+
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) {
+      return false;
+    }
+
+    return Boolean(target.closest("a, button, input, select, textarea, label"));
+  };
+
+  const handleCardClick = (event) => {
+    if (shouldPreventCardNavigation(event)) {
+      return;
+    }
+
+    openDetails();
+  };
+
+  const handleCardKeyDown = (event) => {
+    if (!cardClickable) {
+      return;
+    }
+
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openDetails();
+    }
+  };
+
   const togglePreference = (value) => {
     setSelectedPreferences((prev) => {
       if (prev.includes(value)) {
@@ -111,7 +168,11 @@ const ShopProduct = ({ product, onAddToCart }) => {
   return (
     <div className={isCustomMysteryBox ? "col-12" : "col-6 col-lg-4"}>
       <div
-        className={`shop-product-card${isCustomMysteryBox ? " shop-product-card--custom" : ""}`}
+        className={`shop-product-card${isCustomMysteryBox ? " shop-product-card--custom" : ""}${cardClickable ? " shop-product-card--clickable" : ""}`}
+        onClick={handleCardClick}
+        onKeyDown={handleCardKeyDown}
+        role={cardClickable ? "button" : undefined}
+        tabIndex={cardClickable ? 0 : undefined}
       >
         <div className="shop-product-card__img-wrap">
           {imageUrl && (
@@ -210,20 +271,29 @@ const ShopProduct = ({ product, onAddToCart }) => {
             </div>
           )}
 
-          <div className="shop-product-card__actions">
+          <div
+            className={`shop-product-card__actions${showDetailsButton ? "" : " shop-product-card__actions--single"}`}
+          >
             <button
               type="button"
               className="shop-product-card__btn shop-product-card__btn--cart"
-              onClick={handleAddClick}
+              onClick={(event) => {
+                event.stopPropagation();
+                handleAddClick();
+              }}
             >
               Add to cart
             </button>
-            <Link
-              to={`/shops/${product.slug || ""}`}
-              className="shop-product-card__btn shop-product-card__btn--details"
-            >
-              Details
-            </Link>
+            {showDetailsButton && (
+              <Link
+                to={`/shops/${product.slug || ""}`}
+                className="shop-product-card__btn shop-product-card__btn--details"
+                state={detailsState}
+                onClick={(event) => event.stopPropagation()}
+              >
+                Details
+              </Link>
+            )}
           </div>
         </div>
       </div>

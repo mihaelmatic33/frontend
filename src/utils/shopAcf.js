@@ -1,15 +1,15 @@
 const FIELD_LABELS = {
-  article_name: "Naziv artikla",
-  product_description: "Opis",
-  categories: "Kategorije",
-  price: "Cijena",
+  article_name: "Product Name",
+  product_description: "Description",
+  categories: "Categories",
+  price: "Price",
   rarity: "Rarity",
-  grading_company: "Grading kompanija",
+  grading_company: "Grading Company",
   grade: "Grade",
-  color: "Boja",
-  add_ons_type: "Dodaci",
-  console: "Konzola",
-  type: "Tip",
+  color: "Color",
+  add_ons_type: "Add-ons",
+  console: "Console",
+  type: "Type",
   wearables_type: "Wearables",
   prefrences: "Preferences",
 };
@@ -136,6 +136,9 @@ const groupMatchesCategory = (group, context) => {
   return byId || byName;
 };
 
+const isSealedCategory = (context) =>
+  context.ids.includes(110) || context.names.includes("sealed");
+
 export const getGroupedAcfFields = (product) => {
   const safeAcf = product?.acf || {};
   const categoryContext = getCategoryContext(product);
@@ -145,7 +148,16 @@ export const getGroupedAcfFields = (product) => {
     null;
 
   if (matchedGroup) {
-    const fields = matchedGroup.keys
+    const hiddenKeys =
+      matchedGroup.id === "tcg" && isSealedCategory(categoryContext)
+        ? new Set(["rarity", "grading_company"])
+        : null;
+
+    const keysToUse = hiddenKeys
+      ? matchedGroup.keys.filter((key) => !hiddenKeys.has(key))
+      : matchedGroup.keys;
+
+    const fields = keysToUse
       .map((key) => toField(key, safeAcf[key]))
       .filter((field) => Boolean(field.value));
 

@@ -269,57 +269,6 @@ function absolutizeUrl(value, baseUrl) {
     return "";
   }
 
-  function isAllowedOfficialDomain(urlRaw) {
-    try {
-      const host = new URL(urlRaw).hostname.toLowerCase();
-      return host.includes("pokemon.com") || host.includes("tcg.pokemon.com");
-    } catch {
-      return false;
-    }
-  }
-
-  function isLikelyArticlePath(urlRaw) {
-    try {
-      const pathname = (new URL(urlRaw).pathname || "").toLowerCase();
-      if (!pathname || pathname === "/") return false;
-
-      const blockedFragments = [
-        "/login",
-        "/log-in",
-        "/account",
-        "/home",
-        "/trainer",
-        "/support",
-        "/privacy",
-        "/terms",
-      ];
-
-      if (blockedFragments.some((fragment) => pathname.includes(fragment))) {
-        return false;
-      }
-
-      return true;
-    } catch {
-      return false;
-    }
-  }
-
-  function isLikelyNewsTitle(titleRaw) {
-    const title = String(titleRaw || "").toLowerCase();
-    if (!title) return false;
-
-    const blocked = [
-      "log in",
-      "login",
-      "the official pokemon website",
-      "pokemon home",
-      "pokemon champions",
-      "pokemon trading card game",
-    ];
-
-    return !blocked.some((entry) => title.includes(entry));
-  }
-
   try {
     return new URL(value, baseUrl).href;
   } catch {
@@ -327,7 +276,121 @@ function absolutizeUrl(value, baseUrl) {
   }
 }
 
-async function getArticleMeta(urlRaw) {
+function normalizeText(value) {
+  return String(value || "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/&[#a-z0-9]+;/gi, " ")
+    .replace(/[^a-z0-9\s-]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function extractBestArticleImage(html, baseUrl, titleRaw) {
+  const imgRegex = /<img[^>]+(?:src|data-src)=["']([^"']+)["'][^>]*>/gi;
+  const title = normalizeText(titleRaw);
+  const titleWords = title.split(" ").filter((word) => word.length > 3);
+  const candidates = [];
+
+  for (const match of html.matchAll(imgRegex)) {
+    const tag = match[0] || "";
+    const srcRaw = match[1] || "";
+    const src = absolutizeUrl(srcRaw, baseUrl);
+    const altMatch = tag.match(/alt=["']([^"']*)["']/i);
+    const alt = normalizeText(altMatch?.[1] || "");
+
+    if (!src || src.endsWith(".svg")) {
+      continue;
+    }
+
+    const srcNormalized = normalizeText(src);
+    let score = 0;
+
+    if (src.includes("pokemon.com/static-assets/content-assets")) {
+      score += 4;
+    }
+
+    if (srcNormalized.includes("169") || srcNormalized.includes("hero")) {
+      score += 5;
+    }
+
+    if (alt && title && (alt.includes(title) || title.includes(alt))) {
+      score += 10;
+    }
+
+    const matchingWords = titleWords.filter((word) => alt.includes(word));
+    score += matchingWords.length * 2;
+
+    if (
+      srcNormalized.includes("logo") ||
+      srcNormalized.includes("icon") ||
+      srcNormalized.includes("avatar") ||
+      srcNormalized.includes("social") ||
+      srcNormalized.includes("cookie")
+    ) {
+      score -= 8;
+    }
+
+    candidates.push({ src, score });
+  }
+
+  candidates.sort((left, right) => right.score - left.score);
+  return candidates[0]?.score > 0 ? candidates[0].src : "";
+}
+
+function isAllowedOfficialDomain(urlRaw) {
+  try {
+    const host = new URL(urlRaw).hostname.toLowerCase();
+    return host.includes("pokemon.com") || host.includes("tcg.pokemon.com");
+  } catch {
+    return false;
+  }
+}
+
+function isLikelyArticlePath(urlRaw) {
+  try {
+    const pathname = (new URL(urlRaw).pathname || "").toLowerCase();
+    if (!pathname || pathname === "/") return false;
+
+    const blockedFragments = [
+      "/login",
+      "/log-in",
+      "/account",
+      "/home",
+      "/trainer",
+      "/support",
+      "/privacy",
+      "/terms",
+    ];
+
+    if (blockedFragments.some((fragment) => pathname.includes(fragment))) {
+      return false;
+    }
+
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function isLikelyNewsTitle(titleRaw) {
+  const title = String(titleRaw || "").toLowerCase();
+  if (!title) return false;
+
+  const blocked = [
+    "log in",
+    "login",
+    "the official pokemon website",
+    "pokemon home",
+    "pokemon champions",
+    "pokemon trading card game",
+  ];
+
+  return !blocked.some((entry) => title.includes(entry));
+}
+
+async function getArticleMeta(urlRaw, titleRaw = "") {
   const finalUrl = await resolveArticleUrl(urlRaw);
 
   try {
@@ -343,9 +406,12 @@ async function getArticleMeta(urlRaw) {
     const html = await response.text();
     const ogImage = extractMetaContent(html, "og:image");
     const twitterImage = extractMetaContent(html, "twitter:image");
-    const canonical = extractMetaContent(html, "og:url") || finalUrl;
+    const canonical =
+      extractMetaContent(html, "og:url") || response.url || finalUrl;
 
-    const imageUrl = absolutizeUrl(ogImage || twitterImage, canonical);
+    const articleImage = extractBestArticleImage(html, canonical, titleRaw);
+    const imageUrl =
+      articleImage || absolutizeUrl(ogImage || twitterImage, canonical);
     return { articleUrl: canonical, imageUrl };
   } catch {
     return { articleUrl: finalUrl, imageUrl: "" };
@@ -484,7 +550,7 @@ async function createOrUpdateNewsPost(item, source, categoryId) {
   const sourceSuffix = source.key === "pokemon-official" ? "pkmn" : "tcg";
   const slug = `${toSlug(item.title)}-${sourceSuffix}`;
 
-  const meta = await getArticleMeta(item.link);
+  const meta = await getArticleMeta(item.link, item.title);
   const articleUrl = meta.articleUrl || item.link;
 
   if (!isAllowedOfficialDomain(articleUrl)) {
@@ -516,7 +582,7 @@ async function createOrUpdateNewsPost(item, source, categoryId) {
 
   const existing = await findPostBySlug(slug);
   if (existing) {
-    if (!existing.featured_media && meta.imageUrl) {
+    if (!existing.featured_media) {
       const mediaId = await uploadFeaturedImage(meta.imageUrl, item.title);
       if (mediaId) {
         await setPostFeaturedMedia(existing.id, mediaId);

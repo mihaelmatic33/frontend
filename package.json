@@ -27,8 +27,12 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "archive:news:official": "node scripts/archive-official-pokemon-posts.js",
     "import:shop:acf": "node scripts/import-shop-acf.js",
     "import:news:pokemon": "node scripts/import-pokemon-news.js",
+    "import:blog:trending": "node scripts/import-trending-pokemon-topics.js",
+    "backfill:news:thumbnails": "node scripts/backfill-pokemon-news-thumbnails.js",
+    "backfill:news:thumbnails:force": "node scripts/backfill-pokemon-news-thumbnails.js --force",
     "rollback:shop:acf": "node scripts/rollback-shop-acf-import.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
