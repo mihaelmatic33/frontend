@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import {
@@ -8,6 +8,35 @@ import {
 } from "../../utils/cartItem";
 import { useCart } from "../../CartContext";
 import "./Checkout.css";
+
+const EMAILJS_SERVICE_ID =
+  process.env.REACT_APP_EMAILJS_SERVICE_ID || "service_dwhzjcu";
+const EMAILJS_TEMPLATE_ID =
+  process.env.REACT_APP_EMAILJS_ORDER_TEMPLATE_ID || "template_br5bzbl";
+const EMAILJS_PUBLIC_KEY =
+  process.env.REACT_APP_EMAILJS_PUBLIC_KEY || "St2MIqCGGqaIGQ1ND";
+const COMPANY_ORDER_EMAIL =
+  process.env.REACT_APP_ORDER_RECEIVER_EMAIL || "orders@pokestuff.com";
+
+const formatCurrency = (value) =>
+  new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "EUR",
+  }).format(value || 0);
+
+const getPaymentMethodLabel = (paymentMethod) => {
+  if (paymentMethod === "card") return "Card payment";
+  if (paymentMethod === "paypal") return "PayPal";
+  return "Cash on delivery";
+};
+
+const escapeHtml = (value) =>
+  String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 
 const Checkout = () => {
   const {
@@ -34,7 +63,7 @@ const Checkout = () => {
     cvv: "",
   });
   const [termsAccepted, setTermsAccepted] = useState(false);
-  const form = useRef();
+  const [isSubmittingOrder, setIsSubmittingOrder] = useState(false);
 
   const changeQuantity = (id, amount) => {
     const item = cart.find((cartItem) => cartItem.id === id);
@@ -69,29 +98,154 @@ const Checkout = () => {
     setTermsAccepted(e.target.checked);
   };
 
-  const sendEmail = () => {
-    emailjs
-      .sendForm("service_dwhzjcu", "template_882p0bt", form.current, {
-        publicKey: "St2MIqCGGqaIGQ1ND",
-      })
-      .then(
-        () => {
-          console.log("SUCCESS!");
-        },
-        (error) => {
-          console.log("FAILED...", error.text);
-        },
-      );
+  const validateDeliveryInfo = () => {
+    const requiredFields = [
+      "fullName",
+      "address",
+      "city",
+      "postalCode",
+      "phone",
+      "email",
+    ];
+
+    const hasMissingField = requiredFields.some(
+      (field) => !String(deliveryInfo[field] || "").trim(),
+    );
+
+    if (hasMissingField) {
+      alert("Please fill in all delivery information fields.");
+      return false;
+    }
+
+    return true;
   };
 
-  const handleOrder = () => {
-    if (!termsAccepted) return;
+  const buildOrderItems = () =>
+    cart.map((item) => {
+      const title = getProductTitle(item);
+      const quantity = Number(item.quantity) || 1;
+      const unitPrice = parsePrice(item.price);
+      return {
+        title,
+        quantity,
+        unitPrice,
+        lineTotal: unitPrice * quantity,
+      };
+    });
+
+  const buildOrderItemsHtml = (items) => {
+    const rows = items
+      .map(
+        (item) =>
+          `<tr>
+            <td style="padding:10px;border:1px solid #e2e8f0;color:#1f2937;">${escapeHtml(item.title)}</td>
+            <td style="padding:10px;border:1px solid #e2e8f0;text-align:center;color:#1f2937;">${item.quantity}</td>
+            <td style="padding:10px;border:1px solid #e2e8f0;text-align:right;color:#1f2937;">${formatCurrency(item.unitPrice)}</td>
+          </tr>`,
+      )
+      .join("");
+
+    return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;font-family:Arial,sans-serif;font-size:14px;background:#ffffff;border-radius:10px;overflow:hidden;">
+      <thead>
+        <tr>
+          <th style="padding:12px;border:1px solid #e2e8f0;background:#f8fafc;text-align:left;color:#0f172a;">Product</th>
+          <th style="padding:12px;border:1px solid #e2e8f0;background:#f8fafc;text-align:center;color:#0f172a;">Qty</th>
+          <th style="padding:12px;border:1px solid #e2e8f0;background:#f8fafc;text-align:right;color:#0f172a;">Unit price</th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+  };
+
+  const sendOrderEmails = async ({ orderId, orderDate, items }) => {
+    const itemsText = items
+      .map(
+        (item, index) =>
+          `${index + 1}. ${item.title} x${item.quantity} - ${formatCurrency(item.unitPrice)}`,
+      )
+      .join("\n");
+    const itemsHtml = buildOrderItemsHtml(items);
+
+    const baseParams = {
+      order_id: orderId,
+      order_date: orderDate,
+      order_items_text: itemsText,
+      order_items_html: itemsHtml,
+      total_price: formatCurrency(totalPrice),
+      payment_method: getPaymentMethodLabel(paymentMethod),
+      full_name: deliveryInfo.fullName,
+      address: deliveryInfo.address,
+      city: deliveryInfo.city,
+      postal_code: deliveryInfo.postalCode,
+      phone: deliveryInfo.phone,
+      customer_email: deliveryInfo.email,
+      company_name: "Pokestuff",
+      thank_you_note:
+        "Thank you for shopping with Pokestuff. We truly appreciate your order and trust.",
+    };
+
+    const customerEmailParams = {
+      ...baseParams,
+      to_email: deliveryInfo.email,
+      to_name: deliveryInfo.fullName,
+      subject: `Your Pokestuff order confirmation - #${orderId}`,
+      greeting: `Hello ${deliveryInfo.fullName},`,
+    };
+
+    const adminEmailParams = {
+      ...baseParams,
+      to_email: COMPANY_ORDER_EMAIL,
+      to_name: "Pokestuff team",
+      subject: `New Pokestuff order received - #${orderId}`,
+      greeting: "Hello Pokestuff team,",
+    };
+
+    await Promise.all([
+      emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        customerEmailParams,
+        {
+          publicKey: EMAILJS_PUBLIC_KEY,
+        },
+      ),
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, adminEmailParams, {
+        publicKey: EMAILJS_PUBLIC_KEY,
+      }),
+    ]);
+  };
+
+  const handleOrder = async () => {
+    if (!termsAccepted || isSubmittingOrder) return;
+    if (!validateDeliveryInfo()) return;
 
     const confirmed = window.confirm("Do you want to place this order?");
-    if (confirmed) {
-      // Save order to history before clearing cart
+    if (!confirmed) {
+      navigate("/cart");
+      return;
+    }
+
+    setIsSubmittingOrder(true);
+
+    const orderItems = buildOrderItems();
+    const orderId = `${Date.now()}`;
+    const orderDate = new Date().toLocaleString("en-GB", {
+      year: "numeric",
+      month: "short",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+
+    try {
+      await sendOrderEmails({
+        orderId,
+        orderDate,
+        items: orderItems,
+      });
+
       const order = {
-        id: Date.now(),
+        id: Number(orderId),
         date: new Date().toISOString(),
         items: cart.map((item) => ({
           title: getProductTitle(item),
@@ -106,13 +260,19 @@ const Checkout = () => {
       existing.unshift(order);
       localStorage.setItem("orderHistory", JSON.stringify(existing));
 
-      sendEmail();
       clearCart();
       localStorage.removeItem("cartItems");
-      alert("Order placed successfully!");
+      alert(
+        "Order placed successfully! Confirmation emails were sent to you and Pokestuff.",
+      );
       navigate("/");
-    } else {
-      navigate("/cart");
+    } catch (error) {
+      console.error("Order email failed:", error);
+      alert(
+        "Your order could not be completed because confirmation email sending failed. Please try again.",
+      );
+    } finally {
+      setIsSubmittingOrder(false);
     }
   };
   if (cart.length === 0) {
@@ -217,7 +377,7 @@ const Checkout = () => {
               <h4>Delivery information</h4>
             </div>
 
-            <form ref={form} className="checkout-form">
+            <form className="checkout-form">
               <div className="mb-2">
                 <label className="form-label" htmlFor="fullName">
                   Full name
@@ -387,17 +547,6 @@ const Checkout = () => {
                 </div>
               )}
 
-              <input
-                type="hidden"
-                name="cart_items"
-                value={JSON.stringify(cart)}
-              />
-              <input
-                type="hidden"
-                name="total_price"
-                value={totalPrice.toFixed(2)}
-              />
-
               <div className="form-check mb-3">
                 <input
                   className="form-check-input"
@@ -427,9 +576,9 @@ const Checkout = () => {
                   type="button"
                   className="checkout-btn checkout-btn--primary"
                   onClick={handleOrder}
-                  disabled={!termsAccepted}
+                  disabled={!termsAccepted || isSubmittingOrder}
                 >
-                  Place order
+                  {isSubmittingOrder ? "Sending..." : "Place order"}
                 </button>
               </div>
             </form>
