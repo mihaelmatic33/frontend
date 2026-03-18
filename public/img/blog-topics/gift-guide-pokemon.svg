@@ -1,0 +1,10 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#7F1D1D"/>
+  <rect x="102" y="102" width="1396" height="696" rx="34" fill="#FEF2F2"/>
+  <rect x="268" y="210" width="1068" height="430" rx="30" fill="#FCA5A5"/>
+  <path d="M802 210V640" stroke="#B91C1C" stroke-width="24"/>
+  <path d="M268 424H1336" stroke="#B91C1C" stroke-width="24"/>
+  <path d="M694 210C640 174 626 116 680 96C734 76 792 122 802 180C812 122 870 76 924 96C978 116 964 174 910 210" fill="#FEE2E2" stroke="#B91C1C" stroke-width="12"/>
+  <text x="186" y="742" fill="#7F1D1D" font-size="94" font-family="Verdana, sans-serif" font-weight="800">Pokemon gift guide 2026</text>
+  <text x="188" y="798" fill="#991B1B" font-size="34" font-family="Verdana, sans-serif">ideje za kupce, roditelje i ekipu koja trazi siguran prvi poklon</text>
+</svg>

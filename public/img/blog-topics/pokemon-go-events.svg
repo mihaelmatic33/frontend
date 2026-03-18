@@ -1,0 +1,14 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#052E16"/>
+  <circle cx="220" cy="140" r="120" fill="#FDE047"/>
+  <path d="M0 674C170 594 303 560 450 586C633 619 738 743 951 727C1126 714 1276 583 1600 482V900H0V674Z" fill="#22C55E"/>
+  <path d="M0 724C194 632 340 610 484 648C624 685 782 790 957 784C1144 777 1310 649 1600 546" stroke="#86EFAC" stroke-width="16" opacity="0.9"/>
+  <rect x="126" y="120" width="1348" height="622" rx="38" fill="#ECFCCB" fill-opacity="0.1" stroke="#86EFAC" stroke-width="3"/>
+  <text x="170" y="278" fill="#F0FDF4" font-size="62" font-family="Verdana, sans-serif" font-weight="700">Pokemon GO</text>
+  <text x="170" y="382" fill="#FDE047" font-size="110" font-family="Verdana, sans-serif" font-weight="800">events are</text>
+  <text x="170" y="486" fill="#FDE047" font-size="110" font-family="Verdana, sans-serif" font-weight="800">driving hype</text>
+  <text x="170" y="592" fill="#DCFCE7" font-size="36" font-family="Verdana, sans-serif">community days, raids i collabovi ponovno guraju cijeli brand</text>
+  <circle cx="1228" cy="280" r="120" fill="#0F172A" stroke="#E5E7EB" stroke-width="18"/>
+  <circle cx="1228" cy="280" r="46" fill="#ECFCCB" stroke="#E5E7EB" stroke-width="14"/>
+  <path d="M1108 280H1348" stroke="#E5E7EB" stroke-width="16"/>
+</svg>

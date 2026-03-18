@@ -1,0 +1,13 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#3F6212"/>
+  <rect x="88" y="88" width="1424" height="724" rx="34" fill="#F7FEE7"/>
+  <path d="M128 656H1470" stroke="#84CC16" stroke-width="18" stroke-linecap="round"/>
+  <rect x="162" y="242" width="188" height="380" rx="24" fill="#A3E635"/>
+  <rect x="392" y="188" width="188" height="434" rx="24" fill="#65A30D"/>
+  <rect x="622" y="302" width="188" height="320" rx="24" fill="#4D7C0F"/>
+  <rect x="852" y="158" width="188" height="464" rx="24" fill="#84CC16"/>
+  <rect x="1082" y="270" width="188" height="352" rx="24" fill="#65A30D"/>
+  <text x="162" y="170" fill="#365314" font-size="58" font-family="Verdana, sans-serif" font-weight="700">TCG season guide</text>
+  <text x="162" y="752" fill="#365314" font-size="102" font-family="Verdana, sans-serif" font-weight="800">budget decks 2026</text>
+  <text x="164" y="804" fill="#4D7C0F" font-size="34" font-family="Verdana, sans-serif">konkurentan ulaz bez prevelikog troska</text>
+</svg>

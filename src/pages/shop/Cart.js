@@ -1,112 +1,146 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Toast from "../../components/Toast"; // 2 levels up to src/components
+import Toast from "../../components/Toast";
+import {
+  getCartItemImage,
+  getProductTitle,
+  parsePrice,
+  resolveCartItemImageUrl,
+} from "../../utils/cartItem";
+import { useCart } from "../../CartContext";
+import "./Cart.css";
 
 const Cart = () => {
-  const [cart, setCart] = useState([]);
+  const { cartItems: cart, removeFromCart, updateQuantity } = useCart();
   const [toast, setToast] = useState(null); // poruka za toast
+  const [resolvedImages, setResolvedImages] = useState({});
   const navigate = useNavigate();
-  const isFirstRender = useRef(true);
 
-  // Učitavanje košarice iz localStorage
   useEffect(() => {
-    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    let cancelled = false;
 
-    const updatedCart = storedCart.map(item => ({
-      ...item,
-      quantity: item.quantity || 1
-    }));
+    const loadMissingImages = async () => {
+      const missingItems = cart.filter(
+        (item) => !getCartItemImage(item) && !resolvedImages[item.id],
+      );
 
-    setCart(updatedCart);
-  }, []);
+      if (missingItems.length === 0) return;
 
-  // Spremanje u localStorage kad se cart promijeni
-  useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return;
-    }
+      const resolved = await Promise.all(
+        missingItems.map(async (item) => ({
+          id: item.id,
+          url: await resolveCartItemImageUrl(item),
+        })),
+      );
 
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
+      if (cancelled) return;
 
-  // Promjena količine
+      const nextEntries = resolved.filter((entry) => entry.url);
+      if (nextEntries.length === 0) return;
+
+      setResolvedImages((prev) => {
+        const next = { ...prev };
+        nextEntries.forEach((entry) => {
+          next[entry.id] = entry.url;
+        });
+        return next;
+      });
+    };
+
+    loadMissingImages();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [cart, resolvedImages]);
+
   const changeQuantity = (id, amount) => {
-    const updatedCart = cart.map(item =>
-      item.id === id
-        ? { ...item, quantity: Math.max(1, item.quantity + amount) }
-        : item
-    );
-    setCart(updatedCart);
+    const item = cart.find((cartItem) => cartItem.id === id);
+    if (!item) return;
+
+    const nextQuantity = Math.max(1, (item.quantity || 1) + amount);
+    updateQuantity(id, nextQuantity);
   };
 
-  // Brisanje proizvoda
   const removeItem = (id) => {
-    const updatedCart = cart.filter(item => item.id !== id);
-    setCart(updatedCart);
+    removeFromCart(id);
   };
 
-  // Ukupna cijena
-  const totalPrice = cart.reduce(
-    (total, item) => total + item.price * item.quantity,
-    0
-  );
+  const totalPrice = cart.reduce((total, item) => {
+    return total + parsePrice(item.price) * item.quantity;
+  }, 0);
 
-  // Zaključi narudžbu
   const finishOrder = () => {
     navigate("/checkout");
   };
-
-  // Ako je košarica prazna
   if (cart.length === 0) {
     return (
-      <div className="container mt-5">
+      <div className="cart-page cart-page--empty container mt-5">
         {toast && <Toast message={toast} onClose={() => setToast(null)} />}
-        <h2>Košarica je prazna</h2>
+        <h2 className="cart-page__title">Cart is empty</h2>
+        <p className="cart-page__subtitle">
+          Dodaj proizvod iz Shop Categories i vrati se ovdje.
+        </p>
         <button
-          className="btn signin-btn mt-3"
-          onClick={() => navigate("/shop")}
+          className="cart-btn cart-btn--primary mt-3"
+          onClick={() => navigate("/shop-categories")}
         >
-          Nastavi kupovinu
+          Continue Shopping
         </button>
       </div>
     );
   }
 
   return (
-    <div className="container mt-5">
+    <div className="cart-page container mt-5">
       {toast && <Toast message={toast} onClose={() => setToast(null)} />}
 
-      <h2 className="mb-4">Moja košarica</h2>
+      <div className="cart-page__header">
+        <h2 className="cart-page__title">Moja košarica</h2>
+        <span className="cart-page__count">{cart.length} artikala</span>
+      </div>
 
-      {cart.map(item => (
-        <div className="card mb-3" key={item.id}>
+      {cart.map((item) => (
+        <div className="cart-item card mb-3" key={item.id}>
           <div className="row g-0 align-items-center p-3">
             <div className="col-md-3">
-              <img
-                src={item.images[0]}
-                alt={item.title}
-                className="img-fluid"
-                style={{ maxHeight: "120px", objectFit: "cover" }}
-              />
+              {getCartItemImage(item) || resolvedImages[item.id] ? (
+                <img
+                  src={getCartItemImage(item) || resolvedImages[item.id]}
+                  alt="Product"
+                  className="img-fluid cart-item__image"
+                />
+              ) : (
+                <div className="cart-item__image-fallback d-flex align-items-center justify-content-center text-muted border rounded">
+                  No image
+                </div>
+              )}
             </div>
 
-            <div className="col-md-4">
-              <h5>{item.title}</h5>
-              <p>{item.price} EUR</p>
+            <div className="col-md-4 cart-item__details">
+              <h5 className="cart-item__title">{getProductTitle(item)}</h5>
+              <p className="cart-item__price">
+                {parsePrice(item.price).toFixed(2)} EUR
+              </p>
+              {Array.isArray(item.customPreferences) &&
+                item.customPreferences.length > 0 && (
+                  <p className="mb-0 text-muted">
+                    Preference: {item.customPreferences.join(", ")}
+                  </p>
+                )}
             </div>
 
             <div className="col-md-3">
-              <div className="d-flex align-items-center">
+              <div className="d-flex align-items-center cart-qty">
                 <button
-                  className="btn btn-outline-secondary btn-sm"
+                  className="cart-qty__btn"
                   onClick={() => changeQuantity(item.id, -1)}
                 >
                   -
                 </button>
-                <span className="mx-3">{item.quantity}</span>
+                <span className="cart-qty__value">{item.quantity}</span>
                 <button
-                  className="btn btn-outline-secondary btn-sm"
+                  className="cart-qty__btn"
                   onClick={() => changeQuantity(item.id, 1)}
                 >
                   +
@@ -116,7 +150,7 @@ const Cart = () => {
 
             <div className="col-md-2 text-end">
               <button
-                className="btn btn-danger btn-sm"
+                className="cart-btn cart-btn--danger cart-btn--sm"
                 onClick={() => removeItem(item.id)}
               >
                 Obriši
@@ -126,22 +160,19 @@ const Cart = () => {
         </div>
       ))}
 
-      <div className="text-end mt-4">
+      <div className="cart-summary text-end mt-4">
         <h4>Ukupno: {totalPrice.toFixed(2)} EUR</h4>
       </div>
 
-      <div className="d-flex justify-content-between mt-4">
+      <div className="cart-actions d-flex justify-content-between mt-4">
         <button
-          className="btn btn-secondary"
-          onClick={() => navigate("/shop")}
+          className="cart-btn cart-btn--ghost"
+          onClick={() => navigate("/shop-categories")}
         >
           Nastavi kupovinu
         </button>
 
-        <button
-          className="btn btn-success"
-          onClick={finishOrder}
-        >
+        <button className="cart-btn cart-btn--primary" onClick={finishOrder}>
           Zaključi narudžbu
         </button>
       </div>

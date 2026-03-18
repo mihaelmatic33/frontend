@@ -1,48 +1,43 @@
-import './register.css';
+import "./register.css";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-
 const BASE_URL = process.env.REACT_APP_API_URL;
 const Register = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const [error,setError] = useState("");
-    const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
+  const [form, setForm] = useState({
+    username: "",
+    password: "",
+    email: "",
+  });
 
-    const [form, setForm] = useState({
-        username: "",
-        password: "",
-        email: ""
-    })
-    
-     useEffect(() => {
+  useEffect(() => {
     const token = localStorage.getItem("token");
-        if (token) {
-        navigate("/", { replace: true });
-        }
-        }, [navigate]);
-
-    const handleChange = (e) =>{
-        setForm({
-            ...form,
-            [e.target.name]: e.target.value
-        })
+    if (token) {
+      navigate("/", { replace: true });
     }
-    const handleRegister = async(e) => {
-        e.preventDefault();
-        setLoading(true);
-        
-        try {
-      const response = await fetch(
-        `${BASE_URL}v2/users`,
-        {
-          method: "POST",
-          headers: { "Content-type": "application/json" },
-          body: JSON.stringify(form),
-        },
-      );
+  }, [navigate]);
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const response = await fetch(`${BASE_URL}v2/users`, {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify(form),
+      });
       const data = await response.json();
       setLoading(false);
       console.log(data);
@@ -50,12 +45,8 @@ const Register = () => {
         setError("Wrong Email or password");
         return;
       }
-      
 
-      navigate("/signin", {replace: true});
-      
-
-      //window.location.reload()
+      navigate("/signin", { replace: true });
     } catch (error) {
       setLoading(false);
       setError("Something went wrong. Please try again.");
@@ -63,64 +54,70 @@ const Register = () => {
     }
   };
 
-   
   return (
-  
-   <div className="container">
-    <div className="row my-3">
-        
-       
-        <div className="col-md-6 profile-left">
-            <h1>Become a collector</h1>
-            <img src="/img/header/logo_light.svg" alt="" />
-        </div>
-        <div className="col-md-6 profile-right">
-            <div>
-            <h2>Register here</h2>
-            <p>For better expirience</p>
-            <form onSubmit={handleRegister} className="signing-form">
-                <label htmlFor="">
-                    Choose your Username:
-                </label>
-                <input 
-                type="text" 
-                name="username"
-                value={form.username}
-                onChange={handleChange}
-                
-                />
-                <label htmlFor="">
-                    Enter your email address:
-                </label>
-                <input 
-                type="email" 
-                name="email"
-                value={form.email}
-                onChange={handleChange}
-                
-                />
+    <div className="register-container">
+      <div className="register-left">
+        <Link to="/" className="register-logo">
+          <img
+            src={`${process.env.PUBLIC_URL}/img/pokestuff-logo-removebg-preview.png`}
+            alt="Pokestuff Logo"
+          />
+        </Link>
+        <h1>Become a collector</h1>
+      </div>
 
-                <label htmlFor="">
-                    Create Password:
-                </label>
-                <input 
-                type="password" 
-                name="password"
-                value={form.password}
-                onChange={handleChange}
-                 />
+      <div className="register-right">
+        <div className="register-panel">
+          <h2>Create account</h2>
+          <p>Join Pokestuff and start building your collection.</p>
 
-                
-                
-                <button type="submit" className="btn register-btn">Register now</button>
-                
-                <p>{error}</p>
-            </form>
-</div>
+          <form onSubmit={handleRegister} className="register-form">
+            <label htmlFor="username">Choose your username</label>
+            <input
+              id="username"
+              type="text"
+              name="username"
+              value={form.username}
+              onChange={handleChange}
+              placeholder="Your username"
+              required
+            />
+
+            <label htmlFor="email">Enter your email address</label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              value={form.email}
+              onChange={handleChange}
+              placeholder="Your email"
+              required
+            />
+
+            <label htmlFor="password">Create password</label>
+            <input
+              id="password"
+              type="password"
+              name="password"
+              value={form.password}
+              onChange={handleChange}
+              placeholder="Your password"
+              required
+            />
+
+            <button type="submit" className="register-btn" disabled={loading}>
+              {loading ? "Creating account..." : "Register now"}
+            </button>
+
+            <Link to="/signin" className="register-link">
+              Already have an account? Sign in here
+            </Link>
+
+            {error && <p className="register-error">{error}</p>}
+          </form>
         </div>
-         </div>
+      </div>
     </div>
-  
   );
 };
 

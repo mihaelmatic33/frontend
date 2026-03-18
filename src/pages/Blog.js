@@ -1,186 +1,217 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-
-
-import Nav from "../components/Nav";
-import Footer from "../components/Footer";
-import BlogSingle from "./BlogSingle";
-import posts from '../components/zadaci/data/blog.json' ;
-import './Blog.css'
-import Loader from '../components/Loader'
+import { useEffect, useMemo, useState } from "react";
+import Loader from "../components/Loader";
 import ReactPaginate from "react-paginate";
-import ScrollToTop from "../components/ScrollToTop";
 import BlogPost from "../components/BlogPost";
-import SwiperComponent from "../components/SwiperComponent";
 import SEO from "../components/SEO";
+import "./Blog.css";
 
-const BASE_URL = process.env.REACT_APP_API_URL;
+const BASE_URL =
+  process.env.REACT_APP_API_URL ||
+  "https://front2.edukacija.online/backend/wp-json/wp/";
+
+const POSTS_PER_PAGE = 6;
+const MY_AUTHOR_NAMES = ["mihael matic"];
+
+const normalizeText = (value) =>
+  String(value || "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .trim();
+
+const isMyPost = (post) => {
+  const authorName = normalizeText(post?._embedded?.author?.[0]?.name);
+  return MY_AUTHOR_NAMES.some((entry) =>
+    authorName.includes(normalizeText(entry)),
+  );
+};
+
+const isPokemonCategory = (name) => {
+  const normalized = String(name || "").toLowerCase();
+  return (
+    normalized.includes("pokemon") ||
+    normalized.includes("tcg") ||
+    normalized.includes("pok")
+  );
+};
 
 const Blog = () => {
-  
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [page, setPage] = useState(1);
   const [categories, setCategories] = useState([]);
-  const [authors, setAuthors] = useState([]);
-
   const [selectedCategory, setSelectedCategory] = useState("");
-  const [selectedAuthor, setSelectedAuthor] = useState("");
-
   const [currentPage, setCurrentPage] = useState(0);
   const [pageCount, setPageCount] = useState(0);
-  
+  const [categoriesOpen, setCategoriesOpen] = useState(false);
 
-  useEffect(() =>{
+  useEffect(() => {
+    fetch(`${BASE_URL}v2/categories?per_page=100`)
+      .then((response) => response.json())
+      .then((data) => {
+        setCategories(Array.isArray(data) ? data : []);
+      })
+      .catch(() => setCategories([]));
+  }, []);
+
+  useEffect(() => {
+    setCurrentPage(0);
+  }, [selectedCategory]);
+
+  useEffect(() => {
+    let url = `${BASE_URL}v2/posts?_embed&orderby=date&order=desc&per_page=100`;
+
+    if (selectedCategory) {
+      url += `&categories=${selectedCategory}`;
+    }
+
     setLoading(true);
-    fetch(`${BASE_URL}v2/categories`)
-    .then((response)=> response.json())
-    .then(
-      (data) => {
-      setCategories(data);
-      console.log(data)
-    });
-
-     
-    fetch(`${BASE_URL}v2/users?per_page=20`)
-    .then((response)=> response.json())
-    .then(
-      (data) => {
-      setAuthors(data);
-      console.log(data)
-    })
-      .finally(() => setLoading(false))
-        }, [] );
-
-  useEffect(
-    () => {
-      setLoading(true)
-
-      const per_page = 6
-
-
-
-      let url = `${BASE_URL}v2/posts?_embed&per_page=${per_page}&page=${currentPage +1}` 
-      if(selectedCategory) url += "&categories="+ selectedCategory;
-      
-      if(selectedAuthor) url += "&author="+ selectedAuthor;
-
-
-      fetch(url)
+    fetch(url)
       .then((response) => {
-        const totalPages = response.headers.get("X-WP-TotalPages");
-        setPageCount(Number(totalPages))
-        return response.json()
+        if (!response.ok) {
+          setPageCount(0);
+          setPosts([]);
+          return [];
+        }
+        return response.json();
       })
       .then((data) => {
-        setPosts(data);
+        const rawPosts = Array.isArray(data) ? data : [];
+        const ownPosts = rawPosts.filter((post) => isMyPost(post));
+
+        setPosts(ownPosts);
+        setPageCount(Math.ceil(ownPosts.length / POSTS_PER_PAGE));
       })
       .finally(() => setLoading(false));
-  }, [selectedCategory, selectedAuthor, currentPage]);
-  const [yoast, setYoast] = useState(null);
-  useEffect(() => {
-  fetch(`${BASE_URL}v2/pages/123`) // ← promijeni 123 u pravi ID stranice Blog
-    .then(res => res.json())
-    .then(data => {
-      if (data.yoast_head_json) {
-        setYoast(data.yoast_head_json);
-      } else {
-        // fallback ako Yoast nije postavljen
-        setYoast({ title: "Blog", og_description: "Pročitaj najnovije članke o web developmentu." });
-      }
-    })
-    .catch(() => {
-      // fallback na error
-      setYoast({ title: "Blog", og_description: "Pročitaj najnovije članke o web developmentu." });
-    });
-}, []);
+  }, [selectedCategory]);
 
+  const pagedPosts = useMemo(() => {
+    const start = currentPage * POSTS_PER_PAGE;
+    return posts.slice(start, start + POSTS_PER_PAGE);
+  }, [posts, currentPage]);
 
+  const pokemonCategories = useMemo(
+    () => categories.filter((category) => isPokemonCategory(category.name)),
+    [categories],
+  );
 
+  const selectedCategoryName = pokemonCategories.find(
+    (category) => String(category.id) === String(selectedCategory),
+  )?.name;
 
-
-
-
-
-return (
-   
+  return (
     <>
-    {yoast && (
-  <SEO
-    title={
-      selectedCategory
-        ? `${yoast.title} - ${categories.find(c => c.id === selectedCategory)?.name}`
-        : yoast.title
-    }
-    description={yoast.og_description || yoast.meta_description}
-  />
-)}
+      <SEO
+        title={
+          selectedCategoryName
+            ? `Pokemon Blog - ${selectedCategoryName}`
+            : "Pokemon Blog"
+        }
+        description="Originalne Pokemon i Pokemon TCG teme objavljene kroz tvoj WordPress blog."
+      />
+
       {loading && <Loader />}
-       
-      <div className="blog-page">
+
+      <div className="blog-page pokemon-blog-page">
         <div className="container">
-          <h1>Blog</h1>
-          <SwiperComponent posts={posts} />
-          <div className="row">
-            <div className="col-12 d-flex gap-1 mb-2">
-              {
-                categories.map((category) => (
-                  
-                  <button className="btn btn-dark text-light " key={category.id}
-                  onClick={() => setSelectedCategory(category.id)}>
-                    {category.name}
-                  </button>
-               ))
-              }
+          <header className="pokemon-blog-header">
+            <p>News Hub</p>
+            <h1>Pokemon Blog & Trendovi</h1>
+          </header>
+
+          <section className="pokemon-blog-filters">
+            <button
+              type="button"
+              className="pokemon-blog-filters__toggle"
+              onClick={() => setCategoriesOpen((prev) => !prev)}
+              aria-expanded={categoriesOpen}
+            >
+              {selectedCategory
+                ? pokemonCategories.find(
+                    (c) => String(c.id) === selectedCategory,
+                  )?.name
+                : "Sve kategorije"}
+              <span
+                className={`pokemon-blog-filters__arrow${
+                  categoriesOpen ? " pokemon-blog-filters__arrow--open" : ""
+                }`}
+              >
+                ▾
+              </span>
+            </button>
+
+            <div
+              className={`pokemon-blog-filter-group${
+                categoriesOpen ? " pokemon-blog-filter-group--open" : ""
+              }`}
+            >
+              <button
+                type="button"
+                className={`btn btn-sm ${
+                  selectedCategory === "" ? "btn-dark" : "btn-outline-dark"
+                }`}
+                onClick={() => {
+                  setSelectedCategory("");
+                  setCategoriesOpen(false);
+                }}
+              >
+                Sve kategorije
+              </button>
+
+              {pokemonCategories.map((category) => (
+                <button
+                  type="button"
+                  key={category.id}
+                  className={`btn btn-sm ${
+                    String(selectedCategory) === String(category.id)
+                      ? "btn-dark"
+                      : "btn-outline-dark"
+                  }`}
+                  onClick={() => {
+                    setSelectedCategory(String(category.id));
+                    setCategoriesOpen(false);
+                  }}
+                >
+                  {category.name}
+                </button>
+              ))}
             </div>
-          </div>
+          </section>
 
+          {posts.length === 0 && !loading && (
+            <div className="pokemon-blog-empty">
+              Nema objava za odabranu kategoriju. Ovdje prikazujemo samo tvoje
+              originalne Pokemon teme.
+            </div>
+          )}
 
-          
-
-          <select className="form-select" onChange={
-            (e) => setSelectedAuthor(e.target.value)
-          }>
-            <option value="">Svi autori</option>
-            {
-              authors.map((author) => (
-                  <option key={author.id} value={author.id}>
-                    {author.name}
-                  </option>
-               ))
-            }
-          </select>
-          
           <div className="row">
-            {posts.map((post) => {
-              
-              return (
-                <BlogPost key={post.id} post={post}/>
-              
-              );
-            })}
+            {pagedPosts.map((post) => (
+              <BlogPost key={post.id} post={post} />
+            ))}
           </div>
-          <ReactPaginate
-            previousLabel={"previous"}
-            nextLabel={"next"}
-            breakLabel={"..."}
-            pageCount={pageCount}
-            marginPagesDisplayed={1}
-            pageRangeDisplayed={2}
-            onPageChange={(e) => {
-              setCurrentPage(e.selected)
-              setPosts([])
-              ScrollToTop()
-                     }}
-            containerClassName={"pagination"}
-            pageClassName={"page-item"}
-            pageLinkClassName={"page-link"}
-            previousClassName={"page-item"}
-            nextClassName={"page-item"}
-            previousLinkClassName={"page-link"}
-            nextLinkClassName={"page-link"}
-            activeClassName={"active"}
-          />
+
+          {pageCount > 1 && (
+            <ReactPaginate
+              previousLabel={"previous"}
+              nextLabel={"next"}
+              breakLabel={"..."}
+              pageCount={pageCount}
+              marginPagesDisplayed={1}
+              pageRangeDisplayed={2}
+              onPageChange={(event) => {
+                setCurrentPage(event.selected);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              containerClassName={"pagination"}
+              pageClassName={"page-item"}
+              pageLinkClassName={"page-link"}
+              previousClassName={"page-item"}
+              nextClassName={"page-item"}
+              previousLinkClassName={"page-link"}
+              nextLinkClassName={"page-link"}
+              activeClassName={"active"}
+            />
+          )}
         </div>
       </div>
     </>

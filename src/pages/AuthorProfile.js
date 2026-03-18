@@ -7,16 +7,12 @@ const AuthorProfile = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    // Dohvati autora
     fetch(`https://front2.edukacija.online/backend/wp-json/wp/v2/users/${id}`)
       .then(res => res.json())
       .then(data => setAuthor(data));
-
-    // Dohvati postove autora
     fetch(`https://front2.edukacija.online/backend/wp-json/wp/v2/posts?author=${id}`)
       .then(res => res.json())
       .then(async data => {
-        // Za svaki post dohvatimo featured_media URL
         const postsWithImage = await Promise.all(
           data.map(async post => {
             if (post.featured_media) {

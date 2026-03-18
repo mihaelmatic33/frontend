@@ -1,0 +1,497 @@
+[
+  {
+    "title": "Eevee Pocket Phone Mask",
+    "imageUrl": "eevee-phone-mask.jpg",
+    "prodCategoryIds": [96, 247],
+    "acf": {
+      "article_name": "Eevee Pocket Phone Mask",
+      "product_description": "Slim protective phone case with soft-touch edges and a playful Eevee-inspired back print for everyday use.",
+      "price": 18.5,
+      "categories": ["Accessories"],
+      "add_ons_type": ["Phone masks"],
+      "color": "Brown"
+    }
+  },
+  {
+    "title": "Pokeball Ceramic Mug",
+    "imageUrl": "pokeball-mug.jpg",
+    "prodCategoryIds": [96, 247],
+    "acf": {
+      "article_name": "Pokeball Ceramic Mug",
+      "product_description": "11 oz ceramic mug with a clean red-and-white finish, ideal for coffee breaks or shelf display.",
+      "price": 16.9,
+      "categories": ["Accessories"],
+      "add_ons_type": ["Mugs"],
+      "color": "Red and white"
+    }
+  },
+  {
+    "title": "Gengar Ghost Phone Mask",
+    "imageUrl": "gengar-phone-mask.jpg",
+    "prodCategoryIds": [96, 247],
+    "acf": {
+      "article_name": "Gengar Ghost Phone Mask",
+      "product_description": "Flexible protective phone mask with a ghost-themed print and raised edge protection around the camera area.",
+      "price": 17.9,
+      "categories": ["Accessories"],
+      "add_ons_type": ["Phone masks"],
+      "color": "Purple"
+    }
+  },
+  {
+    "title": "Pikachu Enamel Keychain Charm",
+    "imageUrl": "pikachu-keychain.jpg",
+    "prodCategoryIds": [96, 247],
+    "acf": {
+      "article_name": "Pikachu Enamel Keychain Charm",
+      "product_description": "Durable enamel keychain charm with polished metal hardware and a compact Pikachu silhouette for bags, keys, or display boards.",
+      "price": 9.9,
+      "categories": ["Accessories"],
+      "add_ons_type": ["Key chains"],
+      "color": "Yellow"
+    }
+  },
+  {
+    "title": "Pikachu Dad Cap",
+    "imageUrl": "pikachu-cap.jpg",
+    "prodCategoryIds": [96, 126],
+    "acf": {
+      "article_name": "Pikachu Dad Cap",
+      "product_description": "Unstructured cotton cap with adjustable back strap and a small embroidered lightning motif on the front.",
+      "price": 24.9,
+      "categories": ["Accessories"],
+      "wearables_type": ["Hats"],
+      "color": "Yellow"
+    }
+  },
+  {
+    "title": "Charizard Pullover Hoodie",
+    "imageUrl": "charizard-hoodie.jpg",
+    "prodCategoryIds": [96, 126],
+    "acf": {
+      "article_name": "Charizard Pullover Hoodie",
+      "product_description": "Mid-weight hoodie with warm brushed lining and a bold flame-inspired chest graphic for cooler days.",
+      "price": 54.9,
+      "categories": ["Accessories"],
+      "wearables_type": ["Hoodies"],
+      "color": "Black and orange"
+    }
+  },
+  {
+    "title": "Snorlax Crew Socks",
+    "imageUrl": "snorlax-socks.jpg",
+    "prodCategoryIds": [96, 126],
+    "acf": {
+      "article_name": "Snorlax Crew Socks",
+      "product_description": "Soft stretch crew socks with a cozy blue palette and padded sole for daily wear.",
+      "price": 11.9,
+      "categories": ["Accessories"],
+      "wearables_type": ["Socks"],
+      "color": "Blue"
+    }
+  },
+  {
+    "title": "Eevee Ribbed Beanie",
+    "imageUrl": "eevee-beanie.jpg",
+    "prodCategoryIds": [96, 126],
+    "acf": {
+      "article_name": "Eevee Ribbed Beanie",
+      "product_description": "Warm ribbed beanie with folded cuff and a subtle stitched patch inspired by Eevee tones.",
+      "price": 19.5,
+      "categories": ["Accessories"],
+      "wearables_type": ["Hats"],
+      "color": "Brown and cream"
+    }
+  },
+  {
+    "title": "Bulbasaur Garden Figure",
+    "imageUrl": "bulbasaur-figure.jpg",
+    "prodCategoryIds": [98, 106],
+    "acf": {
+      "article_name": "Bulbasaur Garden Figure",
+      "product_description": "Collectible display figure with matte finish and a planted base designed for desk or shelf presentation.",
+      "price": 29.9,
+      "categories": ["Toys"],
+      "type": ["Figures"],
+      "color": "Green"
+    }
+  },
+  {
+    "title": "Squirtle Battle Pose Figure",
+    "imageUrl": "squirtle-figure.jpg",
+    "prodCategoryIds": [98, 106],
+    "acf": {
+      "article_name": "Squirtle Battle Pose Figure",
+      "product_description": "Compact PVC figure featuring a dynamic water-blast pose and a balanced display stand.",
+      "price": 31.5,
+      "categories": ["Toys"],
+      "type": ["Figures"],
+      "color": "Blue"
+    }
+  },
+  {
+    "title": "Mewtwo Collector Figure",
+    "imageUrl": "mewtwo-figure.jpg",
+    "prodCategoryIds": [98, 106],
+    "acf": {
+      "article_name": "Mewtwo Collector Figure",
+      "product_description": "Tall collector-style figure with smooth sculpt lines and a glossy finish for premium shelf setups.",
+      "price": 44.9,
+      "categories": ["Toys"],
+      "type": ["Figures"],
+      "color": "White and purple"
+    }
+  },
+  {
+    "title": "Lucario Aura Figure",
+    "imageUrl": "lucario-figure.jpg",
+    "prodCategoryIds": [98, 106],
+    "acf": {
+      "article_name": "Lucario Aura Figure",
+      "product_description": "Stylized action figure with translucent aura effect parts and a compact round base.",
+      "price": 36.9,
+      "categories": ["Toys"],
+      "type": ["Figures"],
+      "color": "Blue and black"
+    }
+  },
+  {
+    "title": "Pikachu Plush Pillow",
+    "imageUrl": "pikachu-plush.jpg",
+    "prodCategoryIds": [98, 107],
+    "acf": {
+      "article_name": "Pikachu Plush Pillow",
+      "product_description": "Soft medium-size plush with embroidered face details and a lightly weighted base for better seating.",
+      "price": 27.5,
+      "categories": ["Toys"],
+      "type": ["Plushies"],
+      "color": "Yellow"
+    }
+  },
+  {
+    "title": "Eevee Mini Plush",
+    "imageUrl": "eevee-plush.jpg",
+    "prodCategoryIds": [98, 107],
+    "acf": {
+      "article_name": "Eevee Mini Plush",
+      "product_description": "Compact plush made for travel bags, display cubes, and bedside decor with a soft fleece touch.",
+      "price": 21.9,
+      "categories": ["Toys"],
+      "type": ["Plushies"],
+      "color": "Brown"
+    }
+  },
+  {
+    "title": "Snorlax Jumbo Plush",
+    "imageUrl": "snorlax-plush.jpg",
+    "prodCategoryIds": [98, 107],
+    "acf": {
+      "article_name": "Snorlax Jumbo Plush",
+      "product_description": "Oversized cuddle plush with extra-stuffed body and soft outer fabric for lounge spaces.",
+      "price": 59.9,
+      "categories": ["Toys"],
+      "type": ["Plushies"],
+      "color": "Blue and cream"
+    }
+  },
+  {
+    "title": "Gengar Cushion Plush",
+    "imageUrl": "gengar-plush.jpg",
+    "prodCategoryIds": [98, 107],
+    "acf": {
+      "article_name": "Gengar Cushion Plush",
+      "product_description": "Round cushion-style plush with bold grin details and soft filling suited for sofas or gaming corners.",
+      "price": 34.9,
+      "categories": ["Toys"],
+      "type": ["Plushies"],
+      "color": "Purple"
+    }
+  },
+  {
+    "title": "Starter Trio Watercolor Print",
+    "imageUrl": "starter-trio-print.jpg",
+    "prodCategoryIds": [98, 127],
+    "acf": {
+      "article_name": "Starter Trio Watercolor Print",
+      "product_description": "Matte art print with soft watercolor styling designed for frame-ready wall display.",
+      "price": 18.9,
+      "categories": ["Toys"],
+      "color": "Multi-color"
+    }
+  },
+  {
+    "title": "Neon Gengar Poster",
+    "imageUrl": "neon-gengar-poster.jpg",
+    "prodCategoryIds": [98, 127],
+    "acf": {
+      "article_name": "Neon Gengar Poster",
+      "product_description": "High-contrast neon-style poster printed on thick stock for bold room setups and collector walls.",
+      "price": 16.5,
+      "categories": ["Toys"],
+      "color": "Purple and pink"
+    }
+  },
+  {
+    "title": "Pokeball Canvas Illustration",
+    "imageUrl": "pokeball-canvas.jpg",
+    "prodCategoryIds": [98, 127],
+    "acf": {
+      "article_name": "Pokeball Canvas Illustration",
+      "product_description": "Canvas-style decorative piece with clean minimal composition for office or studio corners.",
+      "price": 24.9,
+      "categories": ["Toys"],
+      "color": "Red and white"
+    }
+  },
+  {
+    "title": "Trainer Badge Art Card",
+    "imageUrl": "trainer-badge-card.jpg",
+    "prodCategoryIds": [98, 127],
+    "acf": {
+      "article_name": "Trainer Badge Art Card",
+      "product_description": "Set-inspired art card with glossy finish and badge motif layout for compact framed displays.",
+      "price": 12.9,
+      "categories": ["Toys"],
+      "color": "Gold and black"
+    }
+  },
+  {
+    "title": "Pikachu Promo Single",
+    "imageUrl": "https://images.pokemontcg.io/sv4pt5/18_hires.png",
+    "prodCategoryIds": [95, 109],
+    "acf": {
+      "article_name": "Pikachu Promo Single",
+      "product_description": "Loose single card in a soft sleeve and semi-rigid holder, suitable for collectors who want a display-ready promo.",
+      "price": 8.5,
+      "categories": ["Trading Card Game(TCG)"],
+      "rarity": ["Rare"]
+    }
+  },
+  {
+    "title": "Charizard Reverse Holo Single",
+    "imageUrl": "https://images.pokemontcg.io/sv3/125_hires.png",
+    "prodCategoryIds": [95, 109],
+    "acf": {
+      "article_name": "Charizard Reverse Holo Single",
+      "product_description": "Collector single shipped in sleeve and top loader with a focus on clean presentation and safe storage.",
+      "price": 26.9,
+      "categories": ["Trading Card Game(TCG)"],
+      "rarity": ["Ultra rare"]
+    }
+  },
+  {
+    "title": "Umbreon V Single",
+    "imageUrl": "https://images.pokemontcg.io/swsh7/189_hires.png",
+    "prodCategoryIds": [95, 109],
+    "acf": {
+      "article_name": "Umbreon V Single",
+      "product_description": "Modern holo single selected for binder collections, display slabs, or upgrade trades.",
+      "price": 19.9,
+      "categories": ["Trading Card Game(TCG)"],
+      "rarity": ["Very rare"]
+    }
+  },
+  {
+    "title": "Mew EX Single",
+    "imageUrl": "https://images.pokemontcg.io/sv3pt5/151_hires.png",
+    "prodCategoryIds": [95, 109],
+    "acf": {
+      "article_name": "Mew EX Single",
+      "product_description": "Popular single card for casual collectors, packed individually with protective inner sleeve.",
+      "price": 14.9,
+      "categories": ["Trading Card Game(TCG)"],
+      "rarity": ["Super rare"]
+    }
+  },
+  {
+    "title": "Scarlet and Violet Booster Pack",
+    "imageUrl": "https://archives.bulbagarden.net/media/upload/e/e8/SV1_pack_Koraidon.png",
+    "prodCategoryIds": [95, 110, 132],
+    "acf": {
+      "article_name": "Scarlet and Violet Booster Pack",
+      "product_description": "Factory-sealed booster pack ideal for pack openings, sealed displays, or affordable gift bundles.",
+      "price": 5.9,
+      "categories": ["Trading Card Game(TCG)"],
+      "rarity": ["Rare"]
+    }
+  },
+  {
+    "title": "Paldea Adventure Mini Tin",
+    "imageUrl": "https://archives.bulbagarden.net/media/upload/2/2e/Paldean_Fates_Booster_Pikachu.png",
+    "prodCategoryIds": [95, 110, 135],
+    "acf": {
+      "article_name": "Paldea Adventure Mini Tin",
+      "product_description": "Compact sealed tin with collectible artwork, perfect for portable storage and small gift sets.",
+      "price": 13.9,
+      "categories": ["Trading Card Game(TCG)"],
+      "rarity": ["Rare"]
+    }
+  },
+  {
+    "title": "Crown Zenith Tin",
+    "imageUrl": "https://archives.bulbagarden.net/media/upload/d/dd/Crown_Zenith_Booster.jpg",
+    "prodCategoryIds": [95, 110, 134],
+    "acf": {
+      "article_name": "Crown Zenith Tin",
+      "product_description": "Mid-size sealed tin designed for collectors who want display value and a more premium opening experience.",
+      "price": 29.9,
+      "categories": ["Trading Card Game(TCG)"],
+      "rarity": ["Very rare"]
+    }
+  },
+  {
+    "title": "Obsidian Flames Elite Trainer Box",
+    "imageUrl": "https://archives.bulbagarden.net/media/upload/2/20/SV3_Booster_Dragonite.png",
+    "prodCategoryIds": [95, 110, 136],
+    "acf": {
+      "article_name": "Obsidian Flames Elite Trainer Box",
+      "product_description": "Large sealed trainer box with premium packaging built for collector shelves and special openings.",
+      "price": 54.9,
+      "categories": ["Trading Card Game(TCG)"],
+      "rarity": ["Ultra rare"]
+    }
+  },
+  {
+    "title": "Mystery Single Card",
+    "imageUrl": "mystery-single.jpg",
+    "prodCategoryIds": [100, 137],
+    "acf": {
+      "article_name": "Mystery Single Card",
+      "product_description": "One premium mystery single card selected from modern and collectible-era sets. Packed in a protective sleeve and top loader for safe delivery.",
+      "price": 39.99,
+      "categories": ["Mystery"],
+      "prefrences": ["Singles"]
+    }
+  },
+  {
+    "title": "Mystery Graded Card",
+    "imageUrl": "mystery-graded-card.jpg",
+    "prodCategoryIds": [100, 138],
+    "acf": {
+      "article_name": "Mystery Graded Card",
+      "product_description": "One authenticated mystery graded card selected from trusted grading slabs, curated for collector appeal and surprise value.",
+      "price": 89.99,
+      "categories": ["Mystery"],
+      "prefrences": ["Slabs"]
+    }
+  },
+  {
+    "title": "Mystery Pack",
+    "imageUrl": "mystery-booster-pack.png",
+    "prodCategoryIds": [100, 139],
+    "acf": {
+      "article_name": "Mystery Pack",
+      "product_description": "One sealed mystery pack curated for exciting openings, with a chance for fan-favorite sets and collectible inserts.",
+      "price": 49.99,
+      "categories": ["Mystery"],
+      "prefrences": ["Booster pack"]
+    }
+  },
+  {
+    "title": "Mystery Box Bronze Tier",
+    "imageUrl": "box-bronze.jpg",
+    "prodCategoryIds": [100, 140],
+    "acf": {
+      "article_name": "Mystery Box Bronze Tier",
+      "product_description": "Entry-level mystery box with a balanced mix of collectible items built for budget-friendly surprises.",
+      "price": 24.9,
+      "categories": ["Mystery"],
+      "prefrences": ["Random mystery"]
+    }
+  },
+  {
+    "title": "Mystery Box Silver Tier",
+    "imageUrl": "box-silver.jpg",
+    "prodCategoryIds": [100, 140],
+    "acf": {
+      "article_name": "Mystery Box Silver Tier",
+      "product_description": "Mid-tier mystery box with a larger variety mix for customers who want a stronger unboxing feel.",
+      "price": 39.9,
+      "categories": ["Mystery"],
+      "prefrences": ["Random mystery"]
+    }
+  },
+  {
+    "title": "Mystery Box Gold Tier",
+    "imageUrl": "box-gold.jpg",
+    "prodCategoryIds": [100, 140],
+    "acf": {
+      "article_name": "Mystery Box Gold Tier",
+      "product_description": "Higher-end mystery box designed to feel premium on arrival with more substantial product combinations.",
+      "price": 64.9,
+      "categories": ["Mystery"],
+      "prefrences": ["Random mystery"]
+    }
+  },
+  {
+    "title": "Custom Mystery Box",
+    "imageUrl": "custom-box.jpg",
+    "prodCategoryIds": [100, 140],
+    "acf": {
+      "article_name": "Custom Mystery Box",
+      "product_description": "Build your own large mystery box by choosing your budget and telling us what you want most inside: booster packs, tins, plushies, singles, accessories, or mixed content.",
+      "price": 79.9,
+      "categories": ["Mystery"],
+      "prefrences": ["Random mystery"],
+      "custom_price_enabled": true,
+      "custom_price_min": 100,
+      "custom_price_max": 2000,
+      "custom_preferences_options": [
+        "Booster packs",
+        "Tins",
+        "Plushies",
+        "Singles",
+        "Accessories",
+        "A bit of everything"
+      ]
+    }
+  },
+  {
+    "title": "Pokemon Legends Arceus Switch",
+    "imageUrl": "https://archives.bulbagarden.net/media/upload/3/3a/Legends_Arceus_EN_boxart.png",
+    "prodCategoryIds": [248],
+    "acf": {
+      "article_name": "Pokemon Legends Arceus Switch",
+      "product_description": "Adventure title for Nintendo Switch featuring open-zone exploration and action-driven catching mechanics.",
+      "price": 44.9,
+      "categories": ["Video Games"],
+      "console": ["Switch"]
+    }
+  },
+  {
+    "title": "Pokemon Scarlet Switch",
+    "imageUrl": "https://archives.bulbagarden.net/media/upload/5/5f/Scarlet_EN_boxart.png",
+    "prodCategoryIds": [248],
+    "acf": {
+      "article_name": "Pokemon Scarlet Switch",
+      "product_description": "Open-world style RPG release for Switch with large overworld zones and co-op friendly progression.",
+      "price": 46.9,
+      "categories": ["Video Games"],
+      "console": ["Switch"]
+    }
+  },
+  {
+    "title": "Detective Pikachu Returns Switch",
+    "imageUrl": "https://archives.bulbagarden.net/media/upload/b/b7/Detective_Pikachu_Returns_Key_Art.jpg",
+    "prodCategoryIds": [248],
+    "acf": {
+      "article_name": "Detective Pikachu Returns Switch",
+      "product_description": "Story-focused mystery adventure for Nintendo Switch built around puzzle solving and light exploration.",
+      "price": 39.9,
+      "categories": ["Video Games"],
+      "console": ["Switch"]
+    }
+  },
+  {
+    "title": "Pokemon Sword Switch",
+    "imageUrl": "https://archives.bulbagarden.net/media/upload/4/47/Sword_EN_boxart.png",
+    "prodCategoryIds": [248],
+    "acf": {
+      "article_name": "Pokemon Sword Switch",
+      "product_description": "Mainline RPG entry for Nintendo Switch with gym progression, collection mechanics, and regional exploration.",
+      "price": 42.9,
+      "categories": ["Video Games"],
+      "console": ["Switch"]
+    }
+  }
+]
