@@ -42,6 +42,7 @@ const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [currentPage, setCurrentPage] = useState(0);
   const [pageCount, setPageCount] = useState(0);
+  const [categoriesOpen, setCategoriesOpen] = useState(false);
 
   useEffect(() => {
     fetch(`${BASE_URL}v2/categories?per_page=100`)
@@ -118,13 +119,40 @@ const Blog = () => {
           </header>
 
           <section className="pokemon-blog-filters">
-            <div className="pokemon-blog-filter-group">
+            <button
+              type="button"
+              className="pokemon-blog-filters__toggle"
+              onClick={() => setCategoriesOpen((prev) => !prev)}
+              aria-expanded={categoriesOpen}
+            >
+              {selectedCategory
+                ? pokemonCategories.find(
+                    (c) => String(c.id) === selectedCategory,
+                  )?.name
+                : "Sve kategorije"}
+              <span
+                className={`pokemon-blog-filters__arrow${
+                  categoriesOpen ? " pokemon-blog-filters__arrow--open" : ""
+                }`}
+              >
+                ▾
+              </span>
+            </button>
+
+            <div
+              className={`pokemon-blog-filter-group${
+                categoriesOpen ? " pokemon-blog-filter-group--open" : ""
+              }`}
+            >
               <button
                 type="button"
                 className={`btn btn-sm ${
                   selectedCategory === "" ? "btn-dark" : "btn-outline-dark"
                 }`}
-                onClick={() => setSelectedCategory("")}
+                onClick={() => {
+                  setSelectedCategory("");
+                  setCategoriesOpen(false);
+                }}
               >
                 Sve kategorije
               </button>
@@ -138,7 +166,10 @@ const Blog = () => {
                       ? "btn-dark"
                       : "btn-outline-dark"
                   }`}
-                  onClick={() => setSelectedCategory(String(category.id))}
+                  onClick={() => {
+                    setSelectedCategory(String(category.id));
+                    setCategoriesOpen(false);
+                  }}
                 >
                   {category.name}
                 </button>

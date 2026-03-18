@@ -126,10 +126,64 @@
   gap: 8px;
 }
 
+.pokemon-blog-filters__toggle {
+  display: none;
+}
+
 .pokemon-blog-filter-group {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+@media (max-width: 767px) {
+  .pokemon-blog-filters__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 14px;
+    background: #141615;
+    color: #f6e05e;
+    border: 1px solid rgba(246, 224, 94, 0.4);
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+  }
+
+  .pokemon-blog-filters__arrow {
+    font-size: 1.1rem;
+    transition: transform 0.2s ease;
+    display: inline-block;
+  }
+
+  .pokemon-blog-filters__arrow--open {
+    transform: rotate(180deg);
+  }
+
+  .pokemon-blog-filter-group {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .pokemon-blog-filter-group--open {
+    display: flex;
+  }
+
+  .pokemon-blog-filter-group .btn {
+    width: 100%;
+    text-align: left;
+    justify-content: flex-start;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pokemon-blog-filters__arrow {
+      transition: none;
+    }
+  }
 }
 
 .pokemon-blog-empty {
