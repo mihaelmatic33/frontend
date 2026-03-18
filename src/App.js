@@ -21,7 +21,6 @@ import CustomMysteryBox from "./pages/CustomMysteryBox";
 import Contact from "./pages/Contact";
 import ShopCategories from "./pages/ShopCategories";
 import BlogSingle from "./pages/BlogSingle";
-import Shops from "./pages/Shops";
 import ShopsSingle from "./pages/ShopsSingle";
 import SignIn from "./pages/SignIn";
 import Register from "./pages/Register";
@@ -64,7 +63,6 @@ const AppShell = () => {
           <Route path="/mystery/custom-box" element={<CustomMysteryBox />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/blog/:slug" element={<BlogSingle />} />
-          <Route path="/shops" element={<Shops />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/register" element={<Register />} />
           <Route path="/shops/:slug" element={<ShopsSingle />} />
