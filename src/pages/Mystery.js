@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SEO from "../components/SEO";
 import Toast from "../components/Toast";
 import { useCart } from "../CartContext";
@@ -29,6 +29,7 @@ const MYSTERY_PRODUCT_ORDER = {
 
 const Mystery = () => {
   const { addToCart } = useCart();
+  const navigate = useNavigate();
   const [mysteryProducts, setMysteryProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [toast, setToast] = useState(null);
@@ -132,6 +133,10 @@ const Mystery = () => {
     }
 
     setToast(`Added to cart: ${getProductTitle(product)}`);
+  };
+
+  const handleProductClick = (product) => {
+    navigate(`/shops/${product.slug}`);
   };
 
   return (
@@ -241,7 +246,16 @@ const Mystery = () => {
               const description = product?.acf?.product_description || "";
 
               return (
-                <article className="mystery-item" key={product.id}>
+                <article
+                  className="mystery-item"
+                  key={product.id}
+                  onClick={() => {
+                    if (!isCustomBox) {
+                      handleProductClick(product);
+                    }
+                  }}
+                  style={{ cursor: !isCustomBox ? "pointer" : "default" }}
+                >
                   <div className="mystery-item__image-wrap">
                     {getProductImage(product) ? (
                       <img
@@ -268,6 +282,7 @@ const Mystery = () => {
                         <Link
                           to="/mystery/custom-box"
                           className="mystery-item__btn"
+                          onClick={(e) => e.stopPropagation()}
                         >
                           Customize
                         </Link>
@@ -275,7 +290,10 @@ const Mystery = () => {
                         <button
                           type="button"
                           className="mystery-item__btn"
-                          onClick={() => handleAddToCart(product)}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleAddToCart(product);
+                          }}
                         >
                           Add to cart
                         </button>
