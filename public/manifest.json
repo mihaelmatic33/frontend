@@ -3,12 +3,12 @@
   "name": "Create React App Sample",
   "icons": [
     {
-      "src": "img/pokestuff-fav.png",
+      "src": "img/pokestuff-fav-tight.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "img/pokestuff-fav.png",
+      "src": "img/pokestuff-fav-tight.png",
       "type": "image/png",
       "sizes": "512x512"
     }
